@@ -1,12 +1,12 @@
-﻿# Default ignored files
+﻿# 디폴트 무시된 파일
 /shelf/
 /workspace.xml
-# Rider ignored files
-/projectSettingsUpdater.xml
-/contentModel.xml
-/modules.xml
+# Rider에서 무시된 파일
 /.idea.ReverseD.iml
-# Editor-based HTTP Client requests
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+# 에디터 기반 HTTP 클라이언트 요청
 /httpRequests/
 # Datasource local storage ignored files
 /dataSources/
