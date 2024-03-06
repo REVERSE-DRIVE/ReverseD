@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using entityManage;
 
-public class Entity : MonoBehaviour, IDamageable
+public abstract class Entity : MonoBehaviour, IDamageable
 {
     public Status status;
 
-    public void Damaged(int hp)
+
+    public void Damaged(Status status, int damage)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void CriticalDamaged(int damage)
     {
         throw new System.NotImplementedException();
     }
