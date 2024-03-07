@@ -8,13 +8,14 @@ public abstract class Entity : MonoBehaviour, IDamageable
     public Status status;
 
 
-    public void Damaged(Status status, int damage)
+    public void Damaged(Status Attacker, int damage)
     {
         throw new System.NotImplementedException();
     }
 
-    public void CriticalDamaged(int damage)
+    public void CriticalDamaged(Status Attacker, int damage)
     {
         throw new System.NotImplementedException();
     }
+
 }
