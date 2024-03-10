@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class FieldObject : MonoBehaviour
 {
+    public bool canDestroy = true;
+    
+    public int hp;
+    public int hpMax;
+    
     
     
     
@@ -19,4 +24,12 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+
+    public void Destroy()
+    {
+        
+        
+    }
+    
+    
 }
