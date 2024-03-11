@@ -32,7 +32,6 @@ public class ItemManager : MonoBehaviour
             _items.itemDataList[0],
             _items.itemDataList[1],
             _items.itemDataList[2],
-            _items.itemDataList[3]
         };
         SetItemData(ItemCombination(itemDatas));
         
@@ -51,27 +50,14 @@ public class ItemManager : MonoBehaviour
         if (dataCount + dataPackCount <= 1 || dataPackCount == 0 || dataCount == 0) return null;
 
         #region ItemCombination
-        switch (dataCount)
+        return dataCount switch
         {
-            case 1 when dataPackCount == 1:
-            {
-                return GetItemData(0, false);
-            }
-            case 2 when dataPackCount == 1:
-            {
-                return GetItemData(1, false);
-            }
-            case 1 when dataPackCount == 2:
-            {
-                return GetItemData(2, false);
-            }
-            case 2 when dataPackCount == 2:
-            {
-                return GetItemData(3, false);
-            }
-            default:
-                return null;
-        }
+            1 when dataPackCount == 1 => GetItemData(0, false),
+            2 when dataPackCount == 1 => GetItemData(1, false),
+            1 when dataPackCount == 2 => GetItemData(2, false),
+            2 when dataPackCount == 2 => GetItemData(3, false),
+            _ => null
+        };
         #endregion
     }
 }
