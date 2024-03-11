@@ -10,12 +10,17 @@ public abstract class Entity : MonoBehaviour, IDamageable
 
     public void Damaged(Status Attacker, int damage)
     {
-        throw new System.NotImplementedException();
+        status.hp -=Attacker.attackDamage - Attacker.defense;
     }
 
     public void CriticalDamaged(Status Attacker, int damage)
     {
         throw new System.NotImplementedException();
+    }
+
+    public int CalcDamage()
+    {
+        
     }
 
 }

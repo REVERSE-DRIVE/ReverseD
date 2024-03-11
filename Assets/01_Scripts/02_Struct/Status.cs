@@ -3,17 +3,22 @@
     [System.Serializable]
     public struct Status
     {
-        private int hp;
+        public int hp;
 
-        public int Hp
+        private int hpMax;
+        public int HpMax
         {
-            get { return hp; }
+            get { return hpMax; }
             private set { }
         }
-        private int hpMax;
+
+        public int attackDamage;
         public int criticalRate;
         public int defense;
         public int criticalDefense;
-        
+
+        public float moveSpeed;
+        public float mass;
+
     }
 }

@@ -46,7 +46,7 @@ Material:
     - _ShockWaveNum: 1
     - _Width: 0.065
     m_Colors:
-    - _Color: {r: 0.33876312, g: 1, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.25894833, b: 1, a: 1}
     - _GridX_Y: {r: 70, g: 70, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6570382561238356627
