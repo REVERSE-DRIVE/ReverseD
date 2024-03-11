@@ -20,5 +20,7 @@
         public float moveSpeed;
         public float mass;
 
+        public bool isHealDefense;
+        public float healthDefMultiple;
     }
 }

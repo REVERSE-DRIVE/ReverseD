@@ -8,9 +8,9 @@ namespace entityManage
     public interface IDamageable
     {
         
-        public abstract void Damaged(Status Attacker, int damage);
+        public abstract void Damaged(int damage);
 
-        public abstract void CriticalDamaged(Status Attacker, int damage);
+        public abstract void CriticalDamaged(int damage);
 
     }
 }
