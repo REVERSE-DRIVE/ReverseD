@@ -4,7 +4,12 @@ using UnityEngine;
 
 public abstract class EventObject : MonoBehaviour
 {
-    [SerializeField] protected float lifetime;
+    [SerializeField] protected float lifetime = 1;
 
-    protected abstract void lifeRoutine();
+    /**
+     * <summary>
+     * update에서 작동
+     * </summary>
+     */
+    protected abstract void LifeRoutine();
 }
