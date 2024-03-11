@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventObject : MonoBehaviour
+public abstract class EventObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] protected float lifetime;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected abstract void lifeRoutine();
 }
