@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _items: {fileID: 11400000, guid: fc4e0f096c1165d48a223c052acdec47, type: 2}
-  _itemCombinations: {fileID: 0}
+  _itemCombinations: {fileID: 11400000, guid: c55fc14c8e959244eb95b187e22f6af5, type: 2}
 --- !u!4 &388734174
 Transform:
   m_ObjectHideFlags: 0
