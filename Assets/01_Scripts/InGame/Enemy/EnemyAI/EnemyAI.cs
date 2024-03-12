@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,33 @@ namespace EnemyManage
     public abstract class EnemyAI : MonoBehaviour
     {
         [SerializeField]
-        private EnemyTargetingTaget[] Targeting;
+        protected EnemyTargetingTaget[] _targetingObject;
 
-        [SerializeField] private bool isStatic;
+        [SerializeField] protected bool _isStatic;
+        [SerializeField] protected EnemyStateEnum _currentState;
 
-        [SerializeField] protected EnemyState currentState;
-[SerializeField]
-protected 
-        
-        
-        protected virtual void 
+        protected Rigidbody2D _rigid;
+
+        protected virtual void Awake()
+        {
+            _rigid = GetComponent<Rigidbody2D>();
+            
+            
+        }
+
+        protected virtual void DetectPlayer()
+        {
+            GameManager.Instance._PlayerTransform
+        }
+
+        protected virtual void Move()
+        {
+            
+        }
+
+        public virtual void SetDefault()
+        {
+            _currentState = EnemyStateEnum.Roaming;
+        }
     }
 }

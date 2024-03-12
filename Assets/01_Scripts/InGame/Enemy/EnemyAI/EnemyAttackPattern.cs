@@ -3,11 +3,11 @@
 namespace EnemyManage
 {
     [System.Serializable]
-    public abstract class EnemyState : ScriptableObject
+    public abstract class EnemyAttackPattern
     {
         [SerializeField] protected string StateName;
         public EnemyStateEnum state;
-        
+        protected Transform _enemyTrs;
 
         public virtual void Enter()
         {

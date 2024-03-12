@@ -5749,7 +5749,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.697
+  m_FillAmount: 0.304
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5772,6 +5772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957662127}
   - component: {fileID: 957662126}
+  - component: {fileID: 957662128}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -5846,6 +5847,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &957662128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957662125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6ddd1d73989c24bad7a6e5260b0fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    hp: 0
+    attackDamage: 0
+    criticalRate: 0
+    defense: 0
+    criticalDefense: 0
+    moveSpeed: 0
+    mass: 0
+    isHealDefense: 0
+    healthDefMultiple: 0
 --- !u!1 &958204059
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,7 +5905,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 90}
-  m_SizeDelta: {x: 700, y: 50}
+  m_SizeDelta: {x: 700, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &958204061
 MonoBehaviour:

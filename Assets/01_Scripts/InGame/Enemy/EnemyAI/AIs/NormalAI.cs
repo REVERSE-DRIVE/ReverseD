@@ -2,7 +2,11 @@
 {
     public class NormalAI :EnemyAI
     {
-        
+
+        protected override void Awake()
+        {
+            base.Awake();
+        }
         
     }
 }
