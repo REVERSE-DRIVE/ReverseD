@@ -44,7 +44,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ShockWaveNum: 1
-    - _Width: 0.065
+    - _Width: 0.188
     m_Colors:
     - _Color: {r: 0, g: 0.25894833, b: 1, a: 1}
     - _GridX_Y: {r: 70, g: 70, b: 0, a: 0}
