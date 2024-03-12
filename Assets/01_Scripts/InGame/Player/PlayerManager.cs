@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private int attackSpeed;
     [SerializeField] private int knockback;
     [SerializeField] private Sprite playerSprite;
+
     
     public int PlayerHealth => playerHealth;
     public int AttackRange => attackRange;
@@ -21,6 +22,23 @@ public class PlayerManager : MonoBehaviour
     public int AttackSpeed => attackSpeed;
     public int Knockback => knockback;
     public Sprite PlayerSprite => playerSprite;
+    
+    public PlayerSO PlayerSO
+    {
+        get => playerSO;
+        set
+        {
+            playerSO = value;
+            UpdateStat();
+        }
+    }
+    
+    public WeaponType WeaponType
+    {
+        get => weaponType;
+        set => weaponType = value;
+    }
+    
 
     public void UpdateStat()
     {
