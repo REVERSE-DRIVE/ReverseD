@@ -5,11 +5,18 @@ using UnityEngine;
 namespace EnemyManage
 {
     
-    public class EnemyAI : MonoBehaviour
+    public abstract class EnemyAI : MonoBehaviour
     {
         [SerializeField]
         private EnemyTargetingTaget[] Targeting;
+
+        [SerializeField] private bool isStatic;
+
+        [SerializeField] protected EnemyState currentState;
+[SerializeField]
+protected 
         
         
+        protected virtual void 
     }
 }

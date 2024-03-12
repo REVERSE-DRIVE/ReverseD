@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+namespace InGameScene
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public class UIManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Image hp_gauge;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void RefreshHpGauge()
+        {
+            
+        }
+        public void RefreshUIs()
+        {
+            
+        }
     }
 }
