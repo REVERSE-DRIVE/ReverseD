@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9c812c7cbbd624abea4766c54a94ae, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  attackRange: 0
-  speed: 0
-  arrange: 0
-  attackSpeed: 0
+  playerSprite: {fileID: 0}
+  playerHealth: 100
+  attackRange: 5
+  speed: 7
+  arrange: 1
+  attackSpeed: 1
+  knockback: 1
   weaponType: 0

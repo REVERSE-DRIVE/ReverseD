@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9c812c7cbbd624abea4766c54a94ae, type: 3}
   m_Name: Shilder
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  attackRange: 0
-  speed: 0
-  arrange: 0
-  attackSpeed: 0
-  weaponType: 0
+  playerSprite: {fileID: 0}
+  playerHealth: 150
+  attackRange: 10
+  speed: 5
+  arrange: 1
+  attackSpeed: 1
+  knockback: 2
+  weaponType: 3
