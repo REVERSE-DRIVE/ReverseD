@@ -10,6 +10,28 @@ public enum RoomType
     SpecialRoom,
     End
 }
+
+public enum PathType
+{
+    Horizontal,
+    Vertical
+}
+
+public enum PathDirection
+{
+    Up,
+    Down,
+    Left,
+    Right 
+}
+
+[System.Serializable]
+public struct Path
+{
+    public Transform pathTrm;
+    public PathType pathType;
+    public PathDirection pathDirection;
+}
 [CreateAssetMenu(menuName = "SO/Stage/Room")]
 [System.Serializable]
 public class RoomSO : ScriptableObject
@@ -17,6 +39,11 @@ public class RoomSO : ScriptableObject
     public RoomType roomType;
     public GameObject mapPrefab;
     public float generateRate = 1f;
-    [Range(0,4)]
-    public int maxPath = 1;
+    public Path[] paths;
+
+    public int pathAmount
+    {
+        get { return paths.Length; }
+        private set { }
+    }
 }
