@@ -70,7 +70,8 @@ namespace UIManage
             {
                 // EditorGUILayout.PropertyField(serializedObject.FindProperty("UIName")); // UIName 변수를 찾아서 PropertyField로 만들어줌
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("UIName"));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty("UI_Transform"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("UIRectObject"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("UITrnsObject"));
                 // serializedObject.ApplyModifiedProperties(); : 변경된 값을 적용
                 serializedObject.ApplyModifiedProperties();
             }
