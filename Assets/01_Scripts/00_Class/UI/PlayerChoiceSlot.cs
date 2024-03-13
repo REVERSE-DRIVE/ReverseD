@@ -31,6 +31,6 @@ public class PlayerChoiceSlot : MonoBehaviour, IPointerClickHandler
     {
         SetSequence();
         _sequence.Play();
-        _player.PlayerManager.PlayerSO = _playerSO;
+        PlayerManager.Instance.PlayerSO = _playerSO;
     }
 }

@@ -3,25 +3,24 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerManager))]
+[RequireComponent(typeof(PlayerAttack))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     private Status status;
-    private PlayerManager playerManager;
     
-    public Status Status => status;
-    public PlayerManager PlayerManager => playerManager;
+    public Status Status { get; set; }
     
     private void Awake()
     {
-        playerManager = GetComponent<PlayerManager>();
-        playerManager.UpdateStat();
+        PlayerManager.Instance.UpdateStat();
         UpdateStatus();
     }
 
     public void UpdateStatus()
     {
-        status.hp = playerManager.PlayerHealth;
-        status.attackDamage = playerManager.AttackRange;
-        status.moveSpeed = playerManager.Speed;
+        status.hp = PlayerManager.Instance.PlayerHealth;
+        status.attackDamage = PlayerManager.Instance.AttackRange;
+        status.moveSpeed = PlayerManager.Instance.Speed;
     }
 }
