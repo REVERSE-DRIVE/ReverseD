@@ -372,6 +372,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168044841}
   m_CullTransparentMesh: 1
+--- !u!1 &289533477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 289533478}
+  - component: {fileID: 289533480}
+  - component: {fileID: 289533479}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &289533478
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289533477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2098019570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -100, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &289533479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289533477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 773bde5ef6d1b8144ae11524e8946663, type: 2}
+  m_sharedMaterial: {fileID: 9116536590566192337, guid: 773bde5ef6d1b8144ae11524e8946663, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 72
+  m_fontSizeBase: 72
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &289533480
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289533477}
+  m_CullTransparentMesh: 1
 --- !u!1 &335893687
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,17 +744,93 @@ MonoBehaviour:
   ScaleEffectDuration: 0
   ScaleEaseEffect: 1
   scaleEffectOnOff: 0
-  useColorEffect: 0
+  useColorEffect: 1
   DefaultColor: {r: 1, g: 1, b: 1, a: 1}
   TargetColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  ColorEffectDuration: 0
+  ColorEffectDuration: 0.1
   colorOnOff: 0
   ColorEaseEffect: 1
-  isButton: 0
-  isDetectMouse: 0
-  OnClick: []
-  OnMouseEnter: []
-  OnMouseExit: []
+  isButton: 1
+  isDetectMouse: 1
+  OnClick:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887974220}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OffColor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2098019573}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: MoveOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - beforeDelay: 0.1
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887974216}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  OnMouseEnter:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 617889037}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OnColor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  OnMouseExit:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 617889037}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OffColor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1072925846
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,17 +1070,141 @@ MonoBehaviour:
   ScaleEffectDuration: 0
   ScaleEaseEffect: 1
   scaleEffectOnOff: 0
-  useColorEffect: 0
+  useColorEffect: 1
   DefaultColor: {r: 1, g: 1, b: 1, a: 1}
   TargetColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  ColorEffectDuration: 0
+  ColorEffectDuration: 0.1
   colorOnOff: 0
   ColorEaseEffect: 1
-  isButton: 0
-  isDetectMouse: 0
-  OnClick: []
-  OnMouseEnter: []
-  OnMouseExit: []
+  isButton: 1
+  isDetectMouse: 1
+  OnClick:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887974220}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OffColor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1887974216}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  OnMouseEnter:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1842088084}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: MoveOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1842088084}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OnScale
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1133738204}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OnColor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  OnMouseExit:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1842088084}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: MoveOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1842088084}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OffScale
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1133738204}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: OffColor
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1177168225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1577,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 90}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 1900, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1522489523
@@ -1282,13 +1616,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1511788ea34db42b03f14f1363dd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIRectObject: {fileID: 0}
+  UIRectObject: {fileID: 1522489522}
   UITrnsObject: {fileID: 0}
   UIName: 
-  usePositionEffect: 0
-  DefaultPos: {x: 0, y: 0}
-  TargetPos: {x: 0, y: 0}
-  duration: 0
+  usePositionEffect: 1
+  DefaultPos: {x: 0, y: -200}
+  TargetPos: {x: 0, y: 90}
+  duration: 0.2
   EaseEffect: 1
   onOff: 0
   useScaleEffect: 0
@@ -1402,8 +1736,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1522489522}
   - {fileID: 2050938465}
+  - {fileID: 1522489522}
   - {fileID: 1887974217}
   - {fileID: 2098019570}
   m_Father: {fileID: 0}
@@ -1695,6 +2029,7 @@ GameObject:
   - component: {fileID: 1842088081}
   - component: {fileID: 1842088083}
   - component: {fileID: 1842088082}
+  - component: {fileID: 1842088084}
   m_Layer: 5
   m_Name: MoreAlert
   m_TagString: Untagged
@@ -1711,7 +2046,7 @@ RectTransform:
   m_GameObject: {fileID: 1842088080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 335893688}
@@ -1719,7 +2054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 760, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1842088082
@@ -1760,6 +2095,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842088080}
   m_CullTransparentMesh: 1
+--- !u!114 &1842088084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842088080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1511788ea34db42b03f14f1363dd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIRectObject: {fileID: 1842088081}
+  UITrnsObject: {fileID: 0}
+  UIName: 
+  usePositionEffect: 1
+  DefaultPos: {x: 0, y: -50}
+  TargetPos: {x: 0, y: 140}
+  duration: 0.35
+  EaseEffect: 0
+  onOff: 0
+  useScaleEffect: 1
+  DefaultScale: {x: 0, y: 0, z: 0}
+  TargetScale: {x: 1, y: 1, z: 1}
+  ScaleEffectDuration: 0.2
+  ScaleEaseEffect: 1
+  scaleEffectOnOff: 0
+  useColorEffect: 0
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  TargetColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  ColorEffectDuration: 0
+  colorOnOff: 0
+  ColorEaseEffect: 1
+  isButton: 0
+  isDetectMouse: 0
+  OnClick: []
+  OnMouseEnter: []
+  OnMouseExit: []
 --- !u!1 &1861783487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,13 +2281,14 @@ GameObject:
   - component: {fileID: 1887974217}
   - component: {fileID: 1887974219}
   - component: {fileID: 1887974218}
+  - component: {fileID: 1887974220}
   m_Layer: 5
   m_Name: Darkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1887974217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1947,7 +2321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1972,6 +2346,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887974216}
   m_CullTransparentMesh: 1
+--- !u!114 &1887974220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887974216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1511788ea34db42b03f14f1363dd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIRectObject: {fileID: 1887974217}
+  UITrnsObject: {fileID: 0}
+  UIName: 
+  usePositionEffect: 0
+  DefaultPos: {x: 0, y: 0}
+  TargetPos: {x: 0, y: 0}
+  duration: 0
+  EaseEffect: 1
+  onOff: 0
+  useScaleEffect: 0
+  DefaultScale: {x: 1, y: 1, z: 1}
+  TargetScale: {x: 1, y: 1, z: 1}
+  ScaleEffectDuration: 0
+  ScaleEaseEffect: 1
+  scaleEffectOnOff: 0
+  useColorEffect: 1
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
+  TargetColor: {r: 0, g: 0, b: 0, a: 1}
+  ColorEffectDuration: 0.1
+  colorOnOff: 0
+  ColorEaseEffect: 1
+  isButton: 0
+  isDetectMouse: 0
+  OnClick: []
+  OnMouseEnter: []
+  OnMouseExit: []
 --- !u!1 &2050938464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +2419,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 70}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 2000, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2050938466
 MonoBehaviour:
@@ -2021,15 +2433,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1511788ea34db42b03f14f1363dd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIRectObject: {fileID: 0}
+  UIRectObject: {fileID: 2050938465}
   UITrnsObject: {fileID: 0}
   UIName: 
-  usePositionEffect: 0
-  DefaultPos: {x: 0, y: 0}
-  TargetPos: {x: 0, y: 0}
-  duration: 0
+  usePositionEffect: 1
+  DefaultPos: {x: 0, y: -90}
+  TargetPos: {x: 0, y: 70}
+  duration: 0.2
   EaseEffect: 1
-  onOff: 0
+  onOff: 1
   useScaleEffect: 0
   DefaultScale: {x: 1, y: 1, z: 1}
   TargetScale: {x: 1, y: 1, z: 1}
@@ -2042,9 +2454,37 @@ MonoBehaviour:
   ColorEffectDuration: 0
   colorOnOff: 0
   ColorEaseEffect: 1
-  isButton: 0
+  isButton: 1
   isDetectMouse: 0
-  OnClick: []
+  OnClick:
+  - beforeDelay: 0
+    indexedEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2050938466}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: MoveOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1522489524}
+          m_TargetAssemblyTypeName: UIManage.UIInfo, Assembly-CSharp
+          m_MethodName: MoveOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   OnMouseEnter: []
   OnMouseExit: []
 --- !u!1 &2098019569
@@ -2080,11 +2520,12 @@ RectTransform:
   m_Children:
   - {fileID: 1133738201}
   - {fileID: 617889034}
+  - {fileID: 289533478}
   m_Father: {fileID: 1585634585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: -1500}
   m_SizeDelta: {x: -400, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2098019571
@@ -2137,13 +2578,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1511788ea34db42b03f14f1363dd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIRectObject: {fileID: 0}
+  UIRectObject: {fileID: 2098019570}
   UITrnsObject: {fileID: 0}
   UIName: 
-  usePositionEffect: 0
-  DefaultPos: {x: 0, y: 0}
+  usePositionEffect: 1
+  DefaultPos: {x: 0, y: -1500}
   TargetPos: {x: 0, y: 0}
-  duration: 0
+  duration: 0.25
   EaseEffect: 1
   onOff: 0
   useScaleEffect: 0
