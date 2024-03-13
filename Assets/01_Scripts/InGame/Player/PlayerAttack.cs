@@ -9,7 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Collider2D[] attackColliders;
     
     private GameObject _playerAttackCollider;
-    private List<GameObject> arrows = new List<GameObject>();
+    private List<GameObject> arrows = new();
+    private bool _isAllowedAttack = true;
     
     public GameObject PlayerAttackCollider => _playerAttackCollider;
 
@@ -32,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
         else if (weaponType == WeaponType.bow)
         {
             transform.GetChild(1).rotation = _playerAttackCollider.transform.rotation;
-            ArrowShot();
+            StartCoroutine(ArrowShot());
         }
         else if (weaponType == WeaponType.lazor)
         {
@@ -54,27 +55,20 @@ public class PlayerAttack : MonoBehaviour
         }
     }
     
-    public void ArrowShot()
+    private IEnumerator ArrowShot()
     {
-        float time = 0;
-        while (true)
+        if (!_isAllowedAttack) yield break;
+
+        _isAllowedAttack = false;
+        for (int i = 0; i < arrows.Count; i++)
         {
-            time += Time.deltaTime;
-            if (time > PlayerManager.Instance.AttackSpeed)
-            {
-                for (int i = 0; i < arrows.Count; i++)
-                {
-                    if (!arrows[i].activeSelf)
-                    {
-                        arrows[i].transform.position = transform.position;
-                        arrows[i].transform.rotation = transform.GetChild(1).rotation;
-                        arrows[i].SetActive(true);
-                        break;
-                    }
-                }
-                time = 0;
-            }
+            if (arrows[i].activeSelf) continue;
+            arrows[i].transform.position = transform.position;
+            arrows[i].transform.rotation = transform.GetChild(1).rotation;
+            arrows[i].SetActive(true);
+            break;
         }
-        
+        yield return new WaitForSeconds(PlayerManager.Instance.AttackSpeed * 0.3f);
+        _isAllowedAttack = true;
     }
 }
