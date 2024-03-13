@@ -7,22 +7,19 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
     
-    
-    
     private SpriteRenderer _spriteRenderer;
-    private PlayerManager _playerManager;
     private PlayerAttack _playerAttack;
-    
+    private Rigidbody2D _rigid;
     private Player _player;
     private Vector3 dir;
     
 
     private void Awake()
     {
-        _playerManager = GetComponent<PlayerManager>();
-        _player = GetComponent<Player>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerAttack = GetComponent<PlayerAttack>();
+        _rigid = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Player>();
     }
 
     private void Start()
@@ -47,7 +44,7 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        transform.Translate(direction * (_player.Status.moveSpeed * Time.deltaTime));
+        _rigid.velocity = direction * _player.Status.moveSpeed;
     }
     
     private void Rotate()
@@ -59,6 +56,6 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeSprite()
     {
-        _spriteRenderer.sprite = _playerManager.PlayerSprite;
+        _spriteRenderer.sprite = PlayerManager.Instance.PlayerSprite;
     }
 }
