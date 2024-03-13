@@ -7,19 +7,36 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
     
-    private PlayerManager _playerManager;
     private SpriteRenderer _spriteRenderer;
+    private PlayerAttack _playerAttack;
+    private Rigidbody2D _rigid;
+    private Player _player;
+    private Vector3 dir;
+    
 
     private void Awake()
     {
-        _playerManager = GetComponent<PlayerManager>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _playerAttack = GetComponent<PlayerAttack>();
+        _rigid = GetComponent<Rigidbody2D>();
+        _player = GetComponent<Player>();
+    }
+
+    private void Start()
+    {
+        _playerAttack.ArrowSpawn(30);
     }
 
     void Update()
     {
         Move();
+        Rotate();
+        if (Input.GetMouseButtonDown(1))
+        {
+            _playerAttack.Attack(PlayerManager.Instance.WeaponType);
+        }
     }
+
 
     private void Move()
     {
@@ -27,11 +44,19 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        transform.Translate(direction * (_playerManager.Speed * Time.deltaTime));
+        _rigid.velocity = direction * PlayerManager.Instance.Speed;
+        Debug.Log(_player.Status.moveSpeed);
     }
     
+    private void Rotate()
+    {
+        dir = _joystick.Direction;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        _playerAttack.PlayerAttackCollider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
     public void ChangeSprite()
     {
-        _spriteRenderer.sprite = _playerManager.PlayerSprite;
+        _spriteRenderer.sprite = PlayerManager.Instance.PlayerSprite;
     }
 }

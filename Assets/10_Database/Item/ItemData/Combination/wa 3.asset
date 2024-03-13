@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a75b5cb4d5d404c8ca4c3be0a1420bc, type: 3}
   m_Name: wa 3
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: df
-  description: fdd
+  id: 3
+  itemName: sdw
+  description: wqedfr
   icon: {fileID: 21300000, guid: 2a1f3cba20f3e11498474a705db12fde, type: 3}
   itemType: 0
