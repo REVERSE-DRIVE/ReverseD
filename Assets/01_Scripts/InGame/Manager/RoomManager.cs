@@ -4,86 +4,87 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RoomManager : MonoBehaviour
-{    
-    [SerializeField] private GameObject horizontalWall;
-    [SerializeField] private GameObject verticalWall;
-    [SerializeField] private GameObject horizontalLoad;
-    [SerializeField] private GameObject verticalLoad;
-    [SerializeField] private Grid grid;
+namespace RoomManage
+{
 
-    [Header("Setting Options")]
-    [SerializeField] private RoomSO[] rooms;
+    public class RoomManager : MonoBehaviour
+    {
+        [SerializeField] private GameObject horizontalWall;
+        [SerializeField] private GameObject verticalWall;
+        [SerializeField] private GameObject horizontalLoad;
+        [SerializeField] private GameObject verticalLoad;
+        [SerializeField] private Grid grid;
 
-    [SerializeField] private int rateDecreaseValue = 7;
-    [SerializeField]
-    private int _LoadRate = 100;
-    private int _roomAmount = 0;
-    
-    private void Awake()
-    {
-        grid = GetComponent<Grid>();
-    }
+        [Header("Setting Options")] [SerializeField]
+        private RoomSO[] rooms;
 
-    public void Debug_GenerateMap()
-    {
-        GeneratePath();
-    }
+        [SerializeField] private int rateDecreaseValue = 7;
+        [SerializeField] private int _LoadRate = 100;
+        private int _roomAmount = 0;
 
-    public void MapReset()
-    {
-        
-    }
-    
-    public void GenerateMap()
-    {
-        if (_roomAmount == 0)
+        private void Awake()
         {
-            //처음 맵 하나 생성
+            grid = GetComponent<Grid>();
         }
 
-        for (int i = 0; i < UPPER; i++)
+        public void Debug_GenerateMap()
         {
-            
+            //GeneratePath();
         }
-    }
 
-    private void GeneratePath(RoomSO room)
-    {
-        Path[] paths = room.paths;
-        
-        
-        for (int i = 0; i < room.pathAmount; i++)
+        public void MapReset()
         {
-            Path path = paths[i];
-            switch (path.pathType)
+
+        }
+
+        public void GenerateMap()
+        {
+            if (_roomAmount == 0)
             {
-                case PathType.Horizontal:
-                    if (_LoadRate > Random.Range(0, 99))
-                    {
-                        _LoadRate -= rateDecreaseValue;
-                        
-                    }
-                    else
-                    {
-                        PoolManager.Get(horizontalWall, path.pathTrm.position, Quaternion.identity);
-
-                    }
-                    break;
-                    
-                case PathType.Vertical:
-                    if (_LoadRate > Random.Range(0, 99))
-                    {
-                        _LoadRate -= rateDecreaseValue;
-                    }
-                    else
-                    {
-                        PoolManager.Get(verticalWall, path.pathTrm.position, Quaternion.identity);
-                        
-                    }
-                    break;
+                //처음 맵 하나 생성
             }
-            
+
+        }
+
+        private void GeneratePath(RoomSO room)
+        {
+            Path[] paths = room.paths;
+
+
+            for (int i = 0; i < room.pathAmount; i++)
+            {
+                Path path = paths[i];
+                switch (path.pathType)
+                {
+                    case PathType.Horizontal:
+                        if (_LoadRate > Random.Range(0, 99))
+                        {
+                            _LoadRate -= rateDecreaseValue;
+
+                        }
+                        else
+                        {
+                            PoolManager.Get(horizontalWall, path.pathTrm.position, Quaternion.identity);
+
+                        }
+
+                        break;
+
+                    case PathType.Vertical:
+                        if (_LoadRate > Random.Range(0, 99))
+                        {
+                            _LoadRate -= rateDecreaseValue;
+                        }
+                        else
+                        {
+                            PoolManager.Get(verticalWall, path.pathTrm.position, Quaternion.identity);
+
+                        }
+
+                        break;
+                }
+
+            }
         }
     }
 }

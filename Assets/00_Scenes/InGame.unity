@@ -78745,6 +78745,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1738819882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738819884}
+  - component: {fileID: 1738819883}
+  m_Layer: 0
+  m_Name: RoomManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1738819883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738819882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f690691b87f29464fabd616c47caf7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalWall: {fileID: 7231525395065657440, guid: cb8d298f032d4c34f9979c151d86f39b, type: 3}
+  verticalWall: {fileID: 8695674753035003211, guid: 20208da66d0a2f14db3bfdf58d19f4ad, type: 3}
+  horizontalLoad: {fileID: 5668464181391917585, guid: 2691edcfa25adea48a4fcebe14ff1c85, type: 3}
+  verticalLoad: {fileID: 3615095527127910778, guid: ee930cd326ed93e47a05bb9ef84fcb6d, type: 3}
+  rooms:
+  - {fileID: 11400000, guid: eedf338b41aeef041904b2f0e79e7ff9, type: 2}
+  - {fileID: 11400000, guid: 90ed3096784108d4ba7f042cff68e818, type: 2}
+  grid: {fileID: 2113758139}
+--- !u!4 &1738819884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738819882}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1759604457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79294,6 +79346,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1738819884}
   - {fileID: 545116068}
   - {fileID: 1507562804}
   - {fileID: 1615101994}

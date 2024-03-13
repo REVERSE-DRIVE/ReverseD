@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StartRoom
   m_EditorClassIdentifier: 
   roomType: 0
-  mapPrefab: {fileID: 0}
+  mapPrefab: {fileID: 8650165535874947791, guid: 05a7d0cb77e08db45847342bad97cb87, type: 3}
   generateRate: 1
   maxPath: 1
