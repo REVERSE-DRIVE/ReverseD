@@ -25,7 +25,6 @@ namespace EnemyManage
 
         protected virtual void DetectPlayer()
         {
-            GameManager.Instance._PlayerTransform
         }
 
         protected virtual void Move()
