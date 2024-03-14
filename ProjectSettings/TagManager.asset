@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Object
+  - PlayerArrow
   layers:
   - Default
   - TransparentFX

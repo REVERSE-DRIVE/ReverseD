@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using entityManage;
 using Random = UnityEngine.Random;
 
 namespace EnemyManage.AIs
@@ -12,6 +11,7 @@ namespace EnemyManage.AIs
         private Player _player;
         private bool isRoaming = false;
         private bool isAttacking = false;
+        private bool isStun = false;
 
         protected override void Awake()
         {
@@ -29,52 +29,66 @@ namespace EnemyManage.AIs
             {
                 case EnemyStateEnum.Roaming:
                     isAttacking = false;
+                    isStun = false;
                     Roaming();
                     break;
                 case EnemyStateEnum.Attack:
                     isRoaming = false;
                     Attack();
                     break;
+                case EnemyStateEnum.Stun:
+                    Stun();
+                    break;
+                case EnemyStateEnum.Waiting:
+                    Waiting();
+                    break;
             }
         }
 
-        private void Attack()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            Vector3 direction = (_player.transform.position - transform.position).normalized;
-            
-            if (Vector3.Distance(_player.transform.position, transform.position) < 1f)
+            if (other.CompareTag("PlayerArrow"))
             {
-                _rigid.velocity = Vector2.zero;
-                StartCoroutine(nameof(AttackCoroutine));
-            }
-            else
-            {
-                StopCoroutine(nameof(AttackCoroutine));
-                isAttacking = false;
-                _rigid.velocity = direction * 5f;
-            }
-            if (Vector3.Distance(_player.transform.position, transform.position) > _radius)
-            {
-                _currentState = EnemyStateEnum.Roaming;
+                _currentState = EnemyStateEnum.Stun;
             }
         }
         
-        private IEnumerator AttackCoroutine()
-        {
-            if (isAttacking) yield break;
-            isAttacking = true;
-            while (true)
-            {
-                PlayerManager.Instance.PlayerHealth--;
-                yield return new WaitForSeconds(1f);
-            }
-        }
-
         private void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(transform.position, _radius);
         }
+        
+        #region Waiting
+        private void Waiting()
+        {
+            StartCoroutine(WaitingCoroutine());
+        }
 
+        private IEnumerator WaitingCoroutine()
+        {
+            if (_currentState != EnemyStateEnum.Waiting) yield break;
+            yield return new WaitForSeconds(1f);
+            _currentState = EnemyStateEnum.Roaming;
+        }
+        #endregion
+        
+        #region Stun
+        private void Stun()
+        {
+            StartCoroutine(StunCoroutine());
+        }
+        
+        private IEnumerator StunCoroutine()
+        {
+            if (isStun) yield break;
+            isStun = true;
+            _rigid.velocity = Vector2.zero;
+            yield return new WaitForSeconds(4f);
+            _currentState = EnemyStateEnum.Waiting;
+        }
+        #endregion
+
+        #region Roaming
         private void Roaming()
         {
             StartCoroutine(RoamingCoroutine());
@@ -83,6 +97,7 @@ namespace EnemyManage.AIs
         private IEnumerator RoamingCoroutine()
         {
             if (isRoaming) yield break;
+            if (isStun) yield break;
             isRoaming = true;
             while (true)
             {
@@ -107,6 +122,42 @@ namespace EnemyManage.AIs
                 }
             }
         }
+        #endregion
+        
+        #region Attacking
+        private void Attack()
+        {
+            Vector3 direction = (_player.transform.position - transform.position).normalized;
+            
+            if (Vector3.Distance(_player.transform.position, transform.position) < 1f)
+            {
+                _rigid.velocity = Vector2.zero;
+                StartCoroutine(nameof(AttackCoroutine));
+            }
+            else
+            {
+                StopCoroutine(nameof(AttackCoroutine));
+                isAttacking = false;
+                _targetingObject[0] = EnemyTargetingTaget.Player;
+                _rigid.velocity = direction * 5f;
+            }
+            if (Vector3.Distance(_player.transform.position, transform.position) > _radius)
+            {
+                _currentState = EnemyStateEnum.Roaming;
+            }
+        }
+        
+        private IEnumerator AttackCoroutine()
+        {
+            if (isAttacking) yield break;
+            isAttacking = true;
+            while (true)
+            {
+                PlayerManager.Instance.PlayerHealth--;
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        #endregion
         
     }
 }
