@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    [SerializeField] private float _speed;
+    [SerializeField] private float disableTime = 0.5f;
     private void OnEnable()
     {
         StartCoroutine(Disable());
@@ -16,12 +18,12 @@ public class Arrow : MonoBehaviour
         while (true)
         {
             time += Time.deltaTime;
-            if (time > 0.5f)
+            if (time > disableTime)
             {
                 gameObject.SetActive(false);
                 yield break;
             }
-            transform.Translate(Vector3.right * 0.1f);
+            transform.Translate(Vector3.right * (0.1f * _speed));
             yield return null;
 
 
