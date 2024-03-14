@@ -13,6 +13,12 @@ public class PlayerController : MonoBehaviour
     private Player _player;
     private Vector3 dir;
     
+    public VariableJoystick Joystick 
+    { 
+        get => _joystick;
+        set => _joystick = value;
+        
+    }
 
     private void Awake()
     {
@@ -31,10 +37,6 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Rotate();
-        if (Input.GetMouseButtonDown(1))
-        {
-            _playerAttack.Attack(PlayerManager.Instance.WeaponType);
-        }
     }
 
 
