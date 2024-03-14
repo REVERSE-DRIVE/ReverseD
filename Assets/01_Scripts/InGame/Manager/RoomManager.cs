@@ -29,7 +29,7 @@ namespace RoomManage
 
         public void Debug_GenerateMap()
         {
-            //GeneratePath();
+            GeneratePath(rooms[0]);
         }
 
         public void MapReset()
@@ -49,41 +49,47 @@ namespace RoomManage
         private void GeneratePath(RoomSO room)
         {
             Path[] paths = room.paths;
+            int pathAmount = 0;
 
-
-            for (int i = 0; i < room.pathAmount; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Path path = paths[i];
-                switch (path.pathType)
+                if (room.pathAmount < pathAmount)
                 {
-                    case PathType.Horizontal:
-                        if (_LoadRate > Random.Range(0, 99))
-                        {
-                            _LoadRate -= rateDecreaseValue;
+                   
+                    switch (path.pathType)
+                    {
+                        case PathType.Horizontal:
+                            if (_LoadRate > Random.Range(0, 99))
+                            {
+                                pathAmount++;
+                                _LoadRate -= rateDecreaseValue;
+                                //PoolManager.Get(horizontalLoad, path.pathTrm.position)
+                            }
+                            else
+                            {
+                                PoolManager.Get(horizontalWall, path.pathTrm.position, Quaternion.identity);
 
-                        }
-                        else
-                        {
-                            PoolManager.Get(horizontalWall, path.pathTrm.position, Quaternion.identity);
+                            }
 
-                        }
+                            break;
 
-                        break;
+                        case PathType.Vertical:
+                            if (_LoadRate > Random.Range(0, 99))
+                            {
+                                pathAmount++;
+                                _LoadRate -= rateDecreaseValue;
+                            }
+                            else
+                            {
+                                PoolManager.Get(verticalWall, path.pathTrm.position, Quaternion.identity);
 
-                    case PathType.Vertical:
-                        if (_LoadRate > Random.Range(0, 99))
-                        {
-                            _LoadRate -= rateDecreaseValue;
-                        }
-                        else
-                        {
-                            PoolManager.Get(verticalWall, path.pathTrm.position, Quaternion.identity);
+                            }
 
-                        }
-
-                        break;
+                            break;
+                    } 
                 }
-
+    
             }
         }
     }
