@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _playerAttack.ArrowSpawn(30);
+        PlayerManager.Instance.UpdateStat();
     }
 
     void Update()
