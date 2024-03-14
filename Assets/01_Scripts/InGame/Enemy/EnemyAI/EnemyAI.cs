@@ -15,13 +15,19 @@ namespace EnemyManage
         [SerializeField] protected EnemyStateEnum _currentState;
 
         protected Rigidbody2D _rigid;
+        
 
         protected virtual void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
-            
-            
         }
+        
+        protected void Update()
+        {
+            Move();
+        }
+
+
 
         protected virtual void DetectPlayer()
         {

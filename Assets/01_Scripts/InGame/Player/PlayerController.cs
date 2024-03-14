@@ -44,7 +44,8 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction * _player.Status.moveSpeed;
+        _rigid.velocity = direction * PlayerManager.Instance.Speed;
+        Debug.Log(_player.Status.moveSpeed);
     }
     
     private void Rotate()
