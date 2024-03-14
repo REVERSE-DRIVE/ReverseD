@@ -19,27 +19,27 @@ public class PlayerAttack : MonoBehaviour
         attackColliders = transform.GetChild(0).GetComponentsInChildren<Collider2D>();
         _playerAttackCollider = transform.GetChild(0).gameObject;
     }
-    public void Attack(WeaponType weaponType)
+    public void Attack()
     {
         foreach (var col in attackColliders)
         {
             col.enabled = false;
         }
 
-        if (weaponType == WeaponType.sword)
+        if (PlayerManager.Instance.WeaponType == WeaponType.sword)
         {
             attackColliders[0].enabled = true;
         }
-        else if (weaponType == WeaponType.bow)
+        else if (PlayerManager.Instance.WeaponType == WeaponType.bow)
         {
             transform.GetChild(1).rotation = _playerAttackCollider.transform.rotation;
             StartCoroutine(ArrowShot());
         }
-        else if (weaponType == WeaponType.lazor)
+        else if (PlayerManager.Instance.WeaponType == WeaponType.lazor)
         {
             attackColliders[1].enabled = true;
         }
-        else if (weaponType == WeaponType.shield)
+        else if (PlayerManager.Instance.WeaponType == WeaponType.shield)
         {
             attackColliders[2].enabled = true;
         }
