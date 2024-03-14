@@ -1,4 +1,5 @@
-﻿using entityManage;
+﻿using System;
+using entityManage;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -15,6 +16,14 @@ public class Player : MonoBehaviour
     {
         PlayerManager.Instance.UpdateStat();
         UpdateStatus();
+    }
+
+    private void Update()
+    {
+        if (status.hp <= 0)
+        {
+            transform.gameObject.SetActive(false);
+        }
     }
 
     public void UpdateStatus()
