@@ -10979,12 +10979,13 @@ GameObject:
   - component: {fileID: 1034524386}
   - component: {fileID: 1034524388}
   - component: {fileID: 1034524389}
+  - component: {fileID: 1034524393}
   - component: {fileID: 1034524392}
   - component: {fileID: 1034524391}
   - component: {fileID: 1034524390}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11084,7 +11085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12abc76c443398947a3472a790873479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSO: {fileID: 11400000, guid: c55391cea8206df4394a869c3b34ac66, type: 2}
+  playerSO: {fileID: 11400000, guid: 8bf1fdf253d6d964e819dd3d4e160e9b, type: 2}
   weaponType: 0
   playerHealth: 0
   attackRange: 0
@@ -11169,6 +11170,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arrowPrefab: {fileID: 4732806588899403221, guid: 3fb8a028fca707143afd616a401cb860, type: 3}
   attackColliders: []
+--- !u!114 &1034524393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034524385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77917f4de7b14e48b6473cacc3a3a4bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172790535
 GameObject:
   m_ObjectHideFlags: 0

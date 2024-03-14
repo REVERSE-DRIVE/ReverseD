@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RoomGenerator : MonoBehaviour
 {
+    [SerializeField]
+    private Grid grid;
+    
     public GameObject roomPrefab; // 방 프리팹
     public GameObject horizontalPathPrefab; // 가로로 난 길 프리팹
     public GameObject verticalPathPrefab; // 세로로 난 길 프리팹
@@ -16,6 +21,12 @@ public class RoomGenerator : MonoBehaviour
     public float pathLength = 16f; // 길의 길이
 
     private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
+
+    private void Awake()
+    {
+        grid = FindObjectOfType<Grid>();
+
+    }
 
     void Start()
     {
