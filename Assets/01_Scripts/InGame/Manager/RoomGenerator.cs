@@ -1,39 +1,26 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class RoomGenerator : MonoBehaviour
 {
-    [SerializeField]
-    private Grid grid;
-    
+    [SerializeField] private Transform grid;
     public GameObject roomPrefab; // 방 프리팹
     public GameObject horizontalPathPrefab; // 가로로 난 길 프리팹
     public GameObject verticalPathPrefab; // 세로로 난 길 프리팹
-    public GameObject horizontalWallPrefab; // 가로로 막힌 벽 프리팹
-    public GameObject verticalWallPrefab; // 세로로 막힌 벽 프리팹
 
     public int minRooms = 5; // 최소 방 개수
     public int maxRooms = 10; // 최대 방 개수
-    public float roomSize = 10f; // 방의 가로 및 세로 길이
+    public float roomSize = 17f; // 방의 가로 및 세로 길이
     public float pathLength = 16f; // 길의 길이
 
     private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
-
-    private void Awake()
-    {
-        grid = FindObjectOfType<Grid>();
-
-    }
 
     void Start()
     {
         GenerateRooms();
     }
 
-    [ContextMenu("DebugGenerateRooms")]
     public void GenerateRooms()
     {
         int numRooms = Random.Range(minRooms, maxRooms + 1);
@@ -99,15 +86,13 @@ public class RoomGenerator : MonoBehaviour
         Vector3 exitPosition = room1.transform.position + exitDirection * (roomSize * 0.5f);
         Vector3 entrancePosition = room2.transform.position + oppositeExitDirection * (roomSize * 0.5f);
 
-        if (exitDirection == Vector3.up || exitDirection == Vector3.down)
+        if (room1.transform.position.x == room2.transform.position.x) // 같은 열에 있는 경우
         {
-            Instantiate(verticalPathPrefab, (exitPosition + entrancePosition) * 0.5f, Quaternion.identity);
-            Instantiate(verticalWallPrefab, entrancePosition, Quaternion.identity);
+            Instantiate(verticalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.down * 0.5f, Quaternion.identity);
         }
-        else
+        else if (room1.transform.position.y == room2.transform.position.y) // 같은 행에 있는 경우
         {
-            Instantiate(horizontalPathPrefab, (exitPosition + entrancePosition) * 0.5f, Quaternion.identity);
-            Instantiate(horizontalWallPrefab, entrancePosition, Quaternion.identity);
+            Instantiate(horizontalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.left * 0.5f, Quaternion.identity);
         }
     }
 }
