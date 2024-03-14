@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,17 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private int knockback;
     [SerializeField] private Sprite playerSprite;
 
-    
-    public int PlayerHealth => playerHealth;
+    private Player _player;
+
+    public int PlayerHealth
+    {
+        get => playerHealth;
+        set
+        {
+            playerHealth = value;
+            _player.UpdateStatus();
+        }
+    }
     public int AttackRange => attackRange;
     public int Speed => speed;
     public int Arrange => arrange;
@@ -38,7 +48,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         get => weaponType;
         set => weaponType = value;
     }
-    
+
+    private void Awake()
+    {
+        _player = FindObjectOfType<Player>();
+    }
+
 
     public void UpdateStat()
     {
