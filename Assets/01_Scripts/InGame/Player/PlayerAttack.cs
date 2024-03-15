@@ -66,6 +66,7 @@ public class PlayerAttack : MonoBehaviour
             arrows[i].transform.position = transform.position;
             arrows[i].transform.rotation = transform.GetChild(1).rotation;
             arrows[i].SetActive(true);
+            arrows[i].transform.parent = null;
             break;
         }
         yield return new WaitForSeconds(PlayerManager.Instance.AttackSpeed * 0.3f);
