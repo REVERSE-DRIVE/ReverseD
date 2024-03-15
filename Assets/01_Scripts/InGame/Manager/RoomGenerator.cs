@@ -27,6 +27,7 @@ public class RoomGenerator : MonoBehaviour
 
         // 초기 방 생성
         GameObject firstRoom = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity);
+        firstRoom.transform.SetParent(grid);
         rooms.Add(firstRoom);
 
         // 방 연결
@@ -34,6 +35,7 @@ public class RoomGenerator : MonoBehaviour
         for (int i = 1; i < numRooms; i++)
         {
             GameObject newRoom = Instantiate(roomPrefab, GetNextRoomPosition(previousRoom), Quaternion.identity);
+            newRoom.transform.SetParent(grid);
             rooms.Add(newRoom);
             ConnectRooms(previousRoom, newRoom);
             previousRoom = newRoom;
@@ -88,11 +90,15 @@ public class RoomGenerator : MonoBehaviour
 
         if (room1.transform.position.x == room2.transform.position.x) // 같은 열에 있는 경우
         {
-            Instantiate(verticalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.down * 0.5f, Quaternion.identity);
+            GameObject load = Instantiate(verticalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.down * 0.5f, Quaternion.identity);
+            load.transform.SetParent(grid);
+            
         }
         else if (room1.transform.position.y == room2.transform.position.y) // 같은 행에 있는 경우
         {
-            Instantiate(horizontalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.left * 0.5f, Quaternion.identity);
+            GameObject load = Instantiate(horizontalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.left * 0.5f, Quaternion.identity);
+            
+            load.transform.SetParent(grid);
         }
     }
 }

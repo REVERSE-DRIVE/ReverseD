@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef1c1797d347ba469603a31b13f6cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
+  grid: {fileID: 2113758140}
   roomPrefab: {fileID: 8650165535874947791, guid: 05a7d0cb77e08db45847342bad97cb87, type: 3}
   horizontalPathPrefab: {fileID: 5668464181391917585, guid: 2691edcfa25adea48a4fcebe14ff1c85, type: 3}
   verticalPathPrefab: {fileID: 3615095527127910778, guid: ee930cd326ed93e47a05bb9ef84fcb6d, type: 3}
