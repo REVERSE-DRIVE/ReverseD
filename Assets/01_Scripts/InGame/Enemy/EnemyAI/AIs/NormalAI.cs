@@ -53,11 +53,6 @@ namespace EnemyManage.AIs
             }
         }
         
-        private void OnDrawGizmos()
-        {
-            Gizmos.DrawWireSphere(transform.position, _radius);
-        }
-        
         #region Waiting
         private void Waiting()
         {
