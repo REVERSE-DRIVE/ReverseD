@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 1287027806}
   - component: {fileID: 1287027807}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1383,7 +1383,12 @@ MonoBehaviour:
   _targetingObject: 00000000
   _isStatic: 0
   _currentState: 0
+  _rigid: {fileID: 0}
   _radius: 2
+  _player: {fileID: 0}
+  isRoaming: 0
+  isAttacking: 0
+  isStun: 0
 --- !u!50 &2120430952
 Rigidbody2D:
   serializedVersion: 4
