@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+namespace RoomManage
+{
+    
 public class RoomGenerator : MonoBehaviour
 {
     [SerializeField] private Transform grid;
@@ -101,4 +104,5 @@ public class RoomGenerator : MonoBehaviour
             load.transform.SetParent(grid);
         }
     }
+}
 }
