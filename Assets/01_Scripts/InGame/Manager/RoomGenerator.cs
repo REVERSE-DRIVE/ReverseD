@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,11 +19,28 @@ public class RoomGenerator : MonoBehaviour
     public float roomSize = 17f; // 방의 가로 및 세로 길이
     public float pathLength = 16f; // 길의 길이
 
+    public static Action WallGenerateEvent;
     private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
 
-    void Start()
+    private void Start()
     {
         GenerateRooms();
+        DelayAction(WallGenerateEvent, 0.1f);
+    }
+
+    public void DelayAction(Action action, float time)
+    {
+        StartCoroutine(Delay(action, time));
+    }
+    private IEnumerator Delay(Action action, float time)
+    {
+        yield return new WaitForSeconds(time);
+        action?.Invoke();
+    }
+    
+
+    private void OnDestroy()
+    {
     }
 
     public void GenerateRooms()
@@ -45,13 +64,13 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    Vector3 GetNextRoomPosition(GameObject previousRoom)
+    private Vector3 GetNextRoomPosition(GameObject previousRoom)
     {
         Vector3 exitDirection = GetRandomExitDirection(previousRoom);
         return previousRoom.transform.position + exitDirection * (roomSize + pathLength);
     }
 
-    Vector3 GetRandomExitDirection(GameObject room)
+    private Vector3 GetRandomExitDirection(GameObject room)
     {
         Vector3[] directions = { Vector3.up, Vector3.down, Vector3.left, Vector3.right };
         Vector3 oppositeDirection = -GetRandomExitDirection(room, directions);
@@ -83,7 +102,7 @@ public class RoomGenerator : MonoBehaviour
         return exitDirection;
     }
 
-    void ConnectRooms(GameObject room1, GameObject room2)
+    private void ConnectRooms(GameObject room1, GameObject room2)
     {
         Vector3 exitDirection = GetRandomExitDirection(room1);
         Vector3 oppositeExitDirection = -exitDirection;

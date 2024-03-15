@@ -18,12 +18,30 @@ namespace RoomManage
             
         }
 
+        private void OnEnable()
+        {
+            RoomGenerator.WallGenerateEvent += SetWall;
+        }
+
+        private void OnDestroy()
+        {
+            RoomGenerator.WallGenerateEvent -= SetWall;
+        }
+
+
         public void SetWall()
         {
-            RaycastHit2D hit = Physics2D.CircleCast(
-                transform.position, 5, Vector2.zero, 0, LayerMask.GetMask("LaodGround"));
-            
-            
+            Collider2D[] hit = Physics2D.OverlapCircleAll(
+                transform.position, 5, LayerMask.GetMask("LoadGround"));
+            print("길 체크");
+            if (hit.Length == 0)
+            {
+                wall.gameObject.SetActive(true);
+            }
+            else
+            {
+                wall.gameObject.SetActive(false);
+            }
             
         }
         
