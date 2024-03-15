@@ -1291,9 +1291,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2120430950}
   - component: {fileID: 2120430949}
-  - component: {fileID: 2120430951}
   - component: {fileID: 2120430952}
   - component: {fileID: 2120430953}
+  - component: {fileID: 2120430954}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -1368,27 +1368,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2120430951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120430948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdab95cac83415e8171b6e3928ccb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetingObject: 00000000
-  _isStatic: 0
-  _currentState: 0
-  _rigid: {fileID: 0}
-  _radius: 2
-  _player: {fileID: 0}
-  isRoaming: 0
-  isAttacking: 0
-  isStun: 0
 --- !u!50 &2120430952
 Rigidbody2D:
   serializedVersion: 4
@@ -1461,6 +1440,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2120430954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120430948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdab95cac83415e8171b6e3928ccb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetingObject: 
+  _isStatic: 0
+  _currentState: 0
+  _radius: 5
 --- !u!1001 &1504719319844291678
 PrefabInstance:
   m_ObjectHideFlags: 0

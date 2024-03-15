@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,7 +29,6 @@ namespace EnemyManage.AIs
             {
                 case EnemyStateEnum.Roaming:
                     isAttacking = false;
-                    isStun = false;
                     Roaming();
                     break;
                 case EnemyStateEnum.Attack:
@@ -40,6 +39,7 @@ namespace EnemyManage.AIs
                     Stun();
                     break;
                 case EnemyStateEnum.Waiting:
+                    isStun = false;
                     Waiting();
                     break;
             }
@@ -133,7 +133,6 @@ namespace EnemyManage.AIs
             {
                 StopCoroutine(nameof(AttackCoroutine));
                 isAttacking = false;
-                _targetingObject[0] = EnemyTargetingTaget.Player;
                 _rigid.velocity = direction * 5f;
             }
             if (Vector3.Distance(_player.transform.position, transform.position) > _radius)
