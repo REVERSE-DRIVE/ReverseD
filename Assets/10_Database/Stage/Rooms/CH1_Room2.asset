@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 146f886852990954199738fa089ca9a3, type: 3}
-  m_Name: StartRoom
+  m_Name: CH1_Room2
   m_EditorClassIdentifier: 
-  roomType: 0
-  mapPrefab: {fileID: 8650165535874947791, guid: 05a7d0cb77e08db45847342bad97cb87, type: 3}
+  roomType: 2
+  mapPrefab: {fileID: 5257609005498505265, guid: 5ae20a8862ef89a4da2967635b9f024b, type: 3}
   generateRate: 1
-  maxPath: 1

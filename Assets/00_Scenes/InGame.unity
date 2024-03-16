@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 2113758140}
-  roomPrefab: {fileID: 5257609005498505265, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
+  roomPack: {fileID: 11400000, guid: 981d5843ac466644f915edcdda166424, type: 2}
   horizontalPathPrefab: {fileID: 5668464181391917585, guid: 2691edcfa25adea48a4fcebe14ff1c85, type: 3}
   verticalPathPrefab: {fileID: 3615095527127910778, guid: ee930cd326ed93e47a05bb9ef84fcb6d, type: 3}
   minRooms: 4
