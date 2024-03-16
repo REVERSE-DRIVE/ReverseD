@@ -18,9 +18,10 @@ public class RoomGenerator : MonoBehaviour
     public int maxRooms = 10; // 최대 방 개수
     public float roomSize = 17f; // 방의 가로 및 세로 길이
     public float pathLength = 16f; // 길의 길이
-
+    public float HLoadXOffset;
+    public float VLoadYOffset;
     public static Action WallGenerateEvent;
-    private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
+    //private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
 
     private void Start()
     {
@@ -50,7 +51,7 @@ public class RoomGenerator : MonoBehaviour
         // 초기 방 생성
         GameObject firstRoom = Instantiate(roomPrefab, Vector3.zero, Quaternion.identity);
         firstRoom.transform.SetParent(grid);
-        rooms.Add(firstRoom);
+        //rooms.Add(firstRoom);
 
         // 방 연결
         GameObject previousRoom = firstRoom;
@@ -58,7 +59,7 @@ public class RoomGenerator : MonoBehaviour
         {
             GameObject newRoom = Instantiate(roomPrefab, GetNextRoomPosition(previousRoom), Quaternion.identity);
             newRoom.transform.SetParent(grid);
-            rooms.Add(newRoom);
+            //rooms.Add(newRoom);
             ConnectRooms(previousRoom, newRoom);
             previousRoom = newRoom;
         }
@@ -91,7 +92,7 @@ public class RoomGenerator : MonoBehaviour
         foreach (var direction in directions)
         {
             Vector3 exitPosition = room.transform.position + direction * (roomSize * 0.5f + pathLength * 0.5f);
-            Collider[] hitColliders = Physics.OverlapSphere(exitPosition, 0.1f);
+            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(exitPosition, 0.1f);
             if (hitColliders.Length == 0)
             {
                 exitDirection = direction;
@@ -113,13 +114,16 @@ public class RoomGenerator : MonoBehaviour
         if (room1.transform.position.x == room2.transform.position.x) // 같은 열에 있는 경우
         {
             GameObject load = Instantiate(verticalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.down * 0.5f, Quaternion.identity);
+            Vector3 pos = load.transform.position;
+            load.transform.position = new Vector2(pos.x, pos.y + VLoadYOffset);
             load.transform.SetParent(grid);
             
         }
         else if (room1.transform.position.y == room2.transform.position.y) // 같은 행에 있는 경우
         {
             GameObject load = Instantiate(horizontalPathPrefab, (exitPosition + entrancePosition) * 0.5f + Vector3.left * 0.5f, Quaternion.identity);
-            
+            Vector3 pos = load.transform.position;
+            load.transform.position = new Vector2(pos.x + HLoadXOffset, pos.y);
             load.transform.SetParent(grid);
         }
     }
