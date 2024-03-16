@@ -33,7 +33,6 @@ namespace RoomManage
         {
             Collider2D[] hit = Physics2D.OverlapCircleAll(
                 transform.position, 5, LayerMask.GetMask("LoadGround"));
-            print("길 체크");
             if (hit.Length == 0)
             {
                 wall.gameObject.SetActive(true);

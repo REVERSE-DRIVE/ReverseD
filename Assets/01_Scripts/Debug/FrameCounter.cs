@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FrameCounter : MonoBehaviour
 {
     private float deltaTime = 0f;
 
-    [SerializeField] private int size = 24;
+    [SerializeField] private int size = 32;
     [SerializeField] private Color color = Color.green;
 
     void Update()

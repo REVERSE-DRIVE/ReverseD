@@ -21,12 +21,13 @@ namespace RoomManage
         public float HLoadXOffset;
         public float VLoadYOffset;
         public static Action WallGenerateEvent;
+        [SerializeField]
         private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
 
         private void Start()
         {
             GenerateRooms();
-            DelayAction(WallGenerateEvent, 0.1f);
+            
         }
 
         public void DelayAction(Action action, float time)
@@ -43,6 +44,24 @@ namespace RoomManage
 
         private void OnDestroy()
         {
+            
+        }
+
+        public void ResetMap()
+        {
+            DeleteRooms();
+            GenerateRooms();
+        }
+
+        public void DeleteRooms()
+        {            
+            WallGenerateEvent = null;
+            rooms = new List<GameObject>();
+            foreach (Transform child in grid)
+            {
+                Destroy(child.gameObject);
+            }
+
         }
 
         public void GenerateRooms()
@@ -64,16 +83,41 @@ namespace RoomManage
                 ConnectRooms(previousRoom, newRoom);
                 previousRoom = newRoom;
             }
+            DelayAction(WallGenerateEvent, 0.1f);
         }
 
         private Vector3 GetNextRoomPosition(GameObject previousRoom)
         {
+            print("<color='green'>==== 새방 ====</color>");
             Vector3 exitDirection = GetRandomExitDirection(previousRoom);
             Vector3 result = previousRoom.transform.position + exitDirection * (roomSize + pathLength);
-            // for (int i = 0; i < rooms.Count; i++)
-            // {
-            //     result
-            // }
+            int duplication = 0;
+
+            while (true)
+            {
+                duplication = 0;
+                exitDirection = GetRandomExitDirection(previousRoom);
+                result = previousRoom.transform.position + exitDirection * (roomSize + pathLength);
+                
+                for (int i = 0; i < rooms.Count; i++)
+                {
+                
+                    print(i+"번 방과의 위치 : "+Vector2.Distance(rooms[i].transform.position, result));
+                    if (Vector2.Distance(rooms[i].transform.position, result) == 0)
+                    {
+                        print("<color='red'>중복 위치 : " + result+"</color>");
+                        duplication++;
+                    }
+                }
+
+                if (duplication == 0)
+                {
+                    break;
+                }
+            }
+            
+            
+            print(result);
             return result;
         }
 
@@ -95,7 +139,7 @@ namespace RoomManage
         {
             Vector2 exitDirection = Vector3.zero;
 
-            foreach (var direction in directions)
+            foreach (Vector3 direction in directions)
             {
                 Vector2 exitPosition = room.transform.position + direction * (roomSize * 0.5f + pathLength * 0.5f);
                 Collider2D[] hitColliders = Physics2D.OverlapCircleAll(exitPosition, 0.1f);
