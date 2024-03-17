@@ -1,18 +1,32 @@
 ﻿using System;
 using UnityEngine;
 
-public class TimeManager : MonoSingleton<TimeManager>
+public class TimeManager : MonoBehaviour
 {
-    [SerializeField] private static float _timeScale = 1f;
-
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
 
-    public static float TimeScale
+    public static float TimeScale { get; set; }
+
+    private void OnGUI()
     {
-        get => _timeScale;
-        set => _timeScale = value;
+        if (GUI.Button(new Rect(10, 10, 150, 100), "TimeScale 1"))
+        {
+            TimeScale = 1f;
+        }
+        if (GUI.Button(new Rect(10, 110, 150, 100), "TimeScale 0.5"))
+        {
+            TimeScale = 0.5f;
+        }
+        if (GUI.Button(new Rect(10, 210, 150, 100), "TimeScale 0.1"))
+        {
+            TimeScale = 0.1f;
+        }
+        if (GUI.Button(new Rect(10, 310, 150, 100), "TimeScale 0"))
+        {
+            TimeScale = 0f;
+        }
     }
 }
