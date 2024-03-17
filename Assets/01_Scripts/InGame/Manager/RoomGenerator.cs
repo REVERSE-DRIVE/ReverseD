@@ -88,7 +88,6 @@ namespace RoomManage
 
         private Vector3 GetNextRoomPosition(GameObject previousRoom)
         {
-            print("<color='green'>==== 새방 ====</color>");
             Vector3 exitDirection = GetRandomExitDirection(previousRoom);
             Vector3 result = previousRoom.transform.position + exitDirection * (roomSize + pathLength);
             int duplication = 0;
@@ -101,23 +100,16 @@ namespace RoomManage
                 
                 for (int i = 0; i < rooms.Count; i++)
                 {
-                
-                    print(i+"번 방과의 위치 : "+Vector2.Distance(rooms[i].transform.position, result));
                     if (Vector2.Distance(rooms[i].transform.position, result) == 0)
                     {
-                        print("<color='red'>중복 위치 : " + result+"</color>");
                         duplication++;
                     }
                 }
-
                 if (duplication == 0)
                 {
                     break;
                 }
             }
-            
-            
-            print(result);
             return result;
         }
 
