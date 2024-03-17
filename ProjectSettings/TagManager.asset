@@ -51,3 +51,6 @@ TagManager:
   - name: Entity
     uniqueID: 3129406573
     locked: 0
+  - name: Object
+    uniqueID: 1860675727
+    locked: 0

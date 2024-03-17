@@ -56,12 +56,12 @@ Material:
     m_Floats:
     - _EnableSubColor: 0
     - _Main_Emission: 1
-    - _Main_Range: 0.5
+    - _Main_Range: 0.707
     - _Sub_Emission: 1
     - _Sub_Range: 0.5
     m_Colors:
-    - _Main_EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MaskColor: {r: 0.517647, g: 0.8941177, b: 0.9058824, a: 1}
-    - _SubColor: {r: 0, g: 0, b: 0, a: 0}
-    - _Sub_EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Main_EmissionColor: {r: 8.574187, g: 8.574187, b: 8.574187, a: 1}
+    - _MaskColor: {r: 0.75849056, g: 0.99268156, b: 1, a: 1}
+    - _SubColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Sub_EmissionColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
