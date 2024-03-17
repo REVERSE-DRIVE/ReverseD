@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using ItemManage;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
@@ -33,31 +34,34 @@ public class ItemManager : MonoBehaviour
             _items.itemDataList[1],
             _items.itemDataList[2],
         };
-        SetItemData(ItemCombination(itemDatas));
+        SetItemData(itemDatas.First());
         
         Debug.Log("Item Name: " + _itemName);
         Debug.Log("Description: " + _description);
         Debug.Log("Icon: " + _icon.name);
     }
 
-    public ItemData ItemCombination(List<ItemData> itemDatas)
+    public ItemData ItemCombination(ItemData item1, ItemData item2)
     {
-        List<ItemData> datas = itemDatas.Where(item => item.itemType == ItemType.data).ToList();
-        List<ItemData> dataPackList = itemDatas.Where(item => item.itemType == ItemType.datapack).ToList();
-        int dataCount = datas.Count;
-        int dataPackCount = dataPackList.Count;
-
-        if (dataCount + dataPackCount <= 1 || dataPackCount == 0 || dataCount == 0) return null;
-
-        #region ItemCombination
-        return dataCount switch
+        item1.SetType();
+        item2.SetType();
+        // Define combination mappings
+        Dictionary<(DataPackType, DataChipType), int> combinationMap = new Dictionary<(DataPackType, DataChipType), int>
         {
-            1 when dataPackCount == 1 => GetItemData(0, false),
-            2 when dataPackCount == 1 => GetItemData(1, false),
-            1 when dataPackCount == 2 => GetItemData(2, false),
-            2 when dataPackCount == 2 => GetItemData(3, false),
-            _ => null
+            {(DataPackType.MalWare, DataChipType.Information), 0},
+            {(DataPackType.MalWare, DataChipType.Dioraijation), 1},
+            {(DataPackType.AdWare, DataChipType.PopUp), 2},
+            {(DataPackType.AdWare, DataChipType.FrameDrop), 3}
         };
-        #endregion
+
+        // Check if the combination exists in the mapping
+        if (combinationMap.TryGetValue((item1.dataPackType, item2.dataChipType), out int combinationId))
+        {
+            return _itemCombinations.itemDataList.Find(item => item.id == combinationId);
+        }
+
+        // Combination not found
+        return null;
     }
+
 }
