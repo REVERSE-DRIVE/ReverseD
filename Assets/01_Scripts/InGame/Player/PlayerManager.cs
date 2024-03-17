@@ -55,6 +55,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     }
 
 
+    /**
+     * <summary>
+     * 스탯 업데이트
+     * </summary>
+     */
     public void UpdateStat()
     {
         playerHealth = playerSO.playerHealth;

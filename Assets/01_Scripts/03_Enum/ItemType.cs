@@ -1,5 +1,8 @@
-﻿public enum ItemType
+﻿namespace ItemManage
 {
-    datapack,
-    data
+    public enum ItemType
+    {
+        DataPack,
+        DataChip,
+    }
 }

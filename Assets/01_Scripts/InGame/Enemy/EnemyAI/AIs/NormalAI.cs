@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -29,7 +29,6 @@ namespace EnemyManage.AIs
             {
                 case EnemyStateEnum.Roaming:
                     isAttacking = false;
-                    isStun = false;
                     Roaming();
                     break;
                 case EnemyStateEnum.Attack:
@@ -40,6 +39,7 @@ namespace EnemyManage.AIs
                     Stun();
                     break;
                 case EnemyStateEnum.Waiting:
+                    isStun = false;
                     Waiting();
                     break;
             }
@@ -98,7 +98,7 @@ namespace EnemyManage.AIs
             {
                 DetectPlayer();
                 Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-                _rigid.velocity = direction.normalized * 5f;
+                _rigid.velocity = direction.normalized * (5f * TimeManager.TimeScale);
                 yield return new WaitForSeconds(0.5f);
                 _rigid.velocity = Vector2.zero;
                 yield return new WaitForSeconds(2f);
@@ -133,8 +133,7 @@ namespace EnemyManage.AIs
             {
                 StopCoroutine(nameof(AttackCoroutine));
                 isAttacking = false;
-                _targetingObject[0] = EnemyTargetingTaget.Player;
-                _rigid.velocity = direction * 5f;
+                _rigid.velocity = direction * (5f * TimeManager.TimeScale);
             }
             if (Vector3.Distance(_player.transform.position, transform.position) > _radius)
             {
@@ -148,6 +147,7 @@ namespace EnemyManage.AIs
             isAttacking = true;
             while (true)
             {
+                if (TimeManager.TimeScale == 0) yield break;
                 PlayerManager.Instance.PlayerHealth--;
                 yield return new WaitForSeconds(1f);
             }
