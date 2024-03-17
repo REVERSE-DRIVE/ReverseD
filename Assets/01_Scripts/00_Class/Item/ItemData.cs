@@ -15,6 +15,7 @@ namespace ItemManage
         public ItemType itemType;
         public DataPackType dataPackType;
         public DataChipType dataChipType;
+        public float mass;
 
         /**
          * <summary>
