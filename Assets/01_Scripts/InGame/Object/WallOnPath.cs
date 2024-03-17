@@ -28,6 +28,10 @@ namespace RoomManage
             RoomGenerator.WallGenerateEvent -= SetWall;
         }
 
+        private void Update()
+        {
+            SetWall();
+        }
 
         public void SetWall()
         {
