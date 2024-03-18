@@ -197,8 +197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 685.08, y: 467.29}
+  m_AnchoredPosition: {x: 40, y: 0}
+  m_SizeDelta: {x: 605, y: 465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5666188090753409203
 CanvasRenderer:
@@ -230,8 +230,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
+  m_sharedMaterial: {fileID: 8222288813299492571, guid: ffb0554471389e847bf678afe268779d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -255,8 +255,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -713,7 +713,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2.79
+      scalar: 3
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -767,7 +767,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.22
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -978,7 +978,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.28605944
+      scalar: -0.286234
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1439,10 +1439,19 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.7065498
-          value: 0.83782166
+          time: 0.6905586
+          value: 0.87836045
           inSlope: 2.6062856
           outSlope: 2.6062856
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.82138675
+          value: 0
+          inSlope: -0.357602
+          outSlope: -0.357602
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -1770,7 +1779,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 45104
+        ctime1: 29684
         ctime2: 65535
         ctime3: 0
         ctime4: 0
@@ -5402,26 +5411,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossCutsceneSets:
-  - font: {fileID: 0}
+  - font: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
     bossName: AverG
-    bossNameColor: {r: 0.13901742, g: 0.31624675, b: 0.5188679, a: 0}
+    bossNameColor: {r: 0.13901742, g: 0.31624675, b: 0.5188679, a: 1}
     bossImage: {fileID: 0}
-  - font: {fileID: 0}
+    bossStatus:
+      hp: 150
+      attackDamage: 20
+      criticalRate: 0
+      defense: 0
+      criticalDefense: 0
+      moveSpeed: 1
+      mass: 0
+      isHealDefense: 0
+      healthDefMultiple: 0
+  - font: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
     bossName: Postion
-    bossNameColor: {r: 0.554, g: 1, b: 0.185, a: 0}
+    bossNameColor: {r: 0.554, g: 1, b: 0.185, a: 1}
     bossImage: {fileID: 0}
-  - font: {fileID: 0}
+    bossStatus:
+      hp: 0
+      attackDamage: 0
+      criticalRate: 0
+      defense: 0
+      criticalDefense: 0
+      moveSpeed: 0
+      mass: 0
+      isHealDefense: 0
+      healthDefMultiple: 0
+  - font: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
     bossName: VW
-    bossNameColor: {r: 0.29622638, g: 0.7115472, b: 1, a: 0}
+    bossNameColor: {r: 0.29622638, g: 0.7115472, b: 1, a: 1}
     bossImage: {fileID: 0}
-  - font: {fileID: 0}
+    bossStatus:
+      hp: 0
+      attackDamage: 0
+      criticalRate: 0
+      defense: 0
+      criticalDefense: 0
+      moveSpeed: 0
+      mass: 0
+      isHealDefense: 0
+      healthDefMultiple: 0
+  - font: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
     bossName: McFree
-    bossNameColor: {r: 0.6415094, g: 0.19608401, b: 0.19608401, a: 0}
+    bossNameColor: {r: 0.6415094, g: 0.19608401, b: 0.19608401, a: 1}
     bossImage: {fileID: 0}
-  - font: {fileID: 0}
+    bossStatus:
+      hp: 0
+      attackDamage: 0
+      criticalRate: 0
+      defense: 0
+      criticalDefense: 0
+      moveSpeed: 0
+      mass: 0
+      isHealDefense: 0
+      healthDefMultiple: 0
+  - font: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
     bossName: Bvast
-    bossNameColor: {r: 1, g: 0.55, b: 0, a: 0}
+    bossNameColor: {r: 1, g: 0.55, b: 0, a: 1}
     bossImage: {fileID: 0}
+    bossStatus:
+      hp: 0
+      attackDamage: 0
+      criticalRate: 0
+      defense: 0
+      criticalDefense: 0
+      moveSpeed: 0
+      mass: 0
+      isHealDefense: 0
+      healthDefMultiple: 0
   bossImage: {fileID: 8023564797031196653}
   bossNameText: {fileID: 1711959511217436523}
 --- !u!1 &7387132248739328030
@@ -5715,7 +5774,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2.79
+      scalar: 3
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -5769,7 +5828,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.3
-      minScalar: 0.22
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5980,7 +6039,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.28605944
+      scalar: -0.286234
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6441,10 +6500,19 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.7065498
-          value: 0.83782166
+          time: 0.6905586
+          value: 0.87836045
           inSlope: 2.6062856
           outSlope: 2.6062856
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.82138675
+          value: 0
+          inSlope: -0.357602
+          outSlope: -0.357602
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
@@ -6772,7 +6840,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 45104
+        ctime1: 29684
         ctime2: 65535
         ctime3: 0
         ctime4: 0
@@ -10314,8 +10382,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 755105787540340511}
   - {fileID: 7775741976750895651}
+  - {fileID: 755105787540340511}
   m_Father: {fileID: 4385282157669026274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15.535}
   m_AnchorMin: {x: 0.5, y: 0.5}

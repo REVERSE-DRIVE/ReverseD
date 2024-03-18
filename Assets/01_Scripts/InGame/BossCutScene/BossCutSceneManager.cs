@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,14 +12,26 @@ public class BossCutSceneManager : MonoBehaviour
     [SerializeField] private Image bossImage;
     [SerializeField] private TextMeshProUGUI bossNameText;
 
+
+    private void Start()
+    {
+        SetBossText(4);
+    }
+
+    /**
+     * <summary>
+     * 보스 컷씬 기본 설정 적용
+     * </summary>
+     * <param name="index">보스 번호</param>
+     */
     public void SetBossText(int index)
     {
         bossNameText.text = bossCutsceneSets[index].bossName;
         bossNameText.font = bossCutsceneSets[index].font;
         bossNameText.color = bossCutsceneSets[index].bossNameColor;
 
-        bossImage.sprite = bossCutsceneSets[index].bossImage;
+        //bossImage.sprite = bossCutsceneSets[index].bossImage;
         bossImage.SetNativeSize();
-        bossImage.rectTransform.sizeDelta = new Vector2(bossImage.rectTransform.sizeDelta.x * 0.5f, bossImage.rectTransform.sizeDelta.y * 0.5f);
+        bossImage.rectTransform.sizeDelta = new Vector2(bossImage.rectTransform.sizeDelta.x * 7f, bossImage.rectTransform.sizeDelta.y * 7f);
     }
 }
