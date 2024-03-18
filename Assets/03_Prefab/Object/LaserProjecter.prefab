@@ -154,8 +154,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1860675727
   m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0eaf0cd7d4591c4db2c2d22f5c56307, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -216754458, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
   m_Color: {r: 0.3045924, g: 0.4339623, b: 0.43118015, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -271,8 +271,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1860675727
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 5517032821744701902}
   - component: {fileID: 4859461287036448449}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: LaserProjecter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.90201163, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5180,7 +5180,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1860675727
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -5283,8 +5283,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1860675727
   m_SortingLayer: 3
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d4b442c52c2b0ed4799f60c9910f95b8, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -2003246763, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
   m_Color: {r: 0.5573336, g: 0.5943396, b: 0.5917336, a: 1}
   m_FlipX: 0
   m_FlipY: 0
