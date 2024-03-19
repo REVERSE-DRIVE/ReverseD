@@ -43,13 +43,7 @@ namespace RoomManage
         public RoomType roomType;
         public GameObject mapPrefab;
         public float generateRate = 1f;
-        public Path[] paths;
-
-        public int pathAmount
-        {
-            get { return paths.Length; }
-            private set { }
-        }
+        
     }
 
 }

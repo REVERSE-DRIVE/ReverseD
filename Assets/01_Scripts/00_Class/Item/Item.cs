@@ -1,7 +1,11 @@
 ﻿
-[System.Serializable]
-public class Item
+namespace ItemManage
 {
-    public int id;
     
+    [System.Serializable]
+    public class Item
+    {
+        public int id;
+        public int amount;
+    }
 }

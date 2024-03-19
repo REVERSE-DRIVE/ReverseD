@@ -7,9 +7,10 @@ namespace AchievementManage
     public class AchievementSO : ScriptableObject
     {
         public int id;
+        public string achievementName;
         public AchievementType achievementType;
-
-        public int progress;
+        public string achievementDescription;
+        
         public int maxProgress;
 
     }

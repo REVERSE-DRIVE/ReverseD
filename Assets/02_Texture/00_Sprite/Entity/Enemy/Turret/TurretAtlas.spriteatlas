@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TurretAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_IgnorePlatformSupport: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: -216754458, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: 1760807514, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -1301689298, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -1301689298, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -2003246763, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -1201710675, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -1603372782, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -1135265834, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: -763971743, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    - {fileID: 306667546, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 7a174241570da2b4f91d2a03c1034feb: -1201710675
+    - 7a174241570da2b4f91d2a03c1034feb: -1603372782
+    - 7a174241570da2b4f91d2a03c1034feb: -1135265834
+    - 7a174241570da2b4f91d2a03c1034feb: -763971743
+    - 7a174241570da2b4f91d2a03c1034feb: -216754458
+    - 7a174241570da2b4f91d2a03c1034feb: 1760807514
+    - 7a174241570da2b4f91d2a03c1034feb: -1301689298
+    - 7a174241570da2b4f91d2a03c1034feb: -2003246763
+    - 7a174241570da2b4f91d2a03c1034feb: 306667546
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1201710675, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: -1603372782, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: -1135265834, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: -763971743, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: -216754458, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: 1760807514, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: -1301689298, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: -2003246763, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  - {fileID: 306667546, guid: 7a174241570da2b4f91d2a03c1034feb, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ReverseD_Turret_2_4
+  - ReverseD_Turret_2_5
+  - ReverseD_Turret_2_6
+  - ReverseD_Turret_2_7
+  - ReverseD_Turret_2_0
+  - ReverseD_Turret_2_1
+  - ReverseD_Turret_2_2
+  - ReverseD_Turret_2_3
+  - ReverseD_Turret_2_8
+  m_RenderDataMap: {}
+  m_Tag: TurretAtlas
+  m_IsVariant: 0
