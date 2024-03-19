@@ -12,10 +12,12 @@ public class Beam : MonoBehaviour
     private float time;
 
     [SerializeField]
-    private Vector2 targetPos;
+    private Vector2 direction;
 
     private Vector2[] points;
-
+    private RaycastHit2D hit;
+    
+    
     private void Start()
     {
         _lineRenderer.positionCount = reflection + 2;
@@ -25,43 +27,61 @@ public class Beam : MonoBehaviour
     private void Update()
     {
         
-        ShootLaser();
-        DrawLaserLine();
+        if (onLaser)
+        {
+            hit = Ray(transform.position, direction);
+            onLaser = !hit;
+            _lineRenderer.enabled = !hit;
+            if (!hit) return;
+
+            ShootLaser();
+            DrawLaserLine();
+            
+        }
     }
+
+    // private void ShootLaser()
+    // {
+    //     Vector2 dir = targetPos - new Vector2(transform.position.x, transform.position.y);
+    //
+    //     RaycastHit2D hit = Ray(dir);
+    //
+    //     if (hit.transform == null)
+    //     {
+    //         onLaser = false;
+    //         _lineRenderer.enabled = false;
+    //         return;
+    //     }
+    //     
+    //     _lineRenderer.enabled = true;
+    //     onLaser = true;
+    //     if (onLaser)
+    //     {
+    //         points[0] = transform.position;
+    //         Vector2 outDir = Reflect(dir);
+    //         for (int i = 0; i < points.Length; i++)
+    //         {
+    //             print(outDir);
+    //             print(RayPoint(outDir));
+    //             hit = Ray(outDir);
+    //             if (!hit)
+    //             {
+    //                 break;
+    //             }
+    //             points[i] = RayPoint(outDir);
+    //             outDir = Reflect(outDir);
+    //         }
+    //     }
+    // }
 
     private void ShootLaser()
     {
-        Vector2 dir = targetPos - new Vector2(transform.position.x, transform.position.y);
-
-        RaycastHit2D hit = Ray(dir);
-
-        if (hit.transform == null)
+        for (int i = 0; i < points.Length; i++)
         {
-            onLaser = false;
-            _lineRenderer.enabled = false;
-            return;
-        }
-        
-        _lineRenderer.enabled = true;
-        onLaser = true;
-        if (onLaser)
-        {
-            points[0] = transform.position;
-            Vector2 outDir = Reflect(dir);
-            for (int i = 0; i < points.Length; i++)
-            {
-                print(outDir);
-                print(RayPoint(outDir));
-                if (!hit)
-                {
-                    break;
-                }
-                points[i] = RayPoint(outDir);
-                outDir = Reflect(outDir);
-            }
+            
         }
     }
-
+    
     public void DrawLaserLine()
     {
         if (onLaser)
@@ -74,9 +94,9 @@ public class Beam : MonoBehaviour
         }
     }
 
-    private RaycastHit2D Ray(Vector2 dir)
+    private RaycastHit2D Ray(Vector2 origin, Vector2 dir)
     {
-        return Physics2D.Raycast(transform.position, dir, rayShootDistance);
+        return Physics2D.Raycast(origin, dir, rayShootDistance);
         
     }
 
@@ -88,9 +108,9 @@ public class Beam : MonoBehaviour
      * 반사 벡터
      * </returns>>
      */
-    public Vector2 Reflect(Vector2 dir)
+    public Vector2 Reflect(Vector2 origin, Vector2 dir)
     {
-        RaycastHit2D hit = Ray(dir);
+        RaycastHit2D hit = Ray(origin, dir);
 
         if (hit)
         {
@@ -103,9 +123,9 @@ public class Beam : MonoBehaviour
         return Vector2.zero;
     } 
     
-    public Vector2 RayPoint(Vector2 dir)
+    public Vector2 RayPoint(Vector2 origin, Vector2 dir)
     {
-        RaycastHit2D hit = Ray(dir);
+        RaycastHit2D hit = Ray(origin, dir);
 
         if (hit)
         {
