@@ -1,18 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room : MonoBehaviour
+namespace RoomManage
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public class Room : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private bool isCleared;
+        [SerializeField] private float playerDetectDistance = 13;
 
-    // Update is called once per frame
-    void Update()
-    {
+        [SerializeField] private Phase[] _phases; 
+
+        private void Update()
+        {
+            if (!isCleared)
+            {
+            
+            }
+        }
+
+        private void CheckPlayer()
+        {
+            Collider2D[] hit =
+                Physics2D.OverlapCircleAll(transform.position, playerDetectDistance, LayerMask.GetMask("Default"));
         
+        }
+    
+        public void GenerateEnemy()
+        {
+        
+        
+        }
+
+        public void Clear()
+        {
+            isCleared = true;
+        }
     }
 }

@@ -14,7 +14,19 @@ public class GameManager : MonoSingleton<GameManager>
     public RoomGenerator _RoomGenerator { get; private set; }
     public RenderingManager _RenderingManager { get; private set; }
 
-
+    // =====
+    /**
+     * <summary>
+     * 디바이스의 감염정도
+     * </summary>
+     */
+    private int infectedLevel = 0;
+    public int InfectedLevel => infectedLevel;
+    
+    
+    
+    
+    
     private void Awake()
     {
         _PlayerController = FindObjectOfType<PlayerController>();

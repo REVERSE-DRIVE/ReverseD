@@ -1,32 +1,37 @@
 ﻿using UnityEngine;
 using ItemManage;
 
-[CreateAssetMenu(menuName = "SO/Item/ItemData")]
-[System.Serializable]
-public class ItemData: ScriptableObject
+namespace ItemManage
 {
-    public int id;
-    public string itemName;
-    public string description;
-    public Sprite icon;
-    public ItemType itemType;
-    public DataPackType dataPackType;
-    public DataChipType dataChipType;
-
-    /**
-     * <summary>
-     * ItemData에 따라 DataPack인지 DataChip인지 판별하여 설정
-     * </summary>
-     */
-    public void SetType()
+    [CreateAssetMenu(menuName = "SO/Item/ItemData")]
+    [System.Serializable]
+    public class ItemData: ScriptableObject
     {
-        if (itemType == ItemType.DataPack)
+        public int id;
+        public Rank itemRank;
+        public string itemName;
+        public string description;
+        public Sprite icon;
+        public ItemType itemType;
+        public DataPackType dataPackType;
+        public DataChipType dataChipType;
+        public float mass;
+
+        /**
+         * <summary>
+         * ItemData에 따라 DataPack인지 DataChip인지 판별하여 설정
+         * </summary>
+         */
+        public void SetType()
         {
-            dataChipType = DataChipType.Null;
-        }
-        else
-        {
-            dataPackType = DataPackType.Null;
+            if (itemType == ItemType.DataPack)
+            {
+                dataChipType = DataChipType.Null;
+            }
+            else
+            {
+                dataPackType = DataPackType.Null;
+            }
         }
     }
 }
