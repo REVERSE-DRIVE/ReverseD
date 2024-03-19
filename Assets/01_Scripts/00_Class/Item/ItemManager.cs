@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace ItemManage
 {
-
     public class ItemManager : MonoBehaviour
     {
         [SerializeField] private Items _items;
@@ -47,7 +46,8 @@ namespace ItemManage
         {
             item1.SetType();
             item2.SetType();
-            // Define combination mappings
+
+            // 조합법
             Dictionary<(DataPackType, DataChipType), int> combinationMap =
                 new Dictionary<(DataPackType, DataChipType), int>
                 {
@@ -57,13 +57,13 @@ namespace ItemManage
                     { (DataPackType.AdWare, DataChipType.FrameDrop), 3 }
                 };
 
-            // Check if the combination exists in the mapping
+            // 반환
             if (combinationMap.TryGetValue((item1.dataPackType, item2.dataChipType), out int combinationId))
             {
                 return _itemCombinations.itemDataList.Find(item => item.id == combinationId);
             }
 
-            // Combination not found
+            // 없을 때
             return null;
         }
 
