@@ -137,6 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2813789614353066729}
   - component: {fileID: 4702427443268351617}
+  - component: {fileID: -3864692686342575423}
   m_Layer: 8
   m_Name: Map_Base
   m_TagString: Untagged
@@ -197,6 +198,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 13
+--- !u!114 &-3864692686342575423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5257609005498505265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010fea816e151084081833b1a004d7d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCleared: 0
+  playerDetectDistance: 13
 --- !u!1 &8781061148759450658
 GameObject:
   m_ObjectHideFlags: 0
@@ -7161,7 +7176,7 @@ GameObject:
   - component: {fileID: 478921567250279540}
   - component: {fileID: 5280363344422024237}
   - component: {fileID: 6248163185135011388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

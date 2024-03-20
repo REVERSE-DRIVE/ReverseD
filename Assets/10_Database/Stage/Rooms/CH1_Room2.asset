@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CH1_Room2
   m_EditorClassIdentifier: 
   roomType: 2
-  mapPrefab: {fileID: 5257609005498505265, guid: 5ae20a8862ef89a4da2967635b9f024b, type: 3}
+  mapPrefab: {fileID: 988478761079788909, guid: 83a3c45f2008b6a47b000dfd6feef18d, type: 3}
   generateRate: 1

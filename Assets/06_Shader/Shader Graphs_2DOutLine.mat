@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-565714425060019029
+--- !u!114 &-8504880693681069589
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: IdleMove
-  m_Shader: {fileID: -6465566751694194690, guid: 67ff112a308333c47af1718741c1dce1, type: 3}
+  m_Name: Shader Graphs_2DOutLine
+  m_Shader: {fileID: -6465566751694194690, guid: 07dafc6590c42434186dd5218b2ee1e8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -54,9 +54,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Angle: 22.9
-    - _Range: 0.015
-    - _Speed: 1
+    - _blink_amount: 0
+    - _isOutline: 1
+    - _outline_thickness: 1
     m_Colors:
-    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _blink_color: {r: 1, g: 1, b: 1, a: 1}
+    - _outline_color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

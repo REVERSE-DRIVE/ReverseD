@@ -3,17 +3,20 @@ using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
-        
-    [SerializeField] private int reflection = 0;
+    [Header("Setting Values")]
+    public int reflection = 0;
+    public Vector2 direction;
+    public float rayShootDistance = 30;
+
+    [Header("Else")]
     [SerializeField] private LineRenderer _lineRenderer;
-    //[SerializeField] private LayerMask wallLayerMask = LayerMask.GetMask("Map");
+    [SerializeField] private LayerMask wallLayerMask;
     [SerializeField] private bool onLaser;
-    [SerializeField] private float rayShootDistance = 30;
+    //public bool refreshLine = true;
     private float time;
 
+    
     [SerializeField]
-    private Vector2 direction;
-
     private Vector2[] points;
     private RaycastHit2D hit;
     
@@ -21,17 +24,17 @@ public class Beam : MonoBehaviour
     private void Start()
     {
         _lineRenderer.positionCount = reflection + 2;
-        points = new Vector2[reflection];
+        points = new Vector2[reflection+2];
     }
 
     private void Update()
     {
-        
+        hit = Ray(transform.position, direction);
+        onLaser = hit;
+        _lineRenderer.enabled = hit;
         if (onLaser)
         {
-            hit = Ray(transform.position, direction);
-            onLaser = !hit;
-            _lineRenderer.enabled = !hit;
+            
             if (!hit) return;
 
             ShootLaser();
@@ -40,44 +43,32 @@ public class Beam : MonoBehaviour
         }
     }
 
-    // private void ShootLaser()
-    // {
-    //     Vector2 dir = targetPos - new Vector2(transform.position.x, transform.position.y);
-    //
-    //     RaycastHit2D hit = Ray(dir);
-    //
-    //     if (hit.transform == null)
-    //     {
-    //         onLaser = false;
-    //         _lineRenderer.enabled = false;
-    //         return;
-    //     }
-    //     
-    //     _lineRenderer.enabled = true;
-    //     onLaser = true;
-    //     if (onLaser)
-    //     {
-    //         points[0] = transform.position;
-    //         Vector2 outDir = Reflect(dir);
-    //         for (int i = 0; i < points.Length; i++)
-    //         {
-    //             print(outDir);
-    //             print(RayPoint(outDir));
-    //             hit = Ray(outDir);
-    //             if (!hit)
-    //             {
-    //                 break;
-    //             }
-    //             points[i] = RayPoint(outDir);
-    //             outDir = Reflect(outDir);
-    //         }
-    //     }
-    // }
-
     private void ShootLaser()
     {
-        for (int i = 0; i < points.Length; i++)
+        points[0] = transform.position;
+        points[1] = RayPoint(points[0], direction);
+        Vector2 previousPoint = points[1];
+        Vector2 outDir = Reflect(points[0], direction);
+        bool isDisconnected = false;
+        for (int i = 2; i < points.Length; i++)
         {
+            if (isDisconnected)
+            {
+                points[i] = previousPoint; 
+            }
+            
+            if (Ray(previousPoint, outDir).collider != null)
+            {
+                points[i] = RayPoint(previousPoint, outDir);
+                
+                outDir = Reflect(previousPoint, outDir);
+                previousPoint = points[i];
+
+            }
+            else
+            {
+                isDisconnected = true;
+            }
             
         }
     }
@@ -96,7 +87,7 @@ public class Beam : MonoBehaviour
 
     private RaycastHit2D Ray(Vector2 origin, Vector2 dir)
     {
-        return Physics2D.Raycast(origin, dir, rayShootDistance);
+        return Physics2D.Raycast(origin, dir, rayShootDistance, wallLayerMask);
         
     }
 
@@ -112,7 +103,7 @@ public class Beam : MonoBehaviour
     {
         RaycastHit2D hit = Ray(origin, dir);
 
-        if (hit)
+        if (hit.collider != null)
         {
             //print("반사됨 ");
             Vector2 incomingVector = dir;
@@ -120,17 +111,18 @@ public class Beam : MonoBehaviour
             Vector2 reflectVector = Vector2.Reflect(incomingVector, normalVector);
             return reflectVector;
         }
-        return Vector2.zero;
+        return dir;
     } 
     
     public Vector2 RayPoint(Vector2 origin, Vector2 dir)
     {
         RaycastHit2D hit = Ray(origin, dir);
-
-        if (hit)
+        // 레이 자체가 문제인듯
+        if (hit.collider != null)
         {
             return hit.point;
         }
+        print("RayPoint ");
         return Vector2.zero;
     } 
 }
