@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
-        
-    [SerializeField] private int reflection = 0;
+    [Header("Setting Values")]
+    public int reflection = 0;
+    public Vector2 direction;
+    public float rayShootDistance = 30;
+
+    [Header("Else")]
     [SerializeField] private LineRenderer _lineRenderer;
     [SerializeField] private LayerMask wallLayerMask;
     [SerializeField] private bool onLaser;
-    [SerializeField] private float rayShootDistance = 30;
+    //public bool refreshLine = true;
     private float time;
 
-    [SerializeField]
-    private Vector2 direction;
-
+    
     [SerializeField]
     private Vector2[] points;
     private RaycastHit2D hit;
@@ -63,10 +65,10 @@ public class Beam : MonoBehaviour
                 previousPoint = points[i];
 
             }
-            // else
-            // {
-            //     isDisconnected = true;
-            // }
+            else
+            {
+                isDisconnected = true;
+            }
             
         }
     }
@@ -85,7 +87,7 @@ public class Beam : MonoBehaviour
 
     private RaycastHit2D Ray(Vector2 origin, Vector2 dir)
     {
-        return Physics2D.Raycast(origin, dir, rayShootDistance);
+        return Physics2D.Raycast(origin, dir, rayShootDistance, wallLayerMask);
         
     }
 
@@ -109,7 +111,7 @@ public class Beam : MonoBehaviour
             Vector2 reflectVector = Vector2.Reflect(incomingVector, normalVector);
             return reflectVector;
         }
-        return Vector2.zero;
+        return dir;
     } 
     
     public Vector2 RayPoint(Vector2 origin, Vector2 dir)

@@ -210,6 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2209034025357868642}
   - component: {fileID: 5376733974730222612}
+  - component: {fileID: 215409503674693445}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -333,9 +334,30 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
-  m_UseWorldSpace: 0
+  m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &215409503674693445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810220326181923676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac1e627f90d4ff4b3e30e0d679d18e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflection: 3
+  direction: {x: 3.39, y: 10}
+  rayShootDistance: 50
+  _lineRenderer: {fileID: 5376733974730222612}
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  onLaser: 1
+  points: []
 --- !u!1 &4782395673328377763
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5517032821744701902}
   - component: {fileID: 4859461287036448449}
+  - component: {fileID: 2322521995497125314}
   m_Layer: 0
   m_Name: LaserProjecter
   m_TagString: Untagged
@@ -383,6 +406,22 @@ SortingGroup:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &2322521995497125314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782395673328377763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ab37068d022dc4da56a1f390677221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflection: 3
+  beam: {fileID: 215409503674693445}
+  shootDirection: 5
+  onDirectionRefresh: 0
 --- !u!1 &5323953649858665235
 GameObject:
   m_ObjectHideFlags: 0
