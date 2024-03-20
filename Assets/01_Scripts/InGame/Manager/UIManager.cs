@@ -12,6 +12,8 @@ namespace InGameScene
 
         public void RefreshHpGauge()
         {
+            //float t = GameManager.Instance._PlayerTransform.GetComponent<Player>().
+            //hp_gauge.fillAmount = Mathf.Clamp01();
             
         }
         public void RefreshUIs()

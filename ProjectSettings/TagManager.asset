@@ -19,7 +19,7 @@ TagManager:
   - LoadGround
   - Map
   - Wall
-  - 
+  - InteractionObject
   - 
   - 
   - 

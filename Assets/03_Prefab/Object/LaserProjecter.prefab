@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ab37068d022dc4da56a1f390677221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reflection: 0
+  reflection: 3
   beam: {fileID: 215409503674693445}
   shootDirection: 5
   onDirectionRefresh: 0
