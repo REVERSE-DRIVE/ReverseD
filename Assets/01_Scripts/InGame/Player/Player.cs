@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    /**
+     * <summary>
+     * 스탯 업데이트
+     * </summary>
+     */
     public void UpdateStatus()
     {
         status.hp = PlayerManager.Instance.PlayerHealth;

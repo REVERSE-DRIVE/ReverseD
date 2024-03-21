@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _playerAttack.ArrowSpawn(30);
+        PlayerManager.Instance.UpdateStat();
     }
 
     void Update()
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction * PlayerManager.Instance.Speed;
+        _rigid.velocity = direction * (PlayerManager.Instance.Speed * TimeManager.TimeScale);
     }
     
     private void Rotate()
