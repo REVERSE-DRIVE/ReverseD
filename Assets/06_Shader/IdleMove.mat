@@ -56,7 +56,7 @@ Material:
     m_Floats:
     - _Angle: 22.9
     - _Range: 0.015
-    - _Speed: 1
+    - _Speed: 90
     m_Colors:
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
