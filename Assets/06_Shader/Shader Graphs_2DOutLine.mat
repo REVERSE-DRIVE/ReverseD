@@ -56,8 +56,8 @@ Material:
     m_Floats:
     - _blink_amount: 0
     - _isOutline: 1
-    - _outline_thickness: 1
+    - _outline_thickness: 2
     m_Colors:
     - _blink_color: {r: 1, g: 1, b: 1, a: 1}
-    - _outline_color: {r: 1, g: 1, b: 1, a: 1}
+    - _outline_color: {r: 0.08695221, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
