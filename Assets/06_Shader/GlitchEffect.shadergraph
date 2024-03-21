@@ -1101,7 +1101,7 @@
         "else"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -1617,10 +1617,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -624.0,
-            "y": 58.4000244140625,
-            "width": 172.0,
-            "height": 141.5999755859375
+            "x": -592.7999877929688,
+            "y": -226.39996337890626,
+            "width": 172.0001220703125,
+            "height": 141.59999084472657
         }
     },
     "m_Slots": [
@@ -3123,10 +3123,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -582.4000244140625,
-            "y": 612.0,
-            "width": 130.4000244140625,
-            "height": 117.5999755859375
+            "x": -536.0,
+            "y": 352.7999572753906,
+            "width": 130.39996337890626,
+            "height": 117.60000610351563
         }
     },
     "m_Slots": [
@@ -3307,10 +3307,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -420.7999572753906,
-            "y": 136.79994201660157,
-            "width": 130.39993286132813,
-            "height": 117.60002136230469
+            "x": -382.3999328613281,
+            "y": 50.4000129699707,
+            "width": 130.39987182617188,
+            "height": 117.60000610351563
         }
     },
     "m_Slots": [
@@ -3566,10 +3566,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -909.6000366210938,
-            "y": -223.1999969482422,
-            "width": 183.2000732421875,
-            "height": 247.99998474121095
+            "x": -794.3999633789063,
+            "y": 5.5999908447265629,
+            "width": 183.199951171875,
+            "height": 248.0
         }
     },
     "m_Slots": [
@@ -5058,7 +5058,7 @@
     },
     "m_Name": "Comparison",
     "m_DrawState": {
-        "m_Expanded": true,
+        "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
             "x": -1696.800048828125,

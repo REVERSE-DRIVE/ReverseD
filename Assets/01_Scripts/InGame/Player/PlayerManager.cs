@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using entityManage;
 using UnityEngine;
 
-public class PlayerManager : MonoSingleton<PlayerManager>
+public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
 {
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private WeaponType weaponType;
@@ -70,5 +71,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         knockback = playerSO.knockback;
         weaponType = playerSO.weaponType;
         playerSprite = playerSO.playerSprite;
+    }
+
+    public void Damaged(int damage)
+    {
+        PlayerHealth -= damage;
+    }
+
+    public void CriticalDamaged(int damage)
+    {
+        PlayerHealth -= damage;
     }
 }

@@ -15,9 +15,9 @@ namespace ItemManage
         public ItemData GetItemData(int id, bool isItem)
         {
             if (isItem)
-                return _items.itemDataList.Find(item => item.id == id);
+                return _items.FindItem(id);
             else
-                return _itemCombinations.itemDataList.Find(item => item.id == id);
+                return _itemCombinations.FindItem(id);
         }
 
         public void SetItemData(ItemData itemData)
@@ -42,30 +42,26 @@ namespace ItemManage
             Debug.Log("Icon: " + _icon.name);
         }
 
-        public ItemData ItemCombination(ItemData item1, ItemData item2)
+        /**
+         * <summary>
+         * 프로토콜 타입에 따른 아이템 조합
+         * </summary>
+         */
+        public ItemData ItemCombination(ItemData[] items)
         {
-            item1.SetType();
-            item2.SetType();
-
-            // 조합법
-            Dictionary<(DataPackType, DataChipType), int> combinationMap =
-                new Dictionary<(DataPackType, DataChipType), int>
-                {
-                    { (DataPackType.MalWare, DataChipType.Information), 0 },
-                    { (DataPackType.MalWare, DataChipType.Dioraijation), 1 },
-                    { (DataPackType.AdWare, DataChipType.PopUp), 2 },
-                    { (DataPackType.AdWare, DataChipType.FrameDrop), 3 }
-                };
-
-            // 반환
-            if (combinationMap.TryGetValue((item1.dataPackType, item2.dataChipType), out int combinationId))
+            for (int i = 0; i < items.Length; i++)
             {
-                return _itemCombinations.itemDataList.Find(item => item.id == combinationId);
+                items[i].SetType();
             }
-
-            // 없을 때
+            
+            bool isAcceptCombination = items.All(item => item.protocolType == items[0].protocolType);
+            
+            if (items.Length == 3 && isAcceptCombination)
+            {
+                return _itemCombinations.FindItem(items[0].protocolType);
+            }
+            
             return null;
         }
-
     }
 }
