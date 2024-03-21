@@ -1,6 +1,6 @@
 ﻿namespace ItemManage
 {
-    public enum DataPackType
+    public enum PackageType
     {
         Null,
         MalWare,

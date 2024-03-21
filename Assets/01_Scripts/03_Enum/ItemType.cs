@@ -2,7 +2,7 @@
 {
     public enum ItemType
     {
-        DataPack,
-        DataChip,
+        Package,
+        Protocol
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using ItemManage;
+using UnityEngine.Serialization;
 
 namespace ItemManage
 {
@@ -13,8 +14,8 @@ namespace ItemManage
         public string description;
         public Sprite icon;
         public ItemType itemType;
-        public DataPackType dataPackType;
-        public DataChipType dataChipType;
+        public PackageType packageType;
+        [FormerlySerializedAs("dataChipType")] public ResourceType resourceType;
         public float mass;
 
         /**
@@ -24,13 +25,13 @@ namespace ItemManage
          */
         public void SetType()
         {
-            if (itemType == ItemType.DataPack)
+            if (itemType == ItemType.Package)
             {
-                dataChipType = DataChipType.Null;
+                resourceType = ResourceType.Null;
             }
             else
             {
-                dataPackType = DataPackType.Null;
+                packageType = PackageType.Null;
             }
         }
     }

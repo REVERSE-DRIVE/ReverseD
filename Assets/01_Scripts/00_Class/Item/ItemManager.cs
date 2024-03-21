@@ -48,20 +48,20 @@ namespace ItemManage
             item2.SetType();
 
             // 조합법
-            Dictionary<(DataPackType, DataChipType), int> combinationMap =
-                new Dictionary<(DataPackType, DataChipType), int>
-                {
-                    { (DataPackType.MalWare, DataChipType.Information), 0 },
-                    { (DataPackType.MalWare, DataChipType.Dioraijation), 1 },
-                    { (DataPackType.AdWare, DataChipType.PopUp), 2 },
-                    { (DataPackType.AdWare, DataChipType.FrameDrop), 3 }
-                };
-
-            // 반환
-            if (combinationMap.TryGetValue((item1.dataPackType, item2.dataChipType), out int combinationId))
-            {
-                return _itemCombinations.itemDataList.Find(item => item.id == combinationId);
-            }
+            // Dictionary<(PackageType, ResourceType), int> combinationMap =
+            //     new()
+            //     {
+            //         { (PackageType.MalWare, ResourceType.Information), 0 },
+            //         { (PackageType.MalWare, ResourceType.Dioraijation), 1 },
+            //         { (PackageType.AdWare, ResourceType.PopUp), 2 },
+            //         { (PackageType.AdWare, ResourceType.FrameDrop), 3 }
+            //     };
+            //
+            // // 반환
+            // if (combinationMap.TryGetValue((item1.packageType, item2.resourceType), out int combinationId))
+            // {
+            //     return _itemCombinations.itemDataList.Find(item => item.id == combinationId);
+            // }
 
             // 없을 때
             return null;
