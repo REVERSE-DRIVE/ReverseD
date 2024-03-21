@@ -15,9 +15,9 @@ namespace ItemManage
         public ItemData GetItemData(int id, bool isItem)
         {
             if (isItem)
-                return _items.itemDataList.Find(item => item.id == id);
+                return _items.FindItem(id);
             else
-                return _itemCombinations.itemDataList.Find(item => item.id == id);
+                return _itemCombinations.FindItem(id);
         }
 
         public void SetItemData(ItemData itemData)
@@ -42,30 +42,26 @@ namespace ItemManage
             Debug.Log("Icon: " + _icon.name);
         }
 
-        public ItemData ItemCombination(ItemData item1, ItemData item2)
+        /**
+         * <summary>
+         * 프로토콜 타입에 따른 아이템 조합
+         * </summary>
+         */
+        public ItemData ItemCombination(ItemData[] items)
         {
-            item1.SetType();
-            item2.SetType();
-
-            // 조합법
-            // Dictionary<(PackageType, ResourceType), int> combinationMap =
-            //     new()
-            //     {
-            //         { (PackageType.MalWare, ResourceType.Information), 0 },
-            //         { (PackageType.MalWare, ResourceType.Dioraijation), 1 },
-            //         { (PackageType.AdWare, ResourceType.PopUp), 2 },
-            //         { (PackageType.AdWare, ResourceType.FrameDrop), 3 }
-            //     };
-            //
-            // // 반환
-            // if (combinationMap.TryGetValue((item1.packageType, item2.resourceType), out int combinationId))
-            // {
-            //     return _itemCombinations.itemDataList.Find(item => item.id == combinationId);
-            // }
-
-            // 없을 때
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i].SetType();
+            }
+            
+            bool isAcceptCombination = items.All(item => item.protocolType == items[0].protocolType);
+            
+            if (items.Length == 3 && isAcceptCombination)
+            {
+                return _itemCombinations.FindItem(items[0].protocolType);
+            }
+            
             return null;
         }
-
     }
 }

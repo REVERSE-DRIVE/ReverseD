@@ -15,12 +15,13 @@ namespace ItemManage
         public Sprite icon;
         public ItemType itemType;
         public PackageType packageType;
-        [FormerlySerializedAs("dataChipType")] public ResourceType resourceType;
+        public ResourceType resourceType;
+        public ProtocolType protocolType;
         public float mass;
 
         /**
          * <summary>
-         * ItemData에 따라 DataPack인지 DataChip인지 판별하여 설정
+         * ItemData에 따라 Type을 설정
          * </summary>
          */
         public void SetType()
@@ -28,10 +29,17 @@ namespace ItemManage
             if (itemType == ItemType.Package)
             {
                 resourceType = ResourceType.Null;
+                protocolType = ProtocolType.Null;
             }
-            else
+            else if (itemType == ItemType.Resource)
             {
                 packageType = PackageType.Null;
+                protocolType = ProtocolType.Null;
+            }
+            else if (itemType == ItemType.Protocol)
+            {
+                packageType = PackageType.Null;
+                resourceType = ResourceType.Null;
             }
         }
     }
