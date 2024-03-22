@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - LoadGround
   - Map
-  - 
-  - 
+  - Wall
+  - InteractionObject
   - 
   - 
   - 

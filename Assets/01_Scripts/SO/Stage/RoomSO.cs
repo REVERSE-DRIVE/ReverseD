@@ -4,7 +4,13 @@ using UnityEngine;
 
 namespace RoomManage
 {
-
+    public enum PathDirection
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
     public enum RoomType
     {
         Start,
@@ -14,27 +20,6 @@ namespace RoomManage
         End
     }
 
-    public enum PathType
-    {
-        Horizontal,
-        Vertical
-    }
-
-    public enum PathDirection
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-
-    [System.Serializable]
-    public struct Path
-    {
-        public Transform pathTrm;
-        public PathType pathType;
-        public PathDirection pathDirection;
-    }
 
     [CreateAssetMenu(menuName = "SO/Stage/Room")]
     [System.Serializable]
@@ -42,7 +27,7 @@ namespace RoomManage
     {
         public RoomType roomType;
         public GameObject mapPrefab;
-        public float generateRate = 1f;
+        public float roomSpawnRate = 1f;
         
     }
 
