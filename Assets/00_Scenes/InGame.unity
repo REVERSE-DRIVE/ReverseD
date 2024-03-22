@@ -6061,7 +6061,9 @@ GameObject:
   m_Component:
   - component: {fileID: 957662127}
   - component: {fileID: 957662126}
+  - component: {fileID: 957662130}
   - component: {fileID: 957662128}
+  - component: {fileID: 957662129}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -6111,7 +6113,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6792453, g: 0.073050864, b: 0.073050864, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6158,6 +6160,49 @@ MonoBehaviour:
     mass: 0
     isHealDefense: 0
     healthDefMultiple: 0
+--- !u!114 &957662129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957662125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdab95cac83415e8171b6e3928ccb96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetingObject: 00000000
+  _isStatic: 0
+  _currentState: 0
+  _radius: 5
+--- !u!50 &957662130
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957662125}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &958204059
 GameObject:
   m_ObjectHideFlags: 0

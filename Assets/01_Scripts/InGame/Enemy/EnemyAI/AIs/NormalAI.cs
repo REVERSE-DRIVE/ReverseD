@@ -8,7 +8,7 @@ namespace EnemyManage.AIs
     public class NormalAI : EnemyAI
     {
         [SerializeField] private float _radius = 5;
-        private Player _player;
+        private Transform _playerTrm;
         private bool isRoaming = false;
         private bool isAttacking = false;
         private bool isStun = false;
@@ -16,9 +16,14 @@ namespace EnemyManage.AIs
         protected override void Awake()
         {
             base.Awake();
-            _player = FindObjectOfType<Player>();
+            
         }
-        
+
+        private void Start()
+        {
+            _playerTrm = GameManager.Instance._PlayerTransform;
+        }
+
         protected override void Move()
         {
             if (_isStatic)
@@ -122,9 +127,9 @@ namespace EnemyManage.AIs
         #region Attacking
         private void Attack()
         {
-            Vector3 direction = (_player.transform.position - transform.position).normalized;
+            Vector3 direction = (_playerTrm.position - transform.position).normalized;
             
-            if (Vector3.Distance(_player.transform.position, transform.position) < 1f)
+            if (Vector3.Distance(_playerTrm.position, transform.position) < 1f)
             {
                 _rigid.velocity = Vector2.zero;
                 StartCoroutine(nameof(AttackCoroutine));
@@ -135,7 +140,7 @@ namespace EnemyManage.AIs
                 isAttacking = false;
                 _rigid.velocity = direction * (5f * TimeManager.TimeScale);
             }
-            if (Vector3.Distance(_player.transform.position, transform.position) > _radius)
+            if (Vector3.Distance(_playerTrm.position, transform.position) > _radius)
             {
                 _currentState = EnemyStateEnum.Roaming;
             }

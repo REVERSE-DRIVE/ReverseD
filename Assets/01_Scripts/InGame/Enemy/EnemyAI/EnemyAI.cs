@@ -9,6 +9,7 @@ namespace EnemyManage
     public abstract class EnemyAI : MonoBehaviour
     {
         [SerializeField]
+        [Tooltip("공격 대상과 우선순위를 나타냄")]
         protected EnemyTargetingTaget[] _targetingObject;
 
         [SerializeField] protected bool _isStatic;
@@ -31,6 +32,7 @@ namespace EnemyManage
 
         protected virtual void DetectPlayer()
         {
+            
         }
 
         protected virtual void Move()
