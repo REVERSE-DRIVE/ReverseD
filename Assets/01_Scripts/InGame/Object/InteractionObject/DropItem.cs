@@ -4,9 +4,18 @@ using ItemManage;
 
 public class DropItem : InteractionObject
 {
-    [SerializeField] private Item dropItem;
+    [SerializeField] private Item _dropItem;
+    
     
     private SpriteRenderer _spriteRenderer;
+
+    
+    
+    private void OnEnable()
+    {
+        
+        
+    }
 
     public override void Interact()
     {

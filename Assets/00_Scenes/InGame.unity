@@ -6066,7 +6066,7 @@ GameObject:
   - component: {fileID: 957662129}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6175,7 +6175,8 @@ MonoBehaviour:
   _targetingObject: 00000000
   _isStatic: 0
   _currentState: 0
-  _radius: 5
+  followDistance: 0
+  _playerDetectDistance: 0
 --- !u!50 &957662130
 Rigidbody2D:
   serializedVersion: 4
@@ -12542,8 +12543,8 @@ SceneRoots:
   - {fileID: 1018419542}
   - {fileID: 2113758140}
   - {fileID: 268927430}
-  - {fileID: 957662127}
   - {fileID: 1825803314}
   - {fileID: 692855752}
   - {fileID: 319069363}
   - {fileID: 743148139}
+  - {fileID: 957662127}

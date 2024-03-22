@@ -7,11 +7,16 @@ namespace EnemyManage.AIs
 {
     public class NormalAI : EnemyAI
     {
-        [SerializeField] private float _radius = 5;
         private Transform _playerTrm;
         private bool isRoaming = false;
         private bool isAttacking = false;
         private bool isStun = false;
+
+        [Header("Setting Values")] [SerializeField]
+        private float followDistance = 5;
+
+        private long a = 0;
+        [SerializeField] private float _playerDetectDistance = 10;
 
         protected override void Awake()
         {
@@ -112,7 +117,7 @@ namespace EnemyManage.AIs
 
         protected override void DetectPlayer()
         {
-            RaycastHit2D ray = Physics2D.CircleCast(transform.position, _radius, Vector2.zero, 0);
+            RaycastHit2D ray = Physics2D.CircleCast(transform.position, _playerDetectDistance, Vector2.zero, 0);
             if (ray.collider != null)
             {
                 if (ray.collider.CompareTag("Player"))
@@ -129,7 +134,7 @@ namespace EnemyManage.AIs
         {
             Vector3 direction = (_playerTrm.position - transform.position).normalized;
             
-            if (Vector3.Distance(_playerTrm.position, transform.position) < 1f)
+            if (Vector3.Distance(_playerTrm.position, transform.position) < followDistance)
             {
                 _rigid.velocity = Vector2.zero;
                 StartCoroutine(nameof(AttackCoroutine));
@@ -140,7 +145,7 @@ namespace EnemyManage.AIs
                 isAttacking = false;
                 _rigid.velocity = direction * (5f * TimeManager.TimeScale);
             }
-            if (Vector3.Distance(_playerTrm.position, transform.position) > _radius)
+            if (Vector3.Distance(_playerTrm.position, transform.position) > _playerDetectDistance)
             {
                 _currentState = EnemyStateEnum.Roaming;
             }

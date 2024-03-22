@@ -82,4 +82,9 @@ public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
     {
         PlayerHealth -= damage;
     }
+
+    public void Die()
+    {
+        throw new NotImplementedException();
+    }
 }
