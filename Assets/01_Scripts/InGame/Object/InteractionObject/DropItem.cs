@@ -7,8 +7,11 @@ public class DropItem : InteractionObject
     [SerializeField] private Item _dropItem;
     private ItemData _itemData;
     
-    private SpriteRenderer _spriteRenderer;
-
+    /**
+     * <summary>
+     * 드롭 아이템 오브젝트의 아이템 설정
+     * </summary>
+     */
     public void SetItem(Item item, ItemData itemData)
     {
         _dropItem = item;
@@ -26,10 +29,10 @@ public class DropItem : InteractionObject
 
     public override void Interact()
     {
+
         
-        
-        
-        
+        Destroy();
+
     }
 
     private void Destroy()
