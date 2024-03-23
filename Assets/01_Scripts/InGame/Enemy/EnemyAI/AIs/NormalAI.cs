@@ -12,11 +12,12 @@ namespace EnemyManage.AIs
         private bool isAttacking = false;
         private bool isStun = false;
 
-        [Header("Setting Values")] [SerializeField]
+        [Header("Setting Values")] 
+        [SerializeField]
         private float followDistance = 5;
-
-        private long a = 0;
         [SerializeField] private float _playerDetectDistance = 10;
+        [SerializeField] private float RoamingDuration = 1.5f;
+        [SerializeField] private float RoamingCoolTime = 2;
 
         protected override void Awake()
         {
@@ -96,19 +97,25 @@ namespace EnemyManage.AIs
         #region Roaming
         private void Roaming()
         {
-            StartCoroutine(RoamingCoroutine());
+            if (!isRoaming)
+            {
+                StartCoroutine(RoamingCoroutine());
+                isRoaming = true;
+            }
         }
         
         private IEnumerator RoamingCoroutine()
         {
-            if (isRoaming) yield break;
-            if (isStun) yield break;
-            isRoaming = true;
+            if (isStun)
+            {
+                yield break;
+            }
+            
             while (true)
             {
                 DetectPlayer();
                 Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
-                _rigid.velocity = direction.normalized * (5f * TimeManager.TimeScale);
+                _rigid.velocity = direction.normalized * (_enemy.status.moveSpeed * TimeManager.TimeScale);
                 yield return new WaitForSeconds(0.5f);
                 _rigid.velocity = Vector2.zero;
                 yield return new WaitForSeconds(2f);
@@ -130,7 +137,7 @@ namespace EnemyManage.AIs
         #endregion
         
         #region Attacking
-        private void Attack()
+        protected override void Attack()
         {
             Vector3 direction = (_playerTrm.position - transform.position).normalized;
             
@@ -143,7 +150,7 @@ namespace EnemyManage.AIs
             {
                 StopCoroutine(nameof(AttackCoroutine));
                 isAttacking = false;
-                _rigid.velocity = direction * (5f * TimeManager.TimeScale);
+                _rigid.velocity = direction * (_enemy.status.moveSpeed * TimeManager.TimeScale);
             }
             if (Vector3.Distance(_playerTrm.position, transform.position) > _playerDetectDistance)
             {

@@ -14,5 +14,6 @@ namespace EnemyManage
         {
             PoolManager.Release(gameObject);
         }
+
     }
 }

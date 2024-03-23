@@ -46,5 +46,8 @@ namespace EnemyManage
         {
             _currentState = EnemyStateEnum.Roaming;
         }
+        
+        
+        protected abstract void Attack();
     }
 }
