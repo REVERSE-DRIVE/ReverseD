@@ -16,8 +16,9 @@ namespace EnemyManage.AIs
         [SerializeField]
         private float followDistance = 5;
         [SerializeField] private float _playerDetectDistance = 10;
-        [SerializeField] private float RoamingDuration = 1.5f;
-        [SerializeField] private float RoamingCoolTime = 2;
+        [SerializeField] private float _roamingDuration = 1.5f;
+        [SerializeField] private float _roamingCoolTime = 2;
+        [SerializeField] private float _stunDuration = 2;
 
         protected override void Awake()
         {
@@ -89,7 +90,7 @@ namespace EnemyManage.AIs
             if (isStun) yield break;
             isStun = true;
             _rigid.velocity = Vector2.zero;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(_stunDuration);
             _currentState = EnemyStateEnum.Waiting;
         }
         #endregion
@@ -116,9 +117,9 @@ namespace EnemyManage.AIs
                 DetectPlayer();
                 Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
                 _rigid.velocity = direction.normalized * (_enemy.status.moveSpeed * TimeManager.TimeScale);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(_roamingDuration);
                 _rigid.velocity = Vector2.zero;
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(_roamingCoolTime);
             }
         }
 
