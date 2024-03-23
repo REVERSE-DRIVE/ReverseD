@@ -10,10 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a75b5cb4d5d404c8ca4c3be0a1420bc, type: 3}
-  m_Name: wa 2
+  m_Name: EffacementData
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: df
-  description: fdd
-  icon: {fileID: 21300000, guid: 2a1f3cba20f3e11498474a705db12fde, type: 3}
-  itemType: 0
+  id: 5
+  itemRank: 0
+  itemName: EffacementData
+  description: 
+  icon: {fileID: 0}
+  itemType: 2
+  packageType: 0
+  resourceType: 0
+  protocolType: 6
+  isPiece: 0
+  mass: 0

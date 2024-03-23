@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: Item1
   m_EditorClassIdentifier: 
   id: 0
+  itemRank: 0
   itemName: "\uC0CC\uC988"
   description: "\uC640\uC0CC\uC988"
   icon: {fileID: 21300000, guid: 2a1f3cba20f3e11498474a705db12fde, type: 3}
-  itemType: 0
+  itemType: 2
+  packageType: 0
+  resourceType: 0
+  protocolType: 3
+  isPiece: 1
+  mass: 0

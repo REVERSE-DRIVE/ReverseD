@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a75b5cb4d5d404c8ca4c3be0a1420bc, type: 3}
-  m_Name: Item2
+  m_Name: MeltDown
   m_EditorClassIdentifier: 
-  id: 1
+  id: 4
   itemRank: 0
-  itemName: "\uC640"
-  description: "\uC774\uB7F0"
+  itemName: MeltDown
+  description: adsfg
   icon: {fileID: 21300000, guid: 2a1f3cba20f3e11498474a705db12fde, type: 3}
   itemType: 2
   packageType: 0
   resourceType: 0
-  protocolType: 3
-  isPiece: 1
+  protocolType: 5
+  isPiece: 0
   mass: 0
