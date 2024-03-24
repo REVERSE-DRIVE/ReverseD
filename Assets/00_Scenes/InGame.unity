@@ -6139,7 +6139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &957662126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6243,9 +6243,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdab95cac83415e8171b6e3928ccb96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetingObject: 00000000
   _isStatic: 0
   _currentState: 0
+  isRoaming: 0
+  isAttacking: 0
+  isStun: 0
+  _targetingObject: 00000000
+  _attackCoolTime: 1.5
   followDistance: 4
   _playerDetectDistance: 7
   _roamingDuration: 1.5

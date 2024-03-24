@@ -41,7 +41,6 @@ public class PlayerInteraction : MonoBehaviour
 
         if (isDetected && hit == null)
         {
-            print("감지되지 않음");
             targetObject.InteractionUnDetectEvent();
             //UnDetectInteraction();
 
@@ -52,7 +51,6 @@ public class PlayerInteraction : MonoBehaviour
         
         if (!isDetected && hit != null)
         {
-            print("감지됨");
             isDetected = true;
             targetObject = hit.GetComponent<InteractionObject>();
             targetObject.InteractionDetectEvent();
