@@ -24,11 +24,14 @@ namespace InGameScene
             
         }
         
-        public void RefreshAttackButton()
+        public void AttackButtonOn()
         {
-            attackButton.sprite = GameManager.Instance._PlayerTransform.GetComponent<PlayerInteraction>().IsDetected
-                ? attackButtonSprite[1]
-                : attackButtonSprite[0];
+            attackButton.sprite = attackButtonSprite[0];
+        }
+        
+        public void InteractionButtonOn()
+        {
+            attackButton.sprite = attackButtonSprite[1];
         }
     }
 }
