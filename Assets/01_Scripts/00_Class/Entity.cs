@@ -41,9 +41,18 @@ public abstract class Entity : MonoBehaviour, IDamageable
 
     }
 
+    public abstract void Die();
+
     public virtual int CalcDamage(int atk, int def)
     {
         return Mathf.Clamp(atk - def, 0, 999);
     }
 
+    protected bool IsDie
+    {
+        get
+        {
+            return status.hp <= 0;
+        }
+    }
 }
