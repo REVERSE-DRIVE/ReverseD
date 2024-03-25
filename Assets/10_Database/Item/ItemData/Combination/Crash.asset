@@ -17,9 +17,9 @@ MonoBehaviour:
   itemName: Crash
   description: 
   icon: {fileID: 0}
-  itemType: 0
+  itemType: 2
   packageType: 0
   resourceType: 0
-  protocolType: 0
+  protocolType: 7
   isPiece: 0
   mass: 0
