@@ -14,10 +14,11 @@ namespace EnemyManage.AIs
 
         protected override void Attack()
         {
-            
-            
-            
-            
+            Vector2 attackDirection = (_playerTrm.position - transform.position);
+
+            GameObject bullet = PoolManager.Get(_projectile);
+            //bullet. 
+
         }
     }
 }

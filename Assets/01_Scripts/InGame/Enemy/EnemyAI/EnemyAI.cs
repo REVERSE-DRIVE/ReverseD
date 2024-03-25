@@ -69,8 +69,8 @@ namespace EnemyManage
                     Roaming();
                     break;
                 case EnemyStateEnum.Attack:
-                    isRoaming = false;
-                    Attack();
+                    isRoaming = false; 
+                    ChasePlayer();
                     break;
                 case EnemyStateEnum.Stun:
                     Stun();
