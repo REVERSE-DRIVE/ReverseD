@@ -112,7 +112,7 @@ MonoBehaviour:
   _projectileType: 0
   _damage: 5
   _speed: 4.5
-  _projectileTarget: 0
+  _projectileTarget: 1
   isShot: 0
 --- !u!1 &882188044481266046
 GameObject:
@@ -184,8 +184,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1738443889
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 690dfab155de355469a3768857b1fa97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

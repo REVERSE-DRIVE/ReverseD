@@ -26,9 +26,10 @@ public abstract class Projectile : MonoBehaviour
     public virtual void Fire(Vector2 direction)
     {
         SetDefault();
+        
+        _direction = direction;
         isShot = true;
         Move();
-        //StartCoroutine(MoveRoutine());
     }
 
     protected virtual void Move()
@@ -65,6 +66,7 @@ public abstract class Projectile : MonoBehaviour
                 if (other.CompareTag("Player"))
                 {
                     other.GetComponent<Player>().TakeDamage(_damage);
+                    PoolManager.Release(gameObject);
                 }
                 break;
             
