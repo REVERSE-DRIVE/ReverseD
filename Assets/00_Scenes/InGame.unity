@@ -6132,7 +6132,7 @@ GameObject:
   - component: {fileID: 957662130}
   - component: {fileID: 957662131}
   - component: {fileID: 957662128}
-  - component: {fileID: 957662129}
+  - component: {fileID: 957662132}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -6231,30 +6231,6 @@ MonoBehaviour:
     isHealDefense: 0
     healthDefMultiple: 0
   ItemDropType: 0
---- !u!114 &957662129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957662125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fdab95cac83415e8171b6e3928ccb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isStatic: 0
-  _currentState: 0
-  isRoaming: 0
-  isAttacking: 0
-  isStun: 0
-  _targetingObject: 00000000
-  _attackCoolTime: 1.5
-  followDistance: 4
-  _playerDetectDistance: 7
-  _roamingDuration: 1.5
-  _roamingCoolTime: 2
-  _stunDuration: 2
 --- !u!50 &957662130
 Rigidbody2D:
   serializedVersion: 4
@@ -6317,6 +6293,32 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &957662132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957662125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7ca298e395bc344a726c3a61c5c7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isStatic: 0
+  _currentState: 0
+  isRoaming: 0
+  isAttacking: 0
+  isStun: 0
+  _targetingObject: 
+  _attackCoolTime: 1.5
+  followDistance: 5
+  _playerDetectDistance: 10
+  _roamingDuration: 1.5
+  _roamingCoolTime: 2
+  _stunDuration: 2
+  _attackCycleSpeed: 3
+  _projectile: {fileID: 2965748166597516849, guid: 31b3a93305d329e4faf76355158f1df6, type: 3}
 --- !u!1 &958204059
 GameObject:
   m_ObjectHideFlags: 0
@@ -11617,6 +11619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77917f4de7b14e48b6473cacc3a3a4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
 --- !u!114 &1034524394
 MonoBehaviour:
   m_ObjectHideFlags: 0
