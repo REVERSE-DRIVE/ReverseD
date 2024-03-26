@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private Status status;
     
     public Status Status { get; set; }
+    public bool isDead;
     
     private void Awake()
     {
@@ -36,5 +37,24 @@ public class Player : MonoBehaviour
         status.hp = PlayerManager.Instance.PlayerHealth;
         status.attackDamage = PlayerManager.Instance.AttackRange;
         status.moveSpeed = PlayerManager.Instance.Speed;
+    }
+
+    private void ModifyStatus()
+    {
+        
+    }
+
+    public void TakeDamage(int damage)
+    {
+        status.hp -= damage;
+    }
+
+    private void IsDie()
+    {
+        if (status.hp <= 0)
+        {
+            isDead = true;
+            // 게임 오버 실행
+        }
     }
 }
