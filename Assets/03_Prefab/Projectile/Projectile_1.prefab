@@ -112,7 +112,9 @@ MonoBehaviour:
   _projectileType: 0
   _damage: 5
   _speed: 4.5
+  lifeTime: 3
   _projectileTarget: 1
+  _destroyParticlePrefab: {fileID: 1078761177020570521, guid: 9f96167c35e3248439e7b375e6c28ac0, type: 3}
   isShot: 0
 --- !u!1 &882188044481266046
 GameObject:

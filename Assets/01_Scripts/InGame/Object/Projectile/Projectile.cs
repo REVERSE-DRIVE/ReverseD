@@ -8,9 +8,12 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected ProjectileType _projectileType;
     [SerializeField] protected int _damage;
     [SerializeField] protected float _speed;
+    [SerializeField] protected float lifeTime = 3f;
     [SerializeField] protected ProjectileTarget _projectileTarget;
-
+    [SerializeField] private GameObject _destroyParticlePrefab;
+    
     protected Vector2 _direction;
+    protected float _currentLifeTime = 0;
 
     [Header("State Values")]
     [SerializeField] protected bool isShot;
@@ -20,6 +23,16 @@ public abstract class Projectile : MonoBehaviour
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        _currentLifeTime += Time.deltaTime;
+
+        if (_currentLifeTime >= lifeTime)
+        {
+            DestroyProjectile();
+        }
     }
 
 
@@ -43,40 +56,50 @@ public abstract class Projectile : MonoBehaviour
         transform.right = _direction.normalized;
     }
 
-    // protected IEnumerator MoveRoutine()
-    // {
-    //     while (isShot)
-    //     {
-    //         
-    //     }
-    // }
 
     public virtual void SetDefault()
     {
         gameObject.SetActive(true);
+        isShot = false;
+        _currentLifeTime = 0;
         _rigid.velocity = Vector2.zero;
         _direction = Vector2.zero;
     }
 
     protected void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Wall"))
+        {   
+            DestroyProjectile();
+        }
         switch (_projectileTarget)
         {
             case ProjectileTarget.Player:
                 if (other.CompareTag("Player"))
                 {
+                    
                     other.GetComponent<Player>().TakeDamage(_damage);
-                    PoolManager.Release(gameObject);
+                    DestroyProjectile();
                 }
                 break;
             
             case ProjectileTarget.Enemy:
 
+                if (other.CompareTag("Enemy"))
+                {
+                    
+                    DestroyProjectile();
+                }
                 break;
             
-            default:
-                Debug.Log($"[!] Projectile Target Missing (at {gameObject.name})");
-                break;
         }
+    }
+
+    protected virtual void DestroyProjectile()
+    {
+        PoolManager.Get(_destroyParticlePrefab, transform.position, Quaternion.identity);
+        
+        PoolManager.Release(gameObject);
+
     }
 }
