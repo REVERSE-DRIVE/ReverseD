@@ -1,16 +1,18 @@
 ﻿using System;
-using entityManage;
+using EntityManage;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(PlayerAttack))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    private Status status;
-    
-    public Status Status { get; set; }
+    public Status Status
+    {
+        get { return status; }
+        private set { }
+    }
     public bool isDead;
     
     private void Awake()
@@ -56,5 +58,10 @@ public class Player : MonoBehaviour
             isDead = true;
             // 게임 오버 실행
         }
+    }
+
+    public override void Die()
+    {
+        throw new NotImplementedException();
     }
 }

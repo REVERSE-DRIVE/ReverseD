@@ -1,4 +1,4 @@
-﻿using entityManage;
+﻿using EntityManage;
 using TMPro;
 using UnityEngine;
 

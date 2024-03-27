@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using EnemyManage;
-using entityManage;
+using EntityManage;
 using UnityEngine;
 
 namespace EnemyManage
@@ -28,7 +28,7 @@ namespace EnemyManage
         {
             Status status = _player.Status;
             status.hp -= 1;
-            _player.Status = status;
+            _player.status = status;
         }
         
     }

@@ -1,4 +1,4 @@
-﻿namespace entityManage
+﻿namespace EntityManage
 {
     [System.Serializable]
     public struct Status

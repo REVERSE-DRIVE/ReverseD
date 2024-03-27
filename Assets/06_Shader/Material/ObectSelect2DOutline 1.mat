@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ObectSelect2DOutline
+  m_Name: ObectSelect2DOutline 1
   m_Shader: {fileID: -6465566751694194690, guid: 5e2e1ee4348e876429069400d2c5a085, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -58,6 +58,6 @@ Material:
     - _isOutline: 1
     - _outline_thickness: 2
     m_Colors:
-    - _blink_color: {r: 16, g: 16, b: 16, a: 1}
+    - _blink_color: {r: 766.99615, g: 0, b: 0, a: 1}
     - _outline_color: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

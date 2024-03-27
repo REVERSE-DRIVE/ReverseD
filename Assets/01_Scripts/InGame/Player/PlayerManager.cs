@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using entityManage;
+using EntityManage;
 using UnityEngine;
 
 public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
@@ -73,12 +73,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
         playerSprite = playerSO.playerSprite;
     }
 
-    public void Damaged(int damage)
+    public void TakeDamage(int damage)
     {
         PlayerHealth -= damage;
     }
 
-    public void CriticalDamaged(int damage)
+    public void TakeCriticalDamage(int damage)
     {
         PlayerHealth -= damage;
     }

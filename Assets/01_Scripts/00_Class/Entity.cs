@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using entityManage;
+using EntityManage;
 
 public abstract class Entity : MonoBehaviour, IDamageable
 {
     public Status status;
 
+    
+    public bool IsDie
+    {
+        get
+        {
+            return status.hp <= 0;
+        }
+    }
 
     public virtual void Damage(int damage)
     {
@@ -14,15 +22,15 @@ public abstract class Entity : MonoBehaviour, IDamageable
         if (Random.Range(0, 99) < status.criticalRate)
         {
             // 크리
-            CriticalDamaged(_damage);
+            TakeCriticalDamage(_damage);
         }
         else
         {
             // 노크리
-            Damaged(_damage);
+            TakeDamage(_damage);
         }
     }
-    public virtual void Damaged(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (status.isHealDefense)
         {
@@ -35,7 +43,7 @@ public abstract class Entity : MonoBehaviour, IDamageable
         
     }
 
-    public virtual void CriticalDamaged(int damage)
+    public virtual void TakeCriticalDamage(int damage)
     {
         status.hp -= CalcDamage((int)(damage * 1.5f), status.defense);
 
@@ -48,11 +56,4 @@ public abstract class Entity : MonoBehaviour, IDamageable
         return Mathf.Clamp(atk - def, 0, 999);
     }
 
-    protected bool IsDie
-    {
-        get
-        {
-            return status.hp <= 0;
-        }
-    }
 }
