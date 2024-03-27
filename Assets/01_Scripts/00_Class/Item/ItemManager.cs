@@ -35,11 +35,11 @@ namespace ItemManage
                 _items.itemDataList[1],
                 _items.itemDataList[2],
             };
-            SetItemData(itemDatas.First());
+            SetItemData(ItemCombination(itemDatas.ToArray()));
 
             Debug.Log("Item Name: " + _itemName);
-            Debug.Log("Description: " + _description);
-            Debug.Log("Icon: " + _icon.name);
+            // Debug.Log("Description: " + _description);
+            // Debug.Log("Icon: " + _icon.name);
         }
 
         /**
@@ -49,19 +49,8 @@ namespace ItemManage
          */
         public ItemData ItemCombination(ItemData[] items)
         {
-            for (int i = 0; i < items.Length; i++)
-            {
-                items[i].SetType();
-            }
-            
-            bool isAcceptCombination = items.All(item => item.protocolType == items[0].protocolType);
-            
-            if (items.Length == 3 && isAcceptCombination)
-            {
-                return _itemCombinations.FindItem(items[0].protocolType);
-            }
-            
-            return null;
+            return _itemCombinations.IsAcceptCombination(items, items[0].protocolType) 
+                ? _itemCombinations.FindItem(items[0].protocolType) : null;
         }
     }
 }

@@ -36,6 +36,7 @@ public class Player : Entity
      */
     public void UpdateStatus()
     {
+        PlayerManager.Instance.UpdateStat();
         status.hp = PlayerManager.Instance.PlayerHealth;
         status.attackDamage = PlayerManager.Instance.AttackRange;
         status.moveSpeed = PlayerManager.Instance.Speed;

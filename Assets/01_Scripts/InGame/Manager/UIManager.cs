@@ -9,6 +9,9 @@ namespace InGameScene
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private Image hp_gauge;
+        [SerializeField] private Image attackButton;
+        
+        [SerializeField] private Sprite[] attackButtonSprite;
 
         public void RefreshHpGauge()
         {
@@ -19,6 +22,16 @@ namespace InGameScene
         public void RefreshUIs()
         {
             
+        }
+        
+        public void AttackButtonOn()
+        {
+            attackButton.sprite = attackButtonSprite[0];
+        }
+        
+        public void InteractionButtonOn()
+        {
+            attackButton.sprite = attackButtonSprite[1];
         }
     }
 }

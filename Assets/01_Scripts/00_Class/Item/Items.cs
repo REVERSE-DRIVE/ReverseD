@@ -49,5 +49,34 @@ namespace ItemManage
             Debug.Log("<color='red'>[FindItem] 찾을 수 없는 프로토콜 타입입니다 (protocolType :"+protocolType+")</color>");
             return null;
         }
+        
+        /**
+         * <param name="items">
+         * 아이템 데이터 배열
+         * </param>
+         * <param name="protocolType">
+         * 프로토콜 타입
+         * </param>
+         * <summary>
+         * 아이템 데이터 배열이 프로토콜 타입에 맞는지 확인
+         * </summary>
+         */
+        public bool IsAcceptCombination(ItemData[] items, ProtocolType protocolType)
+        {
+            if (items.Length != 3) return false;
+            int count = 0;
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].protocolType == protocolType && items[i].isPiece)
+                {
+                    count++;
+                }
+            }
+            if (count == 3)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
