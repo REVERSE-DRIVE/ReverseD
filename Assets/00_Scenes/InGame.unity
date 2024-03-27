@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268927430}
   - component: {fileID: 268927429}
+  - component: {fileID: 268927434}
   - component: {fileID: 268927432}
   - component: {fileID: 268927428}
   - component: {fileID: 268927433}
@@ -271,7 +272,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &268927433
 MonoBehaviour:
@@ -295,6 +296,33 @@ MonoBehaviour:
   _damageVelocity: 1.5
   velocity: 0
   canDamage: 0
+--- !u!50 &268927434
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268927427}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &269945940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,6 +6142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1715ec27534b15646aeafe7a6f41ab6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
+  _buttonImage: {fileID: 0}
+  _attackButtonSprite: {fileID: 0}
+  _InteractionButtonSprite: {fileID: 0}
 --- !u!1 &857554326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,16 +6543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6ddd1d73989c24bad7a6e5260b0fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status:
-    hp: 7
-    attackDamage: 0
-    criticalRate: 0
-    defense: 0
-    criticalDefense: 0
-    moveSpeed: 5
-    mass: 0
-    isHealDefense: 0
-    healthDefMultiple: 0
   ItemDropType: 0
 --- !u!50 &957662130
 Rigidbody2D:
@@ -11910,16 +11932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77917f4de7b14e48b6473cacc3a3a4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status:
-    hp: 0
-    attackDamage: 0
-    criticalRate: 0
-    defense: 0
-    criticalDefense: 0
-    moveSpeed: 0
-    mass: 0
-    isHealDefense: 0
-    healthDefMultiple: 0
   isDead: 0
 --- !u!114 &1034524394
 MonoBehaviour:
@@ -11938,6 +11950,9 @@ MonoBehaviour:
     m_Bits: 1024
   interactRange: 1.5
   isDetected: 0
+  _interactionController: {fileID: 769933872}
+  _attackButtonSprite: {fileID: 21300000, guid: fd374b0d45b35924b96d5922d7e38e70, type: 3}
+  _InteractionButtonSprite: {fileID: 21300000, guid: 32b29330bba80c646b8d36c3f19c59bb, type: 3}
 --- !u!1 &1172790535
 GameObject:
   m_ObjectHideFlags: 0
@@ -12097,9 +12112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp_gauge: {fileID: 857554328}
   attackButton: {fileID: 769933874}
-  attackButtonSprite:
-  - {fileID: 21300000, guid: fd374b0d45b35924b96d5922d7e38e70, type: 3}
-  - {fileID: 21300000, guid: 32b29330bba80c646b8d36c3f19c59bb, type: 3}
 --- !u!4 &1292344168
 Transform:
   m_ObjectHideFlags: 0

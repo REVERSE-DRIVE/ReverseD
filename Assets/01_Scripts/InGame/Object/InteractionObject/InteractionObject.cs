@@ -16,7 +16,7 @@ public abstract class InteractionObject : MonoBehaviour
     [Header("State Info")]
     public bool canInteraction = true;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _defaultMaterial = _spriteRenderer.material;

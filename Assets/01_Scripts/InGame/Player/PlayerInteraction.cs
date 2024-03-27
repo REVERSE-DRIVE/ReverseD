@@ -39,10 +39,8 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-        interactionDetectEvent += InteractionButtonOn;
-        interactionUnDetectEvent += AttackButtonOn;
-        
-        _button = GetComponent<Button>();
+        _button = _interactionController.GetComponent<Button>();
+        _buttonImage = _interactionController.GetComponent<Image>();
         _button.onClick.AddListener(Interact);
 
     }
@@ -63,9 +61,15 @@ public class PlayerInteraction : MonoBehaviour
 
         if (isDetected && hit == null)
         {
-            targetObject.InteractionUnDetectEvent();
-            AttackButtonOn();
+            SwitchButtonToAttack(); // 컨트롤러 버튼 공격으로 전환
+            
             UnDetectInteraction();
+
+            targetObject.InteractionDetectEvent();
+            // interactionDetectEvent -= targetObject.InteractionDetectEvent;
+            interactionEvent -= targetObject.Interact;
+            // interactionUnDetectEvent -= targetObject.InteractionUnDetectEvent;
+
 
             isDetected = false;
             targetObject = null;
@@ -74,12 +78,20 @@ public class PlayerInteraction : MonoBehaviour
         
         if (!isDetected && hit != null)
         {
+            SwitchButtonToInteract(); // 컨트롤러 버튼 상호작용으로 전환
+            
             isDetected = true;
             targetObject = hit.GetComponent<InteractionObject>();
-            targetObject.InteractionDetectEvent();
-            InteractionButtonOn();
-            //DetectInteraction();
-            interactionEvent = targetObject.Interact;
+            
+            // interactionDetectEvent += targetObject.InteractionDetectEvent;
+            interactionEvent += targetObject.Interact;
+            // interactionUnDetectEvent += targetObject.InteractionUnDetectEvent;
+
+            targetObject.InteractionUnDetectEvent();
+            
+            DetectInteraction();
+            
+
         }
 
 
@@ -93,9 +105,13 @@ public class PlayerInteraction : MonoBehaviour
     public void UnDetectInteraction()
     {
         interactionUnDetectEvent?.Invoke();
-        interactionUnDetectEvent = null;
     }
 
+    /**
+     * <summary>
+     * 상호작용 버튼을 누르면 실행되는 함수
+     * </summary>
+     */
     public void Interact()
     {
         interactionEvent?.Invoke();
@@ -103,12 +119,12 @@ public class PlayerInteraction : MonoBehaviour
     }
     
     
-    public void AttackButtonOn()
+    public void SwitchButtonToAttack()
     {
         _buttonImage.sprite = _attackButtonSprite;
     }
         
-    public void InteractionButtonOn()
+    public void SwitchButtonToInteract()
     {
         _buttonImage.sprite = _InteractionButtonSprite;
     }

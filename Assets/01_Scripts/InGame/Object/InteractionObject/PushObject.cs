@@ -15,6 +15,14 @@ public class PushObject : InteractionObject
     private float velocity = 0;
 
     [SerializeField] private bool canDamage;
+
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _rigid = GetComponent<Rigidbody2D>();
+    }
+    
     public override void Interact()
     {
         if (!isActive)
