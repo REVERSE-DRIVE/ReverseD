@@ -8,7 +8,7 @@ public class PushObject : InteractionObject
 
     private Rigidbody2D _rigid;
     [SerializeField] private float _pushPower = 10;
-    [SerializeField] private float _damage = 5;
+    [SerializeField] private int _damage = 5;
     [SerializeField] private float _damageVelocity = 1.5f;
 
     [SerializeField]
@@ -17,9 +17,10 @@ public class PushObject : InteractionObject
     [SerializeField] private bool canDamage;
     public override void Interact()
     {
-        
         if (!isActive)
         {
+            
+            
             Vector2 direction = transform.position - GameManager.Instance._PlayerTransform.position;
             StartCoroutine(PushRoutine(direction));
 
@@ -30,22 +31,33 @@ public class PushObject : InteractionObject
 
     private IEnumerator PushRoutine(Vector2 direction)
     {
-        canDamage = true;
+        SetObjectActive(true);
         _rigid.AddForce(direction * _pushPower, ForceMode2D.Impulse);
         while (_rigid.velocity.sqrMagnitude > 0.5f)
         {
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
         }
-        
-        
+
+        SetObjectActive(false);
+
+    }
+
+    private void SetObjectActive(bool value)
+    {
+        isActive = value;
+        canDamage = value;
+        canDamage = value;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (isActive && canDamage)
         {
-            // 충돌체에 대미지 주기
-            
+            Entity entity = other.transform.GetComponent<Entity>();
+            if (entity)
+            {
+                entity.TakeDamage(_damage);
+            }
         }
     }
 }
