@@ -17,14 +17,10 @@ namespace ItemManage
         public PackageType packageType;
         public ResourceType resourceType;
         public ProtocolType protocolType;
+        public bool isPiece;
         public float mass;
-
-        /**
-         * <summary>
-         * ItemData에 따라 Type을 설정
-         * </summary>
-         */
-        public void SetType()
+        
+        public void OnEnable()
         {
             if (itemType == ItemType.Package)
             {

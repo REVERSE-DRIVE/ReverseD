@@ -1,4 +1,5 @@
 ﻿using System;
+using InGameScene;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -42,6 +43,7 @@ public class PlayerInteraction : MonoBehaviour
         if (isDetected && hit == null)
         {
             targetObject.InteractionUnDetectEvent();
+            GameManager.Instance._UIManager.AttackButtonOn();
             //UnDetectInteraction();
 
             isDetected = false;
@@ -54,6 +56,7 @@ public class PlayerInteraction : MonoBehaviour
             isDetected = true;
             targetObject = hit.GetComponent<InteractionObject>();
             targetObject.InteractionDetectEvent();
+            GameManager.Instance._UIManager.InteractionButtonOn();
             //DetectInteraction();
             interactionEvent = targetObject.Interact;
         }

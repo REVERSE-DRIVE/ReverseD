@@ -9,7 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3de358618f3c194e965c54cc127fd2a, type: 3}
-  m_Name: Items
+  m_Script: {fileID: 11500000, guid: 2a75b5cb4d5d404c8ca4c3be0a1420bc, type: 3}
+  m_Name: Petya
   m_EditorClassIdentifier: 
-  itemDataList: []
+  id: 7
+  itemRank: 0
+  itemName: Petya
+  description: 
+  icon: {fileID: 0}
+  itemType: 2
+  packageType: 0
+  resourceType: 0
+  protocolType: 8
+  isPiece: 0
+  mass: 0
