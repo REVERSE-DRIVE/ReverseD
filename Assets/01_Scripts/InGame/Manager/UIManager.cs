@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using EntityManage;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +12,17 @@ namespace InGameScene
     {
         [SerializeField] private Image hp_gauge;
         [SerializeField] private Image attackButton;
-        
-        [SerializeField] private Sprite[] attackButtonSprite;
+
+        private void Start()
+        {
+            Player.OnPlayerHpChanged += RefreshHpGauge;
+        }
 
         public void RefreshHpGauge()
         {
-            //float t = GameManager.Instance._PlayerTransform.GetComponent<Player>().
-            //hp_gauge.fillAmount = Mathf.Clamp01();
+            Status playerStatus = GameManager.Instance._Player.Status;
+            float t = playerStatus.hp / playerStatus.HpMax;
+            hp_gauge.fillAmount = Mathf.Clamp01(t);
             
         }
         public void RefreshUIs()
@@ -24,14 +30,6 @@ namespace InGameScene
             
         }
         
-        public void AttackButtonOn()
-        {
-            attackButton.sprite = attackButtonSprite[0];
-        }
         
-        public void InteractionButtonOn()
-        {
-            attackButton.sprite = attackButtonSprite[1];
-        }
     }
 }

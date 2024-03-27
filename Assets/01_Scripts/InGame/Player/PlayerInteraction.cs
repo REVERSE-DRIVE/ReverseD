@@ -1,6 +1,7 @@
 ﻿using System;
 using InGameScene;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -8,11 +9,21 @@ public class PlayerInteraction : MonoBehaviour
     public event Action interactionDetectEvent;
     public event Action interactionUnDetectEvent;
     
+    [Header("Setting Values")]
     [SerializeField] private LayerMask interactionObjectLayerMask;
     [SerializeField] private float interactRange = 1.3f;
     [SerializeField] private bool isDetected;
 
+    [Header("Interaction Controller")] [SerializeField]
+    private Transform _interactionController;
+
+    private Button _button;
+    private Image _buttonImage;
     
+    [SerializeField] private Sprite _attackButtonSprite;
+    [SerializeField] private Sprite _InteractionButtonSprite;
+
+
     private InteractionObject targetObject;
 
     /**
@@ -24,6 +35,16 @@ public class PlayerInteraction : MonoBehaviour
     {
         get { return isDetected; }
         private set { }
+    }
+
+    private void Start()
+    {
+        interactionDetectEvent += InteractionButtonOn;
+        interactionUnDetectEvent += AttackButtonOn;
+        
+        _button = GetComponent<Button>();
+        _button.onClick.AddListener(Interact);
+
     }
 
     private void FixedUpdate()
@@ -43,8 +64,8 @@ public class PlayerInteraction : MonoBehaviour
         if (isDetected && hit == null)
         {
             targetObject.InteractionUnDetectEvent();
-            GameManager.Instance._UIManager.AttackButtonOn();
-            //UnDetectInteraction();
+            AttackButtonOn();
+            UnDetectInteraction();
 
             isDetected = false;
             targetObject = null;
@@ -56,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour
             isDetected = true;
             targetObject = hit.GetComponent<InteractionObject>();
             targetObject.InteractionDetectEvent();
-            GameManager.Instance._UIManager.InteractionButtonOn();
+            InteractionButtonOn();
             //DetectInteraction();
             interactionEvent = targetObject.Interact;
         }
@@ -79,5 +100,16 @@ public class PlayerInteraction : MonoBehaviour
     {
         interactionEvent?.Invoke();
         
+    }
+    
+    
+    public void AttackButtonOn()
+    {
+        _buttonImage.sprite = _attackButtonSprite;
+    }
+        
+    public void InteractionButtonOn()
+    {
+        _buttonImage.sprite = _InteractionButtonSprite;
     }
 }

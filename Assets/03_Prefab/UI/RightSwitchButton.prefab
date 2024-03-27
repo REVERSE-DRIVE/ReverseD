@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7603652654382761108}
   - component: {fileID: 5016452302071677604}
   m_Layer: 5
-  m_Name: AttackButton
+  m_Name: RightSwitchButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

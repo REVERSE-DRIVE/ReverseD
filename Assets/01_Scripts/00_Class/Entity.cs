@@ -5,7 +5,16 @@ using EntityManage;
 
 public abstract class Entity : MonoBehaviour, IDamageable
 {
-    public Status status;
+    protected Status status;
+
+    public Status Status
+    {
+        get
+        {
+            return status;
+        }
+        protected set { }
+    }
 
     
     public bool IsDie
@@ -50,6 +59,10 @@ public abstract class Entity : MonoBehaviour, IDamageable
     }
 
     public abstract void Die();
+    public virtual void RestoreHealth(int amount)
+    {
+        status.hp += amount;
+    }
 
     public virtual int CalcDamage(int atk, int def)
     {

@@ -10,5 +10,7 @@ namespace EntityManage
         public void TakeCriticalDamage(int damage);
 
         public void Die();
+
+        public void RestoreHealth(int amount);
     }
 }

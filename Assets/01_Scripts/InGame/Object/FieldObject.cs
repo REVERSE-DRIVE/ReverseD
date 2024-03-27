@@ -8,9 +8,8 @@ public class FieldObject : MonoBehaviour
     
     public int hp = 3;
     public int hpMax = 3;
-    
-    [SerializeField]
-    private GameObject 
+
+    [SerializeField] private GameObject _destroyParticle;
     
     
     

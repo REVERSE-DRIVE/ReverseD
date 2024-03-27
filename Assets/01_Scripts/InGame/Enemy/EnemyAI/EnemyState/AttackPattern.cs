@@ -28,7 +28,8 @@ namespace EnemyManage
         {
             Status status = _player.Status;
             status.hp -= 1;
-            _player.status = status;
+            // _player.Status = status;
+            // 뭔코드임 이거
         }
         
     }

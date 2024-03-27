@@ -8,12 +8,15 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public PlayerController _PlayerController { get; private set; }
+    public Player _Player { get; private set; }
     public Transform _PlayerTransform { get; private set; }
     public UIManager _UIManager { get; private set; }
 
     public RoomGenerator _RoomGenerator { get; private set; }
     public RenderingManager _RenderingManager { get; private set; }
 
+    
+    
     // =====
     /**
      * <summary>
@@ -30,12 +33,12 @@ public class GameManager : MonoSingleton<GameManager>
     private void Awake()
     {
         _PlayerController = FindObjectOfType<PlayerController>();
+        _Player = FindObjectOfType<Player>();
         _PlayerTransform = _PlayerController.transform;
         _UIManager = FindObjectOfType<UIManager>();
         _RoomGenerator = FindObjectOfType<RoomGenerator>();
         _RenderingManager = FindObjectOfType<RenderingManager>();
-        
-        
+
     }
 
     private void Start()

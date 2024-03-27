@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using EntityManage;
 using UnityEngine;
 
-public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
+public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private WeaponType weaponType;
@@ -73,18 +73,4 @@ public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
         playerSprite = playerSO.playerSprite;
     }
 
-    public void TakeDamage(int damage)
-    {
-        PlayerHealth -= damage;
-    }
-
-    public void TakeCriticalDamage(int damage)
-    {
-        PlayerHealth -= damage;
-    }
-
-    public void Die()
-    {
-        throw new NotImplementedException();
-    }
 }

@@ -14,6 +14,9 @@ public class Player : Entity
         private set { }
     }
     public bool isDead;
+    public static event Action OnPlayerHpChanged;
+    
+    
     
     private void Awake()
     {
@@ -51,6 +54,7 @@ public class Player : Entity
     {
         status.hp -= damage;
     }
+    
 
     private void IsDie()
     {
