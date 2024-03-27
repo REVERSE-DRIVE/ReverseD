@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using DG.Tweening;
 using UnityEngine;
@@ -11,15 +12,22 @@ public class StartSceneManager : MonoBehaviour
     [SerializeField] private Ease _ease;
     [SerializeField] private RectTransform _upTarget;
     [SerializeField] private RectTransform _downTarget;
-    
-    [Space(20)]
+
+    [Space(20)] 
+    [SerializeField] private UnityEvent _onStart;
     [SerializeField] private UnityEvent _realStartGameEvent;
     [SerializeField] private UnityEvent _startGameEvent;
     
     private readonly string _saveDataPath = EasyToJson.LocalPath;
     private PlayerStatus _playerStatus;
     private int count = 0;
-    
+
+
+    private void Start()
+    {
+        _onStart.Invoke();
+    }
+
     /**
      * <summary>
      * 게임 시작
