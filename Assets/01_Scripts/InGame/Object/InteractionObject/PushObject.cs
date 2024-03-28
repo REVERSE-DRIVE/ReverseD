@@ -14,7 +14,7 @@ public class PushObject : InteractionObject
     private float velocity = 0;
 
     [SerializeField] private bool canDamage;
-
+    private Vector2 previousDirection;
 
     protected override void Awake()
     {
@@ -53,6 +53,7 @@ public class PushObject : InteractionObject
         _rigid.AddForce(direction * _pushPower, ForceMode2D.Impulse);
         while (_rigid.velocity.sqrMagnitude > 0.5f)
         {
+            previousDirection = _rigid.velocity;
             yield return new WaitForSeconds(0.1f);
         }
 
@@ -71,7 +72,8 @@ public class PushObject : InteractionObject
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (isActive && canDamage)
+        print("OnCollision");
+        if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
             Entity entity = other.transform.GetComponent<Entity>();
             if (entity)
@@ -81,14 +83,14 @@ public class PushObject : InteractionObject
             
         }
 
-        if (CompareTag("Wall"))
+        if (other.transform.CompareTag("Wall"))
         {
             print("벽과 충돌함");
-            Vector2 dir = RayManager.Reflect(transform.position, _rigid.velocity.normalized, 10, LayerMask.GetMask("Wall"));
+            Vector2 dir = RayManager.Reflect(transform.position, previousDirection.normalized, 10, LayerMask.GetMask("Wall"));
 
-            Vector2 velocity = _rigid.velocity;
-            _rigid.velocity = Vector2.zero;
-            _rigid.AddForce(dir * (velocity.sqrMagnitude * 0.6f), ForceMode2D.Impulse);
+            _rigid.bodyType = RigidbodyType2D.Dynamic;
+            _rigid.AddForce(dir.normalized * (previousDirection * 0.6f), ForceMode2D.Impulse);
+            SetObjectActive(true);
         }
     }
 
