@@ -29,7 +29,7 @@ public class Beam : MonoBehaviour
 
     private void Update()
     {
-        hit = RayManager.Ray(transform.position, direction);
+        hit = RayManager.Ray(transform.position, direction, rayShootDistance, wallLayerMask);
         onLaser = hit;
         _lineRenderer.enabled = hit;
         if (onLaser)
@@ -46,9 +46,9 @@ public class Beam : MonoBehaviour
     private void ShootLaser()
     {
         points[0] = transform.position;
-        points[1] = RayPoint(points[0], direction);
+        points[1] = RayManager.RayPoint(points[0], direction, rayShootDistance, wallLayerMask);
         Vector2 previousPoint = points[1];
-        Vector2 outDir = RayManager.Reflect(points[0], direction);
+        Vector2 outDir = RayManager.Reflect(points[0], direction, rayShootDistance, wallLayerMask);
         bool isDisconnected = false;
         for (int i = 2; i < points.Length; i++)
         {
@@ -57,11 +57,11 @@ public class Beam : MonoBehaviour
                 points[i] = previousPoint; 
             }
             
-            if (RayManager.Ray(previousPoint, outDir).collider != null)
+            if (RayManager.Ray(previousPoint, outDir, rayShootDistance, wallLayerMask).collider != null)
             {
-                points[i] = RayPoint(previousPoint, outDir);
+                points[i] = RayManager.RayPoint(previousPoint, outDir, rayShootDistance, wallLayerMask);
                 
-                outDir = RayManager.Reflect(previousPoint, outDir);
+                outDir = RayManager.Reflect(previousPoint, outDir, rayShootDistance, wallLayerMask);
                 previousPoint = points[i];
 
             }
@@ -85,16 +85,4 @@ public class Beam : MonoBehaviour
         }
     }
 
-    
-    public Vector2 RayPoint(Vector2 origin, Vector2 dir)
-    {
-        RaycastHit2D hit = RayManager.Ray(origin, dir);
-        // 레이 자체가 문제인듯
-        if (hit.collider != null)
-        {
-            return hit.point;
-        }
-        print("RayPoint ");
-        return Vector2.zero;
-    } 
 }

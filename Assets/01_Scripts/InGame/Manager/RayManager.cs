@@ -38,12 +38,106 @@ public class RayManager
 
         if (hit.collider != null)
         {
-            //print("반사됨 ");
             Vector2 incomingVector = dir;
             Vector2 normalVector = hit.normal;
             Vector2 reflectVector = Vector2.Reflect(incomingVector, normalVector);
             return reflectVector;
         }
         return dir;
+    } 
+    
+    
+    /**
+     * <summary>
+     * 반사 벡터를 반환한다
+     * </summary>
+     * <returns>
+     * 반사 벡터
+     * </returns>>
+     */
+    public static Vector2 Reflect(Vector2 origin, Vector2 dir, float distance)
+    {
+        RaycastHit2D hit = Ray(origin, dir, distance);
+
+        if (hit.collider != null)
+        {
+            Vector2 incomingVector = dir;
+            Vector2 normalVector = hit.normal;
+            Vector2 reflectVector = Vector2.Reflect(incomingVector, normalVector);
+            return reflectVector;
+        }
+        return dir;
+    } 
+    
+    
+    /**
+     * <summary>
+     * 반사 벡터를 반환한다
+     * </summary>
+     * <returns>
+     * 반사 벡터
+     * </returns>>
+     */
+    public static Vector2 Reflect(Vector2 origin, Vector2 dir, float distance, LayerMask layerMask)
+    {
+        RaycastHit2D hit = Ray(origin, dir, distance, layerMask);
+
+        if (hit.collider != null)
+        {
+            Vector2 incomingVector = dir;
+            Vector2 normalVector = hit.normal;
+            Vector2 reflectVector = Vector2.Reflect(incomingVector, normalVector);
+            return reflectVector;
+        }
+        return dir;
+    } 
+    
+    
+    /**
+     * <summary>
+     * 발사한 위치의 레이 접점을 반환한다
+     * </summary>
+     */
+    public static Vector2 RayPoint(Vector2 origin, Vector2 dir)
+    {
+        RaycastHit2D hit = Ray(origin, dir);
+        if (hit.collider != null)
+        {
+            return hit.point;
+        }
+        return Vector2.zero;
+    } 
+    
+    
+    /**
+     * <summary>
+     * 발사한 위치의 레이 접점을 반환한다
+     * </summary>
+     */
+    public static Vector2 RayPoint(Vector2 origin, Vector2 dir, float distance)
+    {
+        RaycastHit2D hit = Ray(origin, dir, distance);
+        if (hit.collider != null)
+        {
+            return hit.point;
+        }
+        return Vector2.zero;
+    } 
+    
+    
+    
+    /**
+     * <summary>
+     * 발사한 위치의 레이 접점을 반환한다
+     * </summary>
+     */
+    public static Vector2 RayPoint(Vector2 origin, Vector2 dir, float distance, LayerMask layerMask)
+    {
+        RaycastHit2D hit = Ray(origin, dir, distance, layerMask);
+        if (hit.collider != null)
+        {
+            return hit.point;
+        }
+        return Vector2.zero;
     } 
 }

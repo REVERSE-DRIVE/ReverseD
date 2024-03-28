@@ -65,7 +65,7 @@ public class PlayerInteraction : MonoBehaviour
             
             UnDetectInteraction();
 
-            targetObject.InteractionDetectEvent();
+            targetObject.InteractionUnDetectEvent();
             // interactionDetectEvent -= targetObject.InteractionDetectEvent;
             interactionEvent -= targetObject.Interact;
             // interactionUnDetectEvent -= targetObject.InteractionUnDetectEvent;
@@ -87,7 +87,7 @@ public class PlayerInteraction : MonoBehaviour
             interactionEvent += targetObject.Interact;
             // interactionUnDetectEvent += targetObject.InteractionUnDetectEvent;
 
-            targetObject.InteractionUnDetectEvent();
+            targetObject.InteractionDetectEvent();
             
             DetectInteraction();
             

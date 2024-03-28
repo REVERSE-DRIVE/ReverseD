@@ -1,16 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using EntityManage;
 using UnityEngine;
 
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private WeaponType weaponType;
-    [SerializeField] private int playerHealth;
-    [SerializeField] private int attackRange;
-    [SerializeField] private int speed;
     [SerializeField] private int arrange;
     [SerializeField] private int attackSpeed;
     [SerializeField] private int knockback;
@@ -18,18 +11,11 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     private Player _player;
 
-    public int PlayerHealth
-    {
-        get => _player.Status.hp;
-        set
-        {
-            playerHealth = value;
-            _player.UpdateStatus();
-        }
-    }
-    public int AttackRange => attackRange;
-    public int Speed => speed;
-    public int Arrange => arrange;
+    public int setting_hp => playerSO.playerHealth;
+    public int setting_moveSpeed => playerSO.moveSpeed;
+    public int setting_arrange => arrange;
+    public int setting_attackDamage => playerSO.attackDamage;
+    
     public int AttackSpeed => attackSpeed;
     public int Knockback => knockback;
     public Sprite PlayerSprite => playerSprite;
@@ -63,9 +49,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
      */
     public void UpdateStat()
     {
-        playerHealth = playerSO.playerHealth;
-        attackRange = playerSO.attackRange;
-        speed = playerSO.speed;
         arrange = playerSO.arrange;
         attackSpeed = playerSO.attackSpeed;
         knockback = playerSO.knockback;

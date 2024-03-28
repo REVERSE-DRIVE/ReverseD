@@ -40,9 +40,10 @@ public class Player : Entity
     public void UpdateStatus()
     {
         PlayerManager.Instance.UpdateStat();
-        status.hp = PlayerManager.Instance.PlayerHealth;
-        status.attackDamage = PlayerManager.Instance.AttackRange;
-        status.moveSpeed = PlayerManager.Instance.Speed;
+        
+        status.hp = PlayerManager.Instance.setting_hp;
+        status.attackDamage = PlayerManager.Instance.setting_attackDamage;
+        status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
     }
 
     private void ModifyStatus()

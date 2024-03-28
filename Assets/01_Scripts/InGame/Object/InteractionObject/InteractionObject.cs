@@ -28,6 +28,10 @@ public abstract class InteractionObject : MonoBehaviour
     }
     public virtual void Interact()
     {
+        if (!canInteraction)
+        {
+            return;
+        }
         Debug.Log($"<{gameObject.name}> 상호작용 활성화 됨");
         // override로 구현
         

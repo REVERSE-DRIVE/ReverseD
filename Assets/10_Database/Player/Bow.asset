@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 0}
   playerHealth: 85
+  attackDamage: 2
   attackRange: 7
-  speed: 6
+  moveSpeed: 6
   arrange: 5
   attackSpeed: 1
   knockback: 0

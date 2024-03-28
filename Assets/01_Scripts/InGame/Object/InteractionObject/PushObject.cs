@@ -10,7 +10,6 @@ public class PushObject : InteractionObject
     [SerializeField] private float _pushPower = 10;
     [SerializeField] private int _damage = 5;
     [SerializeField] private float _damageVelocity = 1.5f;
-
     [SerializeField]
     private float velocity = 0;
 
@@ -22,9 +21,19 @@ public class PushObject : InteractionObject
         base.Awake();
         _rigid = GetComponent<Rigidbody2D>();
     }
-    
+
+    private void Update()
+    {
+        if (isActive)
+        {
+            CheckStop();   
+        }
+    }
+
     public override void Interact()
     {
+        base.Interact();
+        
         if (!isActive)
         {
             
@@ -39,6 +48,7 @@ public class PushObject : InteractionObject
 
     private IEnumerator PushRoutine(Vector2 direction)
     {
+        _rigid.bodyType = RigidbodyType2D.Dynamic;
         SetObjectActive(true);
         _rigid.AddForce(direction * _pushPower, ForceMode2D.Impulse);
         while (_rigid.velocity.sqrMagnitude > 0.5f)
@@ -54,8 +64,10 @@ public class PushObject : InteractionObject
     {
         isActive = value;
         canDamage = value;
-        canDamage = value;
+        canInteraction = !value;
     }
+    
+        
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -71,8 +83,28 @@ public class PushObject : InteractionObject
 
         if (CompareTag("Wall"))
         {
-            RayManager.Reflect(transform.position, _rigid.velocity.normalized);
+            print("벽과 충돌함");
+            Vector2 dir = RayManager.Reflect(transform.position, _rigid.velocity.normalized, 10, LayerMask.GetMask("Wall"));
+
+            Vector2 velocity = _rigid.velocity;
+            _rigid.velocity = Vector2.zero;
+            _rigid.AddForce(dir * (velocity.sqrMagnitude * 0.6f), ForceMode2D.Impulse);
         }
+    }
+
+    private void CheckStop()
+    {
+        if (_rigid.velocity.sqrMagnitude < 0.05f)
+        {
+            Stop();
+        }
+    }
+
+    private void Stop()
+    {
+        _rigid.velocity = Vector2.zero;
+        _rigid.bodyType = RigidbodyType2D.Static;
+        SetObjectActive(false);
     }
     
 }
