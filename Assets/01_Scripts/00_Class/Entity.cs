@@ -5,6 +5,7 @@ using EntityManage;
 
 public abstract class Entity : MonoBehaviour, IDamageable
 {
+    [SerializeField]
     protected Status status;
 
     public Status Status

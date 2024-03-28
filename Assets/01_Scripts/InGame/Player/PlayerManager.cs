@@ -20,7 +20,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 
     public int PlayerHealth
     {
-        get => playerHealth;
+        get => _player.Status.hp;
         set
         {
             playerHealth = value;

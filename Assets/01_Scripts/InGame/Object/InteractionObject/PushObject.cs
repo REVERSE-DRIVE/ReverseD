@@ -66,6 +66,13 @@ public class PushObject : InteractionObject
             {
                 entity.TakeDamage(_damage);
             }
+            
+        }
+
+        if (CompareTag("Wall"))
+        {
+            RayManager.Reflect(transform.position, _rigid.velocity.normalized);
         }
     }
+    
 }

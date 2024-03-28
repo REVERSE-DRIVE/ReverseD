@@ -308,7 +308,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -322,7 +322,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &269945940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,7 +6208,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.304
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6543,6 +6543,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6ddd1d73989c24bad7a6e5260b0fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status:
+    hp: 10
+    attackDamage: 3
+    criticalRate: 0
+    defense: 1
+    criticalDefense: 0
+    moveSpeed: 4
+    mass: 0
+    isHealDefense: 0
+    healthDefMultiple: 0
   ItemDropType: 0
 --- !u!50 &957662130
 Rigidbody2D:
@@ -11932,6 +11942,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77917f4de7b14e48b6473cacc3a3a4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status:
+    hp: 0
+    attackDamage: 0
+    criticalRate: 0
+    defense: 0
+    criticalDefense: 0
+    moveSpeed: 0
+    mass: 0
+    isHealDefense: 0
+    healthDefMultiple: 0
   isDead: 0
 --- !u!114 &1034524394
 MonoBehaviour:
