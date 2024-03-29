@@ -8,6 +8,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private int attackSpeed;
     [SerializeField] private int knockback;
     [SerializeField] private Sprite playerSprite;
+    [SerializeField] private PlayerAttack playerAttack;
 
     private Player _player;
 
@@ -15,10 +16,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public int setting_moveSpeed => playerSO.moveSpeed;
     public int setting_arrange => arrange;
     public int setting_attackDamage => playerSO.attackDamage;
-    
     public int AttackSpeed => attackSpeed;
     public int Knockback => knockback;
     public Sprite PlayerSprite => playerSprite;
+
+    public PlayerAttack PlayerAttack
+    {
+        get => playerAttack;
+        set => playerAttack = value;
+    }
     
     public PlayerSO PlayerSO
     {
@@ -54,6 +60,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         knockback = playerSO.knockback;
         weaponType = playerSO.weaponType;
         playerSprite = playerSO.playerSprite;
+        playerSO.SetCharacter();
     }
 
 }

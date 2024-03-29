@@ -9,6 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6582945105914368886}
+  - component: {fileID: 6679634719773633704}
+  - component: {fileID: 3180371891869788739}
+  - component: {fileID: 7949666420599201395}
+  - component: {fileID: 3542316021708630771}
   m_Layer: 0
   m_Name: AttackColliders
   m_TagString: Untagged
@@ -34,6 +38,55 @@ Transform:
   - {fileID: 6658181212014616821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6679634719773633704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871305787936725426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347aa2bb26464de381811465f2bc6faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arrowPrefab: {fileID: 4732806588899403221, guid: 3fb8a028fca707143afd616a401cb860, type: 3}
+--- !u!114 &3180371891869788739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871305787936725426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33655e6c65b44500b885f7725fd2bcea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7949666420599201395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871305787936725426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb86a63c0fb41df86bae9e73865713b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3542316021708630771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871305787936725426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94ffecb95254fe09d18cd77ec6022f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6705291007628252415
 GameObject:
   m_ObjectHideFlags: 0
