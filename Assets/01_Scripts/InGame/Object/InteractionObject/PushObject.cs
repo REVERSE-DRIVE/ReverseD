@@ -42,6 +42,10 @@ public class PushObject : InteractionObject
             StartCoroutine(PushRoutine(direction));
 
         }
+        else
+        {
+            _rigid.velocity = -_rigid.velocity * 1.5f;
+        }
         
         
     }
@@ -54,7 +58,7 @@ public class PushObject : InteractionObject
         while (_rigid.velocity.sqrMagnitude > 0.5f)
         {
             previousDirection = _rigid.velocity;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         SetObjectActive(false);
@@ -72,7 +76,6 @@ public class PushObject : InteractionObject
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        print("OnCollision");
         if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
             Entity entity = other.transform.GetComponent<Entity>();
@@ -85,7 +88,6 @@ public class PushObject : InteractionObject
 
         if (other.transform.CompareTag("Wall"))
         {
-            print("벽과 충돌함");
             Vector2 dir = RayManager.Reflect(transform.position, previousDirection.normalized, 10, LayerMask.GetMask("Wall"));
 
             _rigid.bodyType = RigidbodyType2D.Dynamic;

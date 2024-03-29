@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class InteractionObject : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public abstract class InteractionObject : MonoBehaviour
     
     protected SpriteRenderer _spriteRenderer;
 
+    public UnityEvent UnDetectInteractionEvent;    
+    public UnityEvent InteractionEvent;
+    public UnityEvent DetectInteractionEvent;
     [Header("State Info")]
     public bool canInteraction = true;
 
@@ -25,6 +29,7 @@ public abstract class InteractionObject : MonoBehaviour
     public virtual void InteractionDetectEvent()
     {
         _spriteRenderer.material = _selectMaterial;
+        DetectInteractionEvent?.Invoke();
     }
     public virtual void Interact()
     {
@@ -33,12 +38,14 @@ public abstract class InteractionObject : MonoBehaviour
             return;
         }
         Debug.Log($"<{gameObject.name}> 상호작용 활성화 됨");
+        InteractionEvent?.Invoke();
         // override로 구현
         
     }
     public virtual void InteractionUnDetectEvent()
     {
         _spriteRenderer.material = _defaultMaterial;
+        UnDetectInteractionEvent?.Invoke();
     }
 
     public void ShowName()
