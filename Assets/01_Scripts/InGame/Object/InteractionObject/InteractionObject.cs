@@ -13,7 +13,10 @@ public abstract class InteractionObject : MonoBehaviour
     
     protected SpriteRenderer _spriteRenderer;
 
-    private void Awake()
+    [Header("State Info")]
+    public bool canInteraction = true;
+
+    protected virtual void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _defaultMaterial = _spriteRenderer.material;
@@ -25,6 +28,11 @@ public abstract class InteractionObject : MonoBehaviour
     }
     public virtual void Interact()
     {
+        if (!canInteraction)
+        {
+            return;
+        }
+        Debug.Log($"<{gameObject.name}> 상호작용 활성화 됨");
         // override로 구현
         
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using InGameScene;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -8,11 +9,21 @@ public class PlayerInteraction : MonoBehaviour
     public event Action interactionDetectEvent;
     public event Action interactionUnDetectEvent;
     
+    [Header("Setting Values")]
     [SerializeField] private LayerMask interactionObjectLayerMask;
     [SerializeField] private float interactRange = 1.3f;
     [SerializeField] private bool isDetected;
 
+    [Header("Interaction Controller")] [SerializeField]
+    private Transform _interactionController;
+
+    private Button _button;
+    private Image _buttonImage;
     
+    [SerializeField] private Sprite _attackButtonSprite;
+    [SerializeField] private Sprite _InteractionButtonSprite;
+
+
     private InteractionObject targetObject;
 
     /**
@@ -24,6 +35,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         get { return isDetected; }
         private set { }
+    }
+
+    private void Start()
+    {
+        _button = _interactionController.GetComponent<Button>();
+        _buttonImage = _interactionController.GetComponent<Image>();
+        _button.onClick.AddListener(Interact);
+
     }
 
     private void FixedUpdate()
@@ -42,9 +61,15 @@ public class PlayerInteraction : MonoBehaviour
 
         if (isDetected && hit == null)
         {
+            SwitchButtonToAttack(); // 컨트롤러 버튼 공격으로 전환
+            
+            UnDetectInteraction();
+
             targetObject.InteractionUnDetectEvent();
-            GameManager.Instance._UIManager.AttackButtonOn();
-            //UnDetectInteraction();
+            // interactionDetectEvent -= targetObject.InteractionDetectEvent;
+            interactionEvent -= targetObject.Interact;
+            // interactionUnDetectEvent -= targetObject.InteractionUnDetectEvent;
+
 
             isDetected = false;
             targetObject = null;
@@ -53,12 +78,20 @@ public class PlayerInteraction : MonoBehaviour
         
         if (!isDetected && hit != null)
         {
+            SwitchButtonToInteract(); // 컨트롤러 버튼 상호작용으로 전환
+            
             isDetected = true;
             targetObject = hit.GetComponent<InteractionObject>();
+            
+            // interactionDetectEvent += targetObject.InteractionDetectEvent;
+            interactionEvent += targetObject.Interact;
+            // interactionUnDetectEvent += targetObject.InteractionUnDetectEvent;
+
             targetObject.InteractionDetectEvent();
-            GameManager.Instance._UIManager.InteractionButtonOn();
-            //DetectInteraction();
-            interactionEvent = targetObject.Interact;
+            
+            DetectInteraction();
+            
+
         }
 
 
@@ -72,12 +105,27 @@ public class PlayerInteraction : MonoBehaviour
     public void UnDetectInteraction()
     {
         interactionUnDetectEvent?.Invoke();
-        interactionUnDetectEvent = null;
     }
 
+    /**
+     * <summary>
+     * 상호작용 버튼을 누르면 실행되는 함수
+     * </summary>
+     */
     public void Interact()
     {
         interactionEvent?.Invoke();
         
+    }
+    
+    
+    public void SwitchButtonToAttack()
+    {
+        _buttonImage.sprite = _attackButtonSprite;
+    }
+        
+    public void SwitchButtonToInteract()
+    {
+        _buttonImage.sprite = _InteractionButtonSprite;
     }
 }

@@ -1,16 +1,22 @@
 ﻿using System;
-using entityManage;
+using EntityManage;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(PlayerAttack))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    private Status status;
+    public Status Status
+    {
+        get { return status; }
+        private set { }
+    }
+    public bool isDead;
+    public static event Action OnPlayerHpChanged;
     
-    public Status Status { get; set; }
+    
     
     private void Awake()
     {
@@ -34,8 +40,34 @@ public class Player : MonoBehaviour
     public void UpdateStatus()
     {
         PlayerManager.Instance.UpdateStat();
-        status.hp = PlayerManager.Instance.PlayerHealth;
-        status.attackDamage = PlayerManager.Instance.AttackRange;
-        status.moveSpeed = PlayerManager.Instance.Speed;
+        
+        status.hp = PlayerManager.Instance.setting_hp;
+        status.attackDamage = PlayerManager.Instance.setting_attackDamage;
+        status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
+    }
+
+    private void ModifyStatus()
+    {
+        
+    }
+
+    public void TakeDamage(int damage)
+    {
+        status.hp -= damage;
+    }
+    
+
+    private void IsDie()
+    {
+        if (status.hp <= 0)
+        {
+            isDead = true;
+            // 게임 오버 실행
+        }
+    }
+
+    public override void Die()
+    {
+        throw new NotImplementedException();
     }
 }

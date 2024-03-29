@@ -16,8 +16,8 @@ namespace EnemyManage.AIs
         {
             Vector2 attackDirection = (_playerTrm.position - transform.position);
 
-            GameObject bullet = PoolManager.Get(_projectile);
-            //bullet. 
+            GameObject bullet = PoolManager.Get(_projectile, transform.position, Quaternion.identity);
+            bullet.GetComponent<Projectile>().Fire(attackDirection);
 
         }
     }

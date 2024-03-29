@@ -8,6 +8,7 @@ TagManager:
   - Object
   - PlayerArrow
   - Load
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Map
   - Wall
   - InteractionObject
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - EnemyProjectile
+  - Enemy
   - 
   - 
   - 
