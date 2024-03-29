@@ -5,9 +5,10 @@ public class Ransomware : PlayerAttack
 {
     public override IEnumerator AttackRoutine()
     {
-        _attackColliders[2].enabled = true;
+        _attackColliders[3].gameObject.SetActive(true);
+        yield return new WaitForSeconds(attackTime);
+        _attackColliders[3].gameObject.SetActive(false);
         yield return new WaitForSeconds(PlayerManager.Instance.PlayerSO.attackSpeed);
-        _attackColliders[2].enabled = false;
         isAllowAttack = true;
     }
 }
