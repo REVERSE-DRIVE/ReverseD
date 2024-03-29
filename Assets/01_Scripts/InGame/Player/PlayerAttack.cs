@@ -4,21 +4,22 @@ using UnityEngine;
 
 public abstract class PlayerAttack : MonoBehaviour
 {
-    protected Collider2D[] _attackColliders;
+    protected Transform[] _attackColliders;
     protected bool isAllowAttack = true;
+    [SerializeField] protected float attackTime;
 
     private void Awake()
     {
-        _attackColliders = transform.GetChild(0).GetComponentsInChildren<Collider2D>();
+        _attackColliders = GetComponentsInChildren<Transform>();
     }
 
     public virtual void Attack()
     {
         if (!isAllowAttack) return;
         isAllowAttack = false;
-        foreach (var collider in _attackColliders)
+        for (int i = 1; i < _attackColliders.Length; i++)
         {
-            collider.enabled = false;
+            _attackColliders[i].gameObject.SetActive(false);
         }
         StartCoroutine(AttackRoutine());
     }

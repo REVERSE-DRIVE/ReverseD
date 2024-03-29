@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Trojan : PlayerAttack
+public class Fileless : PlayerAttack
 {
     public override IEnumerator AttackRoutine()
     {
-        _attackColliders[1].enabled = true;
+        _attackColliders[2].gameObject.SetActive(true);
+        yield return new WaitForSeconds(attackTime);
+        _attackColliders[2].gameObject.SetActive(false);
         yield return new WaitForSeconds(PlayerManager.Instance.PlayerSO.attackSpeed);
-        _attackColliders[1].enabled = false;
         isAllowAttack = true;
     }
 }

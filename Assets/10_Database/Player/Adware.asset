@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d9c812c7cbbd624abea4766c54a94ae, type: 3}
-  m_Name: Shilder
+  m_Name: Adware
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 0}
-  playerHealth: 150
-  attackRange: 10
-  speed: 5
-  arrange: 1
+  playerHealth: 85
+  attackDamage: 2
+  attackRange: 7
+  moveSpeed: 6
+  arrange: 5
   attackSpeed: 1
-  knockback: 2
-  weaponType: 3
+  knockback: 0
+  weaponType: 1

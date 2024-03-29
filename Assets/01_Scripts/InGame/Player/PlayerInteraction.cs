@@ -25,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
 
 
     private InteractionObject targetObject;
+    private PlayerAttack _playerAttack;
 
     /**
      * <summary>
@@ -42,6 +43,8 @@ public class PlayerInteraction : MonoBehaviour
         _button = _interactionController.GetComponent<Button>();
         _buttonImage = _interactionController.GetComponent<Image>();
         _button.onClick.AddListener(Interact);
+
+        _playerAttack = PlayerManager.Instance.PlayerAttack;
 
     }
 
@@ -68,6 +71,7 @@ public class PlayerInteraction : MonoBehaviour
             targetObject.InteractionUnDetectEvent();
             // interactionDetectEvent -= targetObject.InteractionDetectEvent;
             interactionEvent -= targetObject.Interact;
+            interactionEvent += _playerAttack.Attack;
             // interactionUnDetectEvent -= targetObject.InteractionUnDetectEvent;
 
 
@@ -85,6 +89,7 @@ public class PlayerInteraction : MonoBehaviour
             
             // interactionDetectEvent += targetObject.InteractionDetectEvent;
             interactionEvent += targetObject.Interact;
+            interactionEvent -= _playerAttack.Attack;
             // interactionUnDetectEvent += targetObject.InteractionUnDetectEvent;
 
             targetObject.InteractionDetectEvent();
