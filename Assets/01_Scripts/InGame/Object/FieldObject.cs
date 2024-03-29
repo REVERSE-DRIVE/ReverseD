@@ -6,10 +6,10 @@ public class FieldObject : MonoBehaviour
 {
     public bool canDestroy = true;
     
-    public int hp;
-    public int hpMax;
-    
-    
+    public int hp = 3;
+    public int hpMax = 3;
+
+    [SerializeField] private GameObject _destroyParticle;
     
     
     
@@ -25,11 +25,25 @@ public class FieldObject : MonoBehaviour
         
     }
 
+    public void TakeDamage(int amount)
+    {
+        hp -= amount;
+    }
+
+    private void IsDestroy()
+    {
+        if (hp <= 0)
+        {
+            Destroy();
+        }
+    }
+
     public void Destroy()
     {
-        
+        PoolManager.Release(gameObject);
         
     }
+    
     
     
 }

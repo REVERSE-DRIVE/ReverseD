@@ -1,4 +1,4 @@
-﻿using entityManage;
+﻿using EntityManage;
 
 [System.Serializable]
 public class PlayerStatus

@@ -125,7 +125,7 @@ namespace EnemyManage
             {
                 StopCoroutine(nameof(AttackCoroutine));
                 isAttacking = false;
-                _rigid.velocity = direction * (_enemy.status.moveSpeed * TimeManager.TimeScale);
+                _rigid.velocity = direction * (_enemy.Status.moveSpeed * TimeManager.TimeScale);
             }
         }
         protected abstract void Attack();
@@ -193,13 +193,13 @@ namespace EnemyManage
         
         protected virtual void Move(Vector2 dir)
         {
-            _rigid.velocity = dir.normalized * (_enemy.status.moveSpeed * TimeManager.TimeScale);
+            _rigid.velocity = dir.normalized * (_enemy.Status.moveSpeed * TimeManager.TimeScale);
         }
 
         public virtual void SetDefault()
         {
             _currentState = EnemyStateEnum.Roaming;
-            _enemy.status.hp = _enemy.status.HpMax;
+            _enemy.SetHealthMax();
         }
     }
 }
