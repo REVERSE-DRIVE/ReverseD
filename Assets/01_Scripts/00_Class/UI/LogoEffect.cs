@@ -1,9 +1,9 @@
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class LogoEffect : MonoBehaviour
 {

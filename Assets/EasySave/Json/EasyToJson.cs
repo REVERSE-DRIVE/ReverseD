@@ -7,7 +7,7 @@ namespace EasySave.Json
 {
     public static class EasyToJson
     {
-        public static readonly string LocalPath = Application.persistentDataPath + "/Json/";
+        public static readonly string LocalPath = Application.dataPath + "/Json/";
         /**
          * <summary>
          * Json 파일로 저장

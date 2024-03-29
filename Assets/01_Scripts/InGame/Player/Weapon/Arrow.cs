@@ -1,16 +1,17 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Arrow : Projectile
 {
-    [SerializeField] private float _speed;
     [SerializeField] private float disableTime = 0.5f;
 
-    private GameObject parent;
+    private Transform _parent;
     private Rigidbody2D _rigidbody2D;
+
     private void OnEnable()
     {
-        parent = GameObject.Find("Player").transform.GetChild(1).gameObject;
+        _parent = FindObjectOfType<Player>().transform.GetChild(1);
         _rigidbody2D = GetComponent<Rigidbody2D>();
         StartCoroutine(Disable());
     }
@@ -21,14 +22,30 @@ public class Arrow : MonoBehaviour
         while (true)
         {
             time += Time.deltaTime;
+            transform.parent = null;
             if (time > disableTime)
             {
-                transform.parent = parent.transform;
-                gameObject.SetActive(false);
+                transform.parent = _parent;
+                PoolManager.Release(gameObject);
                 yield break;
             }
-            _rigidbody2D.velocity = transform.right * (_speed * TimeManager.TimeScale);
+            Fire(transform.rotation * Vector2.right);
             yield return null;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            PoolManager.Release(gameObject);
+        }
+    }
+
+    public override void Fire(Vector2 direction)
+    {
+        base.Fire(direction);
+        _rigidbody2D.velocity = direction * (_speed * TimeManager.TimeScale);
+    }
+
 }
