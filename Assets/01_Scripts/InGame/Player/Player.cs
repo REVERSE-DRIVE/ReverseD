@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(PlayerManager))]
-[RequireComponent(typeof(PlayerAttack))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Entity
 {
