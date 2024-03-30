@@ -8,6 +8,7 @@ namespace EnemyManage
     public class EnemyInfo : ScriptableObject
     {
         public int id;
+        public EnemyTypeTag enemyTypeTag = EnemyTypeTag.Normal;
         public Status SettingStatus;
         public GameObject enemyPrefab;
 

@@ -1,10 +1,12 @@
-﻿namespace EntityManage
+﻿using UnityEngine;
+
+namespace EntityManage
 {
     [System.Serializable]
     public struct Status
     {
         public int hp;
-
+        [SerializeField]
         private int hpMax;
         public int HpMax
         {
