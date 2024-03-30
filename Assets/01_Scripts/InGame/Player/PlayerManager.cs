@@ -1,38 +1,30 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using entityManage;
 using UnityEngine;
 
-public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
+public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private WeaponType weaponType;
-    [SerializeField] private int playerHealth;
-    [SerializeField] private int attackRange;
-    [SerializeField] private int speed;
     [SerializeField] private int arrange;
     [SerializeField] private int attackSpeed;
     [SerializeField] private int knockback;
     [SerializeField] private Sprite playerSprite;
+    [SerializeField] private PlayerAttack playerAttack;
 
     private Player _player;
 
-    public int PlayerHealth
-    {
-        get => playerHealth;
-        set
-        {
-            playerHealth = value;
-            _player.UpdateStatus();
-        }
-    }
-    public int AttackRange => attackRange;
-    public int Speed => speed;
-    public int Arrange => arrange;
+    public int setting_hp => playerSO.playerHealth;
+    public int setting_moveSpeed => playerSO.moveSpeed;
+    public int setting_arrange => arrange;
+    public int setting_attackDamage => playerSO.attackDamage;
     public int AttackSpeed => attackSpeed;
     public int Knockback => knockback;
     public Sprite PlayerSprite => playerSprite;
+
+    public PlayerAttack PlayerAttack
+    {
+        get => playerAttack;
+        set => playerAttack = value;
+    }
     
     public PlayerSO PlayerSO
     {
@@ -63,23 +55,12 @@ public class PlayerManager : MonoSingleton<PlayerManager>, IDamageable
      */
     public void UpdateStat()
     {
-        playerHealth = playerSO.playerHealth;
-        attackRange = playerSO.attackRange;
-        speed = playerSO.speed;
         arrange = playerSO.arrange;
         attackSpeed = playerSO.attackSpeed;
         knockback = playerSO.knockback;
         weaponType = playerSO.weaponType;
         playerSprite = playerSO.playerSprite;
+        playerSO.SetCharacter();
     }
 
-    public void Damaged(int damage)
-    {
-        PlayerHealth -= damage;
-    }
-
-    public void CriticalDamaged(int damage)
-    {
-        PlayerHealth -= damage;
-    }
 }

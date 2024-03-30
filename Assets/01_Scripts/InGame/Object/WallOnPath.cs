@@ -8,8 +8,6 @@ namespace RoomManage
     
     public class WallOnPath : MonoBehaviour
     {
-        [SerializeField] private PathDirection pathDirection;
-
         private Transform wall;
 
         private void Awake()

@@ -11,7 +11,13 @@ public class BossCutSceneManager : MonoBehaviour
     [Space(10)]
     [SerializeField] private Image bossImage;
     [SerializeField] private TextMeshProUGUI bossNameText;
+    
+    private SoundObject _soundObject;
 
+    private void Awake()
+    {
+        _soundObject = GetComponent<SoundObject>();
+    }
 
     private void Start()
     {
@@ -26,6 +32,7 @@ public class BossCutSceneManager : MonoBehaviour
      */
     public void SetBossText(int index)
     {
+        _soundObject.PlayAudio(1);
         bossNameText.text = bossCutsceneSets[index].bossName;
         bossNameText.font = bossCutsceneSets[index].font;
         bossNameText.color = bossCutsceneSets[index].bossNameColor;

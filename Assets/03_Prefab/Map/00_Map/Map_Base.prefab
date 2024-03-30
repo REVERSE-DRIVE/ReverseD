@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2027822717477271461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5672889219535733585}
+  m_Layer: 8
+  m_Name: EnemyParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5672889219535733585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027822717477271461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2813789614353066729}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2470163919314431176
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9287ec64120754a94baba0235678aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathDirection: 1
 --- !u!1 &2899726651981456439
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9287ec64120754a94baba0235678aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathDirection: 3
 --- !u!1 &5257609005498505265
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +190,7 @@ Transform:
   - {fileID: 9033054841574740772}
   - {fileID: 8892160661783380966}
   - {fileID: 1997972142585080914}
+  - {fileID: 5672889219535733585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &4702427443268351617
@@ -210,8 +240,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010fea816e151084081833b1a004d7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _roomType: 0
   isCleared: 0
   playerDetectDistance: 13
+  _phases:
+  - Mobs:
+    - ID: 0
+      Amount: 4
+  currentPhase: 0
+  isPhaseStarted: 0
 --- !u!1 &8781061148759450658
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9287ec64120754a94baba0235678aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathDirection: 2
 --- !u!1 &8828998522199153553
 GameObject:
   m_ObjectHideFlags: 0
@@ -7178,7 +7214,7 @@ GameObject:
   - component: {fileID: 6248163185135011388}
   m_Layer: 9
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8334,7 +8370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9287ec64120754a94baba0235678aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathDirection: 0
 --- !u!1001 &1599497230707246942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8406,6 +8441,10 @@ PrefabInstance:
     - target: {fileID: 2027558025063913118, guid: 20208da66d0a2f14db3bfdf58d19f4ad, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: -30000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861437275889968650, guid: 20208da66d0a2f14db3bfdf58d19f4ad, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7817883710010249998, guid: 20208da66d0a2f14db3bfdf58d19f4ad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8533,6 +8572,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5604592079584729805, guid: cb8d298f032d4c34f9979c151d86f39b, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7231525395065657440, guid: cb8d298f032d4c34f9979c151d86f39b, type: 3}
       propertyPath: m_Name
       value: Wall
@@ -8659,6 +8702,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: -30000000
       objectReference: {fileID: 0}
+    - target: {fileID: 2861437275889968650, guid: 20208da66d0a2f14db3bfdf58d19f4ad, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7817883710010249998, guid: 20208da66d0a2f14db3bfdf58d19f4ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8784,6 +8831,10 @@ PrefabInstance:
     - target: {fileID: 2038144283446429342, guid: cb8d298f032d4c34f9979c151d86f39b, type: 3}
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[0].Array.data[3].Y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604592079584729805, guid: cb8d298f032d4c34f9979c151d86f39b, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 7231525395065657440, guid: cb8d298f032d4c34f9979c151d86f39b, type: 3}
       propertyPath: m_Name

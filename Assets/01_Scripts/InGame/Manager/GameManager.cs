@@ -3,16 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using InGameScene;
 using RoomManage;
+using Unity.Collections;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     public PlayerController _PlayerController { get; private set; }
+    public Player _Player { get; private set; }
     public Transform _PlayerTransform { get; private set; }
     public UIManager _UIManager { get; private set; }
 
     public RoomGenerator _RoomGenerator { get; private set; }
     public RenderingManager _RenderingManager { get; private set; }
+    public RoomManager _RoomManager { get; private set; }
+
 
     // =====
     /**
@@ -22,6 +26,14 @@ public class GameManager : MonoSingleton<GameManager>
      */
     private int infectedLevel = 0;
     public int InfectedLevel => infectedLevel;
+
+    [SerializeField] private Transform _defaultEnemyParentTrm;
+
+    public Transform DefaultEnemyParentTrm
+    {
+        get { return _defaultEnemyParentTrm; }
+        private set { }
+    }
     
     
     
@@ -30,12 +42,13 @@ public class GameManager : MonoSingleton<GameManager>
     private void Awake()
     {
         _PlayerController = FindObjectOfType<PlayerController>();
+        _Player = FindObjectOfType<Player>();
         _PlayerTransform = _PlayerController.transform;
         _UIManager = FindObjectOfType<UIManager>();
         _RoomGenerator = FindObjectOfType<RoomGenerator>();
         _RenderingManager = FindObjectOfType<RenderingManager>();
-        
-        
+        _RoomManager = FindObjectOfType<RoomManager>();
+
     }
 
     private void Start()

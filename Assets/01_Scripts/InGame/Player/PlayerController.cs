@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        _playerAttack.ArrowSpawn(30);
         PlayerManager.Instance.UpdateStat();
     }
 
@@ -47,14 +46,16 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction * (PlayerManager.Instance.Speed * TimeManager.TimeScale);
+        _rigid.velocity = direction.normalized * (PlayerManager.Instance.setting_moveSpeed * TimeManager.TimeScale);
     }
     
     private void Rotate()
     {
-        dir = _joystick.Direction;
+        dir = _joystick.Direction.normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        _playerAttack.PlayerAttackCollider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.localScale = new Vector3(dir.x > 0 ? 1 : -1, 1, 1);
+        // _playerAttack.PlayerAttackCollider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        // transform.GetChild(1).rotation = _playerAttack.PlayerAttackCollider.transform.rotation;
     }
 
     public void ChangeSprite()

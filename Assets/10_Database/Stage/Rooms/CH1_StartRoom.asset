@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: CH1_StartRoom
   m_EditorClassIdentifier: 
   roomType: 0
-  mapPrefab: {fileID: 5257609005498505265, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
-  generateRate: 1
+  mapPrefab: {fileID: 4250533622459675920, guid: 84230076a7b9c0a4dbbba2aa8ad775d8, type: 3}
+  roomSpawnRate: 1
+  maxSpawnAmount: 1
+  minSpawnAmount: 0

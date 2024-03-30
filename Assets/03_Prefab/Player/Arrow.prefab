@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 4732806588899403221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.92, y: -0.48, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1860675727
+  m_SortingLayer: 2
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7231d6e1ce517a047a6f9b1e02a50cc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -144,7 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8bfa6b99b242b4198ede71c9be5a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectileType: 0
+  _damage: 1
   _speed: 10
+  lifeTime: 3
+  _projectileTarget: 0
+  _destroyParticlePrefab: {fileID: 0}
+  isShot: 0
   disableTime: 0.7
 --- !u!50 &3907205636790969518
 Rigidbody2D:
@@ -161,7 +167,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
