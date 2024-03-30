@@ -1,16 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RoomManage
 {
-    public enum PathDirection
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
+    
     public enum RoomType
     {
         Start,
@@ -28,7 +20,8 @@ namespace RoomManage
         public RoomType roomType;
         public GameObject mapPrefab;
         public float roomSpawnRate = 1f;
-        
+        public int maxSpawnAmount = 1;
+        public int minSpawnAmount;
     }
 
 }
