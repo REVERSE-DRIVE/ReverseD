@@ -4,7 +4,7 @@ using EntityManage;
 namespace EnemyManage
 {
     [System.Serializable]
-    [CreateAssetMenu(menuName = "SO/Entity/Enemy")]
+    [CreateAssetMenu(menuName = "SO/Enemy/Enemy")]
     public class EnemyInfo : ScriptableObject
     {
         public int id;

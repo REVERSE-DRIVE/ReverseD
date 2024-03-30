@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: TestEnemyInfo
   m_EditorClassIdentifier: 
   id: 0
+  enemyTypeTag: 0
   SettingStatus:
-    hp: 0
-    attackDamage: 0
+    hp: 10
+    hpMax: 10
+    attackDamage: 3
     criticalRate: 0
-    defense: 0
+    defense: 1
     criticalDefense: 0
-    moveSpeed: 0
-    mass: 0
+    moveSpeed: 4
+    mass: 1
     isHealDefense: 0
     healthDefMultiple: 0
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 6293421271846555851, guid: f4ef2857046e63543a8082f67b412e06, type: 3}

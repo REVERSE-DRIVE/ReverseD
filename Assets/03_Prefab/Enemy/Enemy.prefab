@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status:
     hp: 10
+    hpMax: 0
     attackDamage: 3
     criticalRate: 0
     defense: 1
@@ -174,6 +175,17 @@ MonoBehaviour:
     isHealDefense: 0
     healthDefMultiple: 0
   ItemDropType: 0
+  defaultStatus:
+    hp: 0
+    hpMax: 0
+    attackDamage: 0
+    criticalRate: 0
+    defense: 0
+    criticalDefense: 0
+    moveSpeed: 0
+    mass: 0
+    isHealDefense: 0
+    healthDefMultiple: 0
 --- !u!114 &8706524649998194606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +203,7 @@ MonoBehaviour:
   isRoaming: 0
   isAttacking: 0
   isStun: 0
-  _targetingObject: 
+  _targetingObject: 00000000
   _attackCoolTime: 1.5
   followDistance: 9
   _playerDetectDistance: 10

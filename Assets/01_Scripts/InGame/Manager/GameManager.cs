@@ -14,9 +14,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     public RoomGenerator _RoomGenerator { get; private set; }
     public RenderingManager _RenderingManager { get; private set; }
+    public RoomManager _RoomManager { get; private set; }
 
-    
-    
+
     // =====
     /**
      * <summary>
@@ -38,6 +38,7 @@ public class GameManager : MonoSingleton<GameManager>
         _UIManager = FindObjectOfType<UIManager>();
         _RoomGenerator = FindObjectOfType<RoomGenerator>();
         _RenderingManager = FindObjectOfType<RenderingManager>();
+        _RoomManager = FindObjectOfType<RoomManager>();
 
     }
 
