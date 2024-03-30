@@ -47,8 +47,8 @@ Material:
     - _Speed: 1.45
     - _Width: 0.1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _GridX_Y: {r: 30, g: 30, b: 0, a: 0}
+    - _Color: {r: 0, g: 1, b: 0.12682652, a: 1}
+    - _GridX_Y: {r: 40, g: 40, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6570382561238356627
 MonoBehaviour:
