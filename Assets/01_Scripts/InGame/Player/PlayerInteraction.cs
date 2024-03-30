@@ -45,13 +45,12 @@ public class PlayerInteraction : MonoBehaviour
         _button.onClick.AddListener(Interact);
 
         _playerAttack = PlayerManager.Instance.PlayerAttack;
-
+        interactionEvent += _playerAttack.Attack;
     }
 
     private void FixedUpdate()
     {
         CheckInteractionObject();
-        
     }
 
     

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -13,6 +14,14 @@ public class LogoEffect : MonoBehaviour
     [SerializeField] private Ease logoMoveEase;
     [SerializeField] private float logoMoveDuration;
     [SerializeField] private float waitTime;
+    
+    private SoundObject _soundObject;
+
+    private void Awake()
+    {
+        _soundObject = GetComponent<SoundObject>();
+    }
+
     private void Start()
     {
         StartCoroutine(LogoEffectCoroutine());
@@ -20,6 +29,7 @@ public class LogoEffect : MonoBehaviour
     
     private IEnumerator LogoEffectCoroutine()
     {
+        _soundObject.PlayAudio(0);
         renderer2DData.rendererFeatures[0].SetActive(true);
         MaterialSet(35, 43, 1);
         

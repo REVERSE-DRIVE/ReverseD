@@ -517,6 +517,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168044841}
   m_CullTransparentMesh: 1
+--- !u!1 &286361426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286361428}
+  - component: {fileID: 286361427}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &286361427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286361426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: ef785d142172e28418b39cd7dba4fe3e, type: 2}
+--- !u!4 &286361428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286361426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289533477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,7 +1636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1358029252
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -1609,7 +1658,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b1d4014e28ef8d542aba557e2c3f1094, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2661,7 +2710,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -2672,22 +2721,94 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
+          value: 1
+          inSlope: -11.092818
+          outSlope: -11.092818
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.08719474
+          value: 0.032764584
+          inSlope: -0.42132735
+          outSlope: -0.42132735
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.28017768
+        - serializedVersion: 3
+          time: 0.18480624
+          value: 1
+          inSlope: 0.011424005
+          outSlope: 0.011424005
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.26809636
+        - serializedVersion: 3
+          time: 0.3107017
           value: 0
-          inSlope: 0
-          outSlope: 1
+          inSlope: 0.09578796
+          outSlope: 0.09578796
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.45875406
+        - serializedVersion: 3
+          time: 0.40824747
+          value: 1
+          inSlope: 0.3221348
+          outSlope: 0.3221348
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.53697824
+          value: 0
+          inSlope: -0.073724486
+          outSlope: -0.073724486
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.5669286
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.65631014
+          value: 1
+          inSlope: 0.27504268
+          outSlope: 0.27504268
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.5366425
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.7757303
+          value: 0
+          inSlope: -0.15322931
+          outSlope: -0.15322931
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.8489163
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.8924847
+          value: 1
+          inSlope: 0.046605896
+          outSlope: 0.046605896
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
-          tangentMode: 0
+          value: 0
+          inSlope: -9.301003
+          outSlope: -9.301003
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -4370,11 +4491,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 0
+    enabled: 1
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6535,7 +6656,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 18, y: 18, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7721,8 +7842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 560}
-  m_SizeDelta: {x: 1700, y: 566}
+  m_AnchoredPosition: {x: 0, y: 465}
+  m_SizeDelta: {x: 1200, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2068401848
 MonoBehaviour:
@@ -7744,7 +7865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f187b6f479c9f9640bd7da54085e57f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7446d6e34306404e8fca1811331dd3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7779,7 +7900,7 @@ MonoBehaviour:
   UIName: 
   usePositionEffect: 1
   DefaultPos: {x: 0, y: 560}
-  TargetPos: {x: 0, y: -82}
+  TargetPos: {x: 0, y: -280}
   duration: 0.15
   EaseEffect: 6
   onOff: 0
@@ -8053,6 +8174,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1861783491}
+  - {fileID: 286361428}
   - {fileID: 1585634585}
   - {fileID: 1467910965}
   - {fileID: 1358029254}

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        Rotate();
     }
 
 
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         dir = _joystick.Direction.normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.localScale = new Vector3(dir.x > 0 ? 1 : -1, 1, 1);
         // _playerAttack.PlayerAttackCollider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         // transform.GetChild(1).rotation = _playerAttack.PlayerAttackCollider.transform.rotation;
     }
