@@ -64,7 +64,7 @@ namespace RoomManage
     
         private void GenerateEnemy()
         {
-            GameManager.Instance._RoomManager.GeneratePhase(enemyParent, playerDetectDistance, _phases[currentPhase]);
+            GameManager.Instance._RoomManager.GeneratePhase(enemyParent, playerDetectDistance-1, _phases[currentPhase]);
             
         }
 

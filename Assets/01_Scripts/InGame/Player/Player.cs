@@ -53,6 +53,7 @@ public class Player : Entity
     public void TakeDamage(int damage)
     {
         status.hp -= damage;
+        OnPlayerHpChanged?.Invoke();
     }
     
 

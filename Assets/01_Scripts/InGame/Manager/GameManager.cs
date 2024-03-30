@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using InGameScene;
 using RoomManage;
+using Unity.Collections;
 using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -25,6 +26,14 @@ public class GameManager : MonoSingleton<GameManager>
      */
     private int infectedLevel = 0;
     public int InfectedLevel => infectedLevel;
+
+    [SerializeField] private Transform _defaultEnemyParentTrm;
+
+    public Transform DefaultEnemyParentTrm
+    {
+        get { return _defaultEnemyParentTrm; }
+        private set { }
+    }
     
     
     

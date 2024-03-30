@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using EntityManage;
+using UIManage;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,9 @@ namespace InGameScene
         [SerializeField] private Image hp_gauge;
         [SerializeField] private Image attackButton;
 
+        [SerializeField] private UIInfo UI_StageClear;
+        [SerializeField] private float StageClearUIDisplayDuration = 1;
+        
         private void Start()
         {
             Player.OnPlayerHpChanged += RefreshHpGauge;
@@ -27,6 +31,21 @@ namespace InGameScene
         }
         public void RefreshUIs()
         {
+            
+        }
+
+        [ContextMenu("ShowStageClear")]
+        public void ShowStageClear()
+        {
+            StartCoroutine(ShowStageClearRoutine());
+            
+        }
+
+        private IEnumerator ShowStageClearRoutine()
+        {
+            UI_StageClear.MoveOn();
+            yield return new WaitForSeconds(StageClearUIDisplayDuration);
+            UI_StageClear.MoveOff();
             
         }
         

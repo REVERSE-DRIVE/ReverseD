@@ -25,7 +25,7 @@ namespace RoomManage
                     newEnemy.position = new Vector2(
                         Random.Range(roomTrmPos.x - radius, roomTrmPos.x + radius),
                         Random.Range(roomTrmPos.y - radius, roomTrmPos.y + radius));
-
+                    
                 }
             }
         }

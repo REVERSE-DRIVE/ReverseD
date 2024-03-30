@@ -30,6 +30,7 @@ namespace EnemyManage
         public override void Die()
         {
             PoolManager.Release(gameObject);
+            transform.SetParent(GameManager.Instance.DefaultEnemyParentTrm);
         }
 
         internal void SetHealthMax()
