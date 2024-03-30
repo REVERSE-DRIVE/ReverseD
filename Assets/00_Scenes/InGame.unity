@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIRectObject: {fileID: 280505672}
-  UITrnsObject: {fileID: 0}
+  UITrnsObject: {fileID: 280505672}
   UIName: 
   usePositionEffect: 1
   DefaultPos: {x: 0, y: 900}
@@ -11421,11 +11421,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665bc0df3653efe49ac8cd8f6484a51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowPrefab: {fileID: 4732806588899403221, guid: 3fb8a028fca707143afd616a401cb860, type: 3}
-  attackColliders: []
-  _playerAttackCollider: {fileID: 0}
-  arrows: []
-  _isAllowedAttack: 1
 --- !u!114 &1034524393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11687,7 +11682,7 @@ MonoBehaviour:
   hp_gauge: {fileID: 857554328}
   attackButton: {fileID: 769933874}
   UI_StageClear: {fileID: 280505675}
-  StageClearUIDisplayDuration: 1
+  StageClearUIDisplayDuration: 2.5
 --- !u!4 &1292344168
 Transform:
   m_ObjectHideFlags: 0
@@ -12539,7 +12534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 50}
+  m_AnchoredPosition: {x: -50, y: 716}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909197213
@@ -12582,9 +12577,9 @@ MonoBehaviour:
     indexedEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 269945941}
-          m_TargetAssemblyTypeName: RoomManage.RoomGenerator, Assembly-CSharp
-          m_MethodName: ResetMap
+        - m_Target: {fileID: 1292344167}
+          m_TargetAssemblyTypeName: InGameScene.UIManager, Assembly-CSharp
+          m_MethodName: ShowStageClear
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

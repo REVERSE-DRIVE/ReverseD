@@ -1,17 +1,22 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using EntityManage;
 using UnityEngine;
 
 namespace EnemyManage
 {
     
-    public class Enemy : Entity, IDamageable
+    public class Enemy : Entity
     {
 
         [SerializeField] private ItemDropType ItemDropType;
         // ItemDropManager 에서 어떤 아이템을 드롭할지 Enum으로 호출함
+        public event Action OnHealthChanged;
+
+
+        private void Start()
+        {
+            OnHealthChanged += CheckIsDie;
+        }
 
         /**
          * <summary>
@@ -26,6 +31,12 @@ namespace EnemyManage
         //
         //     SetStatusDefault();
         // }
+        
+        public void TakeDamage(int amount)
+        {
+            base.TakeDamage(amount);
+            OnHealthChanged?.Invoke();
+        }
 
         public override void Die()
         {
@@ -35,7 +46,7 @@ namespace EnemyManage
 
         internal void SetHealthMax()
         {
-            status.hp = status.HpMax;
+            status.hp = status.hpMax;
         }
 
         public void SetStatusDefault()
@@ -43,6 +54,7 @@ namespace EnemyManage
             status = defaultStatus;
 
         }
+
 
     }
 }

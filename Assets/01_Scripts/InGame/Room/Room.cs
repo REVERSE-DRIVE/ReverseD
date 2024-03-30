@@ -79,7 +79,7 @@ namespace RoomManage
             {
                 Debug.Log("스테이지 클리어");
                 isCleared = true;
-                 
+                GameManager.Instance._UIManager.ShowStageClear();
 
             }
         }

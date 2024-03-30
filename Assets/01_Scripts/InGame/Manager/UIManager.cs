@@ -25,7 +25,7 @@ namespace InGameScene
         public void RefreshHpGauge()
         {
             Status playerStatus = GameManager.Instance._Player.Status;
-            float t = playerStatus.hp / playerStatus.HpMax;
+            float t = playerStatus.hp / playerStatus.hpMax;
             hp_gauge.fillAmount = Mathf.Clamp01(t);
             
         }

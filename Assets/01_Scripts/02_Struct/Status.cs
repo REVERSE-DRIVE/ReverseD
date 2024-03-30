@@ -7,12 +7,7 @@ namespace EntityManage
     {
         public int hp;
         [SerializeField]
-        private int hpMax;
-        public int HpMax
-        {
-            get { return hpMax; }
-            private set { }
-        }
+        public int hpMax;
 
         public int attackDamage;
         public int criticalRate;

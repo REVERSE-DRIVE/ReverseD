@@ -41,6 +41,9 @@ public class Player : Entity
         PlayerManager.Instance.UpdateStat();
         
         status.hp = PlayerManager.Instance.setting_hp;
+        status.hpMax = PlayerManager.Instance.setting_hp;
+        // 스테이터스 불러올때 어케 불러올거임
+        
         status.attackDamage = PlayerManager.Instance.setting_attackDamage;
         status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
     }
