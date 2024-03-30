@@ -165,11 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78aaa223b41ea3641b962e323f53aa09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: {fileID: 0}
+  renderer2DData: {fileID: 11400000, guid: 424799608f7334c24bf367e4bbfa7f9a, type: 2}
+  screenMaterial: {fileID: 2100000, guid: f4219cd042661394fa89f7740ad7c13f, type: 2}
   logoImages:
   - {fileID: 2047444077961533341}
   - {fileID: 6633118793973054142}
-  logoMoveEase: 1
+  logoMoveEase: 6
   logoMoveDuration: 0.25
   waitTime: 0.1
 --- !u!1 &3548021069514269396

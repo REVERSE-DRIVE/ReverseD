@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 4732806588899403221}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.92, y: -0.48, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,6 +147,10 @@ MonoBehaviour:
   _projectileType: 0
   _damage: 1
   _speed: 10
+  lifeTime: 3
+  _projectileTarget: 0
+  _destroyParticlePrefab: {fileID: 0}
+  isShot: 0
   disableTime: 0.7
 --- !u!50 &3907205636790969518
 Rigidbody2D:
