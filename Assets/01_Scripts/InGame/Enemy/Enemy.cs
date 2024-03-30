@@ -20,11 +20,12 @@ namespace EnemyManage
          */
         [SerializeField]
         internal Status defaultStatus;
-
-        private void OnEnable()
-        {
-            status = defaultStatus;
-        }
+        //
+        // private void OnEnable()
+        // {
+        //
+        //     SetStatusDefault();
+        // }
 
         public override void Die()
         {
@@ -34,6 +35,12 @@ namespace EnemyManage
         internal void SetHealthMax()
         {
             status.hp = status.HpMax;
+        }
+
+        public void SetStatusDefault()
+        {
+            status = defaultStatus;
+
         }
 
     }

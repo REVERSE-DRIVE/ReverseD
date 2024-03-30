@@ -14,9 +14,12 @@ namespace EnemyManage
 
         public GameObject GetNewEnemy()
         {
-            GameObject enemy = PoolManager.Get(enemyPrefab);
-            enemy.GetComponent<Enemy>().defaultStatus = SettingStatus;
-            return enemy;
+            GameObject enemyObject = PoolManager.Get(enemyPrefab);
+            Enemy enemy = enemyObject.GetComponent<Enemy>();
+            enemy.defaultStatus = SettingStatus;
+            enemy.SetStatusDefault();
+            
+            return enemyObject;
         }
     }
 }

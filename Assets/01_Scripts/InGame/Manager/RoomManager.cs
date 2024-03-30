@@ -21,7 +21,10 @@ namespace RoomManage
                 {
                     Transform newEnemy = _enemySpawnBase.FindEnemy(phase.Mobs[i].ID).GetNewEnemy().transform;
                     newEnemy.SetParent(roomTrm);
-                    newEnemy.position = new Vector2(Random.Range(-radius, radius), Random.Range(-radius, radius));
+                    Vector2 roomTrmPos = roomTrm.position;
+                    newEnemy.position = new Vector2(
+                        Random.Range(roomTrmPos.x - radius, roomTrmPos.x + radius),
+                        Random.Range(roomTrmPos.y - radius, roomTrmPos.y + radius));
 
                 }
             }
