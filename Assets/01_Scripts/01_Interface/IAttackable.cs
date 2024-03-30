@@ -1,4 +1,4 @@
-﻿namespace entityManage
+﻿namespace EntityManage
 {
     public interface IAttackable
     {

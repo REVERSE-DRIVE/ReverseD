@@ -37,7 +37,7 @@ public abstract class InteractionObject : MonoBehaviour
         {
             return;
         }
-        Debug.Log($"<{gameObject.name}> 상호작용 활성화 됨");
+        //Debug.Log($"<{gameObject.name}> 상호작용 활성화 됨");
         InteractionEvent?.Invoke();
         // override로 구현
         

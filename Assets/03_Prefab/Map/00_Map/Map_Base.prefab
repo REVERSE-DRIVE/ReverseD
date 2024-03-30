@@ -213,7 +213,10 @@ MonoBehaviour:
   _roomType: 0
   isCleared: 0
   playerDetectDistance: 13
-  _phases: []
+  _phases:
+  - Mobs:
+    - ID: 0
+      Amount: 0
 --- !u!1 &8781061148759450658
 GameObject:
   m_ObjectHideFlags: 0
