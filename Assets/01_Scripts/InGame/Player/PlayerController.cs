@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     { 
         get => _joystick;
         set => _joystick = value;
-        
     }
 
     private void Awake()

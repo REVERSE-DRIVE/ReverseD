@@ -4,17 +4,23 @@ using UnityEngine;
 
 public abstract class PlayerAttack : MonoBehaviour
 {
-    protected Collider2D[] _attackColliders;
     protected SpriteRenderer[] _attackSpriteRenderers;
     protected Animator[] _attackAnimators;
     protected bool isAllowAttack = true;
+    protected PlayerController _playerController;
+    protected Vector2 _playerTransform;
+    protected Vector2 dir;
+    
     [SerializeField] protected float attackTime;
+    [SerializeField] protected LayerMask _whatIsEnemy;
 
     private void Awake()
     {
-        _attackColliders = GetComponentsInChildren<Collider2D>();
-        _attackSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         _attackAnimators = GetComponentsInChildren<Animator>();
+        _playerController = transform.parent.GetComponent<PlayerController>();
+        _attackSpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        dir = _playerController.Joystick.Direction;
+        _playerTransform = transform.position;
     }
 
     public virtual void Attack()
@@ -22,10 +28,6 @@ public abstract class PlayerAttack : MonoBehaviour
         Debug.Log("PlayerAttack");
         if (!isAllowAttack) return;
         isAllowAttack = false;
-        for (int i = 1; i < _attackColliders.Length; i++)
-        {
-            _attackColliders[i].gameObject.SetActive(false);
-        }
         StartCoroutine(AttackRoutine());
     }
 
