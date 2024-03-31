@@ -59,6 +59,14 @@ public abstract class Entity : MonoBehaviour, IDamageable
 
     }
 
+    protected void CheckIsDie()
+    {
+        if (IsDie)
+        {
+            Die();
+        }
+    }
+
     public abstract void Die();
     public virtual void RestoreHealth(int amount)
     {
