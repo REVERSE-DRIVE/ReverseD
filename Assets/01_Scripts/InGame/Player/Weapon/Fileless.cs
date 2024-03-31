@@ -2,6 +2,7 @@
 using EnemyManage;
 using UnityEngine;
 
+// 레이저 발사하는 애
 public class Fileless : PlayerAttack
 {
     public override IEnumerator AttackRoutine()
