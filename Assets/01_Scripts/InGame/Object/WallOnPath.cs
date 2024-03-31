@@ -28,7 +28,12 @@ namespace RoomManage
 
         private void Update()
         {
-            SetWall();
+            //SetWall();
+        }
+
+        public void OnWall()
+        {
+            wall.gameObject.SetActive(true);
         }
 
         public void SetWall()

@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    public static float TimeScale { get; set; }
+    public static float TimeScale { get; set; } = 1;
 
     private void OnGUI()
     {

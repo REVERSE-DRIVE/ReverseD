@@ -55,4 +55,10 @@ public class GameManager : MonoSingleton<GameManager>
     {
         _RenderingManager._Start();
     }
+
+
+    public void GameOver()
+    {
+        TimeManager.TimeScale = 0;
+    }
 }

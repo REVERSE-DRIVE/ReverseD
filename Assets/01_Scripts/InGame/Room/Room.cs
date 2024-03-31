@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RoomManage
@@ -17,6 +15,13 @@ namespace RoomManage
         private Transform enemyParent;
         [SerializeField] private int currentPhase = 0;
         [SerializeField] private bool isPhaseStarted;
+
+        private ParticleSystem phaseStartParticle;
+        [SerializeField]
+        private WallOnPath[] walls;
+        
+        
+        
         public int currentEnemyAmount
         {
             get
@@ -28,6 +33,13 @@ namespace RoomManage
         private void Awake()
         {
             enemyParent = transform.Find("EnemyParent");
+            phaseStartParticle = transform.Find("MapActiveParticle").GetComponent<ParticleSystem>();
+        }
+
+        private void Start()
+        {
+            walls = transform.Find("Paths").GetComponentsInChildren<WallOnPath>();
+
         }
 
         private void Update()
@@ -46,6 +58,7 @@ namespace RoomManage
                     playerDetectDistance - 1)
                 {
                     StartPhase();
+                    CloseAllDoor();
                 }
 
             }
@@ -60,6 +73,7 @@ namespace RoomManage
         {
             GenerateEnemy();
             isPhaseStarted = true;
+            phaseStartParticle.Play();
         }
     
         private void GenerateEnemy()
@@ -80,7 +94,26 @@ namespace RoomManage
                 Debug.Log("스테이지 클리어");
                 isCleared = true;
                 GameManager.Instance._UIManager.ShowStageClear();
+                OpenAllDoor();
+                
+            }
+        }
 
+        private void CloseAllDoor()
+        {
+            print("문을 모두 닫음");
+            for (int i = 0; i < 4; i++)
+            {
+                walls[i].OnWall();
+            }
+        }
+
+        private void OpenAllDoor()
+        {
+            print("문을 모두 열음");
+            for (int i = 0; i < 4; i++)
+            {
+                walls[i].SetWall();
             }
         }
     }
