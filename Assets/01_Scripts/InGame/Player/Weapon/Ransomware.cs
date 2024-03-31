@@ -2,6 +2,7 @@
 using EnemyManage;
 using UnityEngine;
 
+// 방패 밀치는 애
 public class Ransomware : PlayerAttack
 {
     public override IEnumerator AttackRoutine()
