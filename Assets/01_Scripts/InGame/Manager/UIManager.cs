@@ -16,16 +16,18 @@ namespace InGameScene
 
         [SerializeField] private UIInfo UI_StageClear;
         [SerializeField] private float StageClearUIDisplayDuration = 1;
+
         
         private void Start()
         {
             Player.OnPlayerHpChanged += RefreshHpGauge;
+            
         }
 
         public void RefreshHpGauge()
         {
             Status playerStatus = GameManager.Instance._Player.Status;
-            float t = playerStatus.hp / playerStatus.hpMax;
+            float t = (float)playerStatus.hp / playerStatus.hpMax;
             hp_gauge.fillAmount = Mathf.Clamp01(t);
             
         }

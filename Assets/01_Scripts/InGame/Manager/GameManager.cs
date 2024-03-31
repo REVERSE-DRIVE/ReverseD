@@ -6,6 +6,8 @@ using RoomManage;
 using Unity.Collections;
 using UnityEngine;
 
+
+
 public class GameManager : MonoSingleton<GameManager>
 {
     public PlayerController _PlayerController { get; private set; }
@@ -16,6 +18,8 @@ public class GameManager : MonoSingleton<GameManager>
     public RoomGenerator _RoomGenerator { get; private set; }
     public RenderingManager _RenderingManager { get; private set; }
     public RoomManager _RoomManager { get; private set; }
+
+    public CameraManager _CameraManager { get; private set; }
 
 
     // =====
@@ -48,11 +52,18 @@ public class GameManager : MonoSingleton<GameManager>
         _RoomGenerator = FindObjectOfType<RoomGenerator>();
         _RenderingManager = FindObjectOfType<RenderingManager>();
         _RoomManager = FindObjectOfType<RoomManager>();
-
+        _CameraManager = FindObjectOfType<CameraManager>();
     }
 
     private void Start()
     {
         _RenderingManager._Start();
+        Player.OnPlayerHpChanged += _CameraManager.ShakeHit;
+    }
+
+
+    public void GameOver()
+    {
+        TimeManager.TimeScale = 0;
     }
 }
