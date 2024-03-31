@@ -19,6 +19,7 @@ namespace RoomManage
         private void OnEnable()
         {
             RoomGenerator.WallGenerateEvent += SetWall;
+            SetWall();
         }
 
         private void OnDestroy()
