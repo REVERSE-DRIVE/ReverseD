@@ -6,6 +6,8 @@ using RoomManage;
 using Unity.Collections;
 using UnityEngine;
 
+
+
 public class GameManager : MonoSingleton<GameManager>
 {
     public PlayerController _PlayerController { get; private set; }
