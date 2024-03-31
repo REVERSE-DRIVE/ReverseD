@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -12,7 +9,11 @@ public class SettingManager : MonoBehaviour
     [SerializeField] private AudioMixerGroup _sfx;
     [SerializeField] private Slider _bgmSlider;
     [SerializeField] private Slider _sfxSlider;
-
+    
+    [Header("Screen_Setting")]
+    [SerializeField] private bool _isShakingEffect;
+    [SerializeField] private float _lightingStrength;
+    
     private void OnEnable()
     {
         TimeManager.TimeScale = 0;
@@ -26,5 +27,15 @@ public class SettingManager : MonoBehaviour
     private void SetSFXVolume()
     {
         _sfx.audioMixer.SetFloat("SFXVolume", _sfxSlider.value);
+    }
+
+    private void ShakingEffect(bool value)
+    {
+        _isShakingEffect = value;
+    }
+    
+    private void SetLightingStrength(float value)
+    {
+        _lightingStrength = value;
     }
 }
