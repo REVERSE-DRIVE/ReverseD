@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// 활 쏘는 애
 public class Adware : PlayerAttack
 {
     [SerializeField] private GameObject _arrowPrefab;

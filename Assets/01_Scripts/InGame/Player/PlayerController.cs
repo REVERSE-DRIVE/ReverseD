@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,13 +9,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigid;
     private Player _player;
     private Vector3 dir;
+    private bool isMoving;
+
+    private bool flipX;
+    
     
     public VariableJoystick Joystick 
     { 
         get => _joystick;
         set => _joystick = value;
-        
     }
+    
+    public bool IsMoving => isMoving;
 
     private void Awake()
     {
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        isMoving = _rigid.velocity.magnitude > 0.1f;
         float horizontalInput = _joystick.Horizontal;
         float verticalInput = _joystick.Vertical;
 
@@ -52,10 +55,12 @@ public class PlayerController : MonoBehaviour
     private void Rotate()
     {
         dir = _joystick.Direction.normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.localScale = new Vector3(dir.x > 0 ? 1 : -1, 1, 1);
-        // _playerAttack.PlayerAttackCollider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        // transform.GetChild(1).rotation = _playerAttack.PlayerAttackCollider.transform.rotation;
+        _spriteRenderer.flipX = isMoving ? dir.x > 0 : flipX;
+    }
+    
+    public void SaveDirection()
+    {
+        flipX = _spriteRenderer.flipX;
     }
 
     public void ChangeSprite()
