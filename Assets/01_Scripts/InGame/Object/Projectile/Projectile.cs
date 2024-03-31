@@ -27,12 +27,16 @@ public abstract class Projectile : MonoBehaviour
 
     private void Update()
     {
-        _currentLifeTime += Time.deltaTime;
+
+        _currentLifeTime += Time.deltaTime * TimeManager.TimeScale;
 
         if (_currentLifeTime >= lifeTime)
         {
+            
             DestroyProjectile();
+            return;
         }
+        Move();
     }
 
 
@@ -47,7 +51,7 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void Move()
     {
-        _rigid.velocity = _direction.normalized * _speed; 
+        _rigid.velocity = _direction.normalized * _speed * TimeManager.TimeScale; 
         SetRotation();
     }
 
