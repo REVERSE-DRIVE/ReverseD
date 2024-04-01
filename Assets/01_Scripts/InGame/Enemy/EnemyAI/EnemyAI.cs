@@ -186,7 +186,6 @@ namespace EnemyManage
                 if (ray.collider.CompareTag("Player"))
                 {
                     _currentState = EnemyStateEnum.Attack;
-                    Debug.Log("Attack");
                 }
             }
         }
