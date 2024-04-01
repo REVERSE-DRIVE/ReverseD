@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,8 +10,9 @@ public class PlayerChoiceSlot : MonoBehaviour, IPointerClickHandler
     
     private Vector3 _originalScale;
     private Sequence _sequence;
+    private RectTransform _rectTransform;
 
-    private void Awake()
+    private void OnEnable()
     {
         _originalScale = transform.localScale;
     }
@@ -31,6 +30,6 @@ public class PlayerChoiceSlot : MonoBehaviour, IPointerClickHandler
     {
         SetSequence();
         _sequence.Play();
-        PlayerManager.Instance.PlayerSO = _playerSO;
+        //PlayerManager.Instance.PlayerSO = _playerSO;
     }
 }
