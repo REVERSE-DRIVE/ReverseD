@@ -25,9 +25,11 @@ namespace EnemyManage.AIs
             yield return new WaitForSeconds(_attackCycleSpeed);
         }
 
-        private void Shoot()
+        private void ShootMultiProjectile(Vector2 minDir, Vector2 maxDir, int projectileAmount)
         {
-                
+            
+            
+            
         }
         
         
