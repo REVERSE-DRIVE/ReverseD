@@ -4,6 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerSO", menuName = "SO/PlayerSO")]
 public class PlayerSO : ScriptableObject
 {
+    public string playerName;
+    public string playerDescription;
+    [Space(20)]
     public Sprite playerSprite;
     public int playerHealth;
     public int attackDamage;

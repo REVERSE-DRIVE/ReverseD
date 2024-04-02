@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MainLoby
 {
     
-    public class UIManager : MonoBehaviour
+    public class LobbyInteractionManager : MonoBehaviour
     {
         [SerializeField] private LayerMask _whatIsInteractable;
         private void Update()

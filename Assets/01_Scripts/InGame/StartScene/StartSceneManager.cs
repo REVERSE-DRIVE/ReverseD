@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.IO;
 using DG.Tweening;
 using UnityEngine;
 using EasySave.Json;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class StartSceneManager : MonoBehaviour
 {
@@ -45,7 +47,7 @@ public class StartSceneManager : MonoBehaviour
         else
         {
             Debug.Log("폴더가 존재하지 않습니다.");
-        
+            StartCoroutine(DelaySceneChange());
         }
     }
     
@@ -72,8 +74,14 @@ public class StartSceneManager : MonoBehaviour
         _startGameEvent.Invoke();
         if (count == 2)
         {
-            _realStartGameEvent.Invoke();
+            StartCoroutine(DelaySceneChange());
         }
+    }
+    IEnumerator DelaySceneChange()
+    {
+        _realStartGameEvent.Invoke();
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene("MainLobyScene");
     }
     
     /**
