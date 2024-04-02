@@ -15,12 +15,17 @@ namespace InGameScene
         [SerializeField] private Image hp_gauge;
         [SerializeField] private Image attackButton;
 
+        [Header("StageClear UI")]
         [SerializeField] private UIInfo UI_StageClear;
         [SerializeField] private float StageClearUIDisplayDuration = 1;
 
+        [Header("Infection UI")]
         [SerializeField] private UIInfo UI_Infection;
         [SerializeField] private TextMeshProUGUI _infectionText;
-        
+        [SerializeField] private float _displayDuration = 1f;
+
+        [Header("GameOver UI")] [SerializeField]
+        private UIInfo UI_GameOver;
         private void Start()
         {
             Player.OnPlayerHpChanged += RefreshHpGauge;
@@ -51,7 +56,23 @@ namespace InGameScene
             UI_StageClear.MoveOn();
             yield return new WaitForSeconds(StageClearUIDisplayDuration);
             UI_StageClear.MoveOff();
-            
+
+
+        }
+
+        public void ShowInfectionAlert(int infectLevel)
+        {
+            _infectionText.text =
+                $"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
+            StartCoroutine(ShowInfectionAlertRoutine());
+
+        }
+
+        private IEnumerator ShowInfectionAlertRoutine()
+        {
+            UI_Infection.MoveOn();
+            yield return new WaitForSeconds(_displayDuration);
+            UI_Infection.MoveOff();
         }
         
         

@@ -66,4 +66,15 @@ public class GameManager : MonoSingleton<GameManager>
     {
         TimeManager.TimeScale = 0;
     }
+
+    public void Infect(int amount)
+    {
+        infectedLevel += amount;
+        AlertInfection();
+    }
+
+    public void AlertInfection()
+    {
+        _UIManager.ShowInfectionAlert(infectedLevel);
+    }
 }

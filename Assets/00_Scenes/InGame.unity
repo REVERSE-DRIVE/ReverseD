@@ -2067,6 +2067,9 @@ MonoBehaviour:
   attackButton: {fileID: 769933874}
   UI_StageClear: {fileID: 280505675}
   StageClearUIDisplayDuration: 2.5
+  UI_Infection: {fileID: 0}
+  _infectionText: {fileID: 0}
+  _displayDuration: 0
 --- !u!4 &1292344168
 Transform:
   m_ObjectHideFlags: 0
