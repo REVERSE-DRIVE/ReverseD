@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using EntityManage;
+using TMPro;
 using UIManage;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ namespace InGameScene
         [SerializeField] private UIInfo UI_StageClear;
         [SerializeField] private float StageClearUIDisplayDuration = 1;
 
+        [SerializeField] private UIInfo UI_Infection;
+        [SerializeField] private TextMeshProUGUI _infectionText;
         
         private void Start()
         {

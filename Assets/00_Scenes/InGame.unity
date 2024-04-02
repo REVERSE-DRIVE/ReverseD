@@ -180,7 +180,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[Warning] \n<size=32>\uAC10\uC5FC\uB3C4\uAC00 50%\uC5D0 \uB3C4\uB2EC\uD588\uC2B5\uB2C8\uB2E4</size>"
+  m_text: "[Warning] \n<size=32>\uAC10\uC5FC\uB3C4\uAC00 <size=64>50%</size> \uC5D0
+    \uB3C4\uB2EC\uD588\uC2B5\uB2C8\uB2E4</size>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 773bde5ef6d1b8144ae11524e8946663, type: 2}
   m_sharedMaterial: {fileID: 9116536590566192337, guid: 773bde5ef6d1b8144ae11524e8946663, type: 2}
@@ -428,9 +429,9 @@ RectTransform:
   - {fileID: 1624894886}
   m_Father: {fileID: 646111775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 900}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 500}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280505673
@@ -487,8 +488,8 @@ MonoBehaviour:
   UITrnsObject: {fileID: 280505672}
   UIName: 
   usePositionEffect: 1
-  DefaultPos: {x: 0, y: 900}
-  TargetPos: {x: 0, y: 0}
+  DefaultPos: {x: 0, y: 500}
+  TargetPos: {x: 0, y: -100}
   duration: 0.25
   EaseEffect: 1
   onOff: 0
@@ -1871,7 +1872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1211622214
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1887,10 +1888,10 @@ RectTransform:
   - {fileID: 64053941}
   m_Father: {fileID: 646111775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -304, y: 268}
-  m_SizeDelta: {x: 467.4822, y: 209.9758}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -100}
+  m_SizeDelta: {x: 550, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1211622215
 MonoBehaviour:
