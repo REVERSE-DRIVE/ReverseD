@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d9c812c7cbbd624abea4766c54a94ae, type: 3}
   m_Name: Adware
   m_EditorClassIdentifier: 
+  playerName: "\uC560\uB4DC\uC6E8\uC5B4"
+  playerDescription: 
   playerSprite: {fileID: 0}
   playerHealth: 85
   attackDamage: 2
