@@ -25,9 +25,9 @@ public class ItemDropManager : MonoSingleton<ItemDropManager>
      */
     public GameObject DropItem(ItemDropType itemDropType, Vector2 position)
     {
-        GameObject dropItem = PoolManager.Get(DropItemPrefab, position, Quaternion.identity);
+        //GameObject dropItem = PoolManager.Get(DropItemPrefab, position, Quaternion.identity);
         // 아래 오버로딩된 DropItem을 이용해서 랜덤 드랍
-        DropItem(_itemDropBases[(int)itemDropType].GetRandomItem(), position);
+        GameObject dropItem = DropItem(_itemDropBases[(int)itemDropType].GetRandomItem(), position);
         return dropItem;
     }
     
