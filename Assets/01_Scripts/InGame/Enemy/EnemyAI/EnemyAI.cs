@@ -198,7 +198,7 @@ namespace EnemyManage
         public virtual void SetDefault()
         {
             _currentState = EnemyStateEnum.Roaming;
-            _enemy.SetHealthMax();
+            //_enemy.SetStatusDefault();
         }
     }
 }

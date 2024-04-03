@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    /**
+    * <summary>
+    * 디바이스의 감염정도
+    * </summary>
+    */
+    private int infectedLevel = 0;
+    public int InfectedLevel => infectedLevel;
 
-    // Update is called once per frame
-    void Update()
+    public void AddInfect(int amount)
     {
+        infectedLevel += amount;
+    }
+    
+    public void MoveToNextStage()
+    {
+        GameManager.Instance._PlayerTransform.position = Vector3.zero;
+        GameManager.Instance._RoomGenerator.ResetMap();
         
     }
 }
