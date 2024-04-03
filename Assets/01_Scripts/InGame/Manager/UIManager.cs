@@ -86,7 +86,6 @@ namespace InGameScene
         public void ShowStageClear()
         {
             StartCoroutine(ShowStageClearRoutine());
-            
         }
 
         private IEnumerator ShowStageClearRoutine()
@@ -94,8 +93,6 @@ namespace InGameScene
             UI_StageClear.MoveOn();
             yield return new WaitForSeconds(_stageClearUIDisplayDuration);
             UI_StageClear.MoveOff();
-
-
         }
 
         public void ShowInfectionAlert(int infectLevel)
@@ -103,7 +100,6 @@ namespace InGameScene
             _infectionText.text =
                 $"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
             StartCoroutine(ShowInfectionAlertRoutine());
-
         }
 
         private IEnumerator ShowInfectionAlertRoutine()
