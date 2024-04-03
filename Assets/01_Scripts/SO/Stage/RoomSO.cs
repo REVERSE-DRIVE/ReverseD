@@ -1,19 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public enum RoomType
+namespace RoomManage
 {
-    Start,
-    Load,
-    NormalRoom,
-    SpecialRoom,
-    End
-}
-public class RoomSO : ScriptableObject
-{
-    public RoomType roomType;
-    public GameObject mapPrefab;
-    public float generateRate = 1f;
+    
+    public enum RoomType
+    {
+        Start,
+        Load,
+        NormalRoom,
+        SpecialRoom,
+        End
+    }
+
+
+    [CreateAssetMenu(menuName = "SO/Stage/Room")]
+    [System.Serializable]
+    public class RoomSO : ScriptableObject
+    {
+        public RoomType roomType;
+        public GameObject mapPrefab;
+        public float roomSpawnRate = 1f;
+        public int maxSpawnAmount = 1;
+        public int minSpawnAmount;
+    }
 
 }

@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace entityManage
+namespace EntityManage
 {
     
     public interface IDamageable
     {
         
-        public abstract void Damaged(int damage);
+        public void TakeDamage(int damage);
 
-        public abstract void CriticalDamaged(int damage);
+        public void TakeCriticalDamage(int damage);
 
+        public void Die();
+
+        public void RestoreHealth(int amount);
     }
 }

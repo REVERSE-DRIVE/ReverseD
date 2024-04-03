@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Object
   - PlayerArrow
+  - Load
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -15,13 +17,13 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - LoadGround
+  - Map
+  - Wall
+  - InteractionObject
+  - PlayerProjectile
+  - EnemyProjectile
+  - Enemy
   - 
   - 
   - 
@@ -47,6 +49,15 @@ TagManager:
   - name: Tilemap
     uniqueID: 3017666677
     locked: 0
+  - name: Object
+    uniqueID: 1860675727
+    locked: 0
   - name: Entity
     uniqueID: 3129406573
+    locked: 0
+  - name: Particle
+    uniqueID: 2556523407
+    locked: 0
+  - name: UI
+    uniqueID: 2212002941
     locked: 0

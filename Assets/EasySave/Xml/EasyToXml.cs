@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
@@ -106,6 +107,7 @@ namespace EasySave.Xml
          * <param name="dict">저장할 Dictionary</param>
          * <param name="xmlFileName">xml 파일 이름</param>
          */
+        [Obsolete("이 메서드는 불안정합니다. 사용하지 않는 걸 권장합니다. EasyToXml.DictionaryToXml<TKey, TValue>를 사용하세요.")]
         public static void DictionaryToXml<TKey, TValue>(Dictionary<TKey, TValue> dict, string xmlFileName)
         {
             if (!Directory.Exists(LocalPath))
@@ -130,6 +132,7 @@ namespace EasySave.Xml
          * <param name="xmlFileName">xml 파일 이름</param>
          * <returns>xml 파일을 읽어서 만든 Dictionary</returns>
          */
+        [Obsolete("이 메서드는 불안정합니다. 사용하지 않는 걸 권장합니다. EasyToXml.DictionaryFromXml<TKey, TValue>를 사용하세요.")]
         public static Dictionary<TKey, TValue> DictionaryFromXml<TKey, TValue>(string xmlFileName)
         {
             string path = LocalPath + xmlFileName + ".xml";
