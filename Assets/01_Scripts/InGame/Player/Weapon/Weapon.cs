@@ -9,6 +9,6 @@ namespace AttackManage
         
         public abstract void Attack();
 
-        
+                
     }
 }
