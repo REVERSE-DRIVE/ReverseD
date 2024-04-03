@@ -25,13 +25,29 @@ namespace InGameScene
         [SerializeField] private UIInfo UI_StageClear;
         [SerializeField] private float _stageClearUIDisplayDuration = 1;
 
+        [Header("ShowStageChangeEvent UI")]
+        [SerializeField] private UIInfo UI_ShowStageChangeEvent;
+        [SerializeField] private UIInfo UI_Loading;
+        [SerializeField] private Image _loadingGauge;
+        [SerializeField] private UIInfo UI_Tip;
+        [SerializeField] private TextMeshProUGUI _tipText;
+        [Range(1,3)]
+        [SerializeField] private float loadingDuration = 1.5f;
+        public float LoadingDuration
+        {
+            get
+            {
+                return loadingDuration;
+            }
+        }
+        
         [Header("Infection UI")]
         [SerializeField] private UIInfo UI_Infection;
         [SerializeField] private TextMeshProUGUI _infectionText;
         [SerializeField] private float _displayDuration = 1f;
 
-        [Header("GameOver UI")] [SerializeField]
-        private UIInfo UI_GameOver;
+        [Header("GameOver UI")] 
+        [SerializeField] private UIInfo UI_GameOver;
         private void Start()
         {
             Player.OnPlayerHpChanged += RefreshHpGauge;
@@ -48,6 +64,22 @@ namespace InGameScene
         public void RefreshUIs()
         {
             
+        }
+
+        public void ShowStageChangeEvent()
+        {
+            StartCoroutine(ShowStageChangeEventCoroutine());
+        }
+
+        private IEnumerator ShowStageChangeEventCoroutine()
+        {
+            UI_ShowStageChangeEvent.MoveOn();
+            UI_Loading.MoveOn();
+            UI_Tip.MoveOn();
+            yield return new WaitForSeconds(loadingDuration);
+            UI_ShowStageChangeEvent.MoveOff();
+            UI_Loading.MoveOff();
+            UI_Tip.MoveOff();
         }
 
         [ContextMenu("ShowStageClear")]

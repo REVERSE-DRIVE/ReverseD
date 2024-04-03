@@ -39,18 +39,25 @@ public class StageManager : MonoBehaviour
     {
         currentStageNum++;
         StartCoroutine(MoveToNextStageCoroutine());
-        ShowNewStage();
-    }
-
-    private void ShowNewStage()
-    {
+        
+        GameManager.Instance._UIManager.ShowStageChangeEvent();
         GameManager.Instance._UIManager.ShowNewStageUI(currentChapter, currentStageNum);
+
+        //StartCoroutine(ShowNewStageCoroutine());
     }
+    
+    //
+    // private IEnumerator ShowNewStageCoroutine()
+    // {}
+    //
     
     private IEnumerator MoveToNextStageCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        
         GameManager.Instance._PlayerTransform.position = Vector3.zero;
+        float term = GameManager.Instance._UIManager.LoadingDuration * 0.5f;
+        yield return new WaitForSeconds(term);
+        
         GameManager.Instance._RoomGenerator.ResetMap();
         if (currentStageNum < maxStageIndexInChaapter)
         {
