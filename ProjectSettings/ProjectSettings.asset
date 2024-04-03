@@ -755,7 +755,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -775,11 +781,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: f0bb75c1-b457-4ed0-9b38-bf297629526f
+  cloudProjectId: d4e1a6d8-b04f-48e5-bdc5-45fb8e3c2fde
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ReverseD 2024-03-07_00-00-50
-  organizationId: leo82380
+  projectName: Code:Unknown
+  organizationId: vcshb
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

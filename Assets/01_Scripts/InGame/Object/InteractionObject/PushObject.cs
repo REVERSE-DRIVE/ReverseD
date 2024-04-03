@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using EnemyManage;
 using UnityEngine;
 
 public class PushObject : InteractionObject
@@ -78,10 +78,12 @@ public class PushObject : InteractionObject
     {
         if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
-            Entity entity = other.transform.GetComponent<Entity>();
-            if (entity)
+            if (other.transform.CompareTag("Enemy"))
             {
-                entity.TakeDamage(_damage);
+                other.transform.GetComponent<Enemy>().TakeDamage(_damage);
+            }else if (other.transform.CompareTag("Player"))
+            {
+                other.transform.GetComponent<Player>().TakeDamage(_damage);
             }
             
         }

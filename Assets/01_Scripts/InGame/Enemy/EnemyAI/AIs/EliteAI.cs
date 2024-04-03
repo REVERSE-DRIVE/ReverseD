@@ -13,7 +13,6 @@ namespace EnemyManage.AIs
             throw new System.NotImplementedException();
         }
         
-        
     }
 
 }

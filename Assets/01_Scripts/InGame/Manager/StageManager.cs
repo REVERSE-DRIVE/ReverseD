@@ -11,6 +11,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private int currentStageNum = 0;
     [SerializeField] private int maxStageIndexInChaapter = 5;
 
+    [SerializeField] private float _delayNewStageMsg = 2;
     private void Start()
     {
         NextStage();
@@ -40,16 +41,19 @@ public class StageManager : MonoBehaviour
         currentStageNum++;
         StartCoroutine(MoveToNextStageCoroutine());
         
+        
+        StartCoroutine(ShowNewStageCoroutine());
+    }
+
+
+    private IEnumerator ShowNewStageCoroutine()
+    {
         GameManager.Instance._UIManager.ShowStageChangeEvent();
+        yield return new WaitForSeconds(_delayNewStageMsg);
         GameManager.Instance._UIManager.ShowNewStageUI(currentChapter, currentStageNum);
 
-        //StartCoroutine(ShowNewStageCoroutine());
     }
     
-    //
-    // private IEnumerator ShowNewStageCoroutine()
-    // {}
-    //
     
     private IEnumerator MoveToNextStageCoroutine()
     {

@@ -67,10 +67,9 @@ namespace InGameScene
         }
 
         public void ShowStageChangeEvent()
-        {
+        { // 스테이지 넘어가는 경계 재생
             StartCoroutine(ShowStageChangeEventCoroutine());
         }
-
         private IEnumerator ShowStageChangeEventCoroutine()
         {
             UI_ShowStageChangeEvent.MoveOn();
@@ -83,13 +82,13 @@ namespace InGameScene
         }
 
         [ContextMenu("ShowStageClear")]
-        public void ShowStageClear()
-        {
-            StartCoroutine(ShowStageClearRoutine());
+        public void ShowRoomClear()
+        { // 룸 클리어 클리어
+            StartCoroutine(ShowRoomClearRoutine());
             
         }
 
-        private IEnumerator ShowStageClearRoutine()
+        private IEnumerator ShowRoomClearRoutine()
         {
             UI_StageClear.MoveOn();
             yield return new WaitForSeconds(_stageClearUIDisplayDuration);
@@ -99,13 +98,12 @@ namespace InGameScene
         }
 
         public void ShowInfectionAlert(int infectLevel)
-        {
+        { // 감염도 경고창
             _infectionText.text =
                 $"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
             StartCoroutine(ShowInfectionAlertRoutine());
 
         }
-
         private IEnumerator ShowInfectionAlertRoutine()
         {
             UI_Infection.MoveOn();
@@ -115,10 +113,9 @@ namespace InGameScene
 
 
         public void ShowNewStageUI(int currentChapter, int currentStage)
-        {
+        { // 스테이지 전환
             StartCoroutine(ShowNewStageUICoroutine(currentChapter, currentStage));
         }
-
         private IEnumerator ShowNewStageUICoroutine(int currentChapter, int currentStage)
         {
             _stageText.text = $"Stage {currentChapter}-{currentStage}";

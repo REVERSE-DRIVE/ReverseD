@@ -9,7 +9,6 @@ public abstract class PlayerAttack : MonoBehaviour
     protected PlayerController _playerController;
     protected Vector2 _playerTransform;
     protected Vector2 dir;
-    protected float angle;
     
     [SerializeField] protected float attackTime;
     [SerializeField] protected LayerMask _whatIsEnemy;
@@ -28,6 +27,7 @@ public abstract class PlayerAttack : MonoBehaviour
     
     private Quaternion _saveRotation;
 
+    
     private void Awake()
     {
         _attackAnimators = GetComponentsInChildren<Animator>();
@@ -66,7 +66,7 @@ public abstract class PlayerAttack : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("PlayerAttack");
+        //Debug.Log("PlayerAttack");
         if (!isCooltimeSet)
         {
             _attackCooltime = AttakCooltime;
