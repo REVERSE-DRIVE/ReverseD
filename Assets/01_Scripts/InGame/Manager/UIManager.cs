@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using EntityManage;
+using TMPro;
 using UIManage;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,13 +12,42 @@ namespace InGameScene
     
     public class UIManager : MonoBehaviour
     {
+        [Header("Player UI")]
         [SerializeField] private Image hp_gauge;
         [SerializeField] private Image attackButton;
 
-        [SerializeField] private UIInfo UI_StageClear;
-        [SerializeField] private float StageClearUIDisplayDuration = 1;
-
+        [Header("New Stage UI")] 
+        [SerializeField] private UIInfo UI_NewStage;
+        [SerializeField] private TextMeshProUGUI _stageText;
+        [SerializeField] private float _newStageUIDisplayDuration = 1.5f;
         
+        [Header("StageClear UI")]
+        [SerializeField] private UIInfo UI_StageClear;
+        [SerializeField] private float _stageClearUIDisplayDuration = 1;
+
+        [Header("ShowStageChangeEvent UI")]
+        [SerializeField] private UIInfo UI_ShowStageChangeEvent;
+        [SerializeField] private UIInfo UI_Loading;
+        [SerializeField] private Image _loadingGauge;
+        [SerializeField] private UIInfo UI_Tip;
+        [SerializeField] private TextMeshProUGUI _tipText;
+        [Range(1,3)]
+        [SerializeField] private float loadingDuration = 1.5f;
+        public float LoadingDuration
+        {
+            get
+            {
+                return loadingDuration;
+            }
+        }
+        
+        [Header("Infection UI")]
+        [SerializeField] private UIInfo UI_Infection;
+        [SerializeField] private TextMeshProUGUI _infectionText;
+        [SerializeField] private float _displayDuration = 1f;
+
+        [Header("GameOver UI")] 
+        [SerializeField] private UIInfo UI_GameOver;
         private void Start()
         {
             Player.OnPlayerHpChanged += RefreshHpGauge;
@@ -36,6 +66,22 @@ namespace InGameScene
             
         }
 
+        public void ShowStageChangeEvent()
+        {
+            StartCoroutine(ShowStageChangeEventCoroutine());
+        }
+
+        private IEnumerator ShowStageChangeEventCoroutine()
+        {
+            UI_ShowStageChangeEvent.MoveOn();
+            UI_Loading.MoveOn();
+            UI_Tip.MoveOn();
+            yield return new WaitForSeconds(loadingDuration);
+            UI_ShowStageChangeEvent.MoveOff();
+            UI_Loading.MoveOff();
+            UI_Tip.MoveOff();
+        }
+
         [ContextMenu("ShowStageClear")]
         public void ShowStageClear()
         {
@@ -46,9 +92,39 @@ namespace InGameScene
         private IEnumerator ShowStageClearRoutine()
         {
             UI_StageClear.MoveOn();
-            yield return new WaitForSeconds(StageClearUIDisplayDuration);
+            yield return new WaitForSeconds(_stageClearUIDisplayDuration);
             UI_StageClear.MoveOff();
-            
+
+
+        }
+
+        public void ShowInfectionAlert(int infectLevel)
+        {
+            _infectionText.text =
+                $"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
+            StartCoroutine(ShowInfectionAlertRoutine());
+
+        }
+
+        private IEnumerator ShowInfectionAlertRoutine()
+        {
+            UI_Infection.MoveOn();
+            yield return new WaitForSeconds(_displayDuration);
+            UI_Infection.MoveOff();
+        }
+
+
+        public void ShowNewStageUI(int currentChapter, int currentStage)
+        {
+            StartCoroutine(ShowNewStageUICoroutine(currentChapter, currentStage));
+        }
+
+        private IEnumerator ShowNewStageUICoroutine(int currentChapter, int currentStage)
+        {
+            _stageText.text = $"Stage {currentChapter}-{currentStage}";
+            UI_NewStage.MoveOn();
+            yield return new WaitForSeconds(_newStageUIDisplayDuration);
+            UI_NewStage.MoveOff();
         }
         
         

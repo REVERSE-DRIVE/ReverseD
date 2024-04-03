@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ff26fefb994f2faa705f9d7eed1e87, type: 3}
+  m_Name: TestEliteEnemyInfo 1
+  m_EditorClassIdentifier: 
+  id: 1
+  enemyTypeTag: 1
+  SettingStatus:
+    hp: 20
+    hpMax: 20
+    attackDamage: 3
+    criticalRate: 0
+    defense: 1
+    criticalDefense: 0
+    moveSpeed: 3
+    mass: 1
+    isHealDefense: 0
+    healthDefMultiple: 0
+  enemyPrefab: {fileID: 6293421271846555851, guid: f4ef2857046e63543a8082f67b412e06, type: 3}

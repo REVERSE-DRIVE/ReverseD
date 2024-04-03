@@ -20,13 +20,13 @@ namespace EnemyManage.AIs
         }
         
 
-        protected void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("PlayerArrow"))
-            {
-                _currentState = EnemyStateEnum.Stun;
-            }
-        }
+        // protected void OnTriggerEnter2D(Collider2D other)
+        // {
+        //     if (other.CompareTag("PlayerArrow"))
+        //     {
+        //         _currentState = EnemyStateEnum.Stun;
+        //     }
+        // }
         
         
         

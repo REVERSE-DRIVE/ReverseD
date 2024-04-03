@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private float hitShakePower = 5;
     [SerializeField] private float hitShakeDuration = 0.1f;
+    [SerializeField] private float cameraDefaultZoom = 8f;
     private void Awake()
     {
         _cinemachineBasicMultiChannelPerlin =
@@ -52,8 +53,38 @@ public class CameraManager : MonoBehaviour
         SetShake(0,0);
     }
 
-    public void Zoom()
+    public void StageStartCameraZoomEvent()
     {
-        
+        ZoomDefault(13, 1.5f);
+    }
+
+    public void ZoomDefault()
+    {
+        _virtualCamera.m_Lens.OrthographicSize = cameraDefaultZoom;
+    }
+    public void ZoomDefault(float before, float duration)
+    {
+        StartCoroutine(ZoomCoroutine(before, cameraDefaultZoom, duration));
+    }
+
+    public void Zoom(float before, float after, float duration)
+    {
+        StartCoroutine(ZoomCoroutine(before, after, duration));
+    }
+    
+    
+
+    private IEnumerator ZoomCoroutine(float before, float after, float duration)
+    {
+        float currentTime = 0;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            float t = currentTime / duration;
+            _virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(before, after, t);
+            yield return null;
+        }
+
+        _virtualCamera.m_Lens.OrthographicSize = after;
     }
 }

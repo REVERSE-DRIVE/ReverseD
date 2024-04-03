@@ -186,7 +186,6 @@ namespace EnemyManage
                 if (ray.collider.CompareTag("Player"))
                 {
                     _currentState = EnemyStateEnum.Attack;
-                    Debug.Log("Attack");
                 }
             }
         }
@@ -199,7 +198,7 @@ namespace EnemyManage
         public virtual void SetDefault()
         {
             _currentState = EnemyStateEnum.Roaming;
-            _enemy.SetHealthMax();
+            //_enemy.SetStatusDefault();
         }
     }
 }
