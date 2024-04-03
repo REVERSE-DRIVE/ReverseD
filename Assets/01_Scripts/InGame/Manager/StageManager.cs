@@ -1,9 +1,22 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
+    public event Action StageStartEvent; 
+    [SerializeField] private Portal _portalPrefab;
+    
+    [SerializeField] private int currentChapter = 1;
+    [SerializeField] private int currentStageNum = 0;
+    [SerializeField] private int maxStageIndexInChaapter = 5;
+
+    private void Start()
+    {
+        NextStage();
+    }
+
+
     /**
     * <summary>
     * 디바이스의 감염정도
@@ -17,10 +30,49 @@ public class StageManager : MonoBehaviour
         infectedLevel += amount;
     }
     
-    public void MoveToNextStage()
+    /**
+     * <summary>
+     * 다음 스테이지로 이동하는 함수
+     * </summary>
+     */
+    public void NextStage()
     {
+        currentStageNum++;
+        StartCoroutine(MoveToNextStageCoroutine());
+        ShowNewStage();
+    }
+
+    private void ShowNewStage()
+    {
+        GameManager.Instance._UIManager.ShowNewStageUI(currentChapter, currentStageNum);
+    }
+    
+    private IEnumerator MoveToNextStageCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
         GameManager.Instance._PlayerTransform.position = Vector3.zero;
         GameManager.Instance._RoomGenerator.ResetMap();
+        if (currentStageNum < maxStageIndexInChaapter)
+        {
+            GeneratePortal();
+            
+        }
+        else
+        {
+            // 챕터의 끝에 도달했으면 보스방을 생성
+        }
+
+    }
+
+    private void GeneratePortal()
+    {
+        Vector2 generatePos = GameManager.Instance._RoomGenerator.LastRoom.transform.position;
+        PoolManager.Get(_portalPrefab, generatePos, Quaternion.identity);
+    }
+
+    private void GenerateBossRoom()
+    {
+        Vector2 generatePos = GameManager.Instance._RoomGenerator.LastRoom.transform.position;
         
     }
 }
