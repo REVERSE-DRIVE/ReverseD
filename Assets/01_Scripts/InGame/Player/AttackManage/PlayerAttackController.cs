@@ -25,9 +25,17 @@ namespace AttackManage
             
         }
 
+        private void Update()
+        {
+            _currentWeapon.OnMoveDirectionEvent?.Invoke();
+        }
+
+
+        // 추후 공격버튼 홀드를 통한 AnimatorTriggerOn/OffTrigger
+        // 을 구현해야한다
         public void Attack()
         {
-            
+            _currentWeapon.Attack();
         }
 
         public void ChangeWeapon(WeaponSO weaponSO)
@@ -46,7 +54,7 @@ namespace AttackManage
 
         private void SetWeaponOnHandle()
         {
-             _currentWeapon = Instantiate(_currentWeaponSO.weaponPrefab, weaponHandleTrm);
+             _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
         }
         
     }

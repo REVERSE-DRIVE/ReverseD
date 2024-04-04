@@ -16,6 +16,29 @@ namespace AttackManage
         public float attackCooltime = 1;
         public float attackRange = 1;
 
+        /**
+         * <summary>
+         * 직접 가져오기 보다는
+         * </summary>
+         */
         public Weapon weaponPrefab;
+
+        public Weapon GetWeaponPrefab
+        {
+            get
+            {
+                SetWeaponValue();
+                return weaponPrefab;
+            }
+        }
+        
+        public void SetWeaponValue()
+        {
+            weaponPrefab.damage = damage;
+            weaponPrefab._attackCooltime = attackCooltime;
+            
+        }
+        
+        
     }
 }
