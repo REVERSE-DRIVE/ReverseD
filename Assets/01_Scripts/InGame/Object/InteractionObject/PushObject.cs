@@ -16,10 +16,13 @@ public class PushObject : InteractionObject
     [SerializeField] private bool canDamage;
     private Vector2 previousDirection;
 
+    private SoundObject _soundObject;
+
     protected override void Awake()
     {
         base.Awake();
         _rigid = GetComponent<Rigidbody2D>();
+        _soundObject = GetComponent<SoundObject>();
     }
 
     private void Update()
@@ -94,8 +97,10 @@ public class PushObject : InteractionObject
 
             _rigid.bodyType = RigidbodyType2D.Dynamic;
             _rigid.AddForce(dir.normalized * (previousDirection * 0.6f), ForceMode2D.Impulse);
-            SetObjectActive(true);
+            _soundObject.PlayAudio(1);
         }
+        SetObjectActive(true);
+
     }
 
     private void CheckStop()

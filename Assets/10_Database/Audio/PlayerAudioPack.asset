@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ed67f0edcc146c9b000955164fa0997, type: 3}
-  m_Name: PushObjectPack
+  m_Name: PlayerAudioPack
   m_EditorClassIdentifier: 
-  packName: "\uD478\uC26C \uC624\uBE0C\uC81D\uD2B8 \uC0AC\uC6B4\uB4DC \uD329"
+  packName: PlayerAudioPack
   audioClips:
-  - {fileID: 8300000, guid: b0a766566ac194c4a8fef52ffa75afbb, type: 3}
-  - {fileID: 8300000, guid: 3930fa174a71bf34c903fed179476636, type: 3}
+  - {fileID: 8300000, guid: 9b884e954ae0b844ea4acaeb36b438c1, type: 3}

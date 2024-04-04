@@ -27,7 +27,7 @@ namespace AttackManage
 
         private void Update()
         {
-            _currentWeapon.OnMoveDirectionEvent?.Invoke();
+            //_currentWeapon.OnMoveDirectionEvent?.Invoke();
         }
 
 

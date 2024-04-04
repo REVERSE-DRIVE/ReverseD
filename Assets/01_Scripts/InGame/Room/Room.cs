@@ -19,6 +19,9 @@ namespace RoomManage
         private ParticleSystem phaseStartParticle;
         [SerializeField]
         private WallOnPath[] walls;
+
+        private SoundObject _soundObject;
+        
         
         
         
@@ -34,6 +37,8 @@ namespace RoomManage
         {
             enemyParent = transform.Find("EnemyParent");
             phaseStartParticle = transform.Find("MapActiveParticle").GetComponent<ParticleSystem>();
+            _soundObject = GetComponent<SoundObject>();
+
         }
 
         private void Start()
@@ -79,10 +84,12 @@ namespace RoomManage
             GenerateEnemy();
             isPhaseStarted = true;
             phaseStartParticle.Play();
+            _soundObject.PlayAudio(0);
         }
     
         private void GenerateEnemy()
         {
+            _soundObject.PlayAudio(1);
             GameManager.Instance._RoomManager.GeneratePhase(enemyParent, playerDetectDistance-1, _phases[currentPhase]);
             
         }

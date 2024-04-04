@@ -14,13 +14,14 @@ public class Player : Entity
     }
     public bool isDead;
     public static event Action OnPlayerHpChanged;
-    
+    private SoundObject _soundObject;
     
     
     private void Awake()
     {
         PlayerManager.Instance.UpdateStat();
         UpdateStatus();
+        _soundObject = GetComponent<SoundObject>();
     }
 
     private void Update()
@@ -57,6 +58,7 @@ public class Player : Entity
     {
         status.hp -= damage;
         OnPlayerHpChanged?.Invoke();
+        _soundObject.PlayAudio(0);
     }
     
 
