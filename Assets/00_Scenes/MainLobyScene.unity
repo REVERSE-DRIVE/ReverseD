@@ -1103,8 +1103,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canInteraction: 1
-  playerChoicePanel: {fileID: 1678421114}
+  laptopPanel: {fileID: 0}
   ease: 6
+  duration: 0
 --- !u!58 &655475349
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1806,7 +1807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 31, y: -1302}
   m_SizeDelta: {x: -479.99997, y: -209.99998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1028341367
