@@ -12,22 +12,40 @@ namespace AttackManage
         [SerializeField] private Weapon _currentWeapon;
         [SerializeField] private Transform weaponHandleTrm;
         public event Action onAttackEvent;
-        
+        public event Action<Vector2> OnMoveDirectionEvent;
+
+
+        private PlayerController _playerController;
         protected Vector2 _playerTransform;
         protected Vector2 dir;
-    
-        [SerializeField] protected float attackTime;
+
+        [SerializeField] protected float currnetAttackTime = 0;
         [SerializeField] protected LayerMask _whatIsEnemy;
 
+        public bool IsAttackCooldowned
+        {
+            get
+            {
+                return currnetAttackTime >= _currentWeapon._attackCooltime;
+            }
+        }
         
         private void Awake()
         {
-            
+            _playerController = GetComponent<PlayerController>();
         }
 
         private void Update()
         {
-            //_currentWeapon.OnMoveDirectionEvent?.Invoke();
+            if (TimeManager.TimeScale == 0) return;
+
+            currnetAttackTime += Time.deltaTime * TimeManager.TimeScale;
+            dir = _playerController.GetInputVec;
+            if (dir.sqrMagnitude != 0 && IsAttackCooldowned)
+            {
+                OnMoveDirectionEvent?.Invoke(dir);
+                
+            }
         }
 
 
@@ -35,13 +53,15 @@ namespace AttackManage
         // 을 구현해야한다
         public void Attack()
         {
+            currnetAttackTime = 0;
             _currentWeapon.Attack();
         }
 
         public void ChangeWeapon(WeaponSO weaponSO)
         {
+            OnMoveDirectionEvent = null;
+
             _currentWeaponSO = weaponSO;
-            
             foreach (Transform child in weaponHandleTrm)
             {
                 
@@ -55,6 +75,7 @@ namespace AttackManage
         private void SetWeaponOnHandle()
         {
              _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
+             OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
         }
         
     }

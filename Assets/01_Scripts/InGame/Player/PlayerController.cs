@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
         get => _joystick;
         set => _joystick = value;
     }
+
+    public Vector2 GetInputVec
+    {
+        get => dir;
+        private set { }
+    }
     
     public bool IsMoving => isMoving;
 
