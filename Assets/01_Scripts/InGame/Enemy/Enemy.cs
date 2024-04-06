@@ -40,6 +40,7 @@ namespace EnemyManage
 
         public override void Die()
         {
+            ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
             PoolManager.Release(gameObject);
             transform.SetParent(GameManager.Instance.DefaultEnemyParentTrm);
         }
