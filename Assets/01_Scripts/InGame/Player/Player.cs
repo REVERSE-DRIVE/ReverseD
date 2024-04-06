@@ -12,24 +12,28 @@ public class Player : Entity
         get { return status; }
         private set { }
     }
-    public bool isDead;
+
+    public bool IsDead
+    {
+        get
+        {
+            return status.hp <= 0;
+        }
+    }
     public static event Action OnPlayerHpChanged;
     private SoundObject _soundObject;
+    private SpriteRenderer _spriteRenderer;
+    private Collider2D _collider;
     
     
     private void Awake()
     {
         PlayerManager.Instance.UpdateStat();
-        UpdateStatus();
+        ModifyStatus();
+        
         _soundObject = GetComponent<SoundObject>();
-    }
-
-    private void Update()
-    {
-        if (status.hp <= 0)
-        {
-            transform.gameObject.SetActive(false);
-        }
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
     }
 
     /**
@@ -37,8 +41,9 @@ public class Player : Entity
      * 스탯 업데이트
      * </summary>
      */
-    public void UpdateStatus()
+    private void ModifyStatus()
     {
+        
         PlayerManager.Instance.UpdateStat();
         
         status.hp = PlayerManager.Instance.setting_hp;
@@ -49,30 +54,39 @@ public class Player : Entity
         status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
     }
 
-    private void ModifyStatus()
-    {
-        
-    }
-
     public void TakeDamage(int damage)
     {
         status.hp -= damage;
         OnPlayerHpChanged?.Invoke();
         _soundObject.PlayAudio(0);
+        IsDie();
     }
     
 
     private void IsDie()
     {
-        if (status.hp <= 0)
+        if (IsDead)
         {
-            isDead = true;
+            Die();
             // 게임 오버 실행
         }
     }
 
+    public void Reviver()
+    {
+        status.hp = (status.hpMax / 2);
+        SetObjective(true);
+    }
+
+    public void SetObjective(bool value)
+    {
+        _spriteRenderer.enabled = true;
+        _collider.enabled = true;
+    }
+
     public override void Die()
     {
-        throw new NotImplementedException();
+        Debug.Log("PLayer Die => GameOver");
+        SetObjective(false);
     }
 }

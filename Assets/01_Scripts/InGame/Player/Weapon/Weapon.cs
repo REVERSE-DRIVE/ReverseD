@@ -9,15 +9,23 @@ namespace AttackManage
         internal int damage = 3;
         internal float _attackCooltime = 1f;
 
+        [Header("Dev Setting")]
         [Range(-180, 180)]
         [SerializeField]
         private float _rotationOffset = 0;
         [SerializeField]
         protected Animator _weaponAnimator;
+        [Space(10)]
+        [Header("State Information")]
         public bool isRotation;
+        [SerializeField]
+        protected Vector2 attackDirection;
 
-        protected void Awake()
+        protected LayerMask _whatIsEnemy;
+        
+        protected virtual void Awake()
         {
+            _whatIsEnemy= LayerMask.GetMask("Enemy");
             if (_weaponAnimator == null)
             {
                 _weaponAnimator.GetComponent<Animator>();
@@ -33,6 +41,12 @@ namespace AttackManage
         {
         }
 
+        /**
+         * <summary>
+         * 공격이 실행 되었을때 코드를 완성해야함
+         * 쿨타임과 같은 부가적인 체크는 PlayerAttackController에서 함
+         * </summary>
+         */
         public abstract void Attack();
 
         public abstract void AttackEnd();

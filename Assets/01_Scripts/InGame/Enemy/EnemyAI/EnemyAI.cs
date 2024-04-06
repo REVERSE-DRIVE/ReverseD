@@ -35,12 +35,14 @@ namespace EnemyManage
         [SerializeField] protected float _stunDuration = 2;
 
         protected Rigidbody2D _rigid;
+        private LayerMask _playerLayer;
 
 
         protected virtual void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
             _enemy = GetComponent<Enemy>();
+            _playerLayer = LayerMask.GetMask("Player");
         }
 
         protected virtual void Start()
@@ -180,13 +182,12 @@ namespace EnemyManage
         
         protected virtual void DetectPlayer()
         {
-            RaycastHit2D ray = Physics2D.CircleCast(transform.position, _playerDetectDistance, Vector2.zero, 0);
+            RaycastHit2D ray = Physics2D.CircleCast(
+                transform.position, _playerDetectDistance, 
+                Vector2.zero, 0, _playerLayer);
             if (ray.collider != null)
             {
-                if (ray.collider.CompareTag("Player"))
-                {
-                    _currentState = EnemyStateEnum.Attack;
-                }
+                _currentState = EnemyStateEnum.Attack;
             }
         }
         
@@ -198,6 +199,9 @@ namespace EnemyManage
         public virtual void SetDefault()
         {
             _currentState = EnemyStateEnum.Roaming;
+            isRoaming = false;
+            isAttacking = false;
+            isStun = false;
             //_enemy.SetStatusDefault();
         }
     }
