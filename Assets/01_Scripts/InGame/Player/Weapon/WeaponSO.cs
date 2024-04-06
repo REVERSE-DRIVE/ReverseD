@@ -14,6 +14,12 @@ namespace AttackManage
         
         public int damage = 3;
         public float attackCooltime = 1;
+        /**
+         * <summary>
+         * 공격 지속시간
+         * </summary>
+         */
+        public float attackTime = 1;
         public float attackRange = 1;
 
         /**
@@ -36,7 +42,7 @@ namespace AttackManage
         {
             weaponPrefab.damage = damage;
             weaponPrefab._attackCooltime = attackCooltime;
-            
+            weaponPrefab._attackTime = attackTime;
         }
         
         

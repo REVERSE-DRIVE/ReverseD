@@ -4,12 +4,12 @@
     {
         public override void Attack()
         {
-            throw new System.NotImplementedException();
+            AttackAnimationOnTrigger();
         }
 
         public override void AttackEnd()
         {
-            throw new System.NotImplementedException();
+            AttackAnimationOffTrigger();
         }
     }
 }

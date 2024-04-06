@@ -8,6 +8,7 @@ namespace AttackManage
 
         internal int damage = 3;
         internal float _attackCooltime = 1f;
+        internal float _attackTime = 1;
 
         [Header("Dev Setting")]
         [Range(-180, 180)]
@@ -17,7 +18,7 @@ namespace AttackManage
         protected Animator _weaponAnimator;
         [Space(10)]
         [Header("State Information")]
-        public bool isRotation;
+        public bool isRotation = true;
         [SerializeField]
         protected Vector2 attackDirection;
 

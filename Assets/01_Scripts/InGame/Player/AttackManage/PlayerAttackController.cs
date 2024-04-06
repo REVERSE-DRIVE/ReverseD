@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using AttackManage;
 
@@ -23,6 +24,8 @@ namespace AttackManage
         [SerializeField] protected float currnetAttackTime = 0;
         [SerializeField] protected LayerMask _whatIsEnemy;
 
+        
+        
         public bool IsAttackCooldowned
         {
             get
@@ -34,6 +37,11 @@ namespace AttackManage
         private void Awake()
         {
             _playerController = GetComponent<PlayerController>();
+        }
+
+        private void Start()
+        {
+            SetWeaponOnHandle();
         }
 
         private void Update()
@@ -55,7 +63,14 @@ namespace AttackManage
         public void Attack()
         {
             currnetAttackTime = 0;
+            StartCoroutine(AttackRoutine());
+        }
+
+        private IEnumerator AttackRoutine()
+        {
             _currentWeapon.Attack();
+            yield return new WaitForSeconds(_currentWeapon._attackTime);
+            _currentWeapon.AttackEnd();
         }
 
         public void ChangeWeapon(WeaponSO weaponSO)

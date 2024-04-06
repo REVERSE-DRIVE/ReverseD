@@ -80,13 +80,14 @@ public class Player : Entity
 
     public void SetObjective(bool value)
     {
-        _spriteRenderer.enabled = true;
-        _collider.enabled = true;
+        _spriteRenderer.enabled = value;
+        _collider.enabled = value;
     }
 
     public override void Die()
     {
         Debug.Log("PLayer Die => GameOver");
         SetObjective(false);
+        status.moveSpeed = 0;
     }
 }
