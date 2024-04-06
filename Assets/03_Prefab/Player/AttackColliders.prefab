@@ -232,9 +232,6 @@ MonoBehaviour:
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 8192
-  materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  - {fileID: 2100000, guid: 07398fa3092759f4792d7bb0fcdf3f00, type: 2}
 --- !u!114 &3542316021708630771
 MonoBehaviour:
   m_ObjectHideFlags: 0

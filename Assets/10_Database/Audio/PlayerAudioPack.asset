@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2183311fcc6240f28fc30f3ddf97fdb4, type: 3}
-  m_Name: Weapon_asd
+  m_Script: {fileID: 11500000, guid: 2ed67f0edcc146c9b000955164fa0997, type: 3}
+  m_Name: PlayerAudioPack
   m_EditorClassIdentifier: 
-  id: 0
-  rank: 0
-  weaponType: 0
-  weaponName: asd
-  description: 
-  damage: 3
-  attackCooltime: 1
-  attackRange: 1
-  weaponPrefab: {fileID: 0}
+  packName: PlayerAudioPack
+  audioClips:
+  - {fileID: 8300000, guid: 9b884e954ae0b844ea4acaeb36b438c1, type: 3}

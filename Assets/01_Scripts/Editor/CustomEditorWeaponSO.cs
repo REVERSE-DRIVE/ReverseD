@@ -15,6 +15,7 @@ namespace AttackManage
 
         private SerializedProperty damageProp;
         private SerializedProperty attackCooltimeProp;
+        private SerializedProperty attackTimeProp;
         private SerializedProperty attackRangeProp;
 
         private SerializedProperty weaponPrefabProp;
@@ -31,6 +32,8 @@ namespace AttackManage
             
             damageProp = serializedObject.FindProperty("damage");
             attackCooltimeProp = serializedObject.FindProperty("attackCooltime");
+            attackTimeProp = serializedObject.FindProperty("attackTime");
+            
             attackRangeProp = serializedObject.FindProperty("attackRange");
             
             weaponPrefabProp = serializedObject.FindProperty("weaponPrefab");
@@ -83,6 +86,7 @@ namespace AttackManage
                 EditorGUILayout.PropertyField(damageProp);
                 EditorGUILayout.PropertyField(attackRangeProp);    
                 EditorGUILayout.PropertyField(attackCooltimeProp);
+                EditorGUILayout.PropertyField(attackTimeProp);
 
                 EditorGUILayout.Space(15);
                 EditorGUILayout.PropertyField(weaponPrefabProp);
