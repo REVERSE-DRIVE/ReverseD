@@ -5,10 +5,14 @@ namespace AttackManage
 {
     public abstract class Weapon : MonoBehaviour
     {
-
+        [Header("Weapon CustomSetting")]
+        [SerializeField]
         internal int damage = 3;
+        [SerializeField]
         internal float _attackCooltime = 1f;
+        [SerializeField]
         internal float _attackTime = 1;
+
 
         [Header("Dev Setting")]
         [Range(-180, 180)]
@@ -23,6 +27,8 @@ namespace AttackManage
         protected Vector2 attackDirection;
 
         protected LayerMask _whatIsEnemy;
+        
+        
         
         protected virtual void Awake()
         {

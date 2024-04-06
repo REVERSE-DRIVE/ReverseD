@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a041f641e4c1aada92674a4206a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationOffset: 91
+  _rotationOffset: 0
   _weaponAnimator: {fileID: 6498217350812938356}
   isRotation: 1
   attackDirection: {x: 0, y: 0}
