@@ -1,4 +1,5 @@
 ﻿using System;
+using AttackManage;
 using InGameScene;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,7 @@ public class PlayerInteraction : MonoBehaviour
 
 
     private InteractionObject targetObject;
-    private PlayerAttack _playerAttack;
+    private PlayerAttackController _playerAttack;
 
     /**
      * <summary>
@@ -44,7 +45,7 @@ public class PlayerInteraction : MonoBehaviour
         _buttonImage = _interactionController.GetComponent<Image>();
         _button.onClick.AddListener(Interact);
 
-        _playerAttack = PlayerManager.Instance.PlayerAttack;
+        _playerAttack = PlayerManager.Instance.playerAttackController;
         interactionEvent += _playerAttack.Attack;
     }
 
