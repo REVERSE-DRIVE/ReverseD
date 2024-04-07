@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1282132241197992032}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6a041f641e4c1aada92674a4206a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 6
+  _attackCooltime: 0.6
+  _attackTime: 0.1
   _rotationOffset: 0
   _weaponAnimator: {fileID: 6498217350812938356}
   isRotation: 1

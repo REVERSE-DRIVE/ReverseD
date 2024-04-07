@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VariableJoystick _joystick;
     
     private SpriteRenderer _spriteRenderer;
-    private PlayerAttack _playerAttack;
     private Rigidbody2D _rigid;
     private Player _player;
     private Vector3 dir;
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _playerAttack = GetComponent<PlayerAttack>();
         _rigid = GetComponent<Rigidbody2D>();
         _player = GetComponent<Player>();
     }

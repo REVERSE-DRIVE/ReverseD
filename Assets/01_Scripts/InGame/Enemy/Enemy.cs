@@ -11,6 +11,8 @@ namespace EnemyManage
         [SerializeField] private ItemDropType ItemDropType;
         // ItemDropManager 에서 어떤 아이템을 드롭할지 Enum으로 호출함
         public event Action OnHealthChanged;
+        private Rigidbody2D _rigid;
+        
 
 
         private void Start()
@@ -35,6 +37,14 @@ namespace EnemyManage
         public void TakeDamage(int amount)
         {
             base.TakeDamage(amount);
+            OnHealthChanged?.Invoke();
+        }
+        
+        public void TakeDamageWithKnockBack(int amount, Vector2 damageOrigin, float knockBackPower)
+        {
+            base.TakeDamage(amount);
+            Vector2 knockBackDirection = ((Vector2)transform.position - damageOrigin).normalized;
+            _rigid.AddForce(knockBackDirection * knockBackPower, ForceMode2D.Impulse);
             OnHealthChanged?.Invoke();
         }
 
