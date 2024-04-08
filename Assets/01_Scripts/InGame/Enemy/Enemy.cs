@@ -36,9 +36,8 @@ namespace EnemyManage
          * EnemyInfo에서 세팅해주는 스테이터스 기본값
          * </summary>
          */
-        [SerializeField]
         internal Status defaultStatus;
-        //
+        
         // private void OnEnable()
         // {
         //
