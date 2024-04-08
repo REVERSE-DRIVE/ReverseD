@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using EntityManage;
 using UnityEngine;
 
@@ -12,12 +13,22 @@ namespace EnemyManage
         // ItemDropManager 에서 어떤 아이템을 드롭할지 Enum으로 호출함
         public event Action OnHealthChanged;
         private Rigidbody2D _rigid;
-        
+
+        private SpriteRenderer _spriteRenderer;
+        [SerializeField] private Material _hitMaterial;
+        private Material _defaultMaterial;
+
+        protected void Awake()
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _defaultMaterial = _spriteRenderer.material;
+        }
 
 
-        private void Start()
+        protected void Start()
         {
             OnHealthChanged += CheckIsDie;
+            OnHealthChanged += HitEventHandler;
         }
 
         /**
@@ -51,8 +62,15 @@ namespace EnemyManage
         public override void Die()
         {
             ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
-            PoolManager.Release(gameObject);
+            StartCoroutine(DieRoutine());
+        }
+
+        protected IEnumerator DieRoutine()
+        {
+            yield return new WaitForSeconds(0.2f);
             transform.SetParent(GameManager.Instance.DefaultEnemyParentTrm);
+            PoolManager.Release(gameObject);
+            
         }
 
         internal void SetHealthMax()
@@ -66,6 +84,17 @@ namespace EnemyManage
 
         }
 
+        protected void HitEventHandler()
+        {
+            StartCoroutine(HitRoutine());
+        }
+
+        protected IEnumerator HitRoutine()
+        {
+            _spriteRenderer.material = _hitMaterial;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.material = _defaultMaterial;
+        }
 
     }
 }

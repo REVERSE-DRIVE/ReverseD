@@ -8172,7 +8172,7 @@ MonoBehaviour:
   _currentWeaponSO: {fileID: 11400000, guid: 2ba8975bec72afb46aa0ea9e4873e3f5, type: 2}
   _currentWeapon: {fileID: 0}
   weaponHandleTrm: {fileID: 1909669695}
-  currnetAttackTime: 0
+  currentAttackTime: 0
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 8192
@@ -8376,8 +8376,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8b0bd83fd1dd64d901da76491fb631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropItemPrefab: {fileID: 0}
-  _items: {fileID: 0}
+  DropItemPrefab: {fileID: 2283357485963700644, guid: 1ecf95d0e932dae4c82c7e8078d61fe3, type: 3}
+  _items: {fileID: 11400000, guid: fc4e0f096c1165d48a223c052acdec47, type: 2}
+  _itemDropBases:
+  - {fileID: 11400000, guid: d23db69971d5fe047a93caa6e0f54820, type: 2}
+  - {fileID: 11400000, guid: e882de0d6913fbc4da5040bd1b5acf28, type: 2}
+  - {fileID: 11400000, guid: 0e9cbf2de524b9d4baf51c2fc63018ce, type: 2}
 --- !u!1 &1596841388
 GameObject:
   m_ObjectHideFlags: 0

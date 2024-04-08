@@ -92,7 +92,11 @@ namespace AttackManage
                 EditorGUILayout.PropertyField(attackCooltimeProp);
                 EditorGUILayout.PropertyField(attackTimeProp);
                 EditorGUILayout.PropertyField(isNockBackProp);
-                EditorGUILayout.PropertyField(knockBackPowerProp);
+                if (isNockBackProp.boolValue)
+                {
+                    EditorGUILayout.PropertyField(knockBackPowerProp);
+
+                }
 
                 EditorGUILayout.Space(15);
                 EditorGUILayout.PropertyField(weaponPrefabProp);
