@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,9 +22,11 @@ public class BossBar : MonoBehaviour
     [Header("State Information")] [SerializeField]
     private bool _onOff;
 
-    [SerializeField] private BossCutsceneSet _currentBossInformation;
+    [SerializeField] private BossData _currentBossInformation;
 
     private RectTransform _barTransform;
+    private TextMeshProUGUI _bossNameText;
+    
 
     
     
@@ -34,10 +37,20 @@ public class BossBar : MonoBehaviour
         _gauge.fillAmount = 1;
     }
     
-    public void ShowFirstBar(BossCutsceneSet bossInfo)
+    public void ShowFirstBar(BossData bossInfo)
     {
         _currentBossInformation = bossInfo;
         SetBossBar(_currentBossInformation.bossNameColor);
+        _bossNameText.font = bossInfo.font;
+        _bossNameText.text = bossInfo.bossName;
+        _bossNameText.color = bossInfo.bossNameColor;
+    }
+    
+    private IEnumerator ShowBarRoutine()
+    {
+        yield return new WaitForSeconds(0.3f);
+        
+        RefreshGauge(0f,1f);
         
     }
 

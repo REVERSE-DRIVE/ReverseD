@@ -6,7 +6,7 @@ using TMPro;
 public class BossCutSceneManager : MonoBehaviour
 {
     [Header("Boss Setting")]
-    [SerializeField] private BossCutsceneSet[] bossCutsceneSets;
+    [SerializeField] private BossData[] bossCutsceneSets;
     
     [Space(10)]
     [SerializeField] private Image bossImage;
