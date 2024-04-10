@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEngine;
 
 namespace AttackManage
 {
@@ -95,11 +96,30 @@ namespace AttackManage
             
             EditorGUILayout.EndVertical();
 
+            EditorGUILayout.BeginVertical();
+            {
+                if (GUILayout.Button("Weapon Setting"))
+                {
+                    WeaponSettingWithExcel();
+                }
+            }
+            EditorGUILayout.EndVertical();
+
             serializedObject.ApplyModifiedProperties();
 
         }
 
-
+        private void WeaponSettingWithExcel()
+        {
+            ExcelImporter.ImportExcel(idProp.intValue);
+            weaponNameProp.stringValue = ExcelImporter.Weapon_Name;
+            damageProp.intValue = int.Parse(ExcelImporter.Weapon_Damage);
+            attackCooltimeProp.floatValue = float.Parse(ExcelImporter.Weapon_AttackSpeed);
+            attackRangeProp.floatValue = float.Parse(ExcelImporter.Weapon_Range.Replace(" Tile", ""));
+            //rankProp.enumValueIndex = (int) Enum.Parse(typeof(Rank), ExcelImporter.Weapon_Rank);
+            //weaponTypeProp.enumValueIndex = (int) Enum.Parse(typeof(WeaponType), ExcelImporter.Weapon_Type);
+            serializedObject.ApplyModifiedProperties();
+        }
     }
     
 }

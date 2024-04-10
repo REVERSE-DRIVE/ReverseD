@@ -15,6 +15,7 @@ namespace MainLoby
             base.Interact();
             Debug.Log("Laptop Interact");
             laptopPanel.DOLocalMoveY(-0.3f, duration).SetEase(ease);
+            CameraManager.Instance.IsOn = true;
         }
     }
 }
