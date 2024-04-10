@@ -21,6 +21,10 @@ namespace EnemyManage
         protected void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            if (_spriteRenderer == null)
+            {
+                _spriteRenderer.GetComponentInChildren<SpriteRenderer>();
+            }
             _defaultMaterial = _spriteRenderer.material;
         }
 
@@ -80,12 +84,14 @@ namespace EnemyManage
         public void SetStatusDefault()
         {
             status = defaultStatus;
-
+            
+            
         }
 
         protected void HitEventHandler()
         {
             StartCoroutine(HitRoutine());
+            
         }
 
         protected IEnumerator HitRoutine()
