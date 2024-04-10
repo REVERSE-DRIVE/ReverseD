@@ -18,12 +18,12 @@ namespace EnemyManage
         [SerializeField] private Material _hitMaterial;
         private Material _defaultMaterial;
 
-        protected void Awake()
+        protected virtual void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             if (_spriteRenderer == null)
             {
-                _spriteRenderer.GetComponentInChildren<SpriteRenderer>();
+                _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             }
             _defaultMaterial = _spriteRenderer.material;
         }

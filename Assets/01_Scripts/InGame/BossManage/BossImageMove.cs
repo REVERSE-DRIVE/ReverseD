@@ -12,4 +12,5 @@ public class BossImageMove : MonoBehaviour
     {
         transform.DOLocalMove(target.localPosition, 1f).SetEase(ease);
     }
+    
 }

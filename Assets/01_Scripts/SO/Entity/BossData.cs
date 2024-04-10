@@ -2,8 +2,9 @@
 using TMPro;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "SO/BossData")]
 [System.Serializable]
-public struct BossData
+public class BossData : ScriptableObject
 {
     public TMP_FontAsset font;
     public string bossName;
