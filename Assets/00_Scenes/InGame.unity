@@ -291,7 +291,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,18 +309,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1165560723
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -39544752, guid: c503312ecb6cd6b46ac1a70d6ad0cab4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &64053940
@@ -6733,7 +6733,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -2082964355
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &646111775
@@ -7351,7 +7351,7 @@ Transform:
   m_GameObject: {fileID: 847219888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 5.61, z: 0}
+  m_LocalPosition: {x: -5.54, y: 1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7875,7 +7875,7 @@ MonoBehaviour:
   _gauge: {fileID: 1302538838}
   _backGauge: {fileID: 1836214487}
   termToChange: 1
-  _bossBarColor: {r: 0, g: 0, b: 0, a: 0}
+  _bossBarColor: {r: 0, g: 1, b: 0.9101782, a: 0}
   _isGaugeStack: 0
   _defaultYPos: 200
   _targetYPos: -40
@@ -8143,7 +8143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1301798580}
   - component: {fileID: 1301798577}
-  - component: {fileID: 1301798579}
   - component: {fileID: 1301798578}
   m_Layer: 0
   m_Name: UICamera
@@ -8247,14 +8246,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1301798579
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301798576}
-  m_Enabled: 1
 --- !u!4 &1301798580
 Transform:
   m_ObjectHideFlags: 0

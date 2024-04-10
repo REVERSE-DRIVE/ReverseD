@@ -36,6 +36,7 @@ public class BossBar : MonoBehaviour
         _barTransform = transform.GetComponent<RectTransform>();
         _gauge.fillAmount = 1;
     }
+
     
     public void ShowFirstBar(BossData bossInfo)
     {
@@ -44,6 +45,7 @@ public class BossBar : MonoBehaviour
         _bossNameText.font = bossInfo.font;
         _bossNameText.text = bossInfo.bossName;
         _bossNameText.color = bossInfo.bossNameColor;
+        StartCoroutine(ShowBarRoutine());
     }
     
     private IEnumerator ShowBarRoutine()
@@ -51,6 +53,11 @@ public class BossBar : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         
         RefreshGauge(0f,1f);
+        
+    }
+
+    public void DestroyBossBar()
+    {
         
     }
 
