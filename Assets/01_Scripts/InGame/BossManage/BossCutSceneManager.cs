@@ -12,6 +12,7 @@ public class BossCutSceneManager : MonoBehaviour
     [SerializeField] private Image bossImage;
     [SerializeField] private TextMeshProUGUI bossNameText;
     
+    
     private SoundObject _soundObject;
 
     private void Awake()

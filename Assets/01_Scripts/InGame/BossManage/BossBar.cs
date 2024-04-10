@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +9,67 @@ public class BossBar : MonoBehaviour
 {
     [SerializeField] private Image _gauge;
     [SerializeField] private Image _backGauge;
-
     [SerializeField] private float termToChange = 0.2f;
+    
+    [Header("BossBar Setting")]
+    [SerializeField] private Color _bossBarColor = Color.cyan;
+    [SerializeField] private bool _isGaugeStack;
+    [SerializeField] private int _defaultYPos = 100;
+    [SerializeField] private int _targetYPos = -40;
+    [SerializeField] private float _showDuration = 0.2f;
 
+    [Header("State Information")] [SerializeField]
+    private bool _onOff;
+
+    [SerializeField] private BossCutsceneSet _currentBossInformation;
+
+    private RectTransform _barTransform;
+
+    
+    
+
+    private void Awake()
+    {
+        _barTransform = transform.GetComponent<RectTransform>();
+        _gauge.fillAmount = 1;
+    }
+    
+    public void ShowFirstBar(BossCutsceneSet bossInfo)
+    {
+        _currentBossInformation = bossInfo;
+        SetBossBar(_currentBossInformation.bossNameColor);
+        
+    }
+
+
+    #region BossBar Show Effect
+
+    
+    
+    public void SetBossBar(Color gaugeColor)
+    {
+        _bossBarColor = gaugeColor;
+        _gauge.color = _bossBarColor;
+        _backGauge.color = _bossBarColor * new Color(0.6f,0.6f,0.6f);
+    }
+
+    public void MoveOnBar()
+    {
+        _barTransform.DOAnchorPosY(_targetYPos, _showDuration);
+        
+    }
+
+    public void MoveOffBar()
+    {
+        _barTransform.DOAnchorPosY(_defaultYPos, _showDuration);
+
+    }
+
+    #endregion
+
+    #region Gauge Value Change
+
+    
     [ContextMenu("DebugDecrease")]
     private void TestGaugeDecrease()
     {
@@ -101,4 +161,7 @@ public class BossBar : MonoBehaviour
         }
     }
 
+
+    #endregion
+    
 }
