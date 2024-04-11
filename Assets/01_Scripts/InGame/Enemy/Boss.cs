@@ -7,11 +7,13 @@ namespace EnemyManage
     
     public class Boss : Enemy
     {
+        
         protected override void Awake()
         {
             base.Awake();
-                
+            
         }
+        
 
 
         public override void Die()
