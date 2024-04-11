@@ -1,6 +1,6 @@
-﻿namespace EnemyManage.BossAI
+﻿namespace EnemyManage
 {
-    public enum BossAVGState
+    public enum BossAVGStateEnum
     {
         Idle,
         Stun,
