@@ -1,14 +1,20 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AttackManage
 {
     public abstract class Weapon : MonoBehaviour
     {
-
+        [Header("Weapon CustomSetting")]
+        [SerializeField]
         internal int damage = 3;
+        [SerializeField]
         internal float _attackCooltime = 1f;
+        [SerializeField]
         internal float _attackTime = 1;
+
+        [SerializeField] internal bool isKnockBack;
+        [SerializeField] internal float knockBackPower = 1;
+
 
         [Header("Dev Setting")]
         [Range(-180, 180)]
@@ -23,6 +29,8 @@ namespace AttackManage
         protected Vector2 attackDirection;
 
         protected LayerMask _whatIsEnemy;
+        
+        
         
         protected virtual void Awake()
         {
@@ -64,18 +72,19 @@ namespace AttackManage
 
         public virtual void WeaponRotateHandler(Vector2 direction)
         {
+            
             if (!isRotation) return;
             if (direction.sqrMagnitude == 0)
                 return;
             // 오프셋 부분 수정해야될 수도 있움
             transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);
-            if (Mathf.Abs(transform.rotation.z) > 0.7f)
+            if (Mathf.Abs(transform.rotation.z) > 0.7f)  // z rotation값 재계산 해야함
             {
-                transform.localScale = new Vector2(1, -1);
+                transform.parent.localScale = new Vector2(1, -1);
             }
             else
             {
-                transform.localScale = Vector2.one;
+                transform.parent.localScale = Vector2.one;
             }
         }
     }

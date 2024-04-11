@@ -17,6 +17,8 @@ namespace AttackManage
         private SerializedProperty attackCooltimeProp;
         private SerializedProperty attackTimeProp;
         private SerializedProperty attackRangeProp;
+        private SerializedProperty isNockBackProp;
+        private SerializedProperty knockBackPowerProp;
 
         private SerializedProperty weaponPrefabProp;
         
@@ -35,6 +37,8 @@ namespace AttackManage
             attackTimeProp = serializedObject.FindProperty("attackTime");
             
             attackRangeProp = serializedObject.FindProperty("attackRange");
+            isNockBackProp = serializedObject.FindProperty("isKnockBack");
+            knockBackPowerProp = serializedObject.FindProperty("knockBackPower");
             
             weaponPrefabProp = serializedObject.FindProperty("weaponPrefab");
         
@@ -87,6 +91,12 @@ namespace AttackManage
                 EditorGUILayout.PropertyField(attackRangeProp);    
                 EditorGUILayout.PropertyField(attackCooltimeProp);
                 EditorGUILayout.PropertyField(attackTimeProp);
+                EditorGUILayout.PropertyField(isNockBackProp);
+                if (isNockBackProp.boolValue)
+                {
+                    EditorGUILayout.PropertyField(knockBackPowerProp);
+
+                }
 
                 EditorGUILayout.Space(15);
                 EditorGUILayout.PropertyField(weaponPrefabProp);

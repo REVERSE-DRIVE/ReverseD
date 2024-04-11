@@ -33,6 +33,8 @@ namespace InGameScene
         [SerializeField] private TextMeshProUGUI _tipText;
         [Range(1,3)]
         [SerializeField] private float loadingDuration = 1.5f;
+
+        [Header("BossUI")] [SerializeField] private BossBar _bossBar;
         public float LoadingDuration
         {
             get

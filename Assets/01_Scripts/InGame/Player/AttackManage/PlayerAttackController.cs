@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using AttackManage;
 
 namespace AttackManage
 {
@@ -18,10 +17,10 @@ namespace AttackManage
 
 
         private PlayerController _playerController;
-        protected Vector2 _playerTransform;
-        protected Vector2 dir;
+        private Vector2 _playerTransform;
+        private Vector2 dir;
 
-        [SerializeField] protected float currnetAttackTime = 0;
+        [SerializeField] protected float currentAttackTime = 0;
         [SerializeField] protected LayerMask _whatIsEnemy;
 
         
@@ -30,7 +29,7 @@ namespace AttackManage
         {
             get
             {
-                return currnetAttackTime >= _currentWeapon._attackCooltime;
+                return currentAttackTime >= _currentWeapon._attackCooltime;
             }
         }
         
@@ -48,7 +47,7 @@ namespace AttackManage
         {
             if (TimeManager.TimeScale == 0) return;
 
-            currnetAttackTime += Time.deltaTime * TimeManager.TimeScale;
+            currentAttackTime += Time.deltaTime * TimeManager.TimeScale;
             dir = _playerController.GetInputVec;
             if (dir.sqrMagnitude != 0 && IsAttackCooldowned)
             {
@@ -62,8 +61,12 @@ namespace AttackManage
         // 을 구현해야한다
         public void Attack()
         {
-            currnetAttackTime = 0;
-            StartCoroutine(AttackRoutine());
+            if (IsAttackCooldowned)
+            {
+                
+                currentAttackTime = 0;
+                StartCoroutine(AttackRoutine());
+            }
         }
 
         private IEnumerator AttackRoutine()
