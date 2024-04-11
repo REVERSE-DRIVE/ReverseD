@@ -6,26 +6,28 @@ using UnityEngine;
 namespace EnemyManage
 {
     
-    public class Enemy : Entity
+    public abstract class Enemy : Entity
     {
 
-        [SerializeField] private ItemDropType ItemDropType;
+        [SerializeField] protected ItemDropType ItemDropType;
         // ItemDropManager 에서 어떤 아이템을 드롭할지 Enum으로 호출함
         public event Action OnHealthChanged;
-        private Rigidbody2D _rigid;
+        protected Rigidbody2D _rigid;
 
-        private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Material _hitMaterial;
-        private Material _defaultMaterial;
+        protected SpriteRenderer _spriteRenderer;
+        [SerializeField] protected Material _hitMaterial;
+        protected Material _defaultMaterial;
+        public bool CanStateChangeable { get; set; }
+        public Animator AnimatorCompo;
 
         protected virtual void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             if (_spriteRenderer == null)
-            {
                 _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            }
             _defaultMaterial = _spriteRenderer.material;
+            if(AnimatorCompo == null)
+                AnimatorCompo = GetComponent<Animator>();
         }
 
 
@@ -101,5 +103,9 @@ namespace EnemyManage
             _spriteRenderer.material = _defaultMaterial;
         }
 
+        public virtual void AnimationEndTrigger()
+        {
+            
+        }
     }
 }

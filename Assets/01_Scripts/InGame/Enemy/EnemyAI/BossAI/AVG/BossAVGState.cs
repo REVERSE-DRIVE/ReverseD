@@ -6,7 +6,7 @@
         Stun,
         Yellow_Defend,
         Red,
-        Blue,
+        Blue_RectShooting,
         Green,
     }
 }

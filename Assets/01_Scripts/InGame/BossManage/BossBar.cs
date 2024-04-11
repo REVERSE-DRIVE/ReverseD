@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class BossBar : MonoBehaviour
 {
+    [SerializeField] private RectTransform _gaugeTrm;
     [SerializeField] private Image _gauge;
     [SerializeField] private Image _backGauge;
     [SerializeField] private float termToChange = 0.2f;
@@ -80,8 +81,34 @@ public class BossBar : MonoBehaviour
 
     public void MoveOffBar()
     {
+        Sequence seq = DOTween.Sequence();
         _barTransform.DOAnchorPosY(_defaultYPos, _showDuration);
 
+        ShakeBar(2f, 0.2f);
+    }
+
+    private void ShakeBar(float shakePower, float duration)
+    {
+        StartCoroutine(ShakeRoutine(shakePower, duration));
+    }
+
+    private IEnumerator ShakeRoutine(float shakePower, float duration)
+    {
+        float currentTime = 0;
+        Vector2 defaultTrmPos = _gaugeTrm.anchoredPosition;
+        while (currentTime <= duration)
+        {
+            currentTime += Time.deltaTime;
+            _gaugeTrm.rotation = Quaternion.Euler(0, 0, Random.Range(-shakePower, shakePower) * 1.5f);
+            _gaugeTrm.anchoredPosition = defaultTrmPos + new Vector2(
+                Random.Range(-shakePower, shakePower),
+                Random.Range(-shakePower, shakePower)).normalized * 3;
+            yield return null;
+
+        }
+
+        _gaugeTrm.anchoredPosition = defaultTrmPos;
+        _gaugeTrm.rotation = Quaternion.identity;
     }
 
     #endregion
@@ -164,6 +191,7 @@ public class BossBar : MonoBehaviour
         else if (beforePercent > afterPercent)
         {
             _gauge.fillAmount = afterPercent;
+            ShakeBar(2f, 0.3f);
             yield return new WaitForSeconds(termToChange);
             float currentTime = 0;
             while (currentTime < termToChange)

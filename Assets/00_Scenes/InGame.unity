@@ -5552,7 +5552,7 @@ GameObject:
   - component: {fileID: 208010976}
   - component: {fileID: 208010975}
   m_Layer: 5
-  m_Name: Particle System (1)
+  m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11929,7 +11929,7 @@ GameObject:
   - component: {fileID: 847219890}
   - component: {fileID: 847219891}
   - component: {fileID: 847219889}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11961,6 +11961,7 @@ MonoBehaviour:
     healthDefMultiple: 0
   ItemDropType: 2
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
+  AnimatorCompo: {fileID: 0}
 --- !u!4 &847219890
 Transform:
   m_ObjectHideFlags: 0
@@ -11977,8 +11978,8 @@ Transform:
   - {fileID: 50558950}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &847219891
-CircleCollider2D:
+--- !u!61 &847219891
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12010,8 +12011,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 3.6, y: 3.6}
+  m_EdgeRadius: 0
 --- !u!1 &857554326
 GameObject:
   m_ObjectHideFlags: 0
@@ -12491,6 +12502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84cfea753761153459a8836e42f45b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gaugeTrm: {fileID: 311327686}
   _gauge: {fileID: 1302538838}
   _backGauge: {fileID: 1836214487}
   termToChange: 1
@@ -13102,6 +13114,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7e39bcff2e007342b96a158ee548123, type: 2}
   - {fileID: 11400000, guid: 5e55ebe653ba5e24591651c6ed394197, type: 2}
   _currentBossIndex: 1
+  _bossBar: {fileID: 0}
   bossNameText: {fileID: 1911789584}
   _upEdge: {fileID: 1388512252}
   _defaultPos1: {x: -500, y: 500}
@@ -13113,7 +13126,7 @@ MonoBehaviour:
   _defaultPos3: {x: 360, y: -1000}
   _targetPos3: {x: 360, y: 0}
   _bossImage: {fileID: 1860839860}
-  _cutSceneDisplayDuration: 2
+  _cutSceneDisplayDuration: 4
 --- !u!4 &1306831001
 Transform:
   m_ObjectHideFlags: 0
@@ -13650,7 +13663,7 @@ GameObject:
   - component: {fileID: 1315676107}
   - component: {fileID: 1315676106}
   m_Layer: 5
-  m_Name: Particle System
+  m_Name: Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

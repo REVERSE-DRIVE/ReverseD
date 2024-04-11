@@ -18,9 +18,9 @@ MonoBehaviour:
   bossImage: {fileID: -39544752, guid: c503312ecb6cd6b46ac1a70d6ad0cab4, type: 3}
   spriteSizeOffset: 2
   bossStatus:
-    hp: 0
-    hpMax: 0
-    attackDamage: 0
+    hp: 2000
+    hpMax: 2000
+    attackDamage: 30
     criticalRate: 0
     defense: 0
     criticalDefense: 0

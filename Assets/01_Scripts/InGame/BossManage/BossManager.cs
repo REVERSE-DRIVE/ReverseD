@@ -13,9 +13,11 @@ public class BossManager : MonoBehaviour
     [SerializeField] private BossData[] bossDatas;
 
     [SerializeField] private int _currentBossIndex;
-    
+
     [Space(10)]
     [Header("Boss CutScene")] 
+    [SerializeField]
+    private BossBar _bossBar;
     
     [SerializeField] private TextMeshProUGUI bossNameText;
 
@@ -102,31 +104,32 @@ public class BossManager : MonoBehaviour
     }
     private IEnumerator ShowCutSceneCoroutine()
     {
-        Appear(true);
+        Appear();
         yield return new WaitForSeconds(_cutSceneDisplayDuration);
-        Appear(false);
+        Disappear();
     }
 
-    private void Appear(bool isOnOff)
+    private void Appear()
     {
-        if (isOnOff)
-        {
-            print("켜짐");
-            _upParticle.Play();
-            _downParticle.Play();
-            _upEdge.DOAnchorPos(_targetPos1, CUTSCENE_ENTER_DURATION);
-            _downEdge.DOAnchorPos(_targetPos2, CUTSCENE_ENTER_DURATION);
-            _bossImageTransform.DOAnchorPos(_targetPos3, CUTSCENE_ENTER_DURATION);
+        
+        _upParticle.Play();
+        _downParticle.Play();
+        _upEdge.DOAnchorPos(_targetPos1, 0.5f);
+        _downEdge.DOAnchorPos(_targetPos2, 0.5f);
+        _bossImageTransform.DOAnchorPos(_targetPos3, 0.8f);
+        
             
-        }
-        else
-        {
-            print("꺼짐");
-            _upParticle.Stop();
-            _downParticle.Stop();
-            _upEdge.DOAnchorPos(_defaultPos1, CUTSCENE_OUT_DURATION);
-            _downEdge.DOAnchorPos(_defaultPos2, CUTSCENE_OUT_DURATION);
-            _bossImageTransform.DOAnchorPos(_defaultPos3, CUTSCENE_OUT_DURATION);
-        }
     }
+
+    private void Disappear()
+    {
+        
+        _upParticle.Stop();
+        _downParticle.Stop();
+        _upEdge.DOAnchorPos(_defaultPos1, CUTSCENE_OUT_DURATION);
+        _downEdge.DOAnchorPos(_defaultPos2, CUTSCENE_OUT_DURATION);
+        _bossImageTransform.DOAnchorPos(_defaultPos3, CUTSCENE_OUT_DURATION);
+
+    }
+    
 }
