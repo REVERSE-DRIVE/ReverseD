@@ -1,21 +1,39 @@
 using System;
+using System.Collections;
 using EntityManage;
 using UnityEngine;
 
 namespace EnemyManage
 {
     
-    public class Enemy : Entity
+    public abstract class Enemy : Entity
     {
 
-        [SerializeField] private ItemDropType ItemDropType;
-        // ItemDropManager 에서 어떤 아이템을 드롭할지 Enum으로 호출함
+        [SerializeField] protected ItemDropType ItemDropType;
         public event Action OnHealthChanged;
+        protected Rigidbody2D _rigid;
+
+        protected SpriteRenderer _spriteRenderer;
+        [SerializeField] protected Material _hitMaterial;
+        protected Material _defaultMaterial;
+        public bool CanStateChangeable { get; set; }
+        public Animator AnimatorCompo;
+
+        protected virtual void Awake()
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            if (_spriteRenderer == null)
+                _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _defaultMaterial = _spriteRenderer.material;
+            if(AnimatorCompo == null)
+                AnimatorCompo = GetComponent<Animator>();
+        }
 
 
-        private void Start()
+        protected virtual void Start()
         {
             OnHealthChanged += CheckIsDie;
+            OnHealthChanged += HandlerHitEvent;
         }
 
         /**
@@ -23,26 +41,34 @@ namespace EnemyManage
          * EnemyInfo에서 세팅해주는 스테이터스 기본값
          * </summary>
          */
-        [SerializeField]
         internal Status defaultStatus;
-        //
-        // private void OnEnable()
-        // {
-        //
-        //     SetStatusDefault();
-        // }
         
-        public void TakeDamage(int amount)
+        public virtual void TakeDamage(int amount)
         {
             base.TakeDamage(amount);
+            OnHealthChanged?.Invoke();
+        }
+        
+        public virtual void TakeDamageWithKnockBack(int amount, Vector2 damageOrigin, float knockBackPower)
+        {
+            base.TakeDamage(amount);
+            Vector2 knockBackDirection = ((Vector2)transform.position - damageOrigin).normalized;
+            _rigid.AddForce(knockBackDirection * knockBackPower, ForceMode2D.Impulse);
             OnHealthChanged?.Invoke();
         }
 
         public override void Die()
         {
             ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
-            PoolManager.Release(gameObject);
+            StartCoroutine(DieRoutine());
+        }
+
+        protected IEnumerator DieRoutine()
+        {
+            yield return new WaitForSeconds(0.2f);
             transform.SetParent(GameManager.Instance.DefaultEnemyParentTrm);
+            PoolManager.Release(gameObject);
+            
         }
 
         internal void SetHealthMax()
@@ -50,12 +76,26 @@ namespace EnemyManage
             status.hp = status.hpMax;
         }
 
-        public void SetStatusDefault()
+        public virtual void SetStatusDefault()
         {
             status = defaultStatus;
-
+            
+            
         }
 
+        protected virtual void HandlerHitEvent()
+        {
+            StartCoroutine(HitRoutine());
+            
+        }
 
+        protected virtual IEnumerator HitRoutine()
+        {
+            _spriteRenderer.material = _hitMaterial;
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.material = _defaultMaterial;
+        }
+
+        public abstract void AnimationEndTrigger();
     }
 }

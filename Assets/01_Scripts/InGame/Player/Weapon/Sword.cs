@@ -10,7 +10,7 @@ namespace AttackManage
         
         // 실질적인 Attack 기능을 하위 무기에서 구현
         
-        protected void DetectEnemy()
+        protected Collider2D[] DetectEnemy()
         {
             AttackAnimationOnTrigger();
 
@@ -19,8 +19,8 @@ namespace AttackManage
                 transform.position.y + _attackRadius * attackDirection.y
             );
             Collider2D[] hits = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsEnemy);
-            
 
+            return hits;
         }
     }
 }

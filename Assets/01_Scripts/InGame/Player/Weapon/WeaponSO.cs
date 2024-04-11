@@ -21,6 +21,8 @@ namespace AttackManage
          */
         public float attackTime = 1;
         public float attackRange = 1;
+        public bool isKnockBack = false;
+        public float knockBackPower = 1;
 
         /**
          * <summary>
@@ -43,6 +45,8 @@ namespace AttackManage
             weaponPrefab.damage = damage;
             weaponPrefab._attackCooltime = attackCooltime;
             weaponPrefab._attackTime = attackTime;
+            weaponPrefab.isKnockBack = isKnockBack;
+            weaponPrefab.knockBackPower = knockBackPower;
         }
         
         
