@@ -10,13 +10,13 @@ namespace EnemyManage
         protected EnemyStateMachine<T> _stateMachine;
         protected Enemy _enemyBase;
         protected bool _endTriggerCalled;
-        protected int _animBoolHash;
+        protected string _animBoolParam;
 
         public EnemyState(Enemy enemyBase, EnemyStateMachine<T> stateMachine, string animBoolName)
         {
             _enemyBase = enemyBase;
             _stateMachine = stateMachine;
-            _animBoolHash = Animator.StringToHash(animBoolName);
+            _animBoolParam = animBoolName;
         
         }
 
@@ -31,13 +31,13 @@ namespace EnemyManage
         
         
             _endTriggerCalled = false;
-            _enemyBase.AnimatorCompo.SetBool(_animBoolHash, true);
+            _enemyBase.AnimatorCompo.SetBool(_animBoolParam, true);
         
         }
 
         public virtual void Exit()
         {
-            _enemyBase.AnimatorCompo.SetBool(_animBoolHash, false);
+            _enemyBase.AnimatorCompo.SetBool(_animBoolParam, false);
 
         }
 
