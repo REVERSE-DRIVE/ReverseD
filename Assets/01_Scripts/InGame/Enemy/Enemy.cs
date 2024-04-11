@@ -10,7 +10,6 @@ namespace EnemyManage
     {
 
         [SerializeField] protected ItemDropType ItemDropType;
-        // ItemDropManager 에서 어떤 아이템을 드롭할지 Enum으로 호출함
         public event Action OnHealthChanged;
         protected Rigidbody2D _rigid;
 
@@ -31,10 +30,10 @@ namespace EnemyManage
         }
 
 
-        protected void Start()
+        protected virtual void Start()
         {
             OnHealthChanged += CheckIsDie;
-            OnHealthChanged += HitEventHandler;
+            OnHealthChanged += HandlerHitEvent;
         }
 
         /**
@@ -44,19 +43,13 @@ namespace EnemyManage
          */
         internal Status defaultStatus;
         
-        // private void OnEnable()
-        // {
-        //
-        //     SetStatusDefault();
-        // }
-        
-        public void TakeDamage(int amount)
+        public virtual void TakeDamage(int amount)
         {
             base.TakeDamage(amount);
             OnHealthChanged?.Invoke();
         }
         
-        public void TakeDamageWithKnockBack(int amount, Vector2 damageOrigin, float knockBackPower)
+        public virtual void TakeDamageWithKnockBack(int amount, Vector2 damageOrigin, float knockBackPower)
         {
             base.TakeDamage(amount);
             Vector2 knockBackDirection = ((Vector2)transform.position - damageOrigin).normalized;
@@ -83,29 +76,26 @@ namespace EnemyManage
             status.hp = status.hpMax;
         }
 
-        public void SetStatusDefault()
+        public virtual void SetStatusDefault()
         {
             status = defaultStatus;
             
             
         }
 
-        protected void HitEventHandler()
+        protected virtual void HandlerHitEvent()
         {
             StartCoroutine(HitRoutine());
             
         }
 
-        protected IEnumerator HitRoutine()
+        protected virtual IEnumerator HitRoutine()
         {
             _spriteRenderer.material = _hitMaterial;
             yield return new WaitForSeconds(0.1f);
             _spriteRenderer.material = _defaultMaterial;
         }
 
-        public virtual void AnimationEndTrigger()
-        {
-            
-        }
+        public abstract void AnimationEndTrigger();
     }
 }

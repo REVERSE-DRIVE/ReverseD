@@ -5,14 +5,9 @@ using UnityEngine;
 namespace EnemyManage
 {
     
-    public class Boss : Enemy
+    public abstract class Boss : Enemy
     {
-        
-        protected override void Awake()
-        {
-            base.Awake();
-            
-        }
+
         
 
 
@@ -23,10 +18,12 @@ namespace EnemyManage
             
             
         }
-
-        private void RefreshHealthGauge()
+        
+        protected void RefreshHealthGauge()
         {
             
         }
+
+
     }
 }

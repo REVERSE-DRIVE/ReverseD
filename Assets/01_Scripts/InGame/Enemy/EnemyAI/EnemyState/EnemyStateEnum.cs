@@ -1,6 +1,6 @@
 ﻿namespace EnemyManage
 {
-    public enum EnemyStateEnum
+    public enum NormalEnemyStateEnum
     {
         Roaming,
         Attack,
