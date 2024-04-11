@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace EnemyManage
 {
-    
     public class EnemyState<T> where T : Enum
     {
         protected EnemyStateMachine<T> _stateMachine;

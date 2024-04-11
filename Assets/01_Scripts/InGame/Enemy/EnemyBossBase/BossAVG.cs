@@ -13,10 +13,16 @@ namespace EnemyManage.EnemyBossBase
             StateMachine = new EnemyStateMachine<BossAVGStateEnum>();
 
             //여기에 상태를 불러오는 코드가 필요하다.
+            SetStateEnum();
+
+        }
+        
+        protected override void SetStateEnum()
+        {
             foreach (BossAVGStateEnum stateEnum in Enum.GetValues(typeof(BossAVGStateEnum)))
             {
                 string typeName = stateEnum.ToString();
-                Type t = Type.GetType($"Common{typeName}State");
+                Type t = Type.GetType($"BossAVG{typeName}State");
 
                 try
                 {
@@ -26,10 +32,9 @@ namespace EnemyManage.EnemyBossBase
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"Enemy Hammer : no State found [ {typeName} ] - {ex.Message}");
+                    Debug.LogError($"Enemy Boss AVG : no State found [ {typeName} ] - {ex.Message}");
                 }
             }
-
         }
 
         private void Start()

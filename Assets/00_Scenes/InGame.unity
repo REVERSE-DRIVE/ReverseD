@@ -11960,8 +11960,23 @@ MonoBehaviour:
     isHealDefense: 0
     healthDefMultiple: 0
   ItemDropType: 2
+  _rigid: {fileID: 0}
+  _spriteRenderer: {fileID: 0}
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
+  _defaultMaterial: {fileID: 0}
+  <CanStateChangeable>k__BackingField: 0
   AnimatorCompo: {fileID: 0}
+  defaultStatus:
+    hp: 0
+    hpMax: 0
+    attackDamage: 0
+    criticalRate: 0
+    defense: 0
+    criticalDefense: 0
+    moveSpeed: 0
+    mass: 0
+    isHealDefense: 0
+    healthDefMultiple: 0
 --- !u!4 &847219890
 Transform:
   m_ObjectHideFlags: 0
