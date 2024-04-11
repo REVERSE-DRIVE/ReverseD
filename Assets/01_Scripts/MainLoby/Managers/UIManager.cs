@@ -10,6 +10,8 @@ namespace MainLoby
         [SerializeField] private Button _folderButton;
         [SerializeField] private Button _decoderButton;
         [SerializeField] private Button _startButton;
+        [SerializeField] private Button[] _exitButtons;
+        
         [Space] 
         
         [Header("Panel")]
@@ -20,25 +22,37 @@ namespace MainLoby
         private bool isOpenPlayerPanel;
         private bool isOpenFolderPanel;
         private bool isOpenDecoderPanel;
+        
         private void Start()
         {
             _folderButton.onClick.AddListener(OnFolderButtonClick);
             _decoderButton.onClick.AddListener(OnDecoderButtonClick);
             _startButton.onClick.AddListener(OnStartButtonClick);
+            for (int i = 0; i < _exitButtons.Length; i++)
+            {
+                Debug.Log("Exit Button");   
+                _exitButtons[i].onClick.AddListener(OnExitButtonClick);
+            }
         }
-        
+
+        private void OnExitButtonClick()
+        {
+            Debug.Log("Exit");
+            OpenPanel(transform.parent.GetComponent<Image>(), 0f);
+        }
+
         private void OnFolderButtonClick()
         {
             if (isOpenFolderPanel) return;
             isOpenFolderPanel = true;
-            OpenPanel(_folderPanel, 1.39f);
+            OpenPanel(_folderPanel, 1f);
         }
         
         private void OnDecoderButtonClick()
         {
             if (isOpenDecoderPanel) return;
             isOpenDecoderPanel = true;
-            OpenPanel(_decoderPanel, 1.39f);
+            OpenPanel(_decoderPanel, 1f);
         }
         
         private void OnStartButtonClick()

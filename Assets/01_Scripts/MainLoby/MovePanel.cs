@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MovePanel : MonoBehaviour, IDragHandler
+public class MovePanel : MonoBehaviour, IPointerClickHandler, IDragHandler
 {
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        transform.parent.SetAsLastSibling();
+    }
     public void OnDrag(PointerEventData eventData)
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
