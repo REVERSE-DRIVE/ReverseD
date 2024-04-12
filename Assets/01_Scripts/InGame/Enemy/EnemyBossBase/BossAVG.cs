@@ -7,6 +7,10 @@ namespace EnemyManage.EnemyBossBase
     {
         public EnemyStateMachine<BossAVGStateEnum> StateMachine { get; private set; }
 
+        [Header("State Setting")] 
+        [SerializeField] internal float _attacktime = 10f;
+        [SerializeField] internal float _attackCooltime = 10f;
+
         protected override void Awake()
         {
             base.Awake();
@@ -49,7 +53,6 @@ namespace EnemyManage.EnemyBossBase
 
         public void Attack()
         {
-            //여기서 나중에 실제 공격처리를 하겠지.
         }
 
         public override void AnimationEndTrigger()

@@ -12022,7 +12022,7 @@ MonoBehaviour:
     healthDefMultiple: 0
   ItemDropType: 0
   _hitMaterial: {fileID: 0}
-  AnimatorCompo: {fileID: 0}
+  AnimatorCompo: {fileID: 50558952}
 --- !u!1 &857554326
 GameObject:
   m_ObjectHideFlags: 0

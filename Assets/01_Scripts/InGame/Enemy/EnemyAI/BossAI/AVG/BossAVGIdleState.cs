@@ -2,7 +2,7 @@
 
 namespace EnemyManage.EnemyBossBase
 {
-    public class BossAVGIdleState : EnemyState<BossAVGStateEnum>
+    public class BossAVGIdleState : BossAVGState
     {
         public BossAVGIdleState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
         {
