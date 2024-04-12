@@ -45,14 +45,14 @@ namespace MainLoby
         {
             if (isOpenFolderPanel) return;
             isOpenFolderPanel = true;
-            OpenPanel(_folderPanel, 1f);
+            OpenPanel(_folderPanel, 2f);
         }
         
         private void OnDecoderButtonClick()
         {
             if (isOpenDecoderPanel) return;
             isOpenDecoderPanel = true;
-            OpenPanel(_decoderPanel, 1f);
+            OpenPanel(_decoderPanel, 2f);
         }
         
         private void OnStartButtonClick()
