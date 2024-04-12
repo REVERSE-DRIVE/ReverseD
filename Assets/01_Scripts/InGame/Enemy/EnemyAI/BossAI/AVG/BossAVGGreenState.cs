@@ -1,4 +1,4 @@
-﻿namespace EnemyManage.BossAI
+﻿namespace EnemyManage.EnemyBossBase
 {
     public class BossAVGGreenState : EnemyState<BossAVGStateEnum>
     {

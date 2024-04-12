@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EnemyManage.BossAI
+namespace EnemyManage.EnemyBossBase
 {
     public class BossAVGIdleState : EnemyState<BossAVGStateEnum>
     {

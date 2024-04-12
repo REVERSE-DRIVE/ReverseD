@@ -22,8 +22,8 @@ namespace EnemyManage.EnemyBossBase
             foreach (BossAVGStateEnum stateEnum in Enum.GetValues(typeof(BossAVGStateEnum)))
             {
                 string typeName = stateEnum.ToString();
-                Type t = Type.GetType($"BossAVG{typeName}State");
-
+                Type t = Type.GetType($"EnemyManage.EnemyBossBase.BossAVG{typeName}State");
+                
                 try
                 {
                     EnemyState<BossAVGStateEnum> state =
