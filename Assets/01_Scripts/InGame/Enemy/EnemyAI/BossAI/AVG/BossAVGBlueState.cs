@@ -12,6 +12,8 @@ namespace EnemyManage.EnemyBossBase
 
         private float _attackTime = 10;
         private float _attackCooltime = 0.2f;
+        private int _projectileAmount;
+        private Projectile _projectile;
         
 
         public override void Enter()
@@ -19,6 +21,10 @@ namespace EnemyManage.EnemyBossBase
             base.Enter();
             _attackTime = _bossAVGBase._attacktime;
             _attackCooltime = _bossAVGBase._attackCooltime;
+            _projectileAmount = _bossAVGBase._fireProjectileAmount;
+            _projectile = _bossAVGBase._projectile;
+            _bossAVGBase.StartCoroutine(BlueStateRoutine());
+            Debug.Log("Blue State Enter");
         }
 
         public override void UpdateState()
@@ -27,29 +33,76 @@ namespace EnemyManage.EnemyBossBase
             
         }
 
+        public override void Exit()
+        {
+            base.Exit();
+        }
+
 
         private IEnumerator BlueStateRoutine()
         {
             float currentTime = 0;
             float currentCoolingTime = 0;
-            while (currentTime >= _attackTime)
+            while (currentTime <= _attackTime)
             {
 
                 currentTime += Time.deltaTime;
+                _bossAVGBase.transform.rotation = 
+                    Quaternion.Euler(0, 0, _bossAVGBase.transform.rotation.z + Time.deltaTime*_bossAVGBase._rotationSpeed);
                 currentCoolingTime += Time.deltaTime;
                 if (currentCoolingTime > _attackCooltime)
                 {
                     currentCoolingTime = 0;
-                    
+                    Attack();
                 }
 
                 yield return null;
             }
+
+            _bossAVGBase.StartCoroutine(EndCoroutine());
+        }
+
+        private IEnumerator EndCoroutine()
+        {
+            float currentTime = 0;
+            float beforeRotation = _bossAVGBase.transform.rotation.z;
+            while (currentTime <= 0.2f)
+            {
+                float time = currentTime / 0.2f;
+                _bossAVGBase.transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,beforeRotation),Quaternion.identity,  time);
+                currentTime += Time.deltaTime;
+                yield return null;
+            }
+            _stateMachine.ChangeState(BossAVGStateEnum.Idle);
         }
 
         private void Attack()
         {
-            
+            float angleStep = 360f / _projectileAmount; // 각도 단계 계산
+
+            for (int i = 0; i < _projectileAmount; i++)
+            {
+                // 각도 계산
+                float angle = i * angleStep;
+                float radians = angle * Mathf.Deg2Rad;
+                Vector2 direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
+                direction = RotateVector2(direction, _bossAVGBase.transform.rotation.eulerAngles.z);
+                Projectile projectile = PoolManager.Get(_projectile);
+                projectile.transform.position = _bossAVGBase.transform.position;
+                projectile.Fire(_bossAVGBase.transform.position, direction);
+                
+            }
+        }
+        Vector2 RotateVector2(Vector2 vec, float degrees)
+        {
+            float radians = degrees * Mathf.Deg2Rad;
+            float sin = Mathf.Sin(radians);
+            float cos = Mathf.Cos(radians);
+            float x = vec.x;
+            float y = vec.y;
+            vec.x = x * cos - y * sin;
+            vec.y = x * sin + y * cos;
+            return vec;
         }
     }
 }

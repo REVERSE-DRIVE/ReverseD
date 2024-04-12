@@ -12010,8 +12010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
-    hp: 0
-    hpMax: 0
+    hp: 100
+    hpMax: 100
     attackDamage: 0
     criticalRate: 0
     defense: 0
@@ -12020,9 +12020,19 @@ MonoBehaviour:
     mass: 0
     isHealDefense: 0
     healthDefMultiple: 0
-  ItemDropType: 0
+  ItemDropType: 2
   _hitMaterial: {fileID: 0}
   AnimatorCompo: {fileID: 50558952}
+  _randomPickState: 04000000
+  _stunDuration: 10
+  _redStateDuration: 15
+  _redProjectile1: {fileID: 0}
+  _redProjectile2: {fileID: 0}
+  _greenStateDuration: 10
+  _attacktime: 10
+  _attackCooltime: 0.4
+  _projectile: {fileID: 2773466657305129364, guid: 469eaa8018ce8ae439d001a6bf3a31e0, type: 3}
+  _fireProjectileAmount: 4
 --- !u!1 &857554326
 GameObject:
   m_ObjectHideFlags: 0

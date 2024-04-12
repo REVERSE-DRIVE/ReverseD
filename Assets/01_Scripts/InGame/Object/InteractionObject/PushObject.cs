@@ -10,9 +10,7 @@ public class PushObject : InteractionObject
     [SerializeField] private float _pushPower = 10;
     [SerializeField] private int _damage = 5;
     [SerializeField] private float _damageVelocity = 1.5f;
-    [SerializeField]
-    private float velocity = 0;
-
+    
     [SerializeField] private bool canDamage;
     private Vector2 previousDirection;
 

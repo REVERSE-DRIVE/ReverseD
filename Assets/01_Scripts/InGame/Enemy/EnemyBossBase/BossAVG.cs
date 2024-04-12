@@ -7,10 +7,29 @@ namespace EnemyManage.EnemyBossBase
     {
         public EnemyStateMachine<BossAVGStateEnum> StateMachine { get; private set; }
 
-        [Header("State Setting")] 
+        [Header("Idle State Setting")] 
+        [SerializeField] internal BossAVGStateEnum[] _randomPickState;
+
+        [Header("Stun State Setting")] 
+        [SerializeField] internal float _stunDuration = 10;
+
+        [Header("Red State Setting")] 
+        [SerializeField] private float _redStateDuration = 15f;
+        [SerializeField] private Projectile _redProjectile1;
+        [SerializeField] private Projectile _redProjectile2;
+        
+        
+        
+        [Header("Green State Setting")] 
+        [SerializeField] internal float _greenStateDuration = 10f;
+        //[SerializeField] private int _healMultiply = 3;
+        [Header("Blue State Setting")] 
         [SerializeField] internal float _attacktime = 10f;
         [SerializeField] internal float _attackCooltime = 10f;
-
+        [SerializeField] internal Projectile _projectile;
+        [SerializeField] internal int _fireProjectileAmount = 4;
+        [SerializeField] internal float _rotationSpeed = 3f;
+        
         protected override void Awake()
         {
             base.Awake();
@@ -31,7 +50,7 @@ namespace EnemyManage.EnemyBossBase
                 try
                 {
                     EnemyState<BossAVGStateEnum> state =
-                        Activator.CreateInstance(t, this, StateMachine, typeName) as EnemyState<BossAVGStateEnum>;
+                        Activator.CreateInstance(t, this, StateMachine, $"State{typeName}") as EnemyState<BossAVGStateEnum>;
                     StateMachine.AddState(stateEnum, state);
                 }
                 catch (Exception ex)

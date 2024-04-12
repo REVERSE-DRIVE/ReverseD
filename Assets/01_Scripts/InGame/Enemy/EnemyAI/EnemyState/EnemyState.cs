@@ -9,13 +9,13 @@ namespace EnemyManage
         protected EnemyStateMachine<T> _stateMachine;
         protected Enemy _enemyBase;
         protected bool _endTriggerCalled;
-        protected string _animBoolParam;
+        protected int _animBoolParam;
 
         public EnemyState(Enemy enemyBase, EnemyStateMachine<T> stateMachine, string animBoolName)
         {
             _enemyBase = enemyBase;
             _stateMachine = stateMachine;
-            _animBoolParam = animBoolName;
+            _animBoolParam = Animator.StringToHash(animBoolName);;
         
         }
 
