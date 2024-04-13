@@ -10,6 +10,7 @@ public class DropableUI : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             rect.anchoredPosition = Vector2.zero;
+            if (eventData.pointerDrag.GetComponent<CanvasGroup>() == null) return;
             eventData.pointerDrag.GetComponent<CanvasGroup>().blocksRaycasts = true;
             rect.SetParent(transform);
         }

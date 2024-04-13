@@ -3259,7 +3259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -231.8921}
+  m_AnchoredPosition: {x: 0, y: -72536.445}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &955412834
@@ -3564,6 +3564,7 @@ GameObject:
   - component: {fileID: 1028341366}
   - component: {fileID: 1028341368}
   - component: {fileID: 1028341367}
+  - component: {fileID: 1028341369}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -3629,6 +3630,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028341365}
   m_CullTransparentMesh: 1
+--- !u!114 &1028341369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028341365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &1049930414
 GameObject:
   m_ObjectHideFlags: 0
@@ -5515,8 +5529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2, y: -4}
-  m_SizeDelta: {x: 30, y: 25}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 36, y: 36}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1386635461
 MonoBehaviour:
@@ -5561,7 +5575,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1386635462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1472748004}
+        m_TargetAssemblyTypeName: MainLoby.UIManager, Assembly-CSharp
+        m_MethodName: OnExitButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1386635462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5745,7 +5771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -27.59}
+  m_AnchoredPosition: {x: 1, y: -27.589996}
   m_SizeDelta: {x: 490, y: 294.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469695874
@@ -5848,9 +5874,6 @@ MonoBehaviour:
   _folderButton: {fileID: 1027027307}
   _decoderButton: {fileID: 1816560473}
   _startButton: {fileID: 282267746}
-  _exitButtons:
-  - {fileID: 1561786214}
-  - {fileID: 1386635461}
   _playerPanel: {fileID: 1678421117}
   _folderPanel: {fileID: 1773633158}
   _decoderPanel: {fileID: 2113285218}
@@ -6015,8 +6038,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000068188}
-  m_SizeDelta: {x: 36, y: 33.38}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 36, y: 36}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1561786214
 MonoBehaviour:
@@ -6061,7 +6084,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1561786215}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1472748004}
+        m_TargetAssemblyTypeName: MainLoby.UIManager, Assembly-CSharp
+        m_MethodName: OnExitButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1561786215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6496,7 +6531,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -20521,6 +20556,7 @@ MonoBehaviour:
   _decoderParent: {fileID: 262571322}
   progressImage: {fileID: 835270756}
   progressText: {fileID: 2062732167}
+  titleText: {fileID: 1064947239}
 --- !u!1001 &2719870526992620697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20912,7 +20948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9055954957566680120, guid: 67565e4e49adba34397c5c23ea2098cd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4231953
+      value: -7722471
       objectReference: {fileID: 0}
     - target: {fileID: 9055954957566680120, guid: 67565e4e49adba34397c5c23ea2098cd, type: 3}
       propertyPath: m_AnchoredPosition.y

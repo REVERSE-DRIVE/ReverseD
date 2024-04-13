@@ -10,7 +10,6 @@ namespace MainLoby
         [SerializeField] private Button _folderButton;
         [SerializeField] private Button _decoderButton;
         [SerializeField] private Button _startButton;
-        [SerializeField] private Button[] _exitButtons;
         
         [Space] 
         
@@ -28,17 +27,12 @@ namespace MainLoby
             _folderButton.onClick.AddListener(OnFolderButtonClick);
             _decoderButton.onClick.AddListener(OnDecoderButtonClick);
             _startButton.onClick.AddListener(OnStartButtonClick);
-            for (int i = 0; i < _exitButtons.Length; i++)
-            {
-                Debug.Log("Exit Button");   
-                _exitButtons[i].onClick.AddListener(OnExitButtonClick);
-            }
         }
 
-        private void OnExitButtonClick()
+        public void OnExitButtonClick()
         {
             Debug.Log("Exit");
-            OpenPanel(transform.parent.GetComponent<Image>(), 0f);
+            ClosePanel(transform.parent.GetComponent<Image>());
         }
 
         private void OnFolderButtonClick()
@@ -78,6 +72,23 @@ namespace MainLoby
             sq.Append(panel.rectTransform.DOScaleY(size, 0.15f).SetEase(Ease.Linear));
             sq.AppendInterval(0.5f);
             sq.Join(panel.rectTransform.DOScaleX(size, 0.15f).SetEase(Ease.Linear));
+
+            sq.Play();
+        }
+
+        /** <summary>
+         * 패널 닫기
+         * </summary>
+         * <param name="panel">닫 패널</param>
+         */
+        private void ClosePanel(Image panel)
+        {
+            Sequence sq = DOTween.Sequence();
+            sq.Append(panel.rectTransform.DOScale(new Vector3(0.1f, 0.1f), 0f).SetEase(Ease.Linear));
+            sq.AppendInterval(0.1f);
+            sq.Append(panel.rectTransform.DOScaleY(0f, 0.15f).SetEase(Ease.Linear));
+            sq.AppendInterval(0.5f);
+            sq.Join(panel.rectTransform.DOScaleX(0f, 0.15f).SetEase(Ease.Linear));
 
             sq.Play();
         }
