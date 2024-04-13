@@ -12186,7 +12186,7 @@ MonoBehaviour:
   ItemDropType: 2
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
   AnimatorCompo: {fileID: 50558952}
-  _randomPickState: 05000000
+  _randomPickState: 04000000
   _idleWaitingTime: 5
   _stunDuration: 10
   _redStateDuration: 15

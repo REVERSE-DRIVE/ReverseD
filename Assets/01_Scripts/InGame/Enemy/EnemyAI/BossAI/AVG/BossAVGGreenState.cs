@@ -47,7 +47,7 @@ namespace EnemyManage.EnemyBossBase
             float time = Time.deltaTime * TimeManager.TimeScale;
             _currentTime += time;
             _currentStateTime += time;
-            if (_currentTime >= 0)
+            if (_currentTime >= 1)
             {
                 _currentTime = 0;
                 HealWithCore();
