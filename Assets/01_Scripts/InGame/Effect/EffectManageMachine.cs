@@ -60,14 +60,14 @@ namespace EffectManage
             Effect<T> effect = IsHaveEffect(effectType);
             if (effect != null) 
             {
-                Debug.Log($"이미 {effectType.ToString()}버프를 가지고 있음");
+                //Debug.Log($"이미 {effectType.ToString()}버프를 가지고 있음");
                 if (effect.effectLevel < level)
                     effect.SetLevel(level);
                 
                 effect.AddDuration(duration);
                 return;
             }
-            Debug.Log($"새버프 {effectType.ToString()}버프를 가짐");
+            //Debug.Log($"새버프 {effectType.ToString()}버프를 가짐");
             string typeName = effectType.ToString();
             
             try

@@ -13,7 +13,7 @@ namespace EffectManage.Effects
 
         public override void EnterEffect()
         {
-            Debug.Log("기존 속도를 새로 정의함");
+            //Debug.Log("기존 속도를 새로 정의함");
             _beforeValue = _entityBase.Status.moveSpeed;
             LevelFixed();
         }
@@ -32,7 +32,7 @@ namespace EffectManage.Effects
 
         public override void ExitEffect()
         {
-            Debug.Log($"Slow해제, 기존 속도 {_beforeValue}로 설정");
+            //Debug.Log($"Slow해제, 기존 속도 {_beforeValue}로 설정");
             _entityBase.SetMoveSpeed(_beforeValue);
         }
 

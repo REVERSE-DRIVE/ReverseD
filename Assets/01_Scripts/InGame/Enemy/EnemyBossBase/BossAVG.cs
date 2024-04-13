@@ -9,7 +9,7 @@ namespace EnemyManage.EnemyBossBase
 
         [Header("Idle State Setting")] 
         [SerializeField] internal BossAVGStateEnum[] _randomPickState;
-
+        [SerializeField] internal float _idleWaitingTime = 5f;
         [Header("Stun State Setting")] 
         [SerializeField] internal float _stunDuration = 10;
 

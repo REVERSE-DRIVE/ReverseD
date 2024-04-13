@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace EnemyManage.EnemyBossBase
 {
@@ -7,6 +8,8 @@ namespace EnemyManage.EnemyBossBase
         private bool isDetectedPlayer = false;
         private Transform _playerTrm;
         private LayerMask _playerLayer;
+
+        private bool isWaitOver;
         
         public BossAVGIdleState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
         {
@@ -15,14 +18,24 @@ namespace EnemyManage.EnemyBossBase
         public override void Enter()
         {
             base.Enter();
+            isWaitOver = false;
             _playerTrm = GameManager.Instance._PlayerTransform;
             _playerLayer = LayerMask.GetMask("Player");
+            _bossAVGBase.StartCoroutine(IdleCoroutine());
+        }
+
+        private IEnumerator IdleCoroutine()
+        {
+            yield return new WaitForSeconds(_bossAVGBase._idleWaitingTime);
+            isWaitOver = true;
         }
 
         public override void UpdateState()
         {
             base.UpdateState();
-            DetectPlayer();
+            
+            if(isWaitOver)
+                DetectPlayer();
         }
 
         public override void Exit()
