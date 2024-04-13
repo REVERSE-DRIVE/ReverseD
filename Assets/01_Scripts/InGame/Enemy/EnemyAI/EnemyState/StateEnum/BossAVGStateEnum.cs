@@ -4,9 +4,9 @@
     {
         Idle,
         Stun,
-        Yellow_Defend,
+        Yellow,
         Red,
-        Blue_RectShooting,
+        Blue,
         Green,
     }
 }

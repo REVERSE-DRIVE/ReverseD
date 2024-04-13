@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using EntityManage;
 using UnityEngine;
 
@@ -13,13 +14,10 @@ public class Player : Entity
         private set { }
     }
 
-    public bool IsDead
-    {
-        get
-        {
-            return status.hp <= 0;
-        }
-    }
+    public bool IsDead => status.hp <= 0;
+    public bool canMove => status.moveSpeed == 0;
+    public float MoveSpeed => status.moveSpeed;
+    
     public static event Action OnPlayerHpChanged;
     private SoundObject _soundObject;
     private SpriteRenderer _spriteRenderer;

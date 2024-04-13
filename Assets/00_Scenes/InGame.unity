@@ -10839,7 +10839,7 @@ Transform:
   m_GameObject: {fileID: 545116065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -6.28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11928,7 +11928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847219890}
   - component: {fileID: 847219891}
-  - component: {fileID: 847219889}
+  - component: {fileID: 847219892}
   m_Layer: 13
   m_Name: Boss
   m_TagString: Untagged
@@ -11936,32 +11936,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &847219889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 847219888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46cff085e4eb8ec4897cfb6ffa405eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  status:
-    hp: 0
-    hpMax: 0
-    attackDamage: 0
-    criticalRate: 0
-    defense: 0
-    criticalDefense: 0
-    moveSpeed: 0
-    mass: 0
-    isHealDefense: 0
-    healthDefMultiple: 0
-  ItemDropType: 2
-  _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
-  AnimatorCompo: {fileID: 0}
 --- !u!4 &847219890
 Transform:
   m_ObjectHideFlags: 0
@@ -11971,7 +11945,7 @@ Transform:
   m_GameObject: {fileID: 847219888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.54, y: 1.43, z: 0}
+  m_LocalPosition: {x: 0, y: 15.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12023,6 +11997,43 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6, y: 3.6}
   m_EdgeRadius: 0
+--- !u!114 &847219892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847219888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6861f2b7b24078a204aaa356a8c47f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    hp: 100
+    hpMax: 100
+    attackDamage: 0
+    criticalRate: 0
+    defense: 0
+    criticalDefense: 0
+    moveSpeed: 0
+    mass: 0
+    isHealDefense: 0
+    healthDefMultiple: 0
+  ItemDropType: 2
+  _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
+  AnimatorCompo: {fileID: 50558952}
+  _randomPickState: 04000000
+  _stunDuration: 10
+  _redStateDuration: 15
+  _redProjectile1: {fileID: 0}
+  _redProjectile2: {fileID: 0}
+  _greenStateDuration: 10
+  _attacktime: 10
+  _attackCooltime: 0.45
+  _projectile: {fileID: 4451851069912199969, guid: 469eaa8018ce8ae439d001a6bf3a31e0, type: 3}
+  _fireProjectileAmount: 4
+  _rotationSpeed: 1
 --- !u!1 &857554326
 GameObject:
   m_ObjectHideFlags: 0
@@ -13307,6 +13318,7 @@ GameObject:
   - component: {fileID: 1312064198}
   - component: {fileID: 1312064197}
   - component: {fileID: 1312064207}
+  - component: {fileID: 1312064208}
   - component: {fileID: 1312064206}
   - component: {fileID: 1312064205}
   m_Layer: 14
@@ -13513,7 +13525,7 @@ Transform:
   m_GameObject: {fileID: 1312064196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -6.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13651,6 +13663,21 @@ MonoBehaviour:
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &1312064208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312064196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a604401609c4ea7a7d4e2939e9c4932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCancelEffect: 0
+  frontString: EffectManage.Effects.Player
+  backString: Effect
 --- !u!1 &1315676104
 GameObject:
   m_ObjectHideFlags: 0
@@ -18745,7 +18772,7 @@ Transform:
   m_GameObject: {fileID: 1507562802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -6.28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
