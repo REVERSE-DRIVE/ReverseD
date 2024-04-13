@@ -41,6 +41,7 @@ namespace EnemyManage.EnemyBossBase
 
         private IEnumerator BlueStateRoutine()
         {
+            yield return new WaitForSeconds(1f);
             float currentTime = 0;
             float currentCoolingTime = 0;
             while (currentTime <= _attackTime)
@@ -48,7 +49,8 @@ namespace EnemyManage.EnemyBossBase
 
                 currentTime += Time.deltaTime;
                 _bossAVGBase.transform.rotation = 
-                    Quaternion.Euler(0, 0, _bossAVGBase.transform.rotation.z + Time.deltaTime*_bossAVGBase._rotationSpeed);
+                    Quaternion.Euler(0, 0, 
+                        _bossAVGBase.transform.rotation.eulerAngles.z +_bossAVGBase._rotationSpeed);
                 currentCoolingTime += Time.deltaTime;
                 if (currentCoolingTime > _attackCooltime)
                 {
@@ -65,11 +67,11 @@ namespace EnemyManage.EnemyBossBase
         private IEnumerator EndCoroutine()
         {
             float currentTime = 0;
-            float beforeRotation = _bossAVGBase.transform.rotation.z;
+            float beforeRotation = _bossAVGBase.transform.rotation.eulerAngles.z;
             while (currentTime <= 0.2f)
             {
                 float time = currentTime / 0.2f;
-                _bossAVGBase.transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,beforeRotation),Quaternion.identity,  time);
+                _bossAVGBase.transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,beforeRotation),Quaternion.Euler(0,0,0),  time);
                 currentTime += Time.deltaTime;
                 yield return null;
             }
