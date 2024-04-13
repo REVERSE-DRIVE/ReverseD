@@ -33,7 +33,7 @@ public class DropItem : InteractionObject
     private void OnEnable()
     {
         
-        
+
     }
 
     public override void Interact()

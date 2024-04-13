@@ -8,6 +8,7 @@ namespace MainLoby
     public class LobbyInteractionManager : MonoBehaviour
     {
         [SerializeField] private LayerMask _whatIsInteractable;
+
         private void Update()
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
