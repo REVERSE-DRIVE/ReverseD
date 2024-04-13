@@ -24,7 +24,6 @@ namespace EnemyManage.EnemyBossBase
             _projectileAmount = _bossAVGBase._fireProjectileAmount;
             _projectile = _bossAVGBase._projectile;
             _bossAVGBase.StartCoroutine(BlueStateRoutine());
-            Debug.Log("Blue State Enter");
         }
 
         public override void UpdateState()
@@ -71,10 +70,11 @@ namespace EnemyManage.EnemyBossBase
             while (currentTime <= 0.2f)
             {
                 float time = currentTime / 0.2f;
-                _bossAVGBase.transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,beforeRotation),Quaternion.Euler(0,0,0),  time);
+                _bossAVGBase.transform.rotation = Quaternion.Lerp(Quaternion.Euler(0,0,beforeRotation),Quaternion.identity,  time);
                 currentTime += Time.deltaTime;
                 yield return null;
             }
+            _bossAVGBase.transform.rotation = Quaternion.identity;
             _stateMachine.ChangeState(BossAVGStateEnum.Idle);
         }
 

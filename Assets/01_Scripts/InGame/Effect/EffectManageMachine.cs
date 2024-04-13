@@ -1,0 +1,93 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace EffectManage
+{
+    public class EffectManageMachine<T> where T : Enum
+    {
+        protected Entity _entityBase;
+        public List<Effect<T>> effects;
+
+        protected string _frontString;
+        protected string _backString;
+        private bool isCancelEffect;
+        protected float currentTime = 0;
+
+
+        public void Initialize(Entity entityBase, string frontString, string backString)
+        {
+            _entityBase = entityBase;
+            _frontString = frontString;
+            _backString = backString;
+        }
+        
+        /**
+         * <summary>
+         * Machine을 가지는 EffectManager의 내부 Update함수에서 실행시켜주어야함
+         * </summary>
+         */
+        public virtual void UpdateEffect()
+        {
+            if (isCancelEffect) return;
+
+            currentTime += Time.deltaTime;
+            if (currentTime >= 1)
+            {
+                currentTime = 0;
+                HandleCallEverySecond();
+
+            }
+        }
+
+        protected virtual void HandleCallEverySecond()
+        {
+            for (int i = 0; i < effects.Count; i++)
+            {
+                if (effects[i].UpdateEffectEverySecond())
+                {
+                    effects[i].EnterEffect();
+                    effects.Remove(effects[i]);
+                    i--;
+                }
+            }
+
+        }
+
+        public virtual void AddEffect(T effectType, int duration)
+        {
+
+            if (IsHaveEffect(effectType))
+            {
+                for (int i = 0; i < effects.Count; i++)
+                {
+                    effects[i].AddDuration(duration);
+                    return;
+                }
+            }
+            string typeName = effectType.ToString();
+            
+            try
+            {
+                Type t = Type.GetType($"{_frontString}{typeName}{_backString}");
+                Effect<T> state =
+                    Activator.CreateInstance(t, _entityBase, duration) as Effect<T>;
+                effects.Add(state);
+                state.EnterEffect();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"{effectType.ToString()} : no Effect found [ {_frontString}{typeName}{_backString} ] - {ex.Message}");
+            }
+        }
+
+        protected bool IsHaveEffect(T type)
+        {
+            for (int i = 0; i < effects.Count; i++)
+            {
+                if (effects[i].type.ToString() == type.ToString()) return true;
+            }
+            return false;
+        }
+    }
+}
