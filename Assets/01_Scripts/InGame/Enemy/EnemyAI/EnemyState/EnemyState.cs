@@ -4,19 +4,18 @@ using UnityEngine;
 
 namespace EnemyManage
 {
-    
     public class EnemyState<T> where T : Enum
     {
         protected EnemyStateMachine<T> _stateMachine;
         protected Enemy _enemyBase;
         protected bool _endTriggerCalled;
-        protected int _animBoolHash;
+        protected int _animBoolParam;
 
         public EnemyState(Enemy enemyBase, EnemyStateMachine<T> stateMachine, string animBoolName)
         {
             _enemyBase = enemyBase;
             _stateMachine = stateMachine;
-            _animBoolHash = Animator.StringToHash(animBoolName);
+            _animBoolParam = Animator.StringToHash(animBoolName);;
         
         }
 
@@ -31,13 +30,13 @@ namespace EnemyManage
         
         
             _endTriggerCalled = false;
-            _enemyBase.AnimatorCompo.SetBool(_animBoolHash, true);
+            _enemyBase.AnimatorCompo.SetBool(_animBoolParam, true);
         
         }
 
         public virtual void Exit()
         {
-            _enemyBase.AnimatorCompo.SetBool(_animBoolHash, false);
+            _enemyBase.AnimatorCompo.SetBool(_animBoolParam, false);
 
         }
 

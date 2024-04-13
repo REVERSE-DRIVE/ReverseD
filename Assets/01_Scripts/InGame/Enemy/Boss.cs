@@ -18,6 +18,8 @@ namespace EnemyManage
             
             
         }
+
+        protected abstract void SetStateEnum();
         
         protected void RefreshHealthGauge()
         {

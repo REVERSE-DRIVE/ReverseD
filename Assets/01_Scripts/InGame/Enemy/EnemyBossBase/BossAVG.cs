@@ -7,29 +7,57 @@ namespace EnemyManage.EnemyBossBase
     {
         public EnemyStateMachine<BossAVGStateEnum> StateMachine { get; private set; }
 
+        [Header("Idle State Setting")] 
+        [SerializeField] internal BossAVGStateEnum[] _randomPickState;
+        [SerializeField] internal float _idleWaitingTime = 5f;
+        [Header("Stun State Setting")] 
+        [SerializeField] internal float _stunDuration = 10;
+
+        [Header("Red State Setting")] 
+        [SerializeField] private float _redStateDuration = 15f;
+        [SerializeField] private Projectile _redProjectile1;
+        [SerializeField] private Projectile _redProjectile2;
+        
+        
+        
+        [Header("Green State Setting")] 
+        [SerializeField] internal float _greenStateDuration = 10f;
+        //[SerializeField] private int _healMultiply = 3;
+        [Header("Blue State Setting")] 
+        [SerializeField] internal float _attacktime = 10f;
+        [SerializeField] internal float _attackCooltime = 10f;
+        [SerializeField] internal Projectile _projectile;
+        [SerializeField] internal int _fireProjectileAmount = 4;
+        [SerializeField] internal float _rotationSpeed = 3f;
+        
         protected override void Awake()
         {
             base.Awake();
             StateMachine = new EnemyStateMachine<BossAVGStateEnum>();
 
             //여기에 상태를 불러오는 코드가 필요하다.
+            SetStateEnum();
+
+        }
+        
+        protected override void SetStateEnum()
+        {
             foreach (BossAVGStateEnum stateEnum in Enum.GetValues(typeof(BossAVGStateEnum)))
             {
                 string typeName = stateEnum.ToString();
-                Type t = Type.GetType($"Common{typeName}State");
-
+                Type t = Type.GetType($"EnemyManage.EnemyBossBase.BossAVG{typeName}State");
+                
                 try
                 {
                     EnemyState<BossAVGStateEnum> state =
-                        Activator.CreateInstance(t, this, StateMachine, typeName) as EnemyState<BossAVGStateEnum>;
+                        Activator.CreateInstance(t, this, StateMachine, $"State{typeName}") as EnemyState<BossAVGStateEnum>;
                     StateMachine.AddState(stateEnum, state);
                 }
                 catch (Exception ex)
                 {
-                    Debug.LogError($"Enemy Hammer : no State found [ {typeName} ] - {ex.Message}");
+                    Debug.LogError($"Enemy Boss AVG : no State found [ {typeName} ] - {ex.Message}");
                 }
             }
-
         }
 
         private void Start()
@@ -44,7 +72,6 @@ namespace EnemyManage.EnemyBossBase
 
         public void Attack()
         {
-            //여기서 나중에 실제 공격처리를 하겠지.
         }
 
         public override void AnimationEndTrigger()

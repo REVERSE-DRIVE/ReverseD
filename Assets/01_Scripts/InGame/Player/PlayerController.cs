@@ -1,3 +1,4 @@
+using EntityManage;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction.normalized * (PlayerManager.Instance.setting_moveSpeed * TimeManager.TimeScale);
+        _rigid.velocity = direction.normalized * (_player.MoveSpeed * TimeManager.TimeScale);
     }
     
     private void Rotate()

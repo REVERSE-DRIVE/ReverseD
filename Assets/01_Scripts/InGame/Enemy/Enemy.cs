@@ -9,14 +9,16 @@ namespace EnemyManage
     public abstract class Enemy : Entity
     {
 
+        [Header("Setting Values")]
         [SerializeField] protected ItemDropType ItemDropType;
-        public event Action OnHealthChanged;
-        protected Rigidbody2D _rigid;
-
-        protected SpriteRenderer _spriteRenderer;
         [SerializeField] protected Material _hitMaterial;
+        public event Action OnHealthChanged;
         protected Material _defaultMaterial;
-        public bool CanStateChangeable { get; set; }
+        public bool CanStateChangeable { get; set; } = true;
+        
+        // Compo
+        protected Rigidbody2D _rigid;
+        protected SpriteRenderer _spriteRenderer;
         public Animator AnimatorCompo;
 
         protected virtual void Awake()
