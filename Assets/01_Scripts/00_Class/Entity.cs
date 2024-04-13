@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EntityManage;
 
@@ -36,6 +34,11 @@ public abstract class Entity : MonoBehaviour, IDamageable
     public void OffHealDefense()
     {
         status.isHealDefense = false;
+    }
+
+    public void SetMoveSpeed(float value)
+    {
+        status.moveSpeed = value;
     }
 
     public virtual void Damage(int damage)

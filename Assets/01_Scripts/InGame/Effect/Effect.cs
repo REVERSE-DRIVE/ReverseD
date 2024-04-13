@@ -8,14 +8,35 @@ namespace EffectManage
         public T type;
         protected Entity _entityBase;
         protected int _leftTime = 1;
+        protected int level;
+
+        public int effectLevel => level;
+
+        public void SetLevel(int value)
+        {
+            level = value;
+            LevelFixed();
+        }
         
-        public Effect(Entity entityBase, int duration)
+        public Effect(Entity entityBase, int level, int duration)
         {
             _entityBase = entityBase;
             _leftTime = duration;
         }
 
+        /**
+         * <summary>
+         * 버프가 시작되었을때 실행되는 함수
+         * </summary>
+         */
         public abstract void EnterEffect();
+
+        /**
+         * <summary>
+         * 이펙트 레벨이 변경(증가)되었을때 실행되는 함수
+         * </summary>
+         */
+        public abstract void LevelFixed();
     
         // 안씀
         public virtual void UpdateEffect()
@@ -39,7 +60,18 @@ namespace EffectManage
             return false;
 
         }
+        /**
+         * <summary>
+         * UpdateEffectEverySecond 함수를 통해 1초마다 실행되는 함수
+         * </summary>
+         */
+        protected abstract void EffectFunc();
 
+        /**
+         * <summary>
+         * 버프가 풀렸을때 실행할 함수
+         * </summary>
+         */
         public abstract void ExitEffect();
 
         public void AddDuration(int amount)
@@ -47,6 +79,5 @@ namespace EffectManage
             _leftTime += amount;
         }
 
-        protected abstract void EffectFunc();
     }
 }

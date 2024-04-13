@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace EffectManage
 {
+    
     public class EffectManageMachine<T> where T : Enum
     {
         protected Entity _entityBase;
-        public List<Effect<T>> effects;
+        public List<Effect<T>> effects = new List<Effect<T>>();
 
         protected string _frontString;
         protected string _backString;
@@ -54,24 +55,25 @@ namespace EffectManage
 
         }
 
-        public virtual void AddEffect(T effectType, int duration)
+        public virtual void AddEffect(T effectType, int level, int duration)
         {
-
-            if (IsHaveEffect(effectType))
+            Effect<T> effect = IsHaveEffect(effectType);
+            if (effect != null) 
             {
-                for (int i = 0; i < effects.Count; i++)
-                {
-                    effects[i].AddDuration(duration);
-                    return;
-                }
+                if (effect.effectLevel < level)
+                    effect.SetLevel(level);
+                
+                effect.AddDuration(duration);
+                return;
             }
+
             string typeName = effectType.ToString();
             
             try
             {
                 Type t = Type.GetType($"{_frontString}{typeName}{_backString}");
                 Effect<T> state =
-                    Activator.CreateInstance(t, _entityBase, duration) as Effect<T>;
+                    Activator.CreateInstance(t, _entityBase, level, duration) as Effect<T>;
                 effects.Add(state);
                 state.EnterEffect();
             }
@@ -81,13 +83,13 @@ namespace EffectManage
             }
         }
 
-        protected bool IsHaveEffect(T type)
+        protected Effect<T> IsHaveEffect(T type)
         {
             for (int i = 0; i < effects.Count; i++)
             {
-                if (effects[i].type.ToString() == type.ToString()) return true;
+                if (effects[i].type.ToString() == type.ToString()) return effects[i];
             }
-            return false;
+            return null;
         }
     }
 }
