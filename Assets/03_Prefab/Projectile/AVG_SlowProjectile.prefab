@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6040782806751328422}
   - component: {fileID: 5339675378590055932}
   - component: {fileID: 3905321346347566458}
-  - component: {fileID: 2773466657305129364}
+  - component: {fileID: 4451851069912199969}
   m_Layer: 0
   m_Name: AVG_SlowProjectile
   m_TagString: Untagged
@@ -181,7 +181,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2773466657305129364
+--- !u!114 &4451851069912199969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,13 +190,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8486425439332158628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc98876824da4384806a0b4fe1843761, type: 3}
+  m_Script: {fileID: 11500000, guid: 0aaa113ff9dc437993b34bed7ca36a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileType: 0
-  _damage: 4
-  _speed: 3
-  lifeTime: 10
+  _damage: 6
+  _speed: 5
+  lifeTime: 3
   _projectileTarget: 0
   _destroyParticlePrefab: {fileID: 1078761177020570521, guid: 9f96167c35e3248439e7b375e6c28ac0, type: 3}
   isShot: 0
+  effectPropertys:
+  - effectType: 0
+    _effectLevel: 5
+    _duration: 2

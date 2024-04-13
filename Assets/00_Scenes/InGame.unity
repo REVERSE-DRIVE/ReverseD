@@ -10839,7 +10839,7 @@ Transform:
   m_GameObject: {fileID: 545116065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0.9, z: -10}
+  m_LocalPosition: {x: 0, y: -6.28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11945,7 +11945,7 @@ Transform:
   m_GameObject: {fileID: 847219888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.03, z: 0}
+  m_LocalPosition: {x: 0, y: 15.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12021,7 +12021,7 @@ MonoBehaviour:
     isHealDefense: 0
     healthDefMultiple: 0
   ItemDropType: 2
-  _hitMaterial: {fileID: 0}
+  _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
   AnimatorCompo: {fileID: 50558952}
   _randomPickState: 04000000
   _stunDuration: 10
@@ -12031,7 +12031,7 @@ MonoBehaviour:
   _greenStateDuration: 10
   _attacktime: 10
   _attackCooltime: 0.45
-  _projectile: {fileID: 2773466657305129364, guid: 469eaa8018ce8ae439d001a6bf3a31e0, type: 3}
+  _projectile: {fileID: 4451851069912199969, guid: 469eaa8018ce8ae439d001a6bf3a31e0, type: 3}
   _fireProjectileAmount: 4
   _rotationSpeed: 1
 --- !u!1 &857554326
@@ -13525,7 +13525,7 @@ Transform:
   m_GameObject: {fileID: 1312064196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: -6.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13676,7 +13676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCancelEffect: 0
-  frontString: Player
+  frontString: EffectManage.Effects.Player
   backString: Effect
 --- !u!1 &1315676104
 GameObject:
@@ -18772,7 +18772,7 @@ Transform:
   m_GameObject: {fileID: 1507562802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4, y: 0.9, z: -10}
+  m_LocalPosition: {x: 0, y: -6.28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

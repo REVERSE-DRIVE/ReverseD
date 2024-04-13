@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EffectManage
 {
@@ -29,6 +28,11 @@ namespace EffectManage
         private void Update()
         {
             EffectMachine.UpdateEffect();
+        }
+
+        public void GetEffect(PlayerEffectEnum effectType, int level, int time)
+        {
+            EffectMachine.AddEffect(effectType, level, time);
         }
     }
 

@@ -8,19 +8,20 @@ namespace EffectManage
         public T type;
         protected Entity _entityBase;
         protected int _leftTime = 1;
-        protected int level;
+        protected int _level;
 
-        public int effectLevel => level;
+        public int effectLevel => _level;
 
         public void SetLevel(int value)
         {
-            level = value;
+            _level = value;
             LevelFixed();
         }
         
         public Effect(Entity entityBase, int level, int duration)
         {
             _entityBase = entityBase;
+            _level = level;
             _leftTime = duration;
         }
 
