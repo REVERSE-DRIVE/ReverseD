@@ -21,7 +21,9 @@ namespace EnemyManage.EnemyBossBase
         
         
         [Header("Green State Setting")] 
-        [SerializeField] internal float _greenStateDuration = 10f;
+        [SerializeField] internal float _greenStateDuration = 30f;
+        [SerializeField] internal int _healCoreHealAmountPerSecond = 30;
+        [SerializeField] internal AVGHealingObject[] _healingObjects;
         //[SerializeField] private int _healMultiply = 3;
         [Header("Blue State Setting")] 
         [SerializeField] internal float _attacktime = 10f;
@@ -68,6 +70,11 @@ namespace EnemyManage.EnemyBossBase
         private void Update()
         {
             StateMachine.CurrentState.UpdateState();
+        }
+
+        public void ForceStun()
+        {
+            StateMachine.ChangeState(BossAVGStateEnum.Stun, true);
         }
 
         public void Attack()
