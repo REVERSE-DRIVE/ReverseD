@@ -6,7 +6,7 @@ namespace EnemyManage.EnemyBossBase
     public class BossAVG : Boss
     {
         public EnemyStateMachine<BossAVGStateEnum> StateMachine { get; private set; }
-
+        [SerializeField] internal SoundObject _soundObject;
         [Header("Idle State Setting")] 
         [SerializeField] internal BossAVGStateEnum[] _randomPickState;
         [SerializeField] internal float _idleWaitingTime = 5f;
@@ -18,7 +18,8 @@ namespace EnemyManage.EnemyBossBase
         [SerializeField] internal int _burstDamage = 100;
         [SerializeField] internal float _chargingSpeed = 2;
         [SerializeField] internal AVGStructureObject _structureObject;
-        
+        [SerializeField] internal ParticleSystem _chargingParticle;
+        [SerializeField] internal ParticleSystem _burstParticle;
         [Header("Green State Setting")] 
         [SerializeField] internal float _greenStateDuration = 30f;
         [SerializeField] internal int _healCoreHealAmountPerSecond = 30;
@@ -35,7 +36,7 @@ namespace EnemyManage.EnemyBossBase
         {
             base.Awake();
             StateMachine = new EnemyStateMachine<BossAVGStateEnum>();
-
+            _soundObject = GetComponent<SoundObject>();
             //여기에 상태를 불러오는 코드가 필요하다.
             SetStateEnum();
 

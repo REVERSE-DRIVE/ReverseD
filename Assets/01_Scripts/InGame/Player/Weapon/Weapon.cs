@@ -30,12 +30,14 @@ namespace AttackManage
         protected Vector2 attackDirection;
 
         protected LayerMask _whatIsEnemy;
+        protected LayerMask _whatIsFieldObject;
         
         
         
         protected virtual void Awake()
         {
             _whatIsEnemy= LayerMask.GetMask("Enemy");
+            _whatIsFieldObject = LayerMask.GetMask("FieldObject");
             if (_weaponAnimator == null)
             {
                 _weaponAnimator.GetComponent<Animator>();

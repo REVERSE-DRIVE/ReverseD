@@ -4,11 +4,11 @@ public class AVGHealingObject : FieldObject
 {
     public bool isActive = true;
     [SerializeField]
-    private EffectObject _generateParticle;
+    private ParticleSystem _generateParticle;
 
     private void Awake()
     {
-        _generateParticle = GetComponentInChildren<EffectObject>();
+        _generateParticle = GetComponentInChildren<ParticleSystem>();
     }
     
 

@@ -10,6 +10,7 @@ namespace EnemyManage.EnemyBossBase
         private float _chargingLevel = 0;
         private float _chargingSpeed = 1;
         private bool isChargeOver;
+        private bool isPlayedSound;
         private CameraManager _camManagerCashing;
         public BossAVGRedState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
         {
@@ -19,6 +20,8 @@ namespace EnemyManage.EnemyBossBase
         {
             base.Enter();
             _camManagerCashing = GameManager.Instance._CameraManager;
+            _bossAVGBase._structureObject.Active(_bossAVGBase.transform);
+            _bossAVGBase._chargingParticle.Play();
             SetDefault();
         }
 
@@ -43,6 +46,7 @@ namespace EnemyManage.EnemyBossBase
             _chargeEnergyAmount = _bossAVGBase._chargeEnergy;
             _chargingSpeed = _bossAVGBase._chargingSpeed;
             isChargeOver = false;
+            isPlayedSound = false;
         }
 
         private void Charge()
@@ -51,7 +55,16 @@ namespace EnemyManage.EnemyBossBase
             
             _chargingLevel += Time.deltaTime * TimeManager.TimeScale * _chargingSpeed;
             _camManagerCashing.SetShake(_chargingLevel * 0.5f, 5);
+            if (!isPlayedSound && _chargingLevel > _chargeEnergyAmount - 4.2f)
+            {
+                _bossAVGBase._soundObject.PlayAudio(4);
+                isPlayedSound = true;
 
+            }
+            if (_bossAVGBase._chargingParticle.isPlaying && _chargingLevel > _chargeEnergyAmount - 3)
+            {
+                _bossAVGBase._chargingParticle.Stop();
+            }
             if (_chargingLevel >= _chargeEnergyAmount)
             {
                 isChargeOver = true;
@@ -63,8 +76,12 @@ namespace EnemyManage.EnemyBossBase
         private void BurstAttack()
         {
             _camManagerCashing.ShakeOff();
+            _camManagerCashing.Shake(100, 1);
+            _bossAVGBase._structureObject.OffObject();
+            _bossAVGBase._burstParticle.Play();
             _bossAVGBase._structureObject.DefenseAVGBurst(_bossAVGBase._burstDamage);
             _bossAVGBase.StartCoroutine(BurstOverCoroutine());
+            
         }
 
         private IEnumerator BurstOverCoroutine()
