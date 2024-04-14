@@ -15,7 +15,11 @@ public abstract class FieldObject : MonoBehaviour
     public bool IsDestroy => hp <= 0;
 
     [SerializeField] protected EffectObject _destroyParticle;
-    
+
+    public virtual void SetDefault()
+    {
+        hp = hpMax;
+    }
 
     public virtual void TakeDamage(int amount)
     {

@@ -14,11 +14,10 @@ namespace EnemyManage.EnemyBossBase
         [SerializeField] internal float _stunDuration = 10;
 
         [Header("Red State Setting")] 
-        [SerializeField] private float _redStateDuration = 15f;
-        [SerializeField] private Projectile _redProjectile1;
-        [SerializeField] private Projectile _redProjectile2;
-        
-        
+        [SerializeField] internal int _chargeEnergy = 20;
+        [SerializeField] internal int _burstDamage = 100;
+        [SerializeField] internal float _chargingSpeed = 2;
+        [SerializeField] internal AVGStructureObject _structureObject;
         
         [Header("Green State Setting")] 
         [SerializeField] internal float _greenStateDuration = 30f;

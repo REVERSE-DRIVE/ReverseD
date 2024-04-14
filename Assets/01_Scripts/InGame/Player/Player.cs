@@ -84,7 +84,7 @@ public class Player : Entity
 
     public override void Die()
     {
-        Debug.Log("PLayer Die => GameOver");
+        SetObjective(false);
         SetObjective(false);
         status.moveSpeed = 0;
     }
