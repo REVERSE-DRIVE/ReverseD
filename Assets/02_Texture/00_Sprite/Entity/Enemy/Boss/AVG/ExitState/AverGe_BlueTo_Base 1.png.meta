@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 17d71cf93241bdc4a832dc84560a09e9
+guid: 8fa81db69c9881f499d853ef5318c760
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_0
+      name: AverGe_BlueTo_Base 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c151f78ac9ff73a4e94206560d7297d2
-      internalID: -1551489274
+      spriteID: 7632c141fa49acb49a4318bac01642f7
+      internalID: 1037608005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_1
+      name: AverGe_BlueTo_Base 1_1
       rect:
         serializedVersion: 2
         x: 96
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dd091183db25564e962d24e6ca896e1
-      internalID: -664450062
+      spriteID: a6f2473a6e6782948ba5d70fc7590d98
+      internalID: 1926880480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_2
+      name: AverGe_BlueTo_Base 1_2
       rect:
         serializedVersion: 2
         x: 192
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49b3c834e7822a340be431a0a1abf823
-      internalID: 2003032576
+      spriteID: 6758776055302804680d7b3c3058e73b
+      internalID: 387029526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_3
+      name: AverGe_BlueTo_Base 1_3
       rect:
         serializedVersion: 2
         x: 288
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4cd86e2f949a5642b1aa7ff3b559d9d
-      internalID: -1915002104
+      spriteID: a79c7a02fa2644d42bb2d3146fe0a8b6
+      internalID: -1591473095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_4
+      name: AverGe_BlueTo_Base 1_4
       rect:
         serializedVersion: 2
         x: 384
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2737f078e7c6d334da11581c6acc71e5
-      internalID: -1007897645
+      spriteID: 03346909b09d88e4b812a4ac3246149d
+      internalID: 1518743431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_5
+      name: AverGe_BlueTo_Base 1_5
       rect:
         serializedVersion: 2
         x: 480
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e7ef12bd4a87ee4597f3081a80461e9
-      internalID: -577364646
+      spriteID: eb95b40f44d581d4ea2782325b97140e
+      internalID: 771483505
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_6
+      name: AverGe_BlueTo_Base 1_6
       rect:
         serializedVersion: 2
         x: 576
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54934a2a26274564d9e211feb65b976d
-      internalID: -447007687
+      spriteID: bb4702645b9162048b59d7230ca26dec
+      internalID: 1161701106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_7
+      name: AverGe_BlueTo_Base 1_7
       rect:
         serializedVersion: 2
         x: 672
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0ef269e75056da44bbaa68568ef0f45
-      internalID: -938833546
+      spriteID: 97e5baac1dfa3564f83dfd2fd14f3fa1
+      internalID: -710392846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_8
+      name: AverGe_BlueTo_Base 1_8
       rect:
         serializedVersion: 2
         x: 768
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4804a5722c43c3641b0716ff4c68ec02
-      internalID: 1894573639
+      spriteID: f386dc91ed7c63e40a7ff6951e5e58a1
+      internalID: 1462422516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_9
+      name: AverGe_BlueTo_Base 1_9
       rect:
         serializedVersion: 2
         x: 864
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13a5285d08fccea49ab90946230861a5
-      internalID: 252616066
+      spriteID: 2dca09e76d7420d4180c65b47994fd47
+      internalID: 195115646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_10
+      name: AverGe_BlueTo_Base 1_10
       rect:
         serializedVersion: 2
         x: 960
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44e53451f46a43f478e8b5108f6596b3
-      internalID: 1386745952
+      spriteID: 3fb2e6ea5d8240f4ca7ef96405320cdc
+      internalID: -350952338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_11
+      name: AverGe_BlueTo_Base 1_11
       rect:
         serializedVersion: 2
         x: 1056
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952a8ddb84a94a743b7294c1902cec1f
-      internalID: -1090296293
+      spriteID: 078e9ca194b7a714b8423c03e9e4d1ec
+      internalID: -107727032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_12
+      name: AverGe_BlueTo_Base 1_12
       rect:
         serializedVersion: 2
         x: 1152
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7690c0ce3cc773a4ba12cc240e0bd517
-      internalID: 429616247
+      spriteID: 4bb003709732d8143880b1e575bbb57d
+      internalID: 985701925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_13
+      name: AverGe_BlueTo_Base 1_13
       rect:
         serializedVersion: 2
         x: 1248
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56607e0d977ad274087837172d145abb
-      internalID: 1188326346
+      spriteID: 54da54e736827164c9747553fcd68438
+      internalID: 1441791969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_14
+      name: AverGe_BlueTo_Base 1_14
       rect:
         serializedVersion: 2
         x: 1344
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8237b27728011b84e9a96929dd9eeef7
-      internalID: 545157937
+      spriteID: 5ea9b6d88ae97fc4a8febcc1c6e21608
+      internalID: -2087343841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_15
+      name: AverGe_BlueTo_Base 1_15
       rect:
         serializedVersion: 2
         x: 1440
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ff9cbab540024443ac00014ca38ae04
-      internalID: 1976074059
+      spriteID: 5d8aede16856dbd4fa214352b9e2a357
+      internalID: -1924554897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_16
+      name: AverGe_BlueTo_Base 1_16
       rect:
         serializedVersion: 2
         x: 1536
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7863c1b977cdb16469d16263c136edd7
-      internalID: 1511315134
+      spriteID: b102eda67319c4141b1692d3127d8c82
+      internalID: -1969441148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_17
+      name: AverGe_BlueTo_Base 1_17
       rect:
         serializedVersion: 2
         x: 1632
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000feadbf3f2ecf4a81c648afc7303e0
-      internalID: -782025046
+      spriteID: fd7ab92e1f7d7cf4292ea42933da532d
+      internalID: -2084204997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_18
+      name: AverGe_BlueTo_Base 1_18
       rect:
         serializedVersion: 2
         x: 1728
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7caa331a124c47d45a1237eb1f803ae6
-      internalID: -1550453606
+      spriteID: 0819fa24bc83e12479904b677a6f77b3
+      internalID: -194603425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_19
+      name: AverGe_BlueTo_Base 1_19
       rect:
         serializedVersion: 2
         x: 1824
@@ -536,14 +536,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 832346fdcc9124743a66de15235128ac
-      internalID: 2072750537
+      spriteID: 51be1d63670622c47a72628ed16db52a
+      internalID: -841838095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_20
+      name: AverGe_BlueTo_Base 1_20
       rect:
         serializedVersion: 2
         x: 1920
@@ -557,14 +557,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90365da59f200b44cb2cc9956a8753a3
-      internalID: 1684767494
+      spriteID: 5e06c2d94285d6c48b3ec20f46ffd37a
+      internalID: -1719303231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_21
+      name: AverGe_BlueTo_Base 1_21
       rect:
         serializedVersion: 2
         x: 2016
@@ -578,14 +578,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2edc921bb7ed0384186c5f51088afc02
-      internalID: 1650801180
+      spriteID: 09e6907c5f4ada54fa9d4e6a9acbabb8
+      internalID: 696862047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_22
+      name: AverGe_BlueTo_Base 1_22
       rect:
         serializedVersion: 2
         x: 2112
@@ -599,14 +599,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 817a9ac8bf8da064c879c736b7023c5f
-      internalID: 686369044
+      spriteID: de71bc7496a4d1c4287cdee6dabdb956
+      internalID: -953892393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_23
+      name: AverGe_BlueTo_Base 1_23
       rect:
         serializedVersion: 2
         x: 2208
@@ -620,14 +620,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163bb947592b4db4a982f5b758203ab8
-      internalID: -928087905
+      spriteID: e2be2e5158d3ebd41896a27177e8b1bb
+      internalID: -733953207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_24
+      name: AverGe_BlueTo_Base 1_24
       rect:
         serializedVersion: 2
         x: 2304
@@ -641,14 +641,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f5f60001e4ec4d47b18aaaf45f65778
-      internalID: -1807029314
+      spriteID: 18e07fac256adab4fba2a6933159d01d
+      internalID: -226127889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AverGe_BlueTo_Base_25
+      name: AverGe_BlueTo_Base 1_25
       rect:
         serializedVersion: 2
         x: 2400
@@ -662,8 +662,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f706aa2df1a5ef345a581aecee9f82dd
-      internalID: -351170069
+      spriteID: 1ecbadc38df378343acc2097cac53bdc
+      internalID: 1231766470
       vertices: []
       indices: 
       edges: []
@@ -679,32 +679,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AverGe_BlueTo_Base_0: -1551489274
-      AverGe_BlueTo_Base_1: -664450062
-      AverGe_BlueTo_Base_10: 1386745952
-      AverGe_BlueTo_Base_11: -1090296293
-      AverGe_BlueTo_Base_12: 429616247
-      AverGe_BlueTo_Base_13: 1188326346
-      AverGe_BlueTo_Base_14: 545157937
-      AverGe_BlueTo_Base_15: 1976074059
-      AverGe_BlueTo_Base_16: 1511315134
-      AverGe_BlueTo_Base_17: -782025046
-      AverGe_BlueTo_Base_18: -1550453606
-      AverGe_BlueTo_Base_19: 2072750537
-      AverGe_BlueTo_Base_2: 2003032576
-      AverGe_BlueTo_Base_20: 1684767494
-      AverGe_BlueTo_Base_21: 1650801180
-      AverGe_BlueTo_Base_22: 686369044
-      AverGe_BlueTo_Base_23: -928087905
-      AverGe_BlueTo_Base_24: -1807029314
-      AverGe_BlueTo_Base_25: -351170069
-      AverGe_BlueTo_Base_3: -1915002104
-      AverGe_BlueTo_Base_4: -1007897645
-      AverGe_BlueTo_Base_5: -577364646
-      AverGe_BlueTo_Base_6: -447007687
-      AverGe_BlueTo_Base_7: -938833546
-      AverGe_BlueTo_Base_8: 1894573639
-      AverGe_BlueTo_Base_9: 252616066
+      AverGe_BlueTo_Base 1_0: 1037608005
+      AverGe_BlueTo_Base 1_1: 1926880480
+      AverGe_BlueTo_Base 1_10: -350952338
+      AverGe_BlueTo_Base 1_11: -107727032
+      AverGe_BlueTo_Base 1_12: 985701925
+      AverGe_BlueTo_Base 1_13: 1441791969
+      AverGe_BlueTo_Base 1_14: -2087343841
+      AverGe_BlueTo_Base 1_15: -1924554897
+      AverGe_BlueTo_Base 1_16: -1969441148
+      AverGe_BlueTo_Base 1_17: -2084204997
+      AverGe_BlueTo_Base 1_18: -194603425
+      AverGe_BlueTo_Base 1_19: -841838095
+      AverGe_BlueTo_Base 1_2: 387029526
+      AverGe_BlueTo_Base 1_20: -1719303231
+      AverGe_BlueTo_Base 1_21: 696862047
+      AverGe_BlueTo_Base 1_22: -953892393
+      AverGe_BlueTo_Base 1_23: -733953207
+      AverGe_BlueTo_Base 1_24: -226127889
+      AverGe_BlueTo_Base 1_25: 1231766470
+      AverGe_BlueTo_Base 1_3: -1591473095
+      AverGe_BlueTo_Base 1_4: 1518743431
+      AverGe_BlueTo_Base 1_5: 771483505
+      AverGe_BlueTo_Base 1_6: 1161701106
+      AverGe_BlueTo_Base 1_7: -710392846
+      AverGe_BlueTo_Base 1_8: 1462422516
+      AverGe_BlueTo_Base 1_9: 195115646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

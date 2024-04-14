@@ -31,6 +31,10 @@ namespace EnemyManage.EnemyBossBase
         [SerializeField] internal Projectile _projectile;
         [SerializeField] internal int _fireProjectileAmount = 4;
         [SerializeField] internal float _rotationSpeed = 3f;
+
+        [Header("Yellow State Setting")] 
+        [SerializeField] internal float _yellowStateDuration = 30f;
+        [SerializeField] internal bool _isResist;
         
         protected override void Awake()
         {
@@ -76,6 +80,13 @@ namespace EnemyManage.EnemyBossBase
         {
             StateMachine.ChangeState(BossAVGStateEnum.Stun, true);
         }
+
+        public override void TakeDamage(int amount)
+        {
+            if (_isResist) return;
+            base.TakeDamage(amount);
+        }
+        
 
         public void Attack()
         {
