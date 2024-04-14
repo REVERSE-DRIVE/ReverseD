@@ -12,8 +12,17 @@ namespace AttackManage
         
         protected Collider2D[] DetectEnemy()
         {
-            AttackAnimationOnTrigger();
+            Vector2 centerPos = new Vector2(
+                transform.position.x + _attackRadius * attackDirection.x,
+                transform.position.y + _attackRadius * attackDirection.y
+            );
+            Collider2D[] hits = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsEnemy);
 
+            return hits;
+        }
+        
+        protected Collider2D[] DetectFieldObject()
+        {
             Vector2 centerPos = new Vector2(
                 transform.position.x + _attackRadius * attackDirection.x,
                 transform.position.y + _attackRadius * attackDirection.y

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EnemyManage;
+using UnityEngine;
 
 namespace AttackManage
 {
@@ -85,6 +86,30 @@ namespace AttackManage
             else
             {
                 transform.parent.localScale = Vector2.one;
+            }
+        }
+
+        protected virtual void TakeDamageToTargets(Collider2D[] hits)
+        {
+            if (hits == null) return;
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].TryGetComponent<Enemy>(out Enemy enemy))
+                {
+                    if (isKnockBack)
+                    {
+                        enemy.TakeDamageWithKnockBack(
+                            damage, GameManager.Instance._PlayerTransform.position,
+                            knockBackPower);
+                        continue;
+                    }
+                    enemy.TakeDamage(damage);
+                }
+                else if(hits[i].TryGetComponent<FieldObject>(out FieldObject fieldObject))
+                {
+                    fieldObject.TakeDamage(damage);
+                }
+                    
             }
         }
     }
