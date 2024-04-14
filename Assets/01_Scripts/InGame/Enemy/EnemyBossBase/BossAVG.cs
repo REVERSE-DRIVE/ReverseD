@@ -71,14 +71,19 @@ namespace EnemyManage.EnemyBossBase
             StateMachine.Initialize(BossAVGStateEnum.Idle, this);
         }
 
+        
+        
         private void Update()
         {
+            if (TimeManager.TimeScale == 0) return;
+
             StateMachine.CurrentState.UpdateState();
         }
 
         public void ForceStun()
         {
             StateMachine.ChangeState(BossAVGStateEnum.Stun, true);
+            
         }
 
         public override void TakeDamage(int amount)
@@ -86,7 +91,16 @@ namespace EnemyManage.EnemyBossBase
             if (_isResist) return;
             base.TakeDamage(amount);
         }
-        
+
+        public override void TakeStrongDamage(int amount)
+        {
+            base.TakeStrongDamage(amount);
+            if (_isResist)
+            {
+                StateMachine.CurrentState.CustomTrigger();
+            }
+        }
+
 
         public void Attack()
         {

@@ -74,6 +74,12 @@ public abstract class Entity : MonoBehaviour, IDamageable
         status.hp -= CalcDamage((int)(damage * 1.5f), status.defense);
 
     }
+    public virtual void TakeStrongDamage(int amount)
+    {
+        print("MIGNMING ");
+        TakeDamage(amount);
+        
+    }
 
     protected void CheckIsDie()
     {

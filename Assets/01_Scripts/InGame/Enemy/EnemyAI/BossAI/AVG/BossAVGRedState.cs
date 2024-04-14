@@ -28,10 +28,8 @@ namespace EnemyManage.EnemyBossBase
         public override void UpdateState()
         {
             base.UpdateState();
-            if (TimeManager.TimeScale == 0) return;
             
             Charge();
-
         }
 
 
