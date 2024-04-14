@@ -10,10 +10,10 @@ using UnityEngine.SceneManagement;
 public class StartSceneManager : MonoBehaviour
 {
     [Header("Warning Panel")]
-    [SerializeField] private GameObject _warningPanel;
+    [SerializeField] private RectTransform _warningPanel;
     [SerializeField] private Ease _ease;
-    [SerializeField] private RectTransform _upTarget;
-    [SerializeField] private RectTransform _downTarget;
+    [SerializeField] private Vector2 _upTarget;
+    [SerializeField] private Vector2 _downTarget;
 
     [Space(20)] 
     [SerializeField] private UnityEvent _onStart;
@@ -41,14 +41,12 @@ public class StartSceneManager : MonoBehaviour
         if (File.Exists(_saveDataPath + "PlayerStatus.json"))
         {
             Debug.Log("폴더가 존재합니다.");
-            _warningPanel.SetActive(true);
-            _warningPanel.transform.DOLocalMove(_upTarget.localPosition, 0.5f).SetEase(_ease);
+            _warningPanel.gameObject.SetActive(true);
+            _warningPanel.DOAnchorPos(_upTarget, 0.5f).SetEase(_ease);
         }
         else
         {
             Debug.Log("폴더가 존재하지 않습니다.");
-            _playerStatus = new PlayerStatus();
-            EasyToJson.ToJson(_playerStatus, "PlayerStatus");
             StartCoroutine(DelaySceneChange());
         }
     }
@@ -70,16 +68,16 @@ public class StartSceneManager : MonoBehaviour
      * 파일 삭제 확인
      * </summary>
      */
-    public void CheckFileDelete()
+    public void CheckFileOverride()
     {
         ++count;
         _startGameEvent.Invoke();
-        if (count == 2)
-        {
-            StartCoroutine(DelaySceneChange());
-        }
+        if (count != 2) return;
+        
+        StartCoroutine(DelaySceneChange());
+        count = 0;
     }
-    IEnumerator DelaySceneChange()
+    private IEnumerator DelaySceneChange()
     {
         _realStartGameEvent.Invoke();
         yield return new WaitForSeconds(0.2f);
@@ -93,7 +91,7 @@ public class StartSceneManager : MonoBehaviour
      */
     public void Deny()
     {
-        _warningPanel.transform.DOLocalMove(_downTarget.localPosition, 0.5f).SetEase(_ease);
+        _warningPanel.DOAnchorPos(_downTarget, 0.5f).SetEase(_ease)
+            .OnComplete(() => _warningPanel.gameObject.SetActive(false));
     }
-    
 }

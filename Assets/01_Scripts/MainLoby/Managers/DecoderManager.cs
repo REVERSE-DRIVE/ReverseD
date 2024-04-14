@@ -1,87 +1,91 @@
-using System;
 using System.Collections;
-using TMPro;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
 
-public class DecoderManager : MonoBehaviour
+namespace MainLoby
 {
-    [SerializeField] private Transform _decoderParent;
-    [SerializeField] private Image progressImage;
-    [SerializeField] private TMP_Text progressText;
-    [SerializeField] private TMP_Text titleText;
-    
-    private bool isDecoding;
-    private readonly float[] _decodeTime = { 30f, 18f, 6f };
-
-    private void Update()
+    public class DecoderManager : MonoBehaviour
     {
-        _decoderParent.GetComponent<DropableUI>().enabled = _decoderParent.childCount < 3;
-    }
-
-    public void StartDecode(int level)
-    {
-        if (_decoderParent.childCount < 3 || isDecoding) return;
-
-        StartCoroutine(Decode(level));
-    }
-    
-    /** <summary>
-     * Decoding 처리해주는 코루틴
-     * </summary>
-     * <param name="index">DecodeTime의 index번호</param>
-     */
-    private IEnumerator Decode(int index)
-    {
-        isDecoding = true;
-        progressImage.fillAmount = 0f;
-        progressImage.color = Color.white;
-        progressText.color = Color.white;
-        StartCoroutine(nameof(TitleTextAnimation));
-        _decoderParent.GetComponent<DropableUI>().enabled = false;
-        for (int i = 0; i < _decoderParent.childCount; i++)
-        {
-            _decoderParent.GetChild(i).GetComponent<DraggableUI>().enabled = false;
-        }
+        [SerializeField] private Transform _decoderParent;
+        [SerializeField] private Image progressImage;
+        [SerializeField] private TMP_Text progressText;
+        [SerializeField] private TMP_Text titleText;
+        [SerializeField] private int _level;
         
-        // gauge fill
-        while (true)
+        private bool  _isDecoding;
+        private bool _isFirst = true;
+        private float _startTime;
+        private float _endTime;
+        private float _foregroundTime;
+        private float _backgroundTime;
+        private readonly float[] _decodeTime = { 300f, 18f, 6f };
+        
+        private void Update()
         {
-            progressImage.fillAmount += Time.deltaTime / _decodeTime[index];
+            _decoderParent.GetComponent<DropableUI>().enabled = _decoderParent.childCount < 3;
+            Decoding();
+        }
+
+        private void Decoding()
+        {
+            if (!_isDecoding) return;
+            if (Time.time >= _endTime)
+            {
+                _isDecoding = false;
+                progressImage.fillAmount = 0;
+                StopCoroutine(nameof(TitleTextAnimation));
+                titleText.text = "Decoding Complete";
+                return;
+            }
+            progressImage.fillAmount = 
+                (Time.time + (_backgroundTime - _foregroundTime) - _startTime) / _decodeTime[_level - 1];
+            _foregroundTime = 0;
             progressText.text = $"{progressImage.fillAmount * 100:F0}%";
-            if (progressImage.fillAmount >= 1f) break;
-            yield return null;
+        }
+
+        public void StartDecode()
+        {
+            if (_decoderParent.childCount < 3 ||  _isDecoding) return;
+            
+            progressImage.fillAmount = 0;
+            
+            _startTime = Time.time;
+            _endTime = _startTime + _decodeTime[_level - 1];
+            
+             _isDecoding = true;
+             
+            StartCoroutine(nameof(TitleTextAnimation));
         }
         
-        Debug.Log("decode complete");
-        progressImage.color = Color.green;
-        progressText.color = Color.green;
-        StopCoroutine(nameof(TitleTextAnimation));
-        titleText.text = "Decoding Complete";
-        for (int i = 0; i < _decoderParent.childCount; i++)
+        private IEnumerator TitleTextAnimation()
         {
-            Destroy(_decoderParent.GetChild(i).gameObject);
+            while ( _isDecoding)
+            {
+                titleText.text = "Decoding" + new string('.', (int) (Time.time * 2) % 4);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
-        _decoderParent.GetComponent<DropableUI>().enabled = true;
-        isDecoding = false;
-    }
-    
-    /** <summary>
-     * 타이틀 텍스트 애니메이션
-     * </summary>
-     */
-    private IEnumerator TitleTextAnimation()
-    {
-        while (isDecoding)
+
+        private void OnApplicationPause(bool pause)
         {
-            titleText.text = "Decoding";
-            yield return new WaitForSeconds(0.5f);
-            titleText.text = "Decoding.";
-            yield return new WaitForSeconds(0.5f);
-            titleText.text = "Decoding..";
-            yield return new WaitForSeconds(0.5f);
-            titleText.text = "Decoding...";
-            yield return new WaitForSeconds(0.5f);
+            if (!_isFirst)
+            {
+                if (pause)
+                {
+                    _foregroundTime = Time.time;
+                    Debug.Log("Foreground Time: " + _foregroundTime);
+                }
+                else
+                {
+                    _backgroundTime = Time.time;
+                    Debug.Log("Background Time: " + _backgroundTime);
+                }
+            }
+            else
+            {
+                _isFirst = false;
+            }
         }
     }
 }

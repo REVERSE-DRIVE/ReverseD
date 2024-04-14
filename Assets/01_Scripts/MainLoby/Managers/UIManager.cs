@@ -1,6 +1,6 @@
+using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace MainLoby
 {
@@ -79,13 +79,11 @@ namespace MainLoby
         /** <summary>
          * 패널 닫기
          * </summary>
-         * <param name="panel">닫 패널</param>
+         * <param name="panel">닫을 패널</param>
          */
         private void ClosePanel(Image panel)
         {
             Sequence sq = DOTween.Sequence();
-            sq.Append(panel.rectTransform.DOScale(new Vector3(0.1f, 0.1f), 0f).SetEase(Ease.Linear));
-            sq.AppendInterval(0.1f);
             sq.Append(panel.rectTransform.DOScaleY(0f, 0.15f).SetEase(Ease.Linear));
             sq.AppendInterval(0.5f);
             sq.Join(panel.rectTransform.DOScaleX(0f, 0.15f).SetEase(Ease.Linear));

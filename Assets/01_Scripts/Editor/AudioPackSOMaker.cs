@@ -37,6 +37,8 @@ public class AudioPackSOMaker : EditorWindow
         
         scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
         GUILayout.Label("Audio Setting", EditorStyles.boldLabel);
+
+        #region AudioClip List
         EditorGUILayout.BeginVertical("helpbox");
         {
             if (audioClips != null)
@@ -50,6 +52,9 @@ public class AudioPackSOMaker : EditorWindow
             }
         }
         EditorGUILayout.EndVertical();
+        #endregion
+
+        #region Add, Remove, Count Button
         EditorGUILayout.BeginHorizontal();
         {
             if (GUILayout.Button("Add"))
@@ -74,6 +79,7 @@ public class AudioPackSOMaker : EditorWindow
             }
         }
         EditorGUILayout.EndVertical();
+        #endregion
         
         EditorGUILayout.Space(20);
 
