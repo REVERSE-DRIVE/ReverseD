@@ -1,3 +1,4 @@
+using EntityManage;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -5,7 +6,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VariableJoystick _joystick;
     
     private SpriteRenderer _spriteRenderer;
-    private PlayerAttack _playerAttack;
     private Rigidbody2D _rigid;
     private Player _player;
     private Vector3 dir;
@@ -19,13 +19,18 @@ public class PlayerController : MonoBehaviour
         get => _joystick;
         set => _joystick = value;
     }
+
+    public Vector2 GetInputVec
+    {
+        get => dir;
+        private set { }
+    }
     
     public bool IsMoving => isMoving;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _playerAttack = GetComponent<PlayerAttack>();
         _rigid = GetComponent<Rigidbody2D>();
         _player = GetComponent<Player>();
     }
@@ -49,7 +54,7 @@ public class PlayerController : MonoBehaviour
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction.normalized * (PlayerManager.Instance.setting_moveSpeed * TimeManager.TimeScale);
+        _rigid.velocity = direction.normalized * (_player.MoveSpeed * TimeManager.TimeScale);
     }
     
     private void Rotate()

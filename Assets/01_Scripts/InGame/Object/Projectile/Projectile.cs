@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using EnemyManage;
 using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
@@ -39,6 +38,12 @@ public abstract class Projectile : MonoBehaviour
         Move();
     }
 
+    public virtual void Fire(Vector2 pos, Vector2 direction)
+    {
+        SetDefault();
+        transform.position = pos;
+        Fire(direction);
+    }
 
     public virtual void Fire(Vector2 direction)
     {
@@ -70,7 +75,12 @@ public abstract class Projectile : MonoBehaviour
         _direction = Vector2.zero;
     }
 
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        Hit(other);
+    }
+
+    protected virtual void Hit(Collider2D other)
     {
         if (other.CompareTag("Wall"))
         {   
@@ -81,9 +91,7 @@ public abstract class Projectile : MonoBehaviour
             case ProjectileTarget.Player:
                 if (other.CompareTag("Player"))
                 {
-                    
-                    other.GetComponent<Player>().TakeDamage(_damage);
-                    DestroyProjectile();
+                    DamageToPlayer(other.GetComponent<Player>());
                 }
                 break;
             
@@ -91,12 +99,22 @@ public abstract class Projectile : MonoBehaviour
 
                 if (other.CompareTag("Enemy"))
                 {
-                    
-                    DestroyProjectile();
+                    DamageToEnemy(other.GetComponent<Enemy>());
                 }
                 break;
-            
         }
+    }
+
+    protected virtual void DamageToPlayer(Player player)
+    {
+        player.TakeDamage(_damage);
+        DestroyProjectile();
+    }
+
+    protected virtual void DamageToEnemy(Enemy enemy)
+    {
+        enemy.TakeDamage(_damage);
+        DestroyProjectile();
     }
 
     protected virtual void DestroyProjectile()

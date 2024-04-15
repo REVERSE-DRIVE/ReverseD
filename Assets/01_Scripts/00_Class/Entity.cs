@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EntityManage;
 
 public abstract class Entity : MonoBehaviour, IDamageable
 {
+    [Header("Current Status")]
     [SerializeField]
     protected Status status;
 
@@ -16,6 +15,7 @@ public abstract class Entity : MonoBehaviour, IDamageable
         }
         protected set { }
     }
+    
 
     
     public bool IsDie
@@ -24,6 +24,21 @@ public abstract class Entity : MonoBehaviour, IDamageable
         {
             return status.hp <= 0;
         }
+    }
+
+    public void OnHealDefense()
+    {
+        status.isHealDefense = true;
+    }
+
+    public void OffHealDefense()
+    {
+        status.isHealDefense = false;
+    }
+
+    public void SetMoveSpeed(float value)
+    {
+        status.moveSpeed = value;
     }
 
     public virtual void Damage(int damage)

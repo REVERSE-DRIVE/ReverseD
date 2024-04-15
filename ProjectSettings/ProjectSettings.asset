@@ -277,7 +277,14 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 988b076406210664a8bbca8550b115a2, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
@@ -781,11 +788,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: d4e1a6d8-b04f-48e5-bdc5-45fb8e3c2fde
+  cloudProjectId: f0bb75c1-b457-4ed0-9b38-bf297629526f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Code:Unknown
-  organizationId: vcshb
+  projectName: ReverseD 2024-03-07_00-00-50
+  organizationId: leo82380
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

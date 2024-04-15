@@ -14,8 +14,41 @@ namespace AttackManage
         
         public int damage = 3;
         public float attackCooltime = 1;
+        /**
+         * <summary>
+         * 공격 지속시간
+         * </summary>
+         */
+        public float attackTime = 1;
         public float attackRange = 1;
+        public bool isKnockBack = false;
+        public float knockBackPower = 1;
 
+        /**
+         * <summary>
+         * 직접 가져오기 보다는
+         * </summary>
+         */
         public Weapon weaponPrefab;
+
+        public Weapon GetWeaponPrefab
+        {
+            get
+            {
+                SetWeaponValue();
+                return weaponPrefab;
+            }
+        }
+        
+        public void SetWeaponValue()
+        {
+            weaponPrefab.damage = damage;
+            weaponPrefab._attackCooltime = attackCooltime;
+            weaponPrefab._attackTime = attackTime;
+            weaponPrefab.isKnockBack = isKnockBack;
+            weaponPrefab.knockBackPower = knockBackPower;
+        }
+        
+        
     }
 }
