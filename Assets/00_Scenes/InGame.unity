@@ -572,11 +572,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4425131839894680928, guid: c32002b15da150c4d977b4986fabc2e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3725388
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 4425131839894680928, guid: c32002b15da150c4d977b4986fabc2e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.317264
+      value: -4.39
       objectReference: {fileID: 0}
     - target: {fileID: 4425131839894680928, guid: c32002b15da150c4d977b4986fabc2e6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -613,6 +613,10 @@ PrefabInstance:
     - target: {fileID: 5122310560349728098, guid: c32002b15da150c4d977b4986fabc2e6, type: 3}
       propertyPath: m_Name
       value: Big_PushObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122310560349728098, guid: c32002b15da150c4d977b4986fabc2e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16937,7 +16941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
-    hp: 10
+    hp: 1500
     hpMax: 2000
     attackDamage: 0
     criticalRate: 0
@@ -16951,7 +16955,7 @@ MonoBehaviour:
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
   AnimatorCompo: {fileID: 50558952}
   _soundObject: {fileID: 0}
-  _randomPickState: 02000000
+  _randomPickState: 03000000
   _idleWaitingTime: 5
   _stunDuration: 10
   _chargeEnergy: 20
@@ -27766,6 +27770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small_PushObject
       objectReference: {fileID: 0}
+    - target: {fileID: 9069476516520733517, guid: 16f121bfb7f00ff49afda7360ca9083c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34463,14 +34471,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7019814528140953901, guid: 716cb9394cc883e469998c5a922bb264, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7198788454810935807, guid: 716cb9394cc883e469998c5a922bb264, type: 3}
-      propertyPath: axisOptions
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7198788454810935807, guid: 716cb9394cc883e469998c5a922bb264, type: 3}
-      propertyPath: joystickType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

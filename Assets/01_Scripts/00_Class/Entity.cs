@@ -76,7 +76,6 @@ public abstract class Entity : MonoBehaviour, IDamageable
     }
     public virtual void TakeStrongDamage(int amount)
     {
-        print("MIGNMING ");
         TakeDamage(amount);
         
     }

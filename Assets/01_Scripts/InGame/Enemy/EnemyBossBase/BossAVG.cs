@@ -94,10 +94,12 @@ namespace EnemyManage.EnemyBossBase
 
         public override void TakeStrongDamage(int amount)
         {
+            print("AVG Stun");
             base.TakeStrongDamage(amount);
             if (_isResist)
             {
                 StateMachine.CurrentState.CustomTrigger();
+                _isResist = false;
             }
         }
 

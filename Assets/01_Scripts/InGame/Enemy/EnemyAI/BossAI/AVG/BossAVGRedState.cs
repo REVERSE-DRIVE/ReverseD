@@ -53,7 +53,7 @@ namespace EnemyManage.EnemyBossBase
             
             _chargingLevel += Time.deltaTime * TimeManager.TimeScale * _chargingSpeed;
             _camManagerCashing.SetShake(_chargingLevel * 0.5f, 5);
-            if (!isPlayedSound && _chargingLevel > _chargeEnergyAmount - 4.2f)
+            if (!isPlayedSound && _chargingLevel > _chargeEnergyAmount - 3f)
             {
                 _bossAVGBase._soundObject.PlayAudio(4);
                 isPlayedSound = true;
@@ -73,19 +73,23 @@ namespace EnemyManage.EnemyBossBase
 
         private void BurstAttack()
         {
+            _stateMachine.ChangeState(BossAVGStateEnum.Idle);
             _camManagerCashing.ShakeOff();
-            _camManagerCashing.Shake(100, 1);
-            _bossAVGBase._structureObject.OffObject();
-            _bossAVGBase._burstParticle.Play();
-            _bossAVGBase._structureObject.DefenseAVGBurst(_bossAVGBase._burstDamage);
+            _camManagerCashing.Shake(40f, 1);
+            
             _bossAVGBase.StartCoroutine(BurstOverCoroutine());
             
         }
 
         private IEnumerator BurstOverCoroutine()
         {
-            yield return new WaitForSeconds(2);
-            _stateMachine.ChangeState(BossAVGStateEnum.Idle);
+            _bossAVGBase._structureObject.OffObject();
+
+            yield return new WaitForSeconds(0.2f);
+            _bossAVGBase._burstParticle.Play();
+
+            _bossAVGBase._structureObject.DefenseAVGBurst(_bossAVGBase._burstDamage);
+
         }
     }
 }

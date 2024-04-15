@@ -78,12 +78,12 @@ public class PushObject : InteractionObject
         if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
             //other.transform.GetComponent<Enemy>().TakeStrongDamage(_damage);
-            if (other.transform.CompareTag("Enemy"))
+            if (other.transform.TryGetComponent(out Enemy enemy))
             {
-                other.transform.GetComponent<Enemy>().TakeStrongDamage(_damage);
-            }else if (other.transform.CompareTag("Player"))
+                enemy.TakeStrongDamage(_damage);
+            }else if (other.transform.TryGetComponent(out Player player))
             {
-                other.transform.GetComponent<Player>().TakeStrongDamage(_damage);
+                player.TakeStrongDamage(_damage);
             }
             
         }
