@@ -18,7 +18,7 @@ namespace EnemyManage
             Enemy enemy = enemyObject.GetComponent<Enemy>();
             enemy.defaultStatus = SettingStatus;
             enemy.SetStatusDefault();
-            
+            enemy.GetComponent<EnemyAI>().SetDefault();
             return enemyObject;
         }
     }

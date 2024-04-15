@@ -1,33 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DraggableUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    [SerializeField] private RectTransform parentTransform;
     private Canvas canvas;
     private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
-    private Vector2 initialPosition;
-    private bool isInventoryOpen;
     private bool isDragging;
+    private CanvasGroup canvasGroup;
 
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = transform.root.GetComponent<Canvas>();
-        initialPosition = rectTransform.anchoredPosition;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragging = true;
-        canvasGroup.blocksRaycasts = false;
         transform.SetParent(canvas.transform);
         transform.SetAsLastSibling();
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -38,10 +32,18 @@ public class DraggableUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
-        canvasGroup.blocksRaycasts = true;
-        if (isInventoryOpen)
+        
+        if (eventData.pointerCurrentRaycast.gameObject.GetComponent<DropableUI>() != null)
         {
-            rectTransform.DOAnchorPos(initialPosition, 0.5f).SetEase(Ease.OutBounce);
+            Debug.Log("DropableUI is not null");
+            rectTransform.SetParent(eventData.pointerCurrentRaycast.gameObject.transform);
         }
+        else
+        {
+            Debug.Log("DropableUI is null");
+            rectTransform.SetParent(parentTransform);
+        }
+        rectTransform.anchoredPosition = Vector2.zero;
+        canvasGroup.blocksRaycasts = true;
     }
 }

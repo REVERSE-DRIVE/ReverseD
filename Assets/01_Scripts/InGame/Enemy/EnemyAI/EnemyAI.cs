@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace EnemyManage
 {
-    
+    // 대충 아무 AI나 쓸때 사용
     public abstract class EnemyAI : MonoBehaviour
     {
         protected Transform _playerTrm;
@@ -15,7 +13,7 @@ namespace EnemyManage
         [Header("Current State Values")]
         [Space(10)]
         [SerializeField] protected bool _isStatic;
-        [SerializeField] protected EnemyStateEnum _currentState;
+        [SerializeField] protected NormalEnemyStateEnum _currentState;
         [SerializeField] protected bool isRoaming = false;
         [SerializeField] protected bool isAttacking = false;
         [SerializeField] protected bool isStun = false;
@@ -35,12 +33,14 @@ namespace EnemyManage
         [SerializeField] protected float _stunDuration = 2;
 
         protected Rigidbody2D _rigid;
+        private LayerMask _playerLayer;
 
 
         protected virtual void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
             _enemy = GetComponent<Enemy>();
+            _playerLayer = LayerMask.GetMask("Player");
         }
 
         protected virtual void Start()
@@ -64,18 +64,18 @@ namespace EnemyManage
             }
             switch (_currentState)
             {
-                case EnemyStateEnum.Roaming:
+                case NormalEnemyStateEnum.Roaming:
                     isAttacking = false;
                     Roaming();
                     break;
-                case EnemyStateEnum.Attack:
+                case NormalEnemyStateEnum.Attack:
                     isRoaming = false; 
                     ChasePlayer();
                     break;
-                case EnemyStateEnum.Stun:
+                case NormalEnemyStateEnum.Stun:
                     Stun();
                     break;
-                case EnemyStateEnum.Waiting:
+                case NormalEnemyStateEnum.Waiting:
                     isStun = false;
                     Waiting();
                     break;
@@ -89,9 +89,9 @@ namespace EnemyManage
 
         protected IEnumerator WaitingCoroutine()
         {
-            if (_currentState != EnemyStateEnum.Waiting) yield break;
+            if (_currentState != NormalEnemyStateEnum.Waiting) yield break;
             yield return new WaitForSeconds(1f);
-            _currentState = EnemyStateEnum.Roaming;
+            _currentState = NormalEnemyStateEnum.Roaming;
         }
         #endregion
         
@@ -107,7 +107,7 @@ namespace EnemyManage
             isStun = true;
             _rigid.velocity = Vector2.zero;
             yield return new WaitForSeconds(_stunDuration);
-            _currentState = EnemyStateEnum.Waiting;
+            _currentState = NormalEnemyStateEnum.Waiting;
         }
         #endregion
         #region Attacking
@@ -180,14 +180,12 @@ namespace EnemyManage
         
         protected virtual void DetectPlayer()
         {
-            RaycastHit2D ray = Physics2D.CircleCast(transform.position, _playerDetectDistance, Vector2.zero, 0);
+            RaycastHit2D ray = Physics2D.CircleCast(
+                transform.position, _playerDetectDistance, 
+                Vector2.zero, 0, _playerLayer);
             if (ray.collider != null)
             {
-                if (ray.collider.CompareTag("Player"))
-                {
-                    _currentState = EnemyStateEnum.Attack;
-                    Debug.Log("Attack");
-                }
+                _currentState = NormalEnemyStateEnum.Attack;
             }
         }
         
@@ -198,8 +196,11 @@ namespace EnemyManage
 
         public virtual void SetDefault()
         {
-            _currentState = EnemyStateEnum.Roaming;
-            _enemy.SetHealthMax();
+            _currentState = NormalEnemyStateEnum.Roaming;
+            isRoaming = false;
+            isAttacking = false;
+            isStun = false;
+            //_enemy.SetStatusDefault();
         }
     }
 }

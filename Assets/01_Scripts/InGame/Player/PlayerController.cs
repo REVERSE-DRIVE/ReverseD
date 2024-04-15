@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using EntityManage;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,22 +6,31 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VariableJoystick _joystick;
     
     private SpriteRenderer _spriteRenderer;
-    private PlayerAttack _playerAttack;
     private Rigidbody2D _rigid;
     private Player _player;
     private Vector3 dir;
+    private bool isMoving;
+
+    private bool flipX;
+    
     
     public VariableJoystick Joystick 
     { 
         get => _joystick;
         set => _joystick = value;
-        
     }
+
+    public Vector2 GetInputVec
+    {
+        get => dir;
+        private set { }
+    }
+    
+    public bool IsMoving => isMoving;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _playerAttack = GetComponent<PlayerAttack>();
         _rigid = GetComponent<Rigidbody2D>();
         _player = GetComponent<Player>();
     }
@@ -42,20 +49,23 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        isMoving = _rigid.velocity.magnitude > 0.1f;
         float horizontalInput = _joystick.Horizontal;
         float verticalInput = _joystick.Vertical;
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction.normalized * (PlayerManager.Instance.setting_moveSpeed * TimeManager.TimeScale);
+        _rigid.velocity = direction.normalized * (_player.MoveSpeed * TimeManager.TimeScale);
     }
     
     private void Rotate()
     {
         dir = _joystick.Direction.normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.localScale = new Vector3(dir.x > 0 ? 1 : -1, 1, 1);
-        // _playerAttack.PlayerAttackCollider.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        // transform.GetChild(1).rotation = _playerAttack.PlayerAttackCollider.transform.rotation;
+        _spriteRenderer.flipX = isMoving ? dir.x > 0 : flipX;
+    }
+    
+    public void SaveDirection()
+    {
+        flipX = _spriteRenderer.flipX;
     }
 
     public void ChangeSprite()

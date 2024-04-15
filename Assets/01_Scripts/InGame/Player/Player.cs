@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using EntityManage;
 using UnityEngine;
 
@@ -12,23 +13,25 @@ public class Player : Entity
         get { return status; }
         private set { }
     }
-    public bool isDead;
-    public static event Action OnPlayerHpChanged;
+
+    public bool IsDead => status.hp <= 0;
+    public bool canMove => status.moveSpeed == 0;
+    public float MoveSpeed => status.moveSpeed;
     
+    public static event Action OnPlayerHpChanged;
+    private SoundObject _soundObject;
+    private SpriteRenderer _spriteRenderer;
+    private Collider2D _collider;
     
     
     private void Awake()
     {
         PlayerManager.Instance.UpdateStat();
-        UpdateStatus();
-    }
-
-    private void Update()
-    {
-        if (status.hp <= 0)
-        {
-            transform.gameObject.SetActive(false);
-        }
+        ModifyStatus();
+        
+        _soundObject = GetComponent<SoundObject>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
     }
 
     /**
@@ -36,8 +39,9 @@ public class Player : Entity
      * 스탯 업데이트
      * </summary>
      */
-    public void UpdateStatus()
+    private void ModifyStatus()
     {
+        
         PlayerManager.Instance.UpdateStat();
         
         status.hp = PlayerManager.Instance.setting_hp;
@@ -48,29 +52,40 @@ public class Player : Entity
         status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
     }
 
-    private void ModifyStatus()
-    {
-        
-    }
-
     public void TakeDamage(int damage)
     {
         status.hp -= damage;
         OnPlayerHpChanged?.Invoke();
+        _soundObject.PlayAudio(0);
+        IsDie();
     }
     
 
     private void IsDie()
     {
-        if (status.hp <= 0)
+        if (IsDead)
         {
-            isDead = true;
+            Die();
             // 게임 오버 실행
         }
     }
 
+    public void Reviver()
+    {
+        status.hp = (status.hpMax / 2);
+        SetObjective(true);
+    }
+
+    public void SetObjective(bool value)
+    {
+        _spriteRenderer.enabled = value;
+        _collider.enabled = value;
+    }
+
     public override void Die()
     {
-        throw new NotImplementedException();
+        Debug.Log("PLayer Die => GameOver");
+        SetObjective(false);
+        status.moveSpeed = 0;
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8528681869141240753}
   - component: {fileID: 5355936767520759302}
   - component: {fileID: 6503922101146766763}
-  - component: {fileID: 9183974330685067640}
+  - component: {fileID: 8761276849476408287}
   - component: {fileID: 8706524649998194606}
   m_Layer: 13
   m_Name: Enemy
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.6792453, g: 0.073050864, b: 0.073050864, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -151,7 +151,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &9183974330685067640
+--- !u!114 &8761276849476408287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,22 +160,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6293421271846555851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6ddd1d73989c24bad7a6e5260b0fe1, type: 3}
+  m_Script: {fileID: 11500000, guid: 09438a14cd1049f19947c2564e6f8f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   status:
-    hp: 10
-    hpMax: 0
-    attackDamage: 3
-    criticalRate: 0
-    defense: 1
-    criticalDefense: 0
-    moveSpeed: 4
-    mass: 0
-    isHealDefense: 0
-    healthDefMultiple: 0
-  ItemDropType: 0
-  defaultStatus:
     hp: 0
     hpMax: 0
     attackDamage: 0
@@ -186,6 +174,9 @@ MonoBehaviour:
     mass: 0
     isHealDefense: 0
     healthDefMultiple: 0
+  ItemDropType: 0
+  _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
+  AnimatorCompo: {fileID: 0}
 --- !u!114 &8706524649998194606
 MonoBehaviour:
   m_ObjectHideFlags: 0

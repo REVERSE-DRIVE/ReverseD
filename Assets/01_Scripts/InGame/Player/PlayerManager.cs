@@ -1,14 +1,15 @@
+using AttackManage;
 using UnityEngine;
 
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
-    [SerializeField] private WeaponType weaponType;
     [SerializeField] private int arrange;
     [SerializeField] private int attackSpeed;
     [SerializeField] private int knockback;
     [SerializeField] private Sprite playerSprite;
-    [SerializeField] private PlayerAttack playerAttack;
+    // [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private PlayerAttackController _playerAttackController;
 
     private Player _player;
 
@@ -19,11 +20,18 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public int AttackSpeed => attackSpeed;
     public int Knockback => knockback;
     public Sprite PlayerSprite => playerSprite;
+    
+    //
+    // public PlayerAttack PlayerAttack
+    // {
+    //     get => playerAttack;
+    //     set => playerAttack = value;
+    // }
 
-    public PlayerAttack PlayerAttack
+    public PlayerAttackController playerAttackController
     {
-        get => playerAttack;
-        set => playerAttack = value;
+        get => _playerAttackController;
+        
     }
     
     public PlayerSO PlayerSO
@@ -36,12 +44,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         }
     }
     
-    public WeaponType WeaponType
-    {
-        get => weaponType;
-        set => weaponType = value;
-    }
-
     private void Awake()
     {
         _player = FindObjectOfType<Player>();
@@ -58,7 +60,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
         arrange = playerSO.arrange;
         attackSpeed = playerSO.attackSpeed;
         knockback = playerSO.knockback;
-        weaponType = playerSO.weaponType;
         playerSprite = playerSO.playerSprite;
         playerSO.SetCharacter();
     }

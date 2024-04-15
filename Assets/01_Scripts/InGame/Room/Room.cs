@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RoomManage
@@ -17,6 +14,16 @@ namespace RoomManage
         private Transform enemyParent;
         [SerializeField] private int currentPhase = 0;
         [SerializeField] private bool isPhaseStarted;
+
+        private ParticleSystem phaseStartParticle;
+        [SerializeField]
+        private WallOnPath[] walls;
+
+        private SoundObject _soundObject;
+        
+        
+        
+        
         public int currentEnemyAmount
         {
             get
@@ -28,6 +35,15 @@ namespace RoomManage
         private void Awake()
         {
             enemyParent = transform.Find("EnemyParent");
+            phaseStartParticle = transform.Find("MapActiveParticle").GetComponent<ParticleSystem>();
+            _soundObject = GetComponent<SoundObject>();
+
+        }
+
+        private void Start()
+        {
+            walls = transform.Find("Paths").GetComponentsInChildren<WallOnPath>();
+
         }
 
         private void Update()
@@ -35,6 +51,11 @@ namespace RoomManage
             if (!isCleared)
             {
                 CheckPlayer();
+            }
+
+            if (!isPhaseStarted)
+            {
+                OpenAllDoor();
             }
         }
 
@@ -46,6 +67,7 @@ namespace RoomManage
                     playerDetectDistance - 1)
                 {
                     StartPhase();
+                    CloseAllDoor();
                 }
 
             }
@@ -60,10 +82,13 @@ namespace RoomManage
         {
             GenerateEnemy();
             isPhaseStarted = true;
+            phaseStartParticle.Play();
+            _soundObject.PlayAudio(0);
         }
     
         private void GenerateEnemy()
         {
+            _soundObject.PlayAudio(1);
             GameManager.Instance._RoomManager.GeneratePhase(enemyParent, playerDetectDistance-1, _phases[currentPhase]);
             
         }
@@ -79,8 +104,25 @@ namespace RoomManage
             {
                 Debug.Log("스테이지 클리어");
                 isCleared = true;
-                GameManager.Instance._UIManager.ShowStageClear();
+                GameManager.Instance._UIManager.ShowRoomClear();
+                OpenAllDoor();
+                
+            }
+        }
 
+        private void CloseAllDoor()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                walls[i].OnWall();
+            }
+        }
+
+        private void OpenAllDoor()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                walls[i].SetWall();
             }
         }
     }

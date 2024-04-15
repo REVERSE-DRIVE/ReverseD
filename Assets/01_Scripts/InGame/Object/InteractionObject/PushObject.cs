@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using EnemyManage;
 using UnityEngine;
 
 public class PushObject : InteractionObject
@@ -10,16 +10,17 @@ public class PushObject : InteractionObject
     [SerializeField] private float _pushPower = 10;
     [SerializeField] private int _damage = 5;
     [SerializeField] private float _damageVelocity = 1.5f;
-    [SerializeField]
-    private float velocity = 0;
-
+    
     [SerializeField] private bool canDamage;
     private Vector2 previousDirection;
+
+    private SoundObject _soundObject;
 
     protected override void Awake()
     {
         base.Awake();
         _rigid = GetComponent<Rigidbody2D>();
+        _soundObject = GetComponent<SoundObject>();
     }
 
     private void Update()
@@ -78,10 +79,12 @@ public class PushObject : InteractionObject
     {
         if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
-            Entity entity = other.transform.GetComponent<Entity>();
-            if (entity)
+            if (other.transform.CompareTag("Enemy"))
             {
-                entity.TakeDamage(_damage);
+                other.transform.GetComponent<Enemy>().TakeDamage(_damage);
+            }else if (other.transform.CompareTag("Player"))
+            {
+                other.transform.GetComponent<Player>().TakeDamage(_damage);
             }
             
         }
@@ -92,8 +95,10 @@ public class PushObject : InteractionObject
 
             _rigid.bodyType = RigidbodyType2D.Dynamic;
             _rigid.AddForce(dir.normalized * (previousDirection * 0.6f), ForceMode2D.Impulse);
-            SetObjectActive(true);
+            _soundObject.PlayAudio(1);
         }
+        SetObjectActive(true);
+
     }
 
     private void CheckStop()

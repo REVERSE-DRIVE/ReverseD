@@ -24,11 +24,15 @@ namespace RoomManage
         [SerializeField]
         private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
 
-        private void Start()
+
+        public GameObject LastRoom
         {
-            GenerateRooms();
-            
+            get
+            {
+                return rooms[rooms.Count - 1];
+            }
         }
+        
 
         public void DelayAction(Action action, float time)
         {
