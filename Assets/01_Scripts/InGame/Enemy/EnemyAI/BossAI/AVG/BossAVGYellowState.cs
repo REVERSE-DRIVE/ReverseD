@@ -31,7 +31,7 @@ namespace EnemyManage.EnemyBossBase
         internal void BreakState()
         {
             _bossAVGBase._isResist = false;
-            _stateMachine.ChangeState(BossAVGStateEnum.Stun, true);
+            _bossAVGBase.ForceStun();
             
         }
 

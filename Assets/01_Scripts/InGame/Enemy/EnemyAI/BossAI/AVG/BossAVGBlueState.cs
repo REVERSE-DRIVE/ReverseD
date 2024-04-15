@@ -1,20 +1,21 @@
 ﻿using System.Collections;
-using EnemyManage;
 using UnityEngine;
 
 namespace EnemyManage.EnemyBossBase
 {
     public class BossAVGBlueState : BossAVGState
     {
-        public BossAVGBlueState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
-        {
-        }
-
+        
         private float _attackTime = 10;
         private float _attackCooltime = 0.2f;
         private int _projectileAmount;
         private Projectile _projectile;
-        
+        private int _currentPhaseLevel = 0;
+
+        public BossAVGBlueState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
+        {
+        }
+
 
         public override void Enter()
         {

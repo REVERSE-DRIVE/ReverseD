@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122310560349728098, guid: c32002b15da150c4d977b4986fabc2e6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11146,7 +11146,7 @@ Transform:
   m_GameObject: {fileID: 545116065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.28, z: -10}
+  m_LocalPosition: {x: 0, y: -2.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16955,26 +16955,26 @@ MonoBehaviour:
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
   AnimatorCompo: {fileID: 50558952}
   _soundObject: {fileID: 0}
-  _randomPickState: 03000000
+  _randomPickState: 02000000
   _idleWaitingTime: 5
   _stunDuration: 10
-  _chargeEnergy: 20
+  _chargeEnergy: 15
   _burstDamage: 100
-  _chargingSpeed: 2
+  _chargingSpeed: 1
   _structureObject: {fileID: 1789002691}
   _chargingParticle: {fileID: 588060160}
   _burstParticle: {fileID: 1021246461}
   _greenStateDuration: 30
-  _healCoreHealAmountPerSecond: 5
+  _healCoreHealAmountPerSecond: 2
   _healingObjects:
   - {fileID: 8168641867243195488}
   - {fileID: 205581035}
   - {fileID: 146881938}
   - {fileID: 1708523491}
-  _attacktime: 10
+  _attacktime: 5
   _attackCooltime: 0.45
   _projectile: {fileID: 4451851069912199969, guid: 469eaa8018ce8ae439d001a6bf3a31e0, type: 3}
-  _fireProjectileAmount: 4
+  _fireProjectileAmount: 5
   _rotationSpeed: 1
   _yellowStateDuration: 30
   _isResist: 0
@@ -28544,7 +28544,7 @@ Transform:
   m_GameObject: {fileID: 1312064196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.28, z: 0}
+  m_LocalPosition: {x: 0, y: -2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33738,7 +33738,7 @@ Transform:
   m_GameObject: {fileID: 1507562802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6.28, z: -10}
+  m_LocalPosition: {x: 0, y: -2.97, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

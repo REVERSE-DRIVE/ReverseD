@@ -11,7 +11,7 @@ namespace EnemyManage.EnemyBossBase
         [SerializeField] internal BossAVGStateEnum[] _randomPickState;
         [SerializeField] internal float _idleWaitingTime = 5f;
         [Header("Stun State Setting")] 
-        [SerializeField] internal float _stunDuration = 10;
+        [SerializeField] internal float _stunDuration = 5;
 
         [Header("Red State Setting")] 
         [SerializeField] internal int _chargeEnergy = 20;
