@@ -47,6 +47,8 @@ public class StartSceneManager : MonoBehaviour
         else
         {
             Debug.Log("폴더가 존재하지 않습니다.");
+            _playerStatus = new PlayerStatus();
+            EasyToJson.ToJson(_playerStatus, "PlayerStatus");
             StartCoroutine(DelaySceneChange());
         }
     }
