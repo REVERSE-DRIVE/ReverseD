@@ -96,16 +96,18 @@ public class AudioPackSOMaker : EditorWindow
             EditorGUILayout.Space(10);
             if (GUILayout.Button("Create"))
             {
-                if (audioClips.Count == 0 || audioClips[0] == null)
+                if (audioClips?.Count == 0 || audioClips?[0] == null)
                 {
                     Debug.LogError("AudioClip is Empty");
                     return;
                 }
+
                 if (audioPackSOName == "")
                 {
                     Debug.LogError("AudioPack Name is Empty");
                     return;
                 }
+
                 CreateAudioPackSO();
             }
         }

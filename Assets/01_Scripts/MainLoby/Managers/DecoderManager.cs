@@ -11,6 +11,7 @@ namespace MainLoby
         [SerializeField] private Image progressImage;
         [SerializeField] private TMP_Text progressText;
         [SerializeField] private TMP_Text titleText;
+        [SerializeField] private Image _arrowImage;
         [SerializeField] private int _level;
         
         private bool  _isDecoding;
@@ -24,24 +25,41 @@ namespace MainLoby
         private void Update()
         {
             _decoderParent.GetComponent<DropableUI>().enabled = _decoderParent.childCount < 3;
-            Decoding();
+            if (_decoderParent.childCount == 3)
+            {
+                StartDecode();
+            }
         }
 
-        private void Decoding()
+        private IEnumerator Decoding()
         {
-            if (!_isDecoding) return;
-            if (Time.time >= _endTime)
+            if (!_isDecoding) yield break;
+            
+
+            while (_isDecoding)
             {
-                _isDecoding = false;
-                progressImage.fillAmount = 0;
-                StopCoroutine(nameof(TitleTextAnimation));
-                titleText.text = "Decoding Complete";
-                return;
+                if (progressImage.fillAmount >= 1)
+                {
+                    _isDecoding = false;
+                    progressImage.fillAmount = 0;
+                    StopCoroutine(nameof(TitleTextAnimation));
+                    titleText.text = "Decoding Complete";
+                    yield break;
+                }
+                progressImage.fillAmount = 
+                    (Time.time + (_backgroundTime - _foregroundTime) - _startTime) / _decodeTime[_level - 1];
+                _foregroundTime = 0;
+                progressText.text = $"{progressImage.fillAmount * 100:F0}%";
+                
+                // arrowImage의 fillAmount가 0에서 1로 증가하고 1이 되면 0으로 돌아감
+                _arrowImage.fillAmount += Time.deltaTime;
+                if (_arrowImage.fillAmount >= 1)
+                {
+                    _arrowImage.fillAmount = 0;
+                }
+                
+                yield return null;
             }
-            progressImage.fillAmount = 
-                (Time.time + (_backgroundTime - _foregroundTime) - _startTime) / _decodeTime[_level - 1];
-            _foregroundTime = 0;
-            progressText.text = $"{progressImage.fillAmount * 100:F0}%";
         }
 
         public void StartDecode()
@@ -56,6 +74,7 @@ namespace MainLoby
              _isDecoding = true;
              
             StartCoroutine(nameof(TitleTextAnimation));
+            StartCoroutine(Decoding());
         }
         
         private IEnumerator TitleTextAnimation()
