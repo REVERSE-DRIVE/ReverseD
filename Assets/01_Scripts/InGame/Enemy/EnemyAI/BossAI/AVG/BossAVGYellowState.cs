@@ -24,7 +24,7 @@ namespace EnemyManage.EnemyBossBase
             _currentTime += Time.deltaTime * TimeManager.TimeScale;
             if (_currentTime >= _stateDuration)
             {
-                BreakState();
+                _stateMachine.ChangeState(BossAVGStateEnum.Idle);
             }
         }
 
