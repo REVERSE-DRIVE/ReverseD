@@ -44,6 +44,12 @@ namespace EnemyManage
         {
             _endTriggerCalled = true;
         }
+        
+
+        public virtual void CustomTrigger()
+        {
+            Debug.Log("CustomTrigger : Triggered");
+        }
 
     
     }

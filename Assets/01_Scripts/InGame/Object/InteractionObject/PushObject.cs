@@ -37,8 +37,6 @@ public class PushObject : InteractionObject
         
         if (!isActive)
         {
-            
-            
             Vector2 direction = transform.position - GameManager.Instance._PlayerTransform.position;
             StartCoroutine(PushRoutine(direction));
 
@@ -79,12 +77,13 @@ public class PushObject : InteractionObject
     {
         if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
-            if (other.transform.CompareTag("Enemy"))
+            //other.transform.GetComponent<Enemy>().TakeStrongDamage(_damage);
+            if (other.transform.TryGetComponent(out Enemy enemy))
             {
-                other.transform.GetComponent<Enemy>().TakeDamage(_damage);
-            }else if (other.transform.CompareTag("Player"))
+                enemy.TakeStrongDamage(_damage);
+            }else if (other.transform.TryGetComponent(out Player player))
             {
-                other.transform.GetComponent<Player>().TakeDamage(_damage);
+                player.TakeStrongDamage(_damage);
             }
             
         }

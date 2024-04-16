@@ -65,13 +65,19 @@ public abstract class Entity : MonoBehaviour, IDamageable
         {
             status.hp -= CalcDamage(damage, status.defense);
         }
-        
+
+        ClampHealth();
     }
 
     public virtual void TakeCriticalDamage(int damage)
     {
         status.hp -= CalcDamage((int)(damage * 1.5f), status.defense);
 
+    }
+    public virtual void TakeStrongDamage(int amount)
+    {
+        TakeDamage(amount);
+        
     }
 
     protected void CheckIsDie()
@@ -86,6 +92,7 @@ public abstract class Entity : MonoBehaviour, IDamageable
     public virtual void RestoreHealth(int amount)
     {
         status.hp += amount;
+        ClampHealth();
     }
 
     public virtual int CalcDamage(int atk, int def)
@@ -93,4 +100,8 @@ public abstract class Entity : MonoBehaviour, IDamageable
         return Mathf.Clamp(atk - def, 0, 999);
     }
 
+    private void ClampHealth()
+    {
+        status.hp = Mathf.Clamp(status.hp, 0, status.hpMax);
+    }
 }
