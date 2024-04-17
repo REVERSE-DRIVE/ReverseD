@@ -9,6 +9,12 @@ public class DraggableUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     private bool isDragging;
     private CanvasGroup canvasGroup;
 
+    public RectTransform ParentTransform
+    {
+        get => parentTransform;
+        set => parentTransform = value;
+    }
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
