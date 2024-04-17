@@ -14,6 +14,7 @@ public class PushObject : InteractionObject
     [SerializeField] private bool canDamage;
     private Vector2 previousDirection;
 
+    private FieldObject _fieldObject;
     private SoundObject _soundObject;
 
     protected override void Awake()
@@ -75,27 +76,33 @@ public class PushObject : InteractionObject
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        _soundObject.PlayAudio(1);
+
         if (isActive && _rigid.velocity.sqrMagnitude > 2)
         {
             //other.transform.GetComponent<Enemy>().TakeStrongDamage(_damage);
             if (other.transform.TryGetComponent(out Enemy enemy))
             {
                 enemy.TakeStrongDamage(_damage);
+                _fieldObject.TakeDamage(1);
             }else if (other.transform.TryGetComponent(out Player player))
             {
                 player.TakeStrongDamage(_damage);
+                _fieldObject.TakeDamage(1);
             }
             
         }
 
         if (other.transform.CompareTag("Wall"))
         {
-            Vector2 dir = RayManager.Reflect(transform.position, previousDirection.normalized, 10, LayerMask.GetMask("Wall"));
+            Vector2 dir = RayManager.Reflect(transform.position, previousDirection.normalized, 10,
+                LayerMask.GetMask("Wall"));
 
             _rigid.bodyType = RigidbodyType2D.Dynamic;
+            _fieldObject.TakeDamage(1);
             _rigid.AddForce(dir.normalized * (previousDirection * 0.6f), ForceMode2D.Impulse);
-            _soundObject.PlayAudio(1);
         }
+        
         SetObjectActive(true);
 
     }
