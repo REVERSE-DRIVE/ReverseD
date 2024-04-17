@@ -7,6 +7,7 @@ public class NormalFieldObject : FieldObject
     
     protected override void DestroyEvent()
     {
-        throw new System.NotImplementedException();
+        
+        
     }
 }

@@ -5,16 +5,15 @@ public class AVGStructureObject : FieldObject
     [SerializeField] private GameObject _shieldObject;
     [SerializeField] private SpriteRenderer _thisObjectVisual;
     [SerializeField] private ParticleSystem _reuseDestroyParticle;
-    [SerializeField] private Collider2D _thisObjectCollider;
     private Transform _bossTrm;
-    [SerializeField] private float shieldRadius = 1.5f;
+    [SerializeField] private float _shieldRadius = 1.5f;
     [Header("State Information")] 
-    [SerializeField] private bool isShieldActivated;
+    [SerializeField] private bool _isShieldActivated;
     
     private void Awake()
     {
-        transform.Find("Visual").GetComponent<SpriteRenderer>();
-        _thisObjectCollider = GetComponent<Collider2D>();
+        base.Awake();
+        _thisObjectVisual = transform.Find("Visual").GetComponent<SpriteRenderer>();
     }
 
    
@@ -30,9 +29,10 @@ public class AVGStructureObject : FieldObject
     {
         base.SetDefault();
         _shieldObject.SetActive(false);
-        isShieldActivated = false;
+
+        _isShieldActivated = false;
         _thisObjectVisual.enabled = true;
-        _thisObjectCollider.enabled = true;
+        _collider.enabled = true;
     }
 
     /**
@@ -48,8 +48,8 @@ public class AVGStructureObject : FieldObject
         bool isSafeZone = 
             Vector2.Distance(
                 GameManager.Instance._PlayerTransform.position, 
-                transform.position) < shieldRadius;
-        if (isSafeZone && isShieldActivated) return;
+                transform.position) < _shieldRadius;
+        if (isSafeZone && _isShieldActivated) return;
         GameManager.Instance._Player.TakeDamage(hitDamage);
         
     }
@@ -67,13 +67,13 @@ public class AVGStructureObject : FieldObject
     {
         DestroyEvent();
         _thisObjectVisual.enabled = false;
-        isShieldActivated = true;
+        _isShieldActivated = true;
     }
 
     public void OffObject()
     {
         _shieldObject.SetActive(false);
         _thisObjectVisual.enabled = false;
-        _thisObjectCollider.enabled = false;
+        _collider.enabled = false;
     }
 }

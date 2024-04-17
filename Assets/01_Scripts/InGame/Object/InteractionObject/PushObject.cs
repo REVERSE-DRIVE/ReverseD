@@ -22,6 +22,7 @@ public class PushObject : InteractionObject
         base.Awake();
         _rigid = GetComponent<Rigidbody2D>();
         _soundObject = GetComponent<SoundObject>();
+        _fieldObject = GetComponent<FieldObject>();
     }
 
     private void Update()
