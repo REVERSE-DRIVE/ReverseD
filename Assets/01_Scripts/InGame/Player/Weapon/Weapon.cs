@@ -44,14 +44,6 @@ namespace AttackManage
             }
         }
 
-        protected virtual void OnEnable()
-        {
-            
-        }
-       
-        protected virtual void OnDisable()
-        {
-        }
 
         /**
          * <summary>
@@ -114,5 +106,8 @@ namespace AttackManage
                     
             }
         }
+
+        protected abstract Collider2D[] DetectTargets();
+
     }
 }

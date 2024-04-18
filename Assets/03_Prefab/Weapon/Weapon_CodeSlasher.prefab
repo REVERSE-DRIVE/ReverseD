@@ -48,11 +48,13 @@ MonoBehaviour:
   damage: 6
   _attackCooltime: 0.6
   _attackTime: 0.1
+  isKnockBack: 0
+  knockBackPower: 1
   _rotationOffset: 0
   _weaponAnimator: {fileID: 6498217350812938356}
   isRotation: 1
   attackDirection: {x: 0, y: 0}
-  _attackRadius: 1.5
+  _attackRadius: 2.5
   _isSplash: 1
 --- !u!1 &4836711996565984691
 GameObject:

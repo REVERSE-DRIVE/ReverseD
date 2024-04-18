@@ -1,4 +1,7 @@
-﻿namespace AttackManage
+﻿using System.Collections;
+using UnityEngine;
+
+namespace AttackManage
 {
     public class CodeSlasher : Sword
     {
@@ -6,7 +9,14 @@
         {
             print("공격 시작");
             AttackAnimationOnTrigger();
-            AttackRoutine();
+            StartCoroutine(AttackCoroutine());
+            
+        }
+
+        private IEnumerator AttackCoroutine()
+        {
+            yield return new WaitForSeconds(0.2f);
+            TakeDamageToTargets(DetectTargets());
         }
 
         public override void AttackEnd()
@@ -15,10 +25,6 @@
             AttackAnimationOffTrigger();
         }
 
-        private void AttackRoutine()
-        {
-            TakeDamageToTargets(DetectEnemy());
-            TakeDamageToTargets(DetectFieldObject());
-        }
+        
     }
 }

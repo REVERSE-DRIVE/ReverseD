@@ -1,35 +1,29 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace AttackManage
 {
     public abstract class Sword : Weapon
     {
         [Header("Sword Setting")]
-        [SerializeField] protected float _attackRadius = 1.5f;
+        [SerializeField] protected float _attackRadius = 2.5f;
         [SerializeField] protected bool _isSplash = true;
         
         // 실질적인 Attack 기능을 하위 무기에서 구현
         
-        protected Collider2D[] DetectEnemy()
-        {
-            Vector2 centerPos = new Vector2(
-                transform.position.x + _attackRadius * attackDirection.x,
-                transform.position.y + _attackRadius * attackDirection.y
-            );
-            Collider2D[] hits = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsEnemy);
 
-            return hits;
+        protected override Collider2D[] DetectTargets()
+        {
+            Vector2 centerPos = (Vector2)transform.position + (attackDirection * _attackRadius);
+            print(centerPos);
+            print(_attackRadius);
+            Collider2D[] hitEnemys = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsEnemy);
+            Collider2D[] hitObjects = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsFieldObject);
+            Collider2D[] result = hitEnemys.Concat(hitObjects).ToArray();
+            
+            return result;
         }
+
         
-        protected Collider2D[] DetectFieldObject()
-        {
-            Vector2 centerPos = new Vector2(
-                transform.position.x + _attackRadius * attackDirection.x,
-                transform.position.y + _attackRadius * attackDirection.y
-            );
-            Collider2D[] hits = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsFieldObject);
-
-            return hits;
-        }
     }
 }
