@@ -11,6 +11,5 @@ public class FileItemManager : MonoBehaviour
 
     private void Start()
     {
-        //EasyToJson.FromJson<>();
     }
 }
