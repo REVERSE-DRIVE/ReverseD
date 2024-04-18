@@ -68,6 +68,7 @@ namespace EnemyManage.EnemyBossBase
 
         private void Start()
         {
+            base.Start();
             StateMachine.Initialize(BossAVGStateEnum.Idle, this);
         }
 

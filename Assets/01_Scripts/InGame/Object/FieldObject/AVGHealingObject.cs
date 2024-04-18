@@ -6,8 +6,9 @@ public class AVGHealingObject : FieldObject
     [SerializeField]
     private ParticleSystem _generateParticle;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _generateParticle = GetComponentInChildren<ParticleSystem>();
     }
     

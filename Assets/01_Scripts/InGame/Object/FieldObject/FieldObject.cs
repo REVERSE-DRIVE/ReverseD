@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public abstract class FieldObject : MonoBehaviour
@@ -15,10 +17,19 @@ public abstract class FieldObject : MonoBehaviour
     public bool IsDestroy => hp <= 0;
 
     [SerializeField] protected EffectObject _destroyParticle;
+    [SerializeField] protected Collider2D _collider;
+
+
+    protected virtual void Awake()
+    {
+        _collider = GetComponent<Collider2D>();
+
+    }
 
     public virtual void SetDefault()
     {
         hp = hpMax;
+        _collider.enabled = true;
     }
 
     public virtual void TakeDamage(int amount)
@@ -33,8 +44,16 @@ public abstract class FieldObject : MonoBehaviour
     {
         if (IsDestroy)
         {
-            Destroy();
+            StartCoroutine(DestroyCoroutine());
         }
+    }
+
+    protected IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _collider.enabled = false;
+        Destroy();
+
     }
 
     public virtual void Destroy()

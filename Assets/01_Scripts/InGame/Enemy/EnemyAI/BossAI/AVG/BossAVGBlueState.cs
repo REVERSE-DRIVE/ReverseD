@@ -44,18 +44,27 @@ namespace EnemyManage.EnemyBossBase
             yield return new WaitForSeconds(1f);
             float currentTime = 0;
             float currentCoolingTime = 0;
+            int rotationDirection = 1;
+
             while (currentTime <= _attackTime)
             {
-
+                if(TimeManager.TimeScale == 0)
+                    continue;
+                
                 currentTime += Time.deltaTime;
                 _bossAVGBase.transform.rotation = 
                     Quaternion.Euler(0, 0, 
-                        _bossAVGBase.transform.rotation.eulerAngles.z +_bossAVGBase._rotationSpeed);
-                currentCoolingTime += Time.deltaTime;
+                        _bossAVGBase.transform.rotation.eulerAngles.z +(rotationDirection)*_bossAVGBase._rotationSpeed);
+                currentCoolingTime += Time.deltaTime * TimeManager.TimeScale;
                 if (currentCoolingTime > _attackCooltime)
                 {
                     currentCoolingTime = 0;
                     Attack();
+                }
+ 
+                if (currentTime >= _attackTime * 0.5f)
+                {
+                    rotationDirection = -1;
                 }
 
                 yield return null;

@@ -12,6 +12,7 @@ namespace EnemyManage.EnemyBossBase
         private bool isChargeOver;
         private bool isPlayedSound;
         private CameraManager _camManagerCashing;
+        
         public BossAVGRedState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
         {
         }
@@ -53,7 +54,7 @@ namespace EnemyManage.EnemyBossBase
             
             _chargingLevel += Time.deltaTime * TimeManager.TimeScale * _chargingSpeed;
             _camManagerCashing.SetShake(_chargingLevel * 0.5f, 5);
-            if (!isPlayedSound && _chargingLevel > _chargeEnergyAmount - 3f)
+            if (!isPlayedSound && _chargingLevel > _chargeEnergyAmount - 3.5f)
             {
                 _bossAVGBase._soundObject.PlayAudio(4);
                 isPlayedSound = true;
