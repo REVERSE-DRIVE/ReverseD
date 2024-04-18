@@ -14921,7 +14921,7 @@ MonoBehaviour:
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
   AnimatorCompo: {fileID: 8501669492861940925}
   _soundObject: {fileID: 0}
-  _randomPickState: 03000000
+  _randomPickState: 04000000020000000300000005000000
   _idleWaitingTime: 5
   _stunDuration: 10
   _chargeEnergy: 15
@@ -14937,10 +14937,10 @@ MonoBehaviour:
   - {fileID: 433428323798990984}
   - {fileID: 4217385572053517778}
   - {fileID: 1427875594555297825}
-  _attacktime: 5
-  _attackCooltime: 0.45
+  _attacktime: 10
+  _attackCooltime: 0.25
   _projectile: {fileID: 4451851069912199969, guid: 469eaa8018ce8ae439d001a6bf3a31e0, type: 3}
-  _fireProjectileAmount: 5
+  _fireProjectileAmount: 6
   _rotationSpeed: 1
   _yellowStateDuration: 30
   _isResist: 0
@@ -15106,10 +15106,10 @@ MonoBehaviour:
   hp: 40
   hpMax: 40
   _destroyParticle: {fileID: 0}
+  _collider: {fileID: 0}
   _shieldObject: {fileID: 9114579370483437398}
   _thisObjectVisual: {fileID: 1405541688372998382}
   _reuseDestroyParticle: {fileID: 1250487353774541666}
-  _thisObjectCollider: {fileID: 4059844319714203341}
   _shieldRadius: 1.5
   _isShieldActivated: 0
 --- !u!58 &4059844319714203341
