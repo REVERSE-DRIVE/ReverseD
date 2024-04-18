@@ -19,7 +19,6 @@ namespace MainLoby
         private float _startTime;
         private float _endTime;
         
-        
         private readonly float[] _decodeTime = { 30f, 18f, 6f };
         
         private void Awake()

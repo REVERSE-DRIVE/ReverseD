@@ -12,13 +12,12 @@ namespace MainLoby
         
         private DropableUI _decoderDropableUI;
         private bool _isFirst = true;
-        private bool  _isDecoding; 
-        private float _foregroundTime;
+        private bool  _isDecoding;
         private float _backgroundTime;
         
         public Transform DecoderParent => _decoderParent;
         public Transform ResultParent => _resultParent;
-        public float ForegroundTime => _foregroundTime;
+        public float ForegroundTime { get; private set; }
 
         public float BackgroundTime
         {
@@ -56,8 +55,8 @@ namespace MainLoby
             {
                 if (pause)
                 {
-                    _foregroundTime = Time.time;
-                    Debug.Log("Foreground Time: " + _foregroundTime);
+                    ForegroundTime = Time.time;
+                    Debug.Log("Foreground Time: " + ForegroundTime);
                 }
                 else
                 {
