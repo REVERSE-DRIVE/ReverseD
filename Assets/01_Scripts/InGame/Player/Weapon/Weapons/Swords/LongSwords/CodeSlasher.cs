@@ -3,11 +3,10 @@ using UnityEngine;
 
 namespace AttackManage
 {
-    public class CodeSlasher : Sword
+    public class CodeSlasher : LongSword
     {
         public override void Attack()
         {
-            print("공격 시작");
             AttackAnimationOnTrigger();
             StartCoroutine(AttackCoroutine());
             
@@ -21,7 +20,6 @@ namespace AttackManage
 
         public override void AttackEnd()
         {
-            print("공격 끝");
             AttackAnimationOffTrigger();
         }
 

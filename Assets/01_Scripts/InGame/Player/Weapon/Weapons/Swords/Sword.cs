@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace AttackManage
 {
-    public abstract class Sword : Weapon
+    public abstract class LongSword : Weapon
     {
         [Header("Sword Setting")]
         [SerializeField] protected float _attackRadius = 2.5f;
