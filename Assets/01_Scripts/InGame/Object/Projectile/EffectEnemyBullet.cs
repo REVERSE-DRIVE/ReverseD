@@ -17,4 +17,9 @@ public class EffectEnemyBullet : Projectile
         }
         
     }
+
+    protected override void DestroyEvent()
+    {
+        
+    }
 }

@@ -119,9 +119,12 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void DestroyProjectile()
     {
+        DestroyEvent();
         PoolManager.Get(_destroyParticlePrefab, transform.position, Quaternion.identity);
         
         PoolManager.Release(gameObject);
 
     }
+
+    protected abstract void DestroyEvent();
 }
