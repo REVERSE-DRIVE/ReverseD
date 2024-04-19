@@ -48,7 +48,7 @@ namespace AttackManage
         /**
          * <summary>
          * 공격이 실행 되었을때 코드를 완성해야함
-         * 쿨타임과 같은 부가적인 체크는 PlayerAttackController에서 함
+         * 쿨타임과 같은 부가적인 체크는 PlayerAttackController에서 알아서 함
          * </summary>
          */
         public abstract void Attack();
