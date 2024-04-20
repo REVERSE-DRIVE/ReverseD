@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WeaponEmissionMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: cf575ddb167e5c749a8e3cd362440e25, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 1aff7c5c59f384b4f9142576a58c099f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -60,7 +60,7 @@ Material:
     - _Sub_Emission: 1
     - _Sub_Range: 0.5
     m_Colors:
-    - _Main_EmissionColor: {r: 3.5648696, g: 0, b: 0, a: 1}
+    - _Main_EmissionColor: {r: 4.759381, g: 0.10775942, b: 0.10775942, a: 1}
     - _MaskColor: {r: 1, g: 0, b: 0, a: 1}
     - _SubColor: {r: 0, g: 0, b: 0, a: 0}
     - _Sub_EmissionColor: {r: 0, g: 0, b: 0, a: 0}
