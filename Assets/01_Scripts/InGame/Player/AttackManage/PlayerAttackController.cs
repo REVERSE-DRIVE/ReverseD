@@ -12,13 +12,12 @@ namespace AttackManage
 
         [SerializeField] private Weapon _currentWeapon;
         [SerializeField] private Transform weaponHandleTrm;
-        public event Action onAttackEvent;
         public event Action<Vector2> OnMoveDirectionEvent;
 
 
         private PlayerController _playerController;
         private Vector2 _playerTransform;
-        private Vector2 dir;
+        private Vector2 _direction;
 
         [SerializeField] protected float currentAttackTime = 0;
 
@@ -41,10 +40,10 @@ namespace AttackManage
             if (TimeManager.TimeScale == 0) return;
 
             currentAttackTime += Time.deltaTime * TimeManager.TimeScale;
-            dir = _playerController.GetInputVec;
-            if (dir.sqrMagnitude != 0 && IsAttackCooldowned)
+            _direction = _playerController.GetInputVec;
+            if (_direction.sqrMagnitude != 0 && IsAttackCooldowned)
             {
-                OnMoveDirectionEvent?.Invoke(dir);
+                OnMoveDirectionEvent?.Invoke(_direction);
                 
             }
         }
@@ -56,7 +55,7 @@ namespace AttackManage
         {
             if (IsAttackCooldowned)
             {
-                
+                //currentAttackTime >= _currentWeapon._attackCooltime
                 currentAttackTime = 0;
                 StartCoroutine(AttackRoutine());
             }

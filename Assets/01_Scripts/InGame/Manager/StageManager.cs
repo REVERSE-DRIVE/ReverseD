@@ -7,11 +7,13 @@ public class StageManager : MonoBehaviour
     public event Action StageStartEvent; 
     [SerializeField] private Portal _portalPrefab;
     
-    [SerializeField] private int currentChapter = 1;
-    [SerializeField] private int currentStageNum = 0;
-    [SerializeField] private int maxStageIndexInChaapter = 5;
+    [SerializeField] private int _currentChapter = 1;
+    [SerializeField] private int _currentStageNum = 0;
+    [SerializeField] private int _maxStageIndexInChapter = 5;
 
     [SerializeField] private float _delayNewStageMsg = 2;
+    [SerializeField] private bool _isBossRoomOpened;
+    
     private void Start()
     {
         NextStage();
@@ -29,6 +31,11 @@ public class StageManager : MonoBehaviour
     public void AddInfect(int amount)
     {
         infectedLevel += amount;
+        infectedLevel = Mathf.Clamp(infectedLevel, 0, 100);
+        if (!_isBossRoomOpened)
+        {
+            OpenBossRoom();
+        }
     }
     
     /**
@@ -38,9 +45,8 @@ public class StageManager : MonoBehaviour
      */
     public void NextStage()
     {
-        currentStageNum++;
+        _currentStageNum++;
         StartCoroutine(MoveToNextStageCoroutine());
-        
         
         StartCoroutine(ShowNewStageCoroutine());
     }
@@ -50,7 +56,7 @@ public class StageManager : MonoBehaviour
     {
         GameManager.Instance._UIManager.ShowStageChangeEvent();
         yield return new WaitForSeconds(_delayNewStageMsg);
-        GameManager.Instance._UIManager.ShowNewStageUI(currentChapter, currentStageNum);
+        GameManager.Instance._UIManager.ShowNewStageUI(_currentChapter, _currentStageNum);
 
     }
     
@@ -63,7 +69,7 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(term);
         
         GameManager.Instance._RoomGenerator.ResetMap();
-        if (currentStageNum < maxStageIndexInChaapter)
+        if (_currentStageNum < _maxStageIndexInChapter)
         {
             GeneratePortal();
             
@@ -84,6 +90,15 @@ public class StageManager : MonoBehaviour
     private void GenerateBossRoom()
     {
         Vector2 generatePos = GameManager.Instance._RoomGenerator.LastRoom.transform.position;
+        // 
+        
+    }
+
+    public void OpenBossRoom()
+    {
+        // RoomGenerator에 있는 FirstRoom 프로퍼티에서 1번 인덱스의 문을 열면 됨
+        // 그럼 시작방의 아래쪽 문이 열림
+        
         
     }
 }

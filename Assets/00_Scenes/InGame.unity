@@ -24737,7 +24737,7 @@ MonoBehaviour:
   _portalPrefab: {fileID: 6730063165880883064, guid: 91d2e418677e73c47ba6c3d571371996, type: 3}
   currentChapter: 1
   currentStageNum: 0
-  maxStageIndexInChaapter: 5
+  maxStageIndexInChaapter: 3
   _delayNewStageMsg: 2
 --- !u!4 &2092276428
 Transform:
