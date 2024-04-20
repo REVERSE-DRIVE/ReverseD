@@ -49,16 +49,16 @@ namespace AttackManage
          * 쿨타임과 같은 부가적인 체크는 PlayerAttackController에서 알아서 함
          * </summary>
          */
-        public abstract void Attack();
+        public abstract void AttackStart();
 
         public abstract void AttackEnd();
         
-        protected virtual void AttackAnimationOnTrigger()
+        public virtual void AttackAnimationOnTrigger()
         {
             _weaponAnimator.SetBool("IsAttack", true);
         }
         
-        protected virtual void AttackAnimationOffTrigger()
+        public virtual void AttackAnimationOffTrigger()
         {
             _weaponAnimator.SetBool("IsAttack", false);
         }

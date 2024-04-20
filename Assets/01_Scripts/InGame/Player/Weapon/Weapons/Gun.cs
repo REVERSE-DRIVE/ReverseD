@@ -13,7 +13,7 @@ namespace AttackManage
         [SerializeField] protected float _shotError = 0.3f;
         protected float _currentShotError = 0;
         
-        public override void Attack()
+        public override void AttackStart()
         {
             if (_currentBullets >= _needBullets)
             {

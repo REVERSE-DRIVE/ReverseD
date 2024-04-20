@@ -5,22 +5,20 @@ namespace AttackManage
 {
     public class CodeSlasher : LongSword
     {
-        public override void Attack()
+        public override void AttackStart()
         {
-            AttackAnimationOnTrigger();
             StartCoroutine(AttackCoroutine());
             
         }
 
-        private IEnumerator AttackCoroutine()
+        protected override IEnumerator AttackCoroutine()
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(_damageTiming);
             TakeDamageToTargets(DetectTargets());
         }
 
         public override void AttackEnd()
         {
-            AttackAnimationOffTrigger();
         }
 
         

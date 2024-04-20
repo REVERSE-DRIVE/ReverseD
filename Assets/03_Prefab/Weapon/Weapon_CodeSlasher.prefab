@@ -59,6 +59,7 @@ MonoBehaviour:
     m_Bits: 40960
   _attackRadius: 2.5
   _isSplash: 1
+  _damageTiming: 0.2
 --- !u!1 &4836711996565984691
 GameObject:
   m_ObjectHideFlags: 0
