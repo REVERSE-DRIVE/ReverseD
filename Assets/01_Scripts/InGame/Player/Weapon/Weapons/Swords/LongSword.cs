@@ -7,10 +7,8 @@ namespace AttackManage
     {
         protected override Collider2D[] DetectTargets()
         {
-            Vector2 centerPos = (Vector2)transform.position + (attackDirection * _attackRadius);
-            print(centerPos);
-            print(_attackRadius);
-            Collider2D[] hitTargets = Physics2D.OverlapCircleAll(centerPos, _attackRadius, _whatIsTarget);
+            _DetectCenterPos = (Vector2)transform.position + (attackDirection * _attackRadius);
+            Collider2D[] hitTargets = Physics2D.OverlapCircleAll(_DetectCenterPos, _attackRadius, _whatIsTarget);
             
             return hitTargets;
         }

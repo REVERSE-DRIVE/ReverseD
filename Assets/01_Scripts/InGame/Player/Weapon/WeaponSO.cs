@@ -47,6 +47,11 @@ namespace AttackManage
             weaponPrefab._attackTime = attackTime;
             weaponPrefab.isKnockBack = isKnockBack;
             weaponPrefab.knockBackPower = knockBackPower;
+            if (weaponPrefab is Sword)
+            {
+                Sword sword = (weaponPrefab as Sword);
+                sword._attackRadius = attackRange;
+            }
         }
         
         

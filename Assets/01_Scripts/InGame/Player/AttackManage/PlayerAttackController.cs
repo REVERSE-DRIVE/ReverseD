@@ -91,6 +91,7 @@ namespace AttackManage
              _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
              OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
         }
+
         
     }
 }

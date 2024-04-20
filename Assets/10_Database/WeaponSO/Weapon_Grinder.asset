@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2183311fcc6240f28fc30f3ddf97fdb4, type: 3}
-  m_Name: Weapon_CodeSlasher 1
+  m_Name: Weapon_Grinder
   m_EditorClassIdentifier: 
-  id: 2
-  rank: 0
+  id: 1
+  rank: 1
   weaponType: 0
-  weaponName: "40GB \uFFFD\uFFFD\uFFFD"
+  weaponName: Grinder
   description: 
-  damage: 25
-  attackCooltime: 3
-  attackTime: 0.6
-  attackRange: 5
-  weaponPrefab: {fileID: 4435204909199220996, guid: 6968f788d2420b140892cc3207af2648, type: 3}
+  damage: 15
+  attackCooltime: 2.2
+  attackTime: 1.8
+  attackRange: 5.1
+  isKnockBack: 0
+  knockBackPower: 1
+  weaponPrefab: {fileID: 3836905081768184885, guid: 1e2711378306b2c49bb2f27ce7cfc4cb, type: 3}

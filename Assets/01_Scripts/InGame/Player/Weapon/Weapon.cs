@@ -70,15 +70,28 @@ namespace AttackManage
             if (direction.sqrMagnitude == 0)
                 return;
             // 오프셋 부분 수정해야될 수도 있움
-            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);
-            if (Mathf.Abs(transform.rotation.z) > 0.7f)  // z rotation값 재계산 해야함
+            Quaternion rotate = Quaternion.Euler(0, 0,
+                Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);
+            transform.rotation = rotate;
+            if (Mathf.Abs(rotate.z) > 0.7f)  // z rotation값 재계산 해야함
             {
-                transform.parent.localScale = new Vector2(1, -1);
+                transform.parent.localScale = new Vector2(-1, 1);
+                transform.localScale = -Vector2.one;
             }
             else
             {
                 transform.parent.localScale = Vector2.one;
+                transform.localScale = Vector2.one;
             }
+            //
+            // if (Mathf.Abs(transform.rotation.z) > 0.7f)  // z rotation값 재계산 해야함
+            // {
+            //     transform.parent.localScale = new Vector2(1, -1);
+            // }
+            // else
+            // {
+            //     transform.parent.localScale = Vector2.one;
+            // }
         }
 
         protected virtual void TakeDamageToTargets(Collider2D[] hits)
