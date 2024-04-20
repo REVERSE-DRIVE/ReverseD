@@ -17,6 +17,7 @@ namespace RoomManage
     [System.Serializable]
     public class RoomSO : ScriptableObject
     {
+        public int id;
         public RoomType roomType;
         public GameObject mapPrefab;
         public float roomSpawnRate = 1f;

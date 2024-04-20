@@ -53,6 +53,11 @@ namespace RoomManage
             }
         }
 
+        public void SetClear(bool value)
+        {
+            isCleared = value;
+        }
+
         private void CheckPlayer()
         {
             if (!isPhaseStarted)

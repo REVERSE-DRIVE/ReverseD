@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using InGameSaveData;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,7 +11,7 @@ namespace RoomManage
     public class RoomGenerator : MonoBehaviour
     {
         [SerializeField] private Transform grid;
-        public RoomPack roomPack; // 방 프리팹
+        public RoomPack roomPack; // 방 프리팹들의 베이스
         public GameObject horizontalPathPrefab; // 가로로 난 길 프리팹
         public GameObject verticalPathPrefab; // 세로로 난 길 프리팹
 
@@ -40,12 +41,41 @@ namespace RoomManage
             action?.Invoke();
         }
 
+        #region Map Loading
 
-        private void OnDestroy()
+        
+        public void LoadRoomData(RoomData[] roomDatas, RoadData[] roadDatas)
         {
+            // 저장된 맵 파일을 열어야함
+            for (int i = 0; i < roomDatas.Length; i++)
+            {
+                RoomSO room = roomPack.FindMap(roomDatas[i].roomID);
+                GameObject newRoom = Instantiate(room.mapPrefab, roomDatas[i].roomPosition, Quaternion.identity);
+                if(roomDatas[i].isRoomCleared)
+                    newRoom.GetComponent<Room>().SetClear(roomDatas[i].isRoomCleared);
+                rooms.Add(newRoom);
+
+            }
+
+            for (int i = 0; i < roadDatas.Length; i++)
+            {
+                if (roadDatas[i].isRoadHorizontal)
+                { // 가로 길 생성
+                    Instantiate(horizontalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
+                }
+                else
+                { // 세로길 생성
+                    Instantiate(verticalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
+                }
+            }
             
         }
 
+        #endregion
+        
+
+        #region Map Generating
+        
         public void ResetMap()
         {
             DeleteRooms();
@@ -85,12 +115,6 @@ namespace RoomManage
             DelayAction(WallGenerateEvent, 0.1f);
         }
 
-        public void LoadRoomData()
-        {
-            // 저장된 맵 파일을 열어야함
-            
-            
-        }
         
         private Vector3 GetNextRoomPosition(GameObject previousRoom)
         {
@@ -177,5 +201,8 @@ namespace RoomManage
                 load.transform.SetParent(grid);
             }
         }
+        
+        #endregion
+
     }
 }
