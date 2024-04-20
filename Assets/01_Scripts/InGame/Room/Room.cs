@@ -5,6 +5,7 @@ namespace RoomManage
     
     public class Room : MonoBehaviour
     {
+        public int id;
         [SerializeField] private RoomType _roomType;
         [SerializeField] private bool isCleared;
         [SerializeField] private float playerDetectDistance = 13;

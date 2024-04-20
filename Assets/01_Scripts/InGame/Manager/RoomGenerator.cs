@@ -50,7 +50,7 @@ namespace RoomManage
             for (int i = 0; i < roomDatas.Length; i++)
             {
                 RoomSO room = roomPack.FindMap(roomDatas[i].roomID);
-                GameObject newRoom = Instantiate(room.mapPrefab, roomDatas[i].roomPosition, Quaternion.identity);
+                GameObject newRoom = Instantiate(room.MapPrefab, roomDatas[i].roomPosition, Quaternion.identity);
                 if(roomDatas[i].isRoomCleared)
                     newRoom.GetComponent<Room>().SetClear(roomDatas[i].isRoomCleared);
                 rooms.Add(newRoom);
@@ -98,7 +98,7 @@ namespace RoomManage
             int numRooms = Random.Range(minRooms, maxRooms + 1);
 
             // 초기 방 생성
-            GameObject firstRoom = Instantiate(roomPack.rooms[0].mapPrefab, Vector2.zero, Quaternion.identity);
+            GameObject firstRoom = Instantiate(roomPack.rooms[0].MapPrefab, Vector2.zero, Quaternion.identity);
             firstRoom.transform.SetParent(grid);
             rooms.Add(firstRoom);
 
@@ -106,7 +106,7 @@ namespace RoomManage
             GameObject previousRoom = firstRoom;
             for (int i = 1; i < numRooms; i++)
             {
-                GameObject newRoom = Instantiate(roomPack.RandomPickMap().mapPrefab, GetNextRoomPosition(previousRoom), Quaternion.identity);
+                GameObject newRoom = Instantiate(roomPack.RandomPickMap().MapPrefab, GetNextRoomPosition(previousRoom), Quaternion.identity);
                 newRoom.transform.SetParent(grid);
                 rooms.Add(newRoom);
                 ConnectRooms(previousRoom, newRoom);
