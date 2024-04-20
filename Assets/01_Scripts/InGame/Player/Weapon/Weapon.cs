@@ -29,15 +29,13 @@ namespace AttackManage
         [SerializeField]
         protected Vector2 attackDirection;
 
-        protected LayerMask _whatIsEnemy;
-        protected LayerMask _whatIsFieldObject;
+        [SerializeField]
+        protected LayerMask _whatIsTarget;
         
         
         
         protected virtual void Awake()
         {
-            _whatIsEnemy= LayerMask.GetMask("Enemy");
-            _whatIsFieldObject = LayerMask.GetMask("FieldObject");
             if (_weaponAnimator == null)
             {
                 _weaponAnimator.GetComponent<Animator>();
