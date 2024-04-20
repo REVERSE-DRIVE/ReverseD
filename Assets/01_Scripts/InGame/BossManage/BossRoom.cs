@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BossRoom : MonoBehaviour
 {
-    
-    
-    
-    
-    
+    [SerializeField] private float _playerDetectRange = 13;
+
+
+
+
 }

@@ -85,6 +85,13 @@ namespace RoomManage
             DelayAction(WallGenerateEvent, 0.1f);
         }
 
+        public void LoadRoomData()
+        {
+            // 저장된 맵 파일을 열어야함
+            
+            
+        }
+        
         private Vector3 GetNextRoomPosition(GameObject previousRoom)
         {
             Vector3 exitDirection = GetRandomExitDirection(previousRoom);

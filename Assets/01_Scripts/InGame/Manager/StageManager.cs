@@ -13,6 +13,9 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private float _delayNewStageMsg = 2;
     [SerializeField] private bool _isBossRoomOpened;
+
+    [Header("BossShow Setting")]
+    [SerializeField] private Transform _bossRoomZoomTrm;
     
     private void Start()
     {
@@ -100,5 +103,12 @@ public class StageManager : MonoBehaviour
         // 그럼 시작방의 아래쪽 문이 열림
         
         
+    }
+
+    private IEnumerator OpenBossRoomCoroutine()
+    {
+        GameManager.Instance._CameraManager.Follow(_bossRoomZoomTrm, 5);
+        yield return new WaitForSeconds(2f);
+
     }
 }
