@@ -52,9 +52,9 @@ public class Player : Entity
         status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
     }
 
-    public void TakeDamage(int damage)
+    public override void TakeDamage(int amount)
     {
-        status.hp -= damage;
+        status.hp -= amount;
         OnPlayerHpChanged?.Invoke();
         _soundObject.PlayAudio(0);
         IsDie();
@@ -84,7 +84,7 @@ public class Player : Entity
 
     public override void Die()
     {
-        Debug.Log("PLayer Die => GameOver");
+        SetObjective(false);
         SetObjective(false);
         status.moveSpeed = 0;
     }

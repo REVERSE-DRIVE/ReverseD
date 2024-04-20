@@ -5,6 +5,8 @@ namespace EnemyManage.EnemyBossBase
 {
     public class BossAVGStunState : BossAVGState
     {
+        private float _stateDuration;
+        private float _currentTime = 0;
         public BossAVGStunState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
         {
         }
@@ -13,14 +15,21 @@ namespace EnemyManage.EnemyBossBase
         {
             base.Enter();
             _bossAVGBase.CanStateChangeable = false;
-            _bossAVGBase.StartCoroutine(StunCoroutine());
+            _stateDuration = _bossAVGBase._stunDuration;
         }
 
-        private IEnumerator StunCoroutine()
+        public override void UpdateState()
         {
-            yield return new WaitForSeconds(_bossAVGBase._stunDuration);
-            _stateMachine.ChangeState(BossAVGStateEnum.Idle, true);
+            base.UpdateState();
+            _currentTime += Time.deltaTime;
+            if (_currentTime >= _stateDuration)
+            {
+                _currentTime = 0;
+                _stateMachine.ChangeState(BossAVGStateEnum.Idle, true);
+
+            }
         }
+
 
         public override void Exit()
         {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EnemyManage;
+using UnityEngine;
 
 namespace AttackManage
 {
@@ -28,44 +29,36 @@ namespace AttackManage
         [SerializeField]
         protected Vector2 attackDirection;
 
-        protected LayerMask _whatIsEnemy;
+        [SerializeField]
+        protected LayerMask _whatIsTarget;
         
         
         
         protected virtual void Awake()
         {
-            _whatIsEnemy= LayerMask.GetMask("Enemy");
             if (_weaponAnimator == null)
             {
                 _weaponAnimator.GetComponent<Animator>();
             }
         }
 
-        protected virtual void OnEnable()
-        {
-            
-        }
-       
-        protected virtual void OnDisable()
-        {
-        }
 
         /**
          * <summary>
          * 공격이 실행 되었을때 코드를 완성해야함
-         * 쿨타임과 같은 부가적인 체크는 PlayerAttackController에서 함
+         * 쿨타임과 같은 부가적인 체크는 PlayerAttackController에서 알아서 함
          * </summary>
          */
-        public abstract void Attack();
+        public abstract void AttackStart();
 
         public abstract void AttackEnd();
         
-        protected virtual void AttackAnimationOnTrigger()
+        public virtual void AttackAnimationOnTrigger()
         {
             _weaponAnimator.SetBool("IsAttack", true);
         }
         
-        protected virtual void AttackAnimationOffTrigger()
+        public virtual void AttackAnimationOffTrigger()
         {
             _weaponAnimator.SetBool("IsAttack", false);
         }
@@ -87,5 +80,32 @@ namespace AttackManage
                 transform.parent.localScale = Vector2.one;
             }
         }
+
+        protected virtual void TakeDamageToTargets(Collider2D[] hits)
+        {
+            if (hits == null) return;
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].TryGetComponent<Enemy>(out Enemy enemy))
+                {
+                    if (isKnockBack)
+                    {
+                        enemy.TakeDamageWithKnockBack(
+                            damage, GameManager.Instance._PlayerTransform.position,
+                            knockBackPower);
+                        continue;
+                    }
+                    enemy.TakeDamage(damage);
+                }
+                else if(hits[i].TryGetComponent<FieldObject>(out FieldObject fieldObject))
+                {
+                    fieldObject.TakeDamage(damage);
+                }
+                    
+            }
+        }
+
+        protected abstract Collider2D[] DetectTargets();
+
     }
 }

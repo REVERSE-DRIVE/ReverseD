@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FileItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TMP_Text _fileNameText;
+    
+    private DraggableUI _draggableUi;
+    private string _fileName;
+    
+    private void Awake()
     {
-        
+        _draggableUi = GetComponent<DraggableUI>();
+        _draggableUi.ParentTransform = transform.parent as RectTransform;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void SetFileName(string fileName)
     {
-        
+        _fileName = fileName;
+        _fileNameText.text = fileName;
     }
 }

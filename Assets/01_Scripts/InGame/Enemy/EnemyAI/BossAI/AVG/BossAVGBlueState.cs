@@ -1,20 +1,22 @@
 ﻿using System.Collections;
-using EnemyManage;
+using Calculator;
 using UnityEngine;
 
 namespace EnemyManage.EnemyBossBase
 {
     public class BossAVGBlueState : BossAVGState
     {
-        public BossAVGBlueState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
-        {
-        }
-
+        
         private float _attackTime = 10;
         private float _attackCooltime = 0.2f;
         private int _projectileAmount;
         private Projectile _projectile;
-        
+        private int _currentPhaseLevel = 0;
+
+        public BossAVGBlueState(Enemy enemyBase, EnemyStateMachine<BossAVGStateEnum> stateMachine, string animBoolName) : base(enemyBase, stateMachine, animBoolName)
+        {
+        }
+
 
         public override void Enter()
         {
@@ -43,18 +45,27 @@ namespace EnemyManage.EnemyBossBase
             yield return new WaitForSeconds(1f);
             float currentTime = 0;
             float currentCoolingTime = 0;
+            int rotationDirection = 1;
+
             while (currentTime <= _attackTime)
             {
-
+                if(TimeManager.TimeScale == 0)
+                    continue;
+                
                 currentTime += Time.deltaTime;
                 _bossAVGBase.transform.rotation = 
                     Quaternion.Euler(0, 0, 
-                        _bossAVGBase.transform.rotation.eulerAngles.z +_bossAVGBase._rotationSpeed);
-                currentCoolingTime += Time.deltaTime;
+                        _bossAVGBase.transform.rotation.eulerAngles.z +(rotationDirection)*_bossAVGBase._rotationSpeed);
+                currentCoolingTime += Time.deltaTime * TimeManager.TimeScale;
                 if (currentCoolingTime > _attackCooltime)
                 {
                     currentCoolingTime = 0;
                     Attack();
+                }
+ 
+                if (currentTime >= _attackTime * 0.5f)
+                {
+                    rotationDirection = -1;
                 }
 
                 yield return null;
@@ -80,18 +91,13 @@ namespace EnemyManage.EnemyBossBase
 
         private void Attack()
         {
-            float angleStep = 360f / _projectileAmount; // 각도 단계 계산
-
+            Vector2[] directions = VectorCalculator.DirectionsFromCenter(_projectileAmount);
             for (int i = 0; i < _projectileAmount; i++)
             {
-                // 각도 계산
-                float angle = i * angleStep;
-                float radians = angle * Mathf.Deg2Rad;
-                Vector2 direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
-                direction = RotateVector2(direction, _bossAVGBase.transform.rotation.eulerAngles.z);
+                directions[i] = RotateVector2(directions[i] , _bossAVGBase.transform.rotation.eulerAngles.z);
                 Projectile projectile = PoolManager.Get(_projectile);
                 projectile.transform.position = _bossAVGBase.transform.position;
-                projectile.Fire(_bossAVGBase.transform.position, direction);
+                projectile.Fire(_bossAVGBase.transform.position, directions[i] );
                 
             }
         }

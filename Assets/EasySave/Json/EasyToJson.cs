@@ -1,13 +1,14 @@
 using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine;
+using System.IO;
 
 namespace EasySave.Json
 {
     public static class EasyToJson
     {
         public static readonly string LocalPath = Application.persistentDataPath + "/Json/";
+        
         /**
          * <summary>
          * Json 파일로 저장

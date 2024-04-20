@@ -6,22 +6,24 @@ namespace EnemyManage.EnemyBossBase
     public class BossAVG : Boss
     {
         public EnemyStateMachine<BossAVGStateEnum> StateMachine { get; private set; }
-
+        [SerializeField] internal SoundObject _soundObject;
         [Header("Idle State Setting")] 
         [SerializeField] internal BossAVGStateEnum[] _randomPickState;
         [SerializeField] internal float _idleWaitingTime = 5f;
         [Header("Stun State Setting")] 
-        [SerializeField] internal float _stunDuration = 10;
+        [SerializeField] internal float _stunDuration = 5;
 
         [Header("Red State Setting")] 
-        [SerializeField] private float _redStateDuration = 15f;
-        [SerializeField] private Projectile _redProjectile1;
-        [SerializeField] private Projectile _redProjectile2;
-        
-        
-        
+        [SerializeField] internal int _chargeEnergy = 20;
+        [SerializeField] internal int _burstDamage = 100;
+        [SerializeField] internal float _chargingSpeed = 2;
+        [SerializeField] internal AVGStructureObject _structureObject;
+        [SerializeField] internal ParticleSystem _chargingParticle;
+        [SerializeField] internal ParticleSystem _burstParticle;
         [Header("Green State Setting")] 
-        [SerializeField] internal float _greenStateDuration = 10f;
+        [SerializeField] internal float _greenStateDuration = 30f;
+        [SerializeField] internal int _healCoreHealAmountPerSecond = 30;
+        [SerializeField] internal AVGHealingObject[] _healingObjects;
         //[SerializeField] private int _healMultiply = 3;
         [Header("Blue State Setting")] 
         [SerializeField] internal float _attacktime = 10f;
@@ -29,12 +31,16 @@ namespace EnemyManage.EnemyBossBase
         [SerializeField] internal Projectile _projectile;
         [SerializeField] internal int _fireProjectileAmount = 4;
         [SerializeField] internal float _rotationSpeed = 3f;
+
+        [Header("Yellow State Setting")] 
+        [SerializeField] internal float _yellowStateDuration = 30f;
+        [SerializeField] internal bool _isResist;
         
         protected override void Awake()
         {
             base.Awake();
             StateMachine = new EnemyStateMachine<BossAVGStateEnum>();
-
+            _soundObject = GetComponent<SoundObject>();
             //여기에 상태를 불러오는 코드가 필요하다.
             SetStateEnum();
 
@@ -62,13 +68,42 @@ namespace EnemyManage.EnemyBossBase
 
         private void Start()
         {
+            base.Start();
             StateMachine.Initialize(BossAVGStateEnum.Idle, this);
         }
 
+        
+        
         private void Update()
         {
+            if (TimeManager.TimeScale == 0) return;
+
             StateMachine.CurrentState.UpdateState();
         }
+
+        public void ForceStun()
+        {
+            StateMachine.ChangeState(BossAVGStateEnum.Stun, true);
+            
+        }
+
+        public override void TakeDamage(int amount)
+        {
+            if (_isResist) return;
+            base.TakeDamage(amount);
+        }
+
+        public override void TakeStrongDamage(int amount)
+        {
+            print("AVG Stun");
+            base.TakeStrongDamage(amount);
+            if (_isResist)
+            {
+                StateMachine.CurrentState.CustomTrigger();
+                _isResist = false;
+            }
+        }
+
 
         public void Attack()
         {

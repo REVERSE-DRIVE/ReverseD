@@ -81,8 +81,6 @@ namespace EnemyManage
         public virtual void SetStatusDefault()
         {
             status = defaultStatus;
-            
-            
         }
 
         protected virtual void HandlerHitEvent()
