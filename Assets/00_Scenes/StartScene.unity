@@ -283,10 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02485b9f0178c874188a339174b6a41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _warningPanel: {fileID: 2098019569}
+  _warningPanel: {fileID: 2098019570}
   _ease: 5
-  _upTarget: {fileID: 819491971}
-  _downTarget: {fileID: 1966430797}
+  _upTarget: {x: 0, y: 0}
+  _downTarget: {x: 0, y: 0}
   _onStart:
     m_PersistentCalls:
       m_Calls:
@@ -1339,7 +1339,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 150672190}
           m_TargetAssemblyTypeName: StartSceneManager, Assembly-CSharp
-          m_MethodName: CheckFileDelete
+          m_MethodName: CheckFileOverride
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

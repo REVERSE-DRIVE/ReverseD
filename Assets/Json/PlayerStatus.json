@@ -1,0 +1,15 @@
+{
+    "playerStatus": {
+        "hp": 0,
+        "hpMax": 0,
+        "attackDamage": 0,
+        "criticalRate": 0,
+        "defense": 0,
+        "criticalDefense": 0,
+        "moveSpeed": 0.0,
+        "mass": 0.0,
+        "isHealDefense": false,
+        "healthDefMultiple": 0.0
+    },
+    "chapter": 0
+}
