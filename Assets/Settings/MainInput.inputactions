@@ -6,76 +6,23 @@
             "id": "d4de175c-5918-4b99-9f3c-5d36e0d58e2a",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "c94e697d-6d09-4c63-970f-b9a0529ef7db",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "d39023bb-5dba-4ee5-a701-1ce4ec3a6fa4",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "d28e5df1-d099-44ff-9870-a5cd39f7e44c",
-                    "path": "",
+                    "id": "f1026c3a-3dc1-4459-93e8-4fad9c57111c",
+                    "path": "<AndroidJoystick>/stick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dcaadf78-0399-474e-a926-96bf820fd337",
-                    "path": "<AndroidJoystick>/stick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6bb8f6c3-83ef-486a-aee7-6709a42af2ae",
-                    "path": "<AndroidJoystick>/stick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a87aebfa-2d8d-4fc6-a670-239f1a64a436",
-                    "path": "<AndroidJoystick>/stick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9d3db107-97b1-4ba6-b9e6-ad62fca94ee7",
-                    "path": "<AndroidJoystick>/stick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
+                    "groups": "Android",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false

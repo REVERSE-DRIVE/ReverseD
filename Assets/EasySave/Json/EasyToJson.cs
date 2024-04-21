@@ -1,13 +1,29 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using UnityEngine;
 using System.IO;
+using UnityEngine;
+using Newtonsoft.Json;
 
 namespace EasySave.Json
 {
     public static class EasyToJson
     {
-        public static readonly string LocalPath = Application.persistentDataPath + "/Json/";
+        private static readonly string LocalPath = Application.dataPath + "/Json/";
+        
+        private static void EnsureDirectoryExists()
+        {
+            if (!Directory.Exists(LocalPath))
+            {
+                Debug.Log("폴더가 존재하지 않습니다.");
+                Debug.Log("폴더를 생성합니다.");
+                Directory.CreateDirectory(LocalPath);
+                Debug.Log($"저장 경로: {LocalPath}");
+            }
+        }
+
+        private static string GetFilePath(string fileName)
+        {
+            return Path.Combine(LocalPath, $"{fileName}.json");
+        }
         
         /**
          * <summary>
@@ -19,14 +35,8 @@ namespace EasySave.Json
          */
         public static void ToJson<T>(T obj, string jsonFileName, bool prettyPrint = false)
         {
-            if (!Directory.Exists(LocalPath))
-            {
-                Debug.Log("폴더가 존재하지 않습니다.");
-                Debug.Log("폴더를 생성합니다.");
-                Directory.CreateDirectory(LocalPath);
-                Debug.Log("저장 경로: " + LocalPath);
-            }
-            string path = LocalPath + jsonFileName + ".json";
+            EnsureDirectoryExists();
+            string path = GetFilePath(jsonFileName);
             string json = JsonUtility.ToJson(obj, prettyPrint);
             File.WriteAllText(path, json);
             Debug.Log(json);
@@ -41,7 +51,7 @@ namespace EasySave.Json
          */
         public static T FromJson<T>(string jsonFileName)
         {
-            string path = LocalPath + jsonFileName + ".json";
+            string path = GetFilePath(jsonFileName);
             if (!File.Exists(path))
             {
                 Debug.Log("파일이 존재하지 않습니다.");
@@ -65,14 +75,8 @@ namespace EasySave.Json
          */
         public static void ListToJson<T>(List<T> list, string jsonFileName, bool prettyPrint = false)
         {
-            if (!Directory.Exists(LocalPath))
-            {
-                Debug.Log("폴더가 존재하지 않습니다.");
-                Debug.Log("폴더를 생성합니다.");
-                Directory.CreateDirectory(LocalPath);
-                Debug.Log("저장 경로: " + LocalPath);
-            }
-            string path = Path.Combine(LocalPath, jsonFileName + ".json");
+            EnsureDirectoryExists();
+            string path = GetFilePath(jsonFileName);
             string json = JsonConvert.SerializeObject(list, prettyPrint ? Formatting.Indented : Formatting.None);
             File.WriteAllText(path, json);
             Debug.Log(json);
@@ -87,7 +91,7 @@ namespace EasySave.Json
          */
         public static List<T> ListFromJson<T>(string jsonFileName)
         {
-            string path = Path.Combine(LocalPath, jsonFileName + ".json");
+            string path = GetFilePath(jsonFileName);
             if (!File.Exists(path))
             {
                 Debug.Log("파일이 존재하지 않습니다.");
@@ -111,14 +115,8 @@ namespace EasySave.Json
          */
         public static void DictionaryToJson<T, TU>(Dictionary<T, TU> dictionary, string jsonFileName, bool prettyPrint = false)
         {
-            if (!Directory.Exists(LocalPath))
-            {
-                Debug.Log("폴더가 존재하지 않습니다.");
-                Debug.Log("폴더를 생성합니다.");
-                Directory.CreateDirectory(LocalPath);
-                Debug.Log("저장 경로: " + LocalPath);
-            }
-            string path = LocalPath + jsonFileName + ".json";
+            EnsureDirectoryExists();
+            string path = GetFilePath(jsonFileName);
             string json = JsonConvert.SerializeObject(dictionary, prettyPrint ? Formatting.Indented : Formatting.None);
             File.WriteAllText(path, json);
             Debug.Log(json);
@@ -133,7 +131,7 @@ namespace EasySave.Json
          */
         public static Dictionary<T, TU> DictionaryFromJson<T, TU>(string jsonFileName)
         {
-            string path = LocalPath + jsonFileName + ".json";
+            string path = GetFilePath(jsonFileName);
             if (!File.Exists(path))
             {
                 Debug.Log("파일이 존재하지 않습니다.");
