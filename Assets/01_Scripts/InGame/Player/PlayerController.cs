@@ -46,9 +46,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!_isWalking)
+        if(_isMoving && !_isWalking)
         {
-            
+            _isWalking = true;
+            _walkParticle.Play();
+        }else if (!_isMoving && _isWalking)
+        {
+            _isWalking = false;
+            _walkParticle.Stop();
         }
         Move();
         Rotate();
@@ -58,6 +63,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _isMoving = _rigid.velocity.magnitude > 0.1f;
+        
         _direction = _joystick.Direction.normalized;
         _rigid.velocity = _direction * (_player.MoveSpeed * TimeManager.TimeScale);
         

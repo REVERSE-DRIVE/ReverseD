@@ -11,6 +11,5 @@ namespace AttackManage
             
             return hitTargets;
         }
-        
     }
 }
