@@ -6,24 +6,24 @@
             "id": "d4de175c-5918-4b99-9f3c-5d36e0d58e2a",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Value",
+                    "name": "Hold",
+                    "type": "Button",
                     "id": "d39023bb-5dba-4ee5-a701-1ce4ec3a6fa4",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "f1026c3a-3dc1-4459-93e8-4fad9c57111c",
-                    "path": "<AndroidJoystick>/stick",
+                    "id": "3d568fbb-1f7a-45d0-bb98-47af90c12551",
+                    "path": "*/{Submit}",
                     "interactions": "",
                     "processors": "",
                     "groups": "Android",
-                    "action": "Move",
+                    "action": "Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
