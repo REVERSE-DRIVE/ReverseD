@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace RoomManage
@@ -53,6 +54,8 @@ namespace RoomManage
                 OpenAllDoor();
             }
         }
+        
+        
 
         public void SetClear(bool value)
         {
@@ -108,10 +111,16 @@ namespace RoomManage
             if (currentPhase >= _phases.Length)
             {
                 isCleared = true;
-                GameManager.Instance._UIManager.ShowRoomClear();
-                OpenAllDoor();
-                GameManager.Instance.Infect(Random.Range(2, 4));
+                StartCoroutine(ClearCoroutine());
             }
+        }
+
+        private IEnumerator ClearCoroutine()
+        {
+            GameManager.Instance._UIManager.ShowRoomClear();
+            OpenAllDoor();
+            yield return new WaitForSeconds(1);
+            GameManager.Instance.Infect(Random.Range(2, 4));
         }
 
         private void CloseAllDoor()

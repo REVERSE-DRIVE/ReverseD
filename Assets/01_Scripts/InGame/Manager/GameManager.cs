@@ -59,6 +59,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         TimeManager.TimeScale = 0;
+        
     }
 
     public void Infect(int amount)

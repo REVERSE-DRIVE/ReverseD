@@ -17386,7 +17386,7 @@ MonoBehaviour:
   _bossBar: {fileID: 0}
   UI_Infection: {fileID: 1211622217}
   _infectionText: {fileID: 64053942}
-  _displayDuration: 1
+  _displayDuration: 2.5
   UI_GameOver: {fileID: 0}
 --- !u!4 &1292344168
 Transform:
@@ -18298,7 +18298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c673c0a93cc4b6e8e024acffa2f2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWeaponSO: {fileID: 11400000, guid: fbe125ed820dd5448a353f51ba06cbd5, type: 2}
+  _currentWeaponSO: {fileID: 11400000, guid: 2ba8975bec72afb46aa0ea9e4873e3f5, type: 2}
   _currentWeapon: {fileID: 0}
   weaponHandleTrm: {fileID: 1909669695}
   currentAttackTime: 0
@@ -24652,6 +24652,7 @@ MonoBehaviour:
   _maxStageIndexInChapter: 5
   _delayNewStageMsg: 2
   _isBossRoomOpened: 0
+  _bossRoomZoomTrm: {fileID: 0}
 --- !u!4 &2092276428
 Transform:
   m_ObjectHideFlags: 0

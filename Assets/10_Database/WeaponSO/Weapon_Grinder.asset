@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponName: Grinder
   description: 
   damage: 15
-  attackCooltime: 2.2
+  attackCooltime: 2.3
   attackTime: 1.8
   attackRange: 5.1
   isKnockBack: 0
