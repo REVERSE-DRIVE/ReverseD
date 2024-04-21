@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour
     private CinemachineVirtualCamera _virtualCamera;
     private CinemachineBasicMultiChannelPerlin _cinemachineBasicMultiChannelPerlin;
 
-    [SerializeField] private float hitShakePower = 5;
+                                                                            [SerializeField] private float hitShakePower = 5;
     [SerializeField] private float hitShakeDuration = 0.1f;
     [SerializeField] private float cameraDefaultZoom = 8f;
 

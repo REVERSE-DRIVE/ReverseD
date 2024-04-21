@@ -69,6 +69,7 @@ namespace AttackManage
             if (!isRotation) return;
             if (direction.sqrMagnitude == 0)
                 return;
+            attackDirection = direction;
             // 오프셋 부분 수정해야될 수도 있움
             Quaternion rotate = Quaternion.Euler(0, 0,
                 Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);

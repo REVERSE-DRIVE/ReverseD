@@ -18298,7 +18298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c673c0a93cc4b6e8e024acffa2f2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWeaponSO: {fileID: 11400000, guid: 2ba8975bec72afb46aa0ea9e4873e3f5, type: 2}
+  _currentWeaponSO: {fileID: 11400000, guid: fbe125ed820dd5448a353f51ba06cbd5, type: 2}
   _currentWeapon: {fileID: 0}
   weaponHandleTrm: {fileID: 1909669695}
   currentAttackTime: 0
