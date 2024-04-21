@@ -24652,7 +24652,7 @@ MonoBehaviour:
   _maxStageIndexInChapter: 5
   _delayNewStageMsg: 2
   _isBossRoomOpened: 0
-  _bossRoomZoomTrm: {fileID: 0}
+  _bossRoomZoomTrm: {fileID: 1998425024}
 --- !u!4 &2092276428
 Transform:
   m_ObjectHideFlags: 0
@@ -24837,9 +24837,9 @@ SceneRoots:
   - {fileID: 1292344168}
   - {fileID: 1520691207}
   - {fileID: 1303114885}
-  - {fileID: 1025545514}
   - {fileID: 2092276428}
   - {fileID: 1306831001}
+  - {fileID: 1025545514}
   - {fileID: 1637630571}
   - {fileID: 545116068}
   - {fileID: 1301798580}

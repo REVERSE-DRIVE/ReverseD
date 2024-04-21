@@ -15,8 +15,7 @@ namespace AttackManage
 
         [SerializeField] internal bool isKnockBack;
         [SerializeField] internal float knockBackPower = 1;
-
-
+        
         [Header("Dev Setting")]
         [Range(-180, 180)]
         [SerializeField]
@@ -84,15 +83,6 @@ namespace AttackManage
                 transform.parent.localScale = Vector2.one;
                 transform.localScale = Vector2.one;
             }
-            //
-            // if (Mathf.Abs(transform.rotation.z) > 0.7f)  // z rotation값 재계산 해야함
-            // {
-            //     transform.parent.localScale = new Vector2(1, -1);
-            // }
-            // else
-            // {
-            //     transform.parent.localScale = Vector2.one;
-            // }
         }
 
         protected virtual void TakeDamageToTargets(Collider2D[] hits)
