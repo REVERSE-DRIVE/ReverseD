@@ -8,17 +8,6 @@ namespace EnemyManage.AIs
     public class NormalAI : EnemyAI
     {
         
-        protected override void Awake()
-        {
-            base.Awake();
-            
-        }
-
-        protected override void Start()
-        {
-            base.Start();
-        }
-        
 
         // protected void OnTriggerEnter2D(Collider2D other)
         // {

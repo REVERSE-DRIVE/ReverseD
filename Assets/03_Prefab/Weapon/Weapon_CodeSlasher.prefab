@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 897877426606505444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 0.88, z: 0}
+  m_LocalPosition: {x: 2, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  _attackCooltime: 0.6
-  _attackTime: 0.5
+  _attackCooltime: 0.65
+  _attackTime: 0.28
   isKnockBack: 0
   knockBackPower: 1
   _rotationOffset: 0
@@ -90,9 +90,9 @@ MonoBehaviour:
   _whatIsTarget:
     serializedVersion: 2
     m_Bits: 40960
-  _attackRadius: 2.7
+  _attackRadius: 1.6
   _isSplash: 1
-  _damageTiming: 0.2
+  _damageTiming: 0.13
   _attackParticleHandleTrm: {fileID: 3720652034754125117}
   _attackParticle: {fileID: 6518180681712715734}
 --- !u!1 &3691300278923079253
@@ -698,7 +698,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 2
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0

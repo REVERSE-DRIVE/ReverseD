@@ -31,6 +31,7 @@ namespace AttackManage
             Quaternion rotate = Quaternion.Euler(0, 0,
                 Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);
             transform.rotation = rotate;
+            //_attackParticle.startRotation = rotate.z;
             //_particleTrm.rotation = rotate;
             if (Mathf.Abs(rotate.z) > 0.7f)  // z rotation값 재계산 해야함
             {

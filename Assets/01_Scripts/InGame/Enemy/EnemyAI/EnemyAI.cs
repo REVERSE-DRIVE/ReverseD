@@ -9,7 +9,7 @@ namespace EnemyManage
     {
         protected Transform _playerTrm;
 
-        protected Enemy _enemy;
+        protected Enemy _enemyBase;
         [Header("Current State Values")]
         [Space(10)]
         [SerializeField] protected bool _isStatic;
@@ -39,7 +39,7 @@ namespace EnemyManage
         protected virtual void Awake()
         {
             _rigid = GetComponent<Rigidbody2D>();
-            _enemy = GetComponent<Enemy>();
+            _enemyBase = GetComponent<Enemy>();
             _playerLayer = LayerMask.GetMask("Player");
         }
 
@@ -125,7 +125,7 @@ namespace EnemyManage
             {
                 StopCoroutine(nameof(AttackCoroutine));
                 isAttacking = false;
-                _rigid.velocity = direction * (_enemy.Status.moveSpeed * TimeManager.TimeScale);
+                _rigid.velocity = direction * (_enemyBase.Status.moveSpeed * TimeManager.TimeScale);
             }
         }
         protected abstract void Attack();
@@ -191,7 +191,7 @@ namespace EnemyManage
         
         protected virtual void Move(Vector2 dir)
         {
-            _rigid.velocity = dir.normalized * (_enemy.Status.moveSpeed * TimeManager.TimeScale);
+            _rigid.velocity = dir.normalized * (_enemyBase.Status.moveSpeed * TimeManager.TimeScale);
         }
 
         public virtual void SetDefault()
