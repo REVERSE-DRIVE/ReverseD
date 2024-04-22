@@ -20,7 +20,7 @@ MonoBehaviour:
   damage: 6
   attackCooltime: 0.6
   attackTime: 0.1
-  attackRange: 2
+  attackRange: 5
   isKnockBack: 0
   knockBackPower: 1
-  weaponPrefab: {fileID: 4435204909199220996, guid: 6968f788d2420b140892cc3207af2648, type: 3}
+  weaponPrefab: {fileID: 9195510179243433196, guid: 6968f788d2420b140892cc3207af2648, type: 3}
