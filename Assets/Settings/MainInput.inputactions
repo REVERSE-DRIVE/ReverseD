@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Hold",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "d39023bb-5dba-4ee5-a701-1ce4ec3a6fa4",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -18,8 +18,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3d568fbb-1f7a-45d0-bb98-47af90c12551",
-                    "path": "*/{Submit}",
+                    "id": "85c7290e-dbf3-49d2-92f1-0179a2068d0a",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Android",
