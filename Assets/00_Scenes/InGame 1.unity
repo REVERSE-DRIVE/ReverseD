@@ -18654,9 +18654,6 @@ MonoBehaviour:
   _currentWeapon: {fileID: 0}
   weaponHandleTrm: {fileID: 1909669695}
   currentAttackTime: 0
-  _whatIsEnemy:
-    serializedVersion: 2
-    m_Bits: 8192
 --- !u!114 &1312064208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25224,6 +25221,7 @@ SceneRoots:
   - {fileID: 1303114885}
   - {fileID: 2092276428}
   - {fileID: 1306831001}
+  - {fileID: 718520221}
   - {fileID: 1637630571}
   - {fileID: 545116068}
   - {fileID: 1301798580}
@@ -25239,5 +25237,4 @@ SceneRoots:
   - {fileID: 31958427}
   - {fileID: 1156391203}
   - {fileID: 296435689}
-  - {fileID: 718520221}
   - {fileID: 548784434}
