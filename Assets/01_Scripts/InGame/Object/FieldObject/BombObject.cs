@@ -16,6 +16,12 @@ public class BombObject : FieldObject
     
     protected override void DestroyEvent()
     {
+        Explode();
+    }
+
+    public virtual void Explode()
+    {
+        
         ExplodeProjectile();
         ExplodeTrueDamage();
     }

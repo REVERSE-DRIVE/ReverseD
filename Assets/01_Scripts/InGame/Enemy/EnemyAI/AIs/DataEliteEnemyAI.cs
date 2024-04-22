@@ -13,11 +13,7 @@ namespace EnemyManage.AIs
         [SerializeField] private GameObject _projectile;
 
 
-        protected override void Attack()
-        {
-            
-            
-        }
+        
 
         private IEnumerator AttackRoutine()
         {

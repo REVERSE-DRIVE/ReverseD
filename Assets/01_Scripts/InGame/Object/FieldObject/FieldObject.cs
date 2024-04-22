@@ -49,9 +49,9 @@ public abstract class FieldObject : MonoBehaviour
     }
 
     protected IEnumerator DestroyCoroutine()
-    {
-        yield return new WaitForSeconds(0.2f);
+    {        
         _collider.enabled = false;
+        yield return new WaitForSeconds(0.2f);
         Destroy();
 
     }

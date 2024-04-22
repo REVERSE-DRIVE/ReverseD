@@ -8,10 +8,7 @@ namespace EnemyManage.AIs
     {
         
 
-        protected override void Attack()
-        {
-            throw new System.NotImplementedException();
-        }
+        
         
     }
 
