@@ -21,17 +21,10 @@ namespace AttackManage
         private Vector2 dir;
 
         [SerializeField] protected float currentAttackTime = 0;
-        [SerializeField] protected LayerMask _whatIsEnemy;
 
-        
-        
-        public bool IsAttackCooldowned
-        {
-            get
-            {
-                return currentAttackTime >= _currentWeapon._attackCooltime;
-            }
-        }
+
+
+        public bool IsAttackCooldowned => currentAttackTime >= _currentWeapon._attackCooltime;
         
         private void Awake()
         {
@@ -71,8 +64,10 @@ namespace AttackManage
 
         private IEnumerator AttackRoutine()
         {
-            _currentWeapon.Attack();
+            _currentWeapon.AttackStart();
+            _currentWeapon.AttackAnimationOnTrigger();
             yield return new WaitForSeconds(_currentWeapon._attackTime);
+            _currentWeapon.AttackAnimationOffTrigger();
             _currentWeapon.AttackEnd();
         }
 

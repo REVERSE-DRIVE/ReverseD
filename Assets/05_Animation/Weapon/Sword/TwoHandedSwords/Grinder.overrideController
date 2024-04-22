@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grinder
+  m_Controller: {fileID: 9100000, guid: c8fef45feb3e79147bcf633f3422f8ca, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 80609ad84722c054ea0aba4215b49e7a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 32985477d0faf30468dfcd2bf99760c5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0c52a2aa16bc9bf42972627381a9089d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: acf5055c69ed5364e9c6b67235a746f9, type: 2}

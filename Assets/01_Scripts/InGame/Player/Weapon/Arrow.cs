@@ -42,6 +42,11 @@ public class Arrow : Projectile
         }
     }
 
+    protected override void DestroyEvent()
+    {
+        
+    }
+
     public override void Fire(Vector2 direction)
     {
         base.Fire(direction);
