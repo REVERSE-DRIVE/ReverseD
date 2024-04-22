@@ -8,12 +8,13 @@ namespace AttackManage
         public override void AttackStart()
         {
             StartCoroutine(AttackCoroutine());
-            
+
         }
 
         protected override IEnumerator AttackCoroutine()
         {
             yield return new WaitForSeconds(_damageTiming);
+            ShowAttackEffect();
             TakeDamageToTargets(DetectTargets());
         }
 

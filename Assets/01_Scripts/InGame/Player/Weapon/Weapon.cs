@@ -19,7 +19,7 @@ namespace AttackManage
         [Header("Dev Setting")]
         [Range(-180, 180)]
         [SerializeField]
-        private float _rotationOffset = 0;
+        protected float _rotationOffset = 0;
         [SerializeField]
         protected Animator _weaponAnimator;
         [Space(10)]
