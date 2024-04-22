@@ -180,7 +180,7 @@ namespace EnemyManage.AIs
             _rigid.velocity = dir.normalized * (_enemyBase.Status.moveSpeed * TimeManager.TimeScale);
         }
 
-        public virtual void SetDefault()
+        public override void SetDefault()
         {
             _currentState = NormalEnemyStateEnum.Roaming;
             isRoaming = false;

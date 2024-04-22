@@ -35,11 +35,12 @@ namespace EnemyManage.AIs
         private float _currentIdleTime = 0;
         
         
-        protected void Attack()
+        public override void SetDefault()
         {
-            
+            _currentState = AZTypeEnemyState.Idle;
+            _currentCharge = 0;
         }
-
+        
         protected void Update()
         {
             if (TimeManager.TimeScale == 0) return;
@@ -123,8 +124,8 @@ namespace EnemyManage.AIs
 
             _currentState = AZTypeEnemyState.Idle;
         }
-        
-        
+
+
         
     }
 }

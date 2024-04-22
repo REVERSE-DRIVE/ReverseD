@@ -32,10 +32,12 @@ namespace EnemyManage
             _playerTrm = GameManager.Instance._PlayerTransform;
 
         }
-        
-        
-        
 
-        
+        public abstract void SetDefault();
+
+
+
+
+
     }
 }

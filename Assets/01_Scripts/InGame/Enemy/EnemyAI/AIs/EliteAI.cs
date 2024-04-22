@@ -6,10 +6,10 @@ namespace EnemyManage.AIs
 {
     public class EliteAI : EnemyAI
     {
-        
-
-        
-        
+        public override void SetDefault()
+        {
+            
+        }
     }
 
 }
