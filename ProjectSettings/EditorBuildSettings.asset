@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/00_Scenes/PlayerMove.unity
     guid: 7238f664020266b46a222b4043a0874a
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 41f5bf75e0903584e845e5e842f25b1a, type: 2}
