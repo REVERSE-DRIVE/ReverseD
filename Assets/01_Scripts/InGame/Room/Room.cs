@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace RoomManage
@@ -5,13 +6,14 @@ namespace RoomManage
     
     public class Room : MonoBehaviour
     {
+        public int id;
         [SerializeField] private RoomType _roomType;
         [SerializeField] private bool isCleared;
         [SerializeField] private float playerDetectDistance = 13;
 
         [SerializeField] private Phase[] _phases;
 
-        private Transform enemyParent;
+        private Transform _enemyParent;
         [SerializeField] private int currentPhase = 0;
         [SerializeField] private bool isPhaseStarted;
 
@@ -24,17 +26,11 @@ namespace RoomManage
         
         
         
-        public int currentEnemyAmount
-        {
-            get
-            {
-                return enemyParent.childCount;
-            }
-        }
+        public int currentEnemyAmount => _enemyParent.childCount;
 
         private void Awake()
         {
-            enemyParent = transform.Find("EnemyParent");
+            _enemyParent = transform.Find("EnemyParent");
             phaseStartParticle = transform.Find("MapActiveParticle").GetComponent<ParticleSystem>();
             _soundObject = GetComponent<SoundObject>();
 
@@ -57,6 +53,13 @@ namespace RoomManage
             {
                 OpenAllDoor();
             }
+        }
+        
+        
+
+        public void SetClear(bool value)
+        {
+            isCleared = value;
         }
 
         private void CheckPlayer()
@@ -86,10 +89,15 @@ namespace RoomManage
             _soundObject.PlayAudio(0);
         }
     
+        /**
+         * <summary>
+         * 방에서 적들을 스폰해주는 함수
+         * </summary>
+         */
         private void GenerateEnemy()
         {
             _soundObject.PlayAudio(1);
-            GameManager.Instance._RoomManager.GeneratePhase(enemyParent, playerDetectDistance-1, _phases[currentPhase]);
+            GameManager.Instance._RoomManager.GeneratePhase(_enemyParent, playerDetectDistance-1, _phases[currentPhase]);
             
         }
 
@@ -102,12 +110,17 @@ namespace RoomManage
             }
             if (currentPhase >= _phases.Length)
             {
-                Debug.Log("스테이지 클리어");
                 isCleared = true;
-                GameManager.Instance._UIManager.ShowRoomClear();
-                OpenAllDoor();
-                
+                StartCoroutine(ClearCoroutine());
             }
+        }
+
+        private IEnumerator ClearCoroutine()
+        {
+            GameManager.Instance._UIManager.ShowRoomClear();
+            OpenAllDoor();
+            yield return new WaitForSeconds(1);
+            GameManager.Instance.Infect(Random.Range(2, 4));
         }
 
         private void CloseAllDoor()

@@ -16,7 +16,7 @@ MonoBehaviour:
   itemRank: 0
   itemName: "\uC640"
   description: "\uC774\uB7F0"
-  icon: {fileID: 21300000, guid: 2a1f3cba20f3e11498474a705db12fde, type: 3}
+  icon: {fileID: 21300000, guid: 5837685f927cdde4a9573b2a5edb4dca, type: 3}
   itemType: 2
   packageType: 0
   resourceType: 0

@@ -16,8 +16,8 @@ public class GameManager : MonoSingleton<GameManager>
     public RoomGenerator _RoomGenerator { get; private set; }
     public RenderingManager _RenderingManager { get; private set; }
     public RoomManager _RoomManager { get; private set; }
-
     public CameraManager _CameraManager { get; private set; }
+    public BossManager _BossManager { get; private set; }
 
 
     // =====
@@ -59,16 +59,14 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         TimeManager.TimeScale = 0;
+        
     }
 
     public void Infect(int amount)
     {
         _StageManager.AddInfect(amount);
-        AlertInfection();
-    }
-
-    public void AlertInfection()
-    {
+        
         _UIManager.ShowInfectionAlert(_StageManager.InfectedLevel);
     }
+
 }

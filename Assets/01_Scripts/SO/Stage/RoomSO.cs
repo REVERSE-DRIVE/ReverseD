@@ -17,8 +17,20 @@ namespace RoomManage
     [System.Serializable]
     public class RoomSO : ScriptableObject
     {
+        public int id;
         public RoomType roomType;
-        public GameObject mapPrefab;
+        [SerializeField]
+        private GameObject mapPrefab;
+
+        public GameObject MapPrefab
+        {
+            get
+            {
+                mapPrefab.GetComponent<Room>().id = id;
+                return mapPrefab;
+            }
+        }
+        
         public float roomSpawnRate = 1f;
         public int maxSpawnAmount = 1;
         public int minSpawnAmount;

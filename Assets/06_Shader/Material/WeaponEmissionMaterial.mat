@@ -56,11 +56,11 @@ Material:
     m_Floats:
     - _EnableSubColor: 0
     - _Main_Emission: 1
-    - _Main_Range: 0.611
+    - _Main_Range: 0.5
     - _Sub_Emission: 1
     - _Sub_Range: 0.5
     m_Colors:
-    - _Main_EmissionColor: {r: 4.759381, g: 0.10775942, b: 0.10775942, a: 1}
+    - _Main_EmissionColor: {r: 2.8314614, g: 0, b: 0, a: 1}
     - _MaskColor: {r: 1, g: 0, b: 0, a: 1}
     - _SubColor: {r: 0, g: 0, b: 0, a: 0}
     - _Sub_EmissionColor: {r: 0, g: 0, b: 0, a: 0}

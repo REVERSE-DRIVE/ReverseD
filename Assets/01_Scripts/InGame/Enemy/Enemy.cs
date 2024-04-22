@@ -8,17 +8,20 @@ namespace EnemyManage
     
     public abstract class Enemy : Entity
     {
-
+        public event Action OnHealthChanged;
+        public event Action OnDieEvent;
+        
         [Header("Setting Values")]
         [SerializeField] protected ItemDropType ItemDropType;
         [SerializeField] protected Material _hitMaterial;
-        public event Action OnHealthChanged;
+       
         protected Material _defaultMaterial;
         public bool CanStateChangeable { get; set; } = true;
         
         // Compo
         protected Rigidbody2D _rigid;
         protected SpriteRenderer _spriteRenderer;
+        [SerializeField] protected EffectObject _enemyDieEffectPrefab;
         public Animator AnimatorCompo;
 
         protected virtual void Awake()
@@ -61,6 +64,8 @@ namespace EnemyManage
 
         public override void Die()
         {
+            OnDieEvent?.Invoke();
+            PoolManager.Get(_enemyDieEffectPrefab, transform.position, Quaternion.identity).Play();
             ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
             StartCoroutine(DieRoutine());
         }

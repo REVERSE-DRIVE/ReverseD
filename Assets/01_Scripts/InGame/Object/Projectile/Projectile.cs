@@ -9,7 +9,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected float _speed;
     [SerializeField] protected float lifeTime = 3f;
     [SerializeField] protected ProjectileTarget _projectileTarget;
-    [SerializeField] private GameObject _destroyParticlePrefab;
+    [SerializeField] protected GameObject _destroyParticlePrefab;
     
     protected Vector2 _direction;
     protected float _currentLifeTime = 0;
@@ -19,14 +19,16 @@ public abstract class Projectile : MonoBehaviour
 
     protected Rigidbody2D _rigid;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-
+        if (TimeManager.TimeScale == 0)
+            return;
+        
         _currentLifeTime += Time.deltaTime * TimeManager.TimeScale;
 
         if (_currentLifeTime >= lifeTime)

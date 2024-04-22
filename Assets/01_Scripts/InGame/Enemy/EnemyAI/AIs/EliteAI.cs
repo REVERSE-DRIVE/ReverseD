@@ -6,13 +6,10 @@ namespace EnemyManage.AIs
 {
     public class EliteAI : EnemyAI
     {
-        
-
-        protected override void Attack()
+        public override void SetDefault()
         {
-            throw new System.NotImplementedException();
+            
         }
-        
     }
 
 }
