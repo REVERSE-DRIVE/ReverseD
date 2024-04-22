@@ -15,12 +15,11 @@ namespace AttackManage
 
         [SerializeField] internal bool isKnockBack;
         [SerializeField] internal float knockBackPower = 1;
-
-
+        
         [Header("Dev Setting")]
         [Range(-180, 180)]
         [SerializeField]
-        private float _rotationOffset = 0;
+        protected float _rotationOffset = 0;
         [SerializeField]
         protected Animator _weaponAnimator;
         [Space(10)]
@@ -69,15 +68,20 @@ namespace AttackManage
             if (!isRotation) return;
             if (direction.sqrMagnitude == 0)
                 return;
+            attackDirection = direction;
             // 오프셋 부분 수정해야될 수도 있움
-            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);
-            if (Mathf.Abs(transform.rotation.z) > 0.7f)  // z rotation값 재계산 해야함
+            Quaternion rotate = Quaternion.Euler(0, 0,
+                Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + _rotationOffset);
+            transform.rotation = rotate;
+            if (Mathf.Abs(rotate.z) > 0.7f)  // z rotation값 재계산 해야함
             {
-                transform.parent.localScale = new Vector2(1, -1);
+                transform.parent.localScale = new Vector2(-1, 1);
+                transform.localScale = -Vector2.one;
             }
             else
             {
                 transform.parent.localScale = Vector2.one;
+                transform.localScale = Vector2.one;
             }
         }
 

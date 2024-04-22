@@ -17,6 +17,7 @@ namespace AttackManage
         protected override IEnumerator AttackCoroutine()
         {
             yield return new WaitForSeconds(_damageTiming);
+            ShowAttackEffect();
             TakeDamageToTargets(DetectTargets());
         }
         

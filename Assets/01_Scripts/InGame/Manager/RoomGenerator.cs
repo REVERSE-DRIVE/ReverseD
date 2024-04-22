@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using InGameSaveData;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,7 +11,7 @@ namespace RoomManage
     public class RoomGenerator : MonoBehaviour
     {
         [SerializeField] private Transform grid;
-        public RoomPack roomPack; // 방 프리팹
+        public RoomPack roomPack; // 방 프리팹들의 베이스
         public GameObject horizontalPathPrefab; // 가로로 난 길 프리팹
         public GameObject verticalPathPrefab; // 세로로 난 길 프리팹
 
@@ -25,13 +26,8 @@ namespace RoomManage
         private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
 
 
-        public GameObject LastRoom
-        {
-            get
-            {
-                return rooms[rooms.Count - 1];
-            }
-        }
+        public GameObject LastRoom => rooms[rooms.Count - 1];
+        public GameObject FirstRoom => rooms[0];
         
 
         public void DelayAction(Action action, float time)
@@ -45,12 +41,41 @@ namespace RoomManage
             action?.Invoke();
         }
 
+        #region Map Loading
 
-        private void OnDestroy()
+        
+        public void LoadRoomData(RoomData[] roomDatas, RoadData[] roadDatas)
         {
+            // 저장된 맵 파일을 열어야함
+            for (int i = 0; i < roomDatas.Length; i++)
+            {
+                RoomSO room = roomPack.FindMap(roomDatas[i].roomID);
+                GameObject newRoom = Instantiate(room.MapPrefab, roomDatas[i].roomPosition, Quaternion.identity);
+                if(roomDatas[i].isRoomCleared)
+                    newRoom.GetComponent<Room>().SetClear(roomDatas[i].isRoomCleared);
+                rooms.Add(newRoom);
+
+            }
+
+            for (int i = 0; i < roadDatas.Length; i++)
+            {
+                if (roadDatas[i].isRoadHorizontal)
+                { // 가로 길 생성
+                    Instantiate(horizontalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
+                }
+                else
+                { // 세로길 생성
+                    Instantiate(verticalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
+                }
+            }
             
         }
 
+        #endregion
+        
+
+        #region Map Generating
+        
         public void ResetMap()
         {
             DeleteRooms();
@@ -73,7 +98,7 @@ namespace RoomManage
             int numRooms = Random.Range(minRooms, maxRooms + 1);
 
             // 초기 방 생성
-            GameObject firstRoom = Instantiate(roomPack.rooms[0].mapPrefab, Vector2.zero, Quaternion.identity);
+            GameObject firstRoom = Instantiate(roomPack.rooms[0].MapPrefab, Vector2.zero, Quaternion.identity);
             firstRoom.transform.SetParent(grid);
             rooms.Add(firstRoom);
 
@@ -81,7 +106,7 @@ namespace RoomManage
             GameObject previousRoom = firstRoom;
             for (int i = 1; i < numRooms; i++)
             {
-                GameObject newRoom = Instantiate(roomPack.RandomPickMap().mapPrefab, GetNextRoomPosition(previousRoom), Quaternion.identity);
+                GameObject newRoom = Instantiate(roomPack.RandomPickMap().MapPrefab, GetNextRoomPosition(previousRoom), Quaternion.identity);
                 newRoom.transform.SetParent(grid);
                 rooms.Add(newRoom);
                 ConnectRooms(previousRoom, newRoom);
@@ -90,6 +115,7 @@ namespace RoomManage
             DelayAction(WallGenerateEvent, 0.1f);
         }
 
+        
         private Vector3 GetNextRoomPosition(GameObject previousRoom)
         {
             Vector3 exitDirection = GetRandomExitDirection(previousRoom);
@@ -175,5 +201,8 @@ namespace RoomManage
                 load.transform.SetParent(grid);
             }
         }
+        
+        #endregion
+
     }
 }

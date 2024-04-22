@@ -9,17 +9,37 @@ public class CameraManager : MonoBehaviour
     private CinemachineVirtualCamera _virtualCamera;
     private CinemachineBasicMultiChannelPerlin _cinemachineBasicMultiChannelPerlin;
 
-    [SerializeField] private float hitShakePower = 5;
+                                                                            [SerializeField] private float hitShakePower = 5;
     [SerializeField] private float hitShakeDuration = 0.1f;
     [SerializeField] private float cameraDefaultZoom = 8f;
+
+    private Transform _defaultCameraTarget;
+
+    private bool isNewFollowing;
+    
     private void Awake()
     {
         _cinemachineBasicMultiChannelPerlin =
             _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _defaultCameraTarget = _virtualCamera.Follow;
     }
 
-    void Update()
+    public void Follow(Transform newTarget, float duration)
     {
+        if (!isNewFollowing)
+        {
+            StartCoroutine(FollowCoroutine(newTarget, duration));
+        }
+    }
+
+    private IEnumerator FollowCoroutine(Transform newTarget, float duration = 1)
+    {
+        _virtualCamera.Follow = newTarget;
+        isNewFollowing = true;
+        yield return new WaitForSeconds(duration);
+        _virtualCamera.Follow = _defaultCameraTarget;
+        isNewFollowing = false;
+        
         
     }
 

@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigid;
     private Player _player;
-    private Vector3 dir;
-    private bool isMoving;
+    private Vector3 _direction;
+    private bool _isMoving;
 
     private bool flipX;
+    private ParticleSystem _walkParticle;
+    private bool _isWalking;
     
     
     public VariableJoystick Joystick 
@@ -22,17 +24,19 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 GetInputVec
     {
-        get => dir;
+        get => _direction;
         private set { }
     }
     
-    public bool IsMoving => isMoving;
+    public bool IsMoving => _isMoving;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigid = GetComponent<Rigidbody2D>();
         _player = GetComponent<Player>();
+
+        _walkParticle = transform.Find("FootStep").GetComponent<ParticleSystem>();
     }
 
     private void Start()
@@ -42,6 +46,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(_isMoving && !_isWalking)
+        {
+            _isWalking = true;
+            _walkParticle.Play();
+        }else if (!_isMoving && _isWalking)
+        {
+            _isWalking = false;
+            _walkParticle.Stop();
+        }
         Move();
         Rotate();
     }
@@ -49,18 +62,17 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        isMoving = _rigid.velocity.magnitude > 0.1f;
-        float horizontalInput = _joystick.Horizontal;
-        float verticalInput = _joystick.Vertical;
-
-        Vector3 direction = new Vector3(horizontalInput, verticalInput);
-        _rigid.velocity = direction.normalized * (_player.MoveSpeed * TimeManager.TimeScale);
+        _isMoving = _rigid.velocity.magnitude > 0.1f;
+        
+        _direction = _joystick.Direction.normalized;
+        _rigid.velocity = _direction * (_player.MoveSpeed * TimeManager.TimeScale);
+        
     }
     
     private void Rotate()
     {
-        dir = _joystick.Direction.normalized;
-        _spriteRenderer.flipX = isMoving ? dir.x > 0 : flipX;
+        
+        _spriteRenderer.flipX = _isMoving ? _direction.x > 0 : flipX;
     }
     
     public void SaveDirection()

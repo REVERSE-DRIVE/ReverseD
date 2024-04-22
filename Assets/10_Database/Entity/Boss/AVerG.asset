@@ -28,4 +28,4 @@ MonoBehaviour:
     mass: 0
     isHealDefense: 0
     healthDefMultiple: 0
-  _bossPrefab: {fileID: 0}
+  _bossPrefab: {fileID: 5725394928927060654, guid: 8a80fb1c575419f44b86dd76fa071b77, type: 3}
