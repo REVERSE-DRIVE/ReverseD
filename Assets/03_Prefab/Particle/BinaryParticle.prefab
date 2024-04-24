@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9117514801789653921}
   - component: {fileID: 1556965291528955517}
   - component: {fileID: 4048514992925212304}
+  - component: {fileID: -3632230298647833293}
   m_Layer: 0
   m_Name: BinaryParticle
   m_TagString: Untagged
@@ -1428,7 +1429,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     mode: 1
-    timeMode: 2
+    timeMode: 0
     fps: 7.6
     frameOverTime:
       serializedVersion: 2
@@ -1541,12 +1542,12 @@ ParticleSystem:
     tilesY: 1
     animationType: 0
     rowIndex: 0
-    cycles: 1
+    cycles: 10
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -1989070008, guid: 6bee7ae93da487d439a8b7799c59520b, type: 3}
-    - sprite: {fileID: 2037797803, guid: 6bee7ae93da487d439a8b7799c59520b, type: 3}
+    - sprite: {fileID: 1091858401, guid: 8cedc4a8e8221374fac86d2c5cec30e9, type: 3}
+    - sprite: {fileID: -165156139, guid: 8cedc4a8e8221374fac86d2c5cec30e9, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4887,3 +4888,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-3632230298647833293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693013046725345906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b597ed0ce7465fa50e47e7b3064fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 1
+  _particleSystem: {fileID: 1556965291528955517}
+  OnPlayEnable: 1
