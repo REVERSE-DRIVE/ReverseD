@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool flipX;
     private ParticleSystem _walkParticle;
     private bool _isWalking;
-    
+    private bool _isStop;
     
     public VariableJoystick Joystick 
     { 
@@ -63,9 +63,23 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _isMoving = _rigid.velocity.magnitude > 0.1f;
-        
-        _direction = _joystick.Direction.normalized;
-        _rigid.velocity = _direction * (_player.MoveSpeed * TimeManager.TimeScale);
+        if (TimeManager.TimeScale == 0) return;
+        Vector2 dir = _joystick.Input;
+        if (dir.magnitude > 0.1f)
+        {
+            _isStop = true;
+            _direction = dir.normalized;
+            _rigid.velocity = _direction * (_player.MoveSpeed * TimeManager.TimeScale);
+        }
+        else if(_isStop)
+        {
+            _isStop = false;
+            _rigid.velocity = Vector2.zero;
+            
+        }
+        // transform.Translate(
+        //     _direction *Time.deltaTime * _player.MoveSpeed * TimeManager.TimeScale);
+        //
         
     }
     
