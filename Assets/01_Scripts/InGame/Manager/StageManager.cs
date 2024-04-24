@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using RoomManage;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
@@ -101,14 +102,14 @@ public class StageManager : MonoBehaviour
     {
         // RoomGenerator에 있는 FirstRoom 프로퍼티에서 1번 인덱스의 문을 열면 됨
         // 그럼 시작방의 아래쪽 문이 열림
-        
-        
+
+        StartCoroutine(OpenBossRoomCoroutine());
     }
 
     private IEnumerator OpenBossRoomCoroutine()
     {
         GameManager.Instance._CameraManager.Follow(_bossRoomZoomTrm, 5);
         yield return new WaitForSeconds(2f);
-
+        GameManager.Instance._RoomGenerator.FirstRoom.GetComponent<Room>().OpenDoor(1);
     }
 }

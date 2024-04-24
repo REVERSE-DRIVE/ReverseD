@@ -127,7 +127,7 @@ namespace RoomManage
         {
             for (int i = 0; i < 4; i++)
             {
-                walls[i].OnWall();
+                walls[i].SetWall(true);
             }
         }
 
@@ -137,6 +137,11 @@ namespace RoomManage
             {
                 walls[i].SetWall();
             }
+        }
+
+        public void OpenDoor(int index)
+        {
+            walls[index].SetWall(false);
         }
     }
 }
