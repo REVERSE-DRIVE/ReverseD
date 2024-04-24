@@ -12,12 +12,7 @@ public static class GravityManager
     public static bool isOnGravity { get; private set; } = false;
 
 
-
-    private void Update()
-    {
-        
-    }
-
+    
     
     
     public static void SetGravityDirection(GravityDirectionEnum direction)
@@ -41,8 +36,8 @@ public static class GravityManager
         }
     }
 
-    public void OffGravity()
+    public static void OffGravity()
     {
-        _gravityDirection = Vector2.zero;
+        gravityDirection = Vector2.zero;
     }
 }

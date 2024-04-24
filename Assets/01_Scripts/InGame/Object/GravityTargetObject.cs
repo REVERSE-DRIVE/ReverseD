@@ -12,6 +12,7 @@ public class GravityTargetObject : MonoBehaviour
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        
     }
 
     private void Update()
