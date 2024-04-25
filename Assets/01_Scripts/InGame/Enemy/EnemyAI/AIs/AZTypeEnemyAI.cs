@@ -103,6 +103,7 @@ namespace EnemyManage.AIs
                 float currentTime = 0;
                 Vector3 prevDirection = Vector3.zero;
                 Vector2 dir;
+                _targetingMark.position = transform.position;
                 _targetingMark.gameObject.SetActive(true);
                 while (currentTime <= _playerTargetingTime)
                 {
