@@ -117,7 +117,6 @@ namespace EnemyManage.AIs
                     yield return null;
                 }
                 _targetingMark.gameObject.SetActive(false);
-                print(_targetingMark.position);
                 
                 TimedBombObject bomb = PoolManager.Get(_fallBomb, _targetingMark.position, Quaternion.identity);
                 bomb.OnTrigger();
