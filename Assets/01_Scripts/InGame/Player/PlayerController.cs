@@ -5,16 +5,24 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private VariableJoystick _joystick;
     
-    private SpriteRenderer _spriteRenderer;
-    private Rigidbody2D _rigid;
+    #region Component
+    
     private Player _player;
+    private Rigidbody2D _rigid;
+    private SpriteRenderer _spriteRenderer;
+    private ParticleSystem _walkParticle;
+
+    #endregion
+    
+    [SerializeField] 
     private Vector3 _direction;
-    private bool _isMoving;
 
     private bool flipX;
-    private ParticleSystem _walkParticle;
     private bool _isWalking;
     private bool _isStop;
+    private bool _isMoving;
+
+
     
     public VariableJoystick Joystick 
     { 
@@ -77,15 +85,10 @@ public class PlayerController : MonoBehaviour
             _rigid.velocity = Vector2.zero;
             
         }
-        // transform.Translate(
-        //     _direction *Time.deltaTime * _player.MoveSpeed * TimeManager.TimeScale);
-        //
-        
     }
     
     private void Rotate()
     {
-        
         _spriteRenderer.flipX = _isMoving ? _direction.x > 0 : flipX;
     }
     

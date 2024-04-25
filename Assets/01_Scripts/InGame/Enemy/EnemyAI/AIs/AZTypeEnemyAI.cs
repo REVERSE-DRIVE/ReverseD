@@ -24,12 +24,13 @@ namespace EnemyManage.AIs
         private float _currentCharge = 0;
 
         [Header("State2 Setting")] 
-        [SerializeField] private float _chargeTime = 5f;
-        [SerializeField] private float _playerTargetingTime = 2;
+        [SerializeField] private float _playerTargetingTime = 4;
         [SerializeField] private TimedBombObject _fallBomb;
         [SerializeField] private int _stateRepeatAmount = 3;
         [SerializeField] private Transform _targetingMark;
-
+        [SerializeField] private float _targetingSpeed = 2;
+        [SerializeField] private float _targetAccuracy = 3;
+        [SerializeField] private float _attackTerm = 2;
         private Vector2 _targetPosition;
 
         private float _currentIdleTime = 0;
@@ -78,9 +79,6 @@ namespace EnemyManage.AIs
 
         }
         
-        
-        
-        
 
         private void AZState1()
         {
@@ -100,31 +98,33 @@ namespace EnemyManage.AIs
 
         private IEnumerator State2Coroutine()
         {
-
             for (int i = 0; i < _stateRepeatAmount; i++)
             {
                 float currentTime = 0;
-
-                while (currentTime <= _chargeTime)
+                Vector3 prevDirection = Vector3.zero;
+                Vector2 dir;
+                _targetingMark.gameObject.SetActive(true);
+                while (currentTime <= _playerTargetingTime)
                 {
                     currentTime += Time.deltaTime * TimeManager.TimeScale;
                     _targetPosition = _playerTrm.position;
-                    _targetingMark.position = _targetPosition;
+                    dir = ((Vector3)_targetPosition - _targetingMark.position) * _targetAccuracy + prevDirection;
+                    prevDirection = dir.normalized;
+                    if (dir.magnitude >= 0.1f)
+                    {
+                        _targetingMark.Translate(dir.normalized * Time.deltaTime * _targetingSpeed);
+                    }
                     yield return null;
-
                 }
-
-                yield return new WaitForSeconds(_playerTargetingTime);
-                TimedBombObject bomb = PoolManager.Get(_fallBomb, _targetPosition, Quaternion.identity);
+                _targetingMark.gameObject.SetActive(false);
+                print(_targetingMark.position);
+                
+                TimedBombObject bomb = PoolManager.Get(_fallBomb, _targetingMark.position, Quaternion.identity);
                 bomb.OnTrigger();
-
-
-
+                yield return new WaitForSeconds(_attackTerm);
             }
-
             _currentState = AZTypeEnemyState.Idle;
         }
-
 
         
     }
