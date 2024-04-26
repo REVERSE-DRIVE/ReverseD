@@ -17,7 +17,8 @@ public class StageManager : MonoBehaviour
 
     [Header("BossShow Setting")]
     [SerializeField] private Transform _bossRoomZoomTrm;
-    
+    [SerializeField] private BossRoom _bossRoomPrefab;
+    [SerializeField] private Transform _bossRoomParent;
     private void Start()
     {
         NextStage();
@@ -81,6 +82,7 @@ public class StageManager : MonoBehaviour
         else
         {
             // 챕터의 끝에 도달했으면 보스방을 생성
+            GenerateBossRoom();
         }
 
     }
@@ -93,9 +95,12 @@ public class StageManager : MonoBehaviour
 
     private void GenerateBossRoom()
     {
-        Vector2 generatePos = GameManager.Instance._RoomGenerator.LastRoom.transform.position;
-        // 
-        
+        Vector2 generatePos = GameManager.Instance._RoomGenerator.FirstRoom.transform.position;
+        BossRoom bossRoomPrefab = 
+            PoolManager.Get(
+                _bossRoomPrefab, generatePos + new Vector2(-1, -37), Quaternion.identity);
+        bossRoomPrefab.transform.SetParent(_bossRoomParent);
+        bossRoomPrefab.gameObject.SetActive(false);
     }
 
     public void OpenBossRoom()
