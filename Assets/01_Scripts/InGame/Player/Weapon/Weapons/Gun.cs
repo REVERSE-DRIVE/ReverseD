@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace AttackManage
 {
@@ -11,6 +12,7 @@ namespace AttackManage
         [SerializeField] protected int _maxBullets;
         [SerializeField] protected int _needBullets = 1;
         [SerializeField] protected int _normalPickBullets = 10;
+        [SerializeField] protected int _pickBulletMultiple = 2;
         [SerializeField] protected float _shotError = 0.3f;
         protected float _currentShotError = 0;
 
@@ -30,6 +32,11 @@ namespace AttackManage
             {
                 BulletLackEventHandler();
             }
+        }
+
+        protected virtual void Update()
+        {
+            AutoAim();
         }
 
         public abstract void Fire();
@@ -54,6 +61,5 @@ namespace AttackManage
             _gunBulletGaugeTrm.localScale = fillAmount;
         }
 
-        
     }
 }

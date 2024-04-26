@@ -23,8 +23,8 @@ namespace AttackManage
         public float attackRange = 1;
         public bool isKnockBack = false;
         public float knockBackPower = 1;
-        public bool useAutoAiming;
-        public float autoAimingDistance;
+        public bool useAutoAiming = false;
+        public float autoAimingDistance = 6;
         
         /**
          * <summary>

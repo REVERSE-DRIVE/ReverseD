@@ -10,6 +10,12 @@ namespace AttackManage
             
         }
 
+        protected override void Update()
+        {
+            AutoAim();
+            
+        }
+
         public override void Fire()
         {
             throw new System.NotImplementedException();

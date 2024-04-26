@@ -21,6 +21,9 @@ namespace AttackManage
         private SerializedProperty isNockBackProp;
         private SerializedProperty knockBackPowerProp;
 
+        private SerializedProperty useAutoAimingProp;
+        private SerializedProperty autoAimingDistanceProp;
+
         private SerializedProperty weaponPrefabProp;
         
         private void OnEnable()
@@ -40,6 +43,8 @@ namespace AttackManage
             attackRangeProp = serializedObject.FindProperty("attackRange");
             isNockBackProp = serializedObject.FindProperty("isKnockBack");
             knockBackPowerProp = serializedObject.FindProperty("knockBackPower");
+            useAutoAimingProp = serializedObject.FindProperty("useAutoAiming");
+            autoAimingDistanceProp = serializedObject.FindProperty("autoAimingDistance");
             
             weaponPrefabProp = serializedObject.FindProperty("weaponPrefab");
         
@@ -96,6 +101,12 @@ namespace AttackManage
                 if (isNockBackProp.boolValue)
                 {
                     EditorGUILayout.PropertyField(knockBackPowerProp);
+
+                }
+                EditorGUILayout.PropertyField(useAutoAimingProp);
+                if (useAutoAimingProp.boolValue)
+                {
+                    EditorGUILayout.PropertyField(autoAimingDistanceProp);
 
                 }
 

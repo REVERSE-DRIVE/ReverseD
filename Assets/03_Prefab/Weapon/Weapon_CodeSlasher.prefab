@@ -81,12 +81,18 @@ MonoBehaviour:
   damage: 6
   _attackCooltime: 0.3
   _attackTime: 0.23
-  isKnockBack: 0
-  knockBackPower: 1
+  _useAutoAiming: 0
+  _autoAimingDistance: 1
+  _isAutoTargeted: 0
+  _isKnockBack: 0
+  _knockBackPower: 1
   _rotationOffset: 0
   _weaponAnimator: {fileID: 6498217350812938356}
   isRotation: 1
   attackDirection: {x: 0, y: 0}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
   _whatIsTarget:
     serializedVersion: 2
     m_Bits: 40960

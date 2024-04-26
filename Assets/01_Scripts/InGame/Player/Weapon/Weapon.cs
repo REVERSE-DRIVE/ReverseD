@@ -29,6 +29,8 @@ namespace AttackManage
         [SerializeField]
         protected Vector2 attackDirection;
 
+        [SerializeField] private LayerMask _wallLayer;
+
         [SerializeField]
         protected LayerMask _whatIsTarget;
         
@@ -38,8 +40,10 @@ namespace AttackManage
         {
             if (_weaponAnimator == null)
             {
-                _weaponAnimator.GetComponent<Animator>();
+                _weaponAnimator = GetComponent<Animator>();
             }
+
+            _wallLayer = LayerMask.GetMask("Wall");
         }
 
 
@@ -110,6 +114,50 @@ namespace AttackManage
             }
         }
 
-        
+        protected virtual void AutoAim()
+        {
+            if (_useAutoAiming)
+            {
+                Collider2D[] target = Physics2D.OverlapCircleAll(transform.position,
+                    _autoAimingDistance, _whatIsTarget);
+                Vector2 autoDirection;
+                if (target == null)
+                {
+                    for (int i = 0; i < UPPER; i++)
+                    {
+                        
+                    }    
+                    return;
+                }
+                
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, autoDirection, _autoAimingDistance,
+                    _wallLayer);
+                if (hit.collider != null)
+                {
+                    _isAutoTargeted = false;
+                    return;
+                }
+
+                attackDirection = autoDirection;
+                WeaponRotateHandler(attackDirection);
+                _isAutoTargeted = true;
+            }
+        }
+        private void OnDrawGizmos()
+        {
+            if (_useAutoAiming)
+            {
+                if (_isAutoTargeted)
+                {
+                    Gizmos.color = Color.green;
+                }
+                else
+                {
+                    Gizmos.color = Color.red;
+
+                }
+                Gizmos.DrawWireSphere(transform.position, _autoAimingDistance);
+            }
+        }
     }
 }

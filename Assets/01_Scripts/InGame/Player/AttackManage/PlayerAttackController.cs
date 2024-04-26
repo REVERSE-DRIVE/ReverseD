@@ -22,7 +22,7 @@ namespace AttackManage
 
         [SerializeField] private float currentAttackTime = 0;
 
-
+        private bool _useAutoAimCashing;
 
         public bool IsAttackCooldowned => currentAttackTime >= _currentWeapon._attackCooltime;
         
@@ -45,7 +45,16 @@ namespace AttackManage
 
             currentAttackTime += Time.deltaTime * TimeManager.TimeScale;
             _direction = _playerController.GetInputVec;
-            
+
+            Aiming();
+        }
+
+        private void Aiming()
+        {
+            if (_useAutoAimCashing && _currentWeapon._isAutoTargeted)
+            {
+                return;
+            }
             if (_direction.sqrMagnitude != 0 && IsAttackCooldowned)
             {
                 OnMoveDirectionEvent?.Invoke(_direction);
@@ -82,7 +91,6 @@ namespace AttackManage
             _currentWeaponSO = weaponSO;
             foreach (Transform child in weaponHandleTrm)
             {
-                
                 // 무기 아이템 버리는 코드 필요
                 Destroy(child.gameObject);
             }
@@ -91,10 +99,11 @@ namespace AttackManage
         }
 
         private void SetWeaponOnHandle()
-        {
-             _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
-             OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
-             
+        { 
+            _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
+            _useAutoAimCashing = _currentWeapon._useAutoAiming;
+            OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
+            
         }
 
         public void SetCanAttack(bool value)
