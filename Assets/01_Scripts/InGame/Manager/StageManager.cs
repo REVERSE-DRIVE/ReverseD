@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using RoomManage;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
@@ -16,7 +17,8 @@ public class StageManager : MonoBehaviour
 
     [Header("BossShow Setting")]
     [SerializeField] private Transform _bossRoomZoomTrm;
-    
+    [SerializeField] private BossRoom _bossRoomPrefab;
+    [SerializeField] private Transform _bossRoomParent;
     private void Start()
     {
         NextStage();
@@ -80,6 +82,7 @@ public class StageManager : MonoBehaviour
         else
         {
             // 챕터의 끝에 도달했으면 보스방을 생성
+            GenerateBossRoom();
         }
 
     }
@@ -92,23 +95,24 @@ public class StageManager : MonoBehaviour
 
     private void GenerateBossRoom()
     {
-        Vector2 generatePos = GameManager.Instance._RoomGenerator.LastRoom.transform.position;
-        // 
-        
+        Vector2 generatePos = GameManager.Instance._RoomGenerator.FirstRoom.transform.position;
+        BossRoom bossRoomPrefab = 
+            PoolManager.Get(
+                _bossRoomPrefab, generatePos + new Vector2(-1, -37), Quaternion.identity);
     }
 
     public void OpenBossRoom()
     {
         // RoomGenerator에 있는 FirstRoom 프로퍼티에서 1번 인덱스의 문을 열면 됨
         // 그럼 시작방의 아래쪽 문이 열림
-        
-        
+
+        StartCoroutine(OpenBossRoomCoroutine());
     }
 
     private IEnumerator OpenBossRoomCoroutine()
     {
         GameManager.Instance._CameraManager.Follow(_bossRoomZoomTrm, 5);
         yield return new WaitForSeconds(2f);
-
+        GameManager.Instance._RoomGenerator.FirstRoom.GetComponent<Room>().OpenDoor(1);
     }
 }

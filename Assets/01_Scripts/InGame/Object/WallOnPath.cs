@@ -32,10 +32,11 @@ namespace RoomManage
             //SetWall();
         }
 
-        public void OnWall()
+        public void SetWall(bool value)
         {
-            wall.gameObject.SetActive(true);
+            wall.gameObject.SetActive(value);
         }
+        
 
         public void SetWall()
         {
