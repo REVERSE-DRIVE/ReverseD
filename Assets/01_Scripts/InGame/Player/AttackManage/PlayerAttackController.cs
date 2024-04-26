@@ -14,26 +14,30 @@ namespace AttackManage
         [SerializeField] private Transform weaponHandleTrm;
         public event Action<Vector2> OnMoveDirectionEvent;
 
-
+        private Player _player;
         private PlayerController _playerController;
         private Vector2 _playerTransform;
         private Vector2 _direction;
+        [SerializeField] private bool _canAttack = true;
 
-        [SerializeField] protected float currentAttackTime = 0;
+        [SerializeField] private float currentAttackTime = 0;
 
-
+        private bool _useAutoAimCashing;
 
         public bool IsAttackCooldowned => currentAttackTime >= _currentWeapon._attackCooltime;
         
         private void Awake()
         {
+            _player = GetComponent<Player>();
             _playerController = GetComponent<PlayerController>();
         }
 
         private void Start()
         {
             SetWeaponOnHandle();
+            _player.OnPlayerDieEvent += HandlePlayerDie;
         }
+
 
         private void Update()
         {
@@ -41,6 +45,16 @@ namespace AttackManage
 
             currentAttackTime += Time.deltaTime * TimeManager.TimeScale;
             _direction = _playerController.GetInputVec;
+
+            Aiming();
+        }
+
+        private void Aiming()
+        {
+            if (_useAutoAimCashing && _currentWeapon._isAutoTargeted)
+            {
+                return;
+            }
             if (_direction.sqrMagnitude != 0 && IsAttackCooldowned)
             {
                 OnMoveDirectionEvent?.Invoke(_direction);
@@ -53,7 +67,7 @@ namespace AttackManage
         // 을 구현해야한다
         public void Attack()
         {
-            if (IsAttackCooldowned)
+            if (IsAttackCooldowned && _canAttack)
             {
                 //currentAttackTime >= _currentWeapon._attackCooltime
                 currentAttackTime = 0;
@@ -77,7 +91,6 @@ namespace AttackManage
             _currentWeaponSO = weaponSO;
             foreach (Transform child in weaponHandleTrm)
             {
-                
                 // 무기 아이템 버리는 코드 필요
                 Destroy(child.gameObject);
             }
@@ -86,10 +99,23 @@ namespace AttackManage
         }
 
         private void SetWeaponOnHandle()
+        { 
+            _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
+            _useAutoAimCashing = _currentWeapon._useAutoAiming;
+            OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
+            
+        }
+
+        public void SetCanAttack(bool value)
         {
-             _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
-             OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
-             
+            _canAttack = value;
+        }
+        
+        private void HandlePlayerDie()
+        {
+            SetCanAttack(false);
+            OnMoveDirectionEvent = null;
+            weaponHandleTrm.gameObject.SetActive(false);
         }
 
         

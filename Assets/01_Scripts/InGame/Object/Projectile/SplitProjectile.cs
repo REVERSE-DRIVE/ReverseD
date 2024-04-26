@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class SplitProjectile : Projectile
-{ // 디버그 필요함 // 디버그 이후 주석 삭제
+{ 
     [Header("Split Setting")]
     [SerializeField]
     [Range(2, 16)]

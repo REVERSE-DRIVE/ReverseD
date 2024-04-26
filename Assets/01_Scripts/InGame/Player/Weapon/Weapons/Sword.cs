@@ -71,5 +71,8 @@ namespace AttackManage
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(_DetectCenterPos, _attackRadius);
         }
+        
+        protected abstract Collider2D[] DetectTargets();
+
     }
 }

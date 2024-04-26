@@ -87,6 +87,7 @@ public abstract class Projectile : MonoBehaviour
         if (other.CompareTag("Wall"))
         {   
             DestroyProjectile();
+            return;
         }
         switch (_projectileTarget)
         {

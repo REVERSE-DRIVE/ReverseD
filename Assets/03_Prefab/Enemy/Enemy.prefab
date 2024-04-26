@@ -176,6 +176,7 @@ MonoBehaviour:
     healthDefMultiple: 0
   ItemDropType: 0
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
+  _enemyDieEffectPrefab: {fileID: -3632230298647833293, guid: 0adea8160557443479f8bcdf2a8b7b05, type: 3}
   AnimatorCompo: {fileID: 0}
 --- !u!114 &8706524649998194606
 MonoBehaviour:
@@ -202,7 +203,7 @@ MonoBehaviour:
   _roamingCoolTime: 2
   _stunDuration: 2
   _attackCycleSpeed: 3
-  _projectile: {fileID: 2965748166597516849, guid: 83104af47348f9f4cb862eab088aeb1a, type: 3}
+  _projectile: {fileID: 5482237106190951604, guid: a7c347ccade835d4da854bb4e9618a6f, type: 3}
 --- !u!1 &6973731994825924860
 GameObject:
   m_ObjectHideFlags: 0
