@@ -14,7 +14,7 @@ namespace AttackManage
         [SerializeField] private Transform weaponHandleTrm;
         public event Action<Vector2> OnMoveDirectionEvent;
 
-
+        private Player _player;
         private PlayerController _playerController;
         private Vector2 _playerTransform;
         private Vector2 _direction;
@@ -27,13 +27,16 @@ namespace AttackManage
         
         private void Awake()
         {
+            _player = GetComponent<Player>();
             _playerController = GetComponent<PlayerController>();
         }
 
         private void Start()
         {
             SetWeaponOnHandle();
+            _player.OnPlayerDieEvent += HandlePlayerDieEvent;
         }
+
 
         private void Update()
         {
@@ -90,6 +93,13 @@ namespace AttackManage
              _currentWeapon = Instantiate(_currentWeaponSO.GetWeaponPrefab, weaponHandleTrm);
              OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
              
+        }
+        
+        private void HandlePlayerDieEvent()
+        {
+            
+            OnMoveDirectionEvent = null;
+            weaponHandleTrm.gameObject.SetActive(false);
         }
 
         

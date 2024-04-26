@@ -51,7 +51,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start()
     {
         _RenderingManager._Start();
-        Player.OnPlayerHpChanged += _CameraManager.ShakeHit;
+        Player.OnPlayerHpChangedEvent += _CameraManager.ShakeHit;
         _StageManager.StageStartEvent += _CameraManager.StageStartCameraZoomEvent;
     }
 

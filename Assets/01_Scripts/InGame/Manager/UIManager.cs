@@ -52,7 +52,7 @@ namespace InGameScene
         [SerializeField] private UIInfo UI_GameOver;
         private void Start()
         {
-            Player.OnPlayerHpChanged += RefreshHpGauge;
+            Player.OnPlayerHpChangedEvent += RefreshHpGauge;
             
         }
 

@@ -136,7 +136,7 @@ MonoBehaviour:
   _collider: {fileID: 0}
   _useProjectileExplode: 1
   _explodeProjectilePrefab: {fileID: 5794928939839465771, guid: 31b3a93305d329e4faf76355158f1df6, type: 3}
-  _explodeProjectileAmount: 3
+  _explodeProjectileAmount: 6
   _useTrueDamage: 0
   _trueDamageRadius: 2.4
   _damageTarget:

@@ -28,7 +28,8 @@ namespace EnemyManage.AIs
         [SerializeField] private TimedBombObject _fallBomb;
         [SerializeField] private int _stateRepeatAmount = 3;
         [SerializeField] private Transform _targetingMark;
-        [SerializeField] private float _targetingSpeed = 2;
+        [Range(0.05f, 0.5f)]
+        [SerializeField] private float _followSpeed = 2;
         [SerializeField] private float _targetAccuracy = 3;
         [SerializeField] private float _attackTerm = 2;
         private Vector2 _targetPosition;
@@ -92,7 +93,6 @@ namespace EnemyManage.AIs
 
         private IEnumerator ChargeCoroutine()
         {
-            
             yield return new WaitForSeconds(3f);
         }
 
@@ -113,7 +113,7 @@ namespace EnemyManage.AIs
                     prevDirection = dir.normalized;
                     if (dir.magnitude >= 0.1f)
                     {
-                        _targetingMark.Translate(dir.normalized * Time.deltaTime * _targetingSpeed);
+                        _targetingMark.Translate(dir.normalized * _followSpeed);
                     }
                     yield return null;
                 }

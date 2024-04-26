@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EntityManage;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -13,16 +14,16 @@ public class Player : Entity
         get { return status; }
         private set { }
     }
-
+    
     public bool IsDead => status.hp <= 0;
     public bool canMove => status.moveSpeed == 0;
     public float MoveSpeed => status.moveSpeed;
     
-    public static event Action OnPlayerHpChanged;
+    public static event Action OnPlayerHpChangedEvent;
+    public event Action OnPlayerDieEvent;
     private SoundObject _soundObject;
     private SpriteRenderer _spriteRenderer;
     private Collider2D _collider;
-    
     
     private void Awake()
     {
@@ -55,7 +56,7 @@ public class Player : Entity
     public override void TakeDamage(int amount)
     {
         status.hp -= amount;
-        OnPlayerHpChanged?.Invoke();
+        OnPlayerHpChangedEvent?.Invoke();
         _soundObject.PlayAudio(0);
         IsDie();
     }
@@ -80,6 +81,7 @@ public class Player : Entity
     {
         _spriteRenderer.enabled = value;
         _collider.enabled = value;
+        
     }
 
     public override void Die()
