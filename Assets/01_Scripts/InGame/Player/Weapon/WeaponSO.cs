@@ -23,7 +23,9 @@ namespace AttackManage
         public float attackRange = 1;
         public bool isKnockBack = false;
         public float knockBackPower = 1;
-
+        public bool useAutoAiming;
+        public float autoAimingDistance;
+        
         /**
          * <summary>
          * 직접 가져오기 보다는
@@ -45,8 +47,10 @@ namespace AttackManage
             weaponPrefab.damage = damage;
             weaponPrefab._attackCooltime = attackCooltime;
             weaponPrefab._attackTime = attackTime;
-            weaponPrefab.isKnockBack = isKnockBack;
-            weaponPrefab.knockBackPower = knockBackPower;
+            weaponPrefab._isKnockBack = isKnockBack;
+            weaponPrefab._knockBackPower = knockBackPower;
+            weaponPrefab._useAutoAiming = useAutoAiming;
+            weaponPrefab._autoAimingDistance = autoAimingDistance;
             if (weaponPrefab is Sword)
             {
                 Sword sword = (weaponPrefab as Sword);

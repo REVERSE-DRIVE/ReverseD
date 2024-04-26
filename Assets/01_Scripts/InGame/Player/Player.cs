@@ -22,6 +22,7 @@ public class Player : Entity
     private SoundObject _soundObject;
     private SpriteRenderer _spriteRenderer;
     private Collider2D _collider;
+    [SerializeField] private EffectObject _dieParticle;
     
     private void Awake()
     {
@@ -87,6 +88,7 @@ public class Player : Entity
         SetObjective(false);
         SetObjective(false);
         status.moveSpeed = 0;
+        PoolManager.Get(_dieParticle, transform.position, Quaternion.identity);
         OnPlayerDieEvent?.Invoke();
     }
 }

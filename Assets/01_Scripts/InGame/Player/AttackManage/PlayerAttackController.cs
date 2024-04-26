@@ -45,6 +45,7 @@ namespace AttackManage
 
             currentAttackTime += Time.deltaTime * TimeManager.TimeScale;
             _direction = _playerController.GetInputVec;
+            
             if (_direction.sqrMagnitude != 0 && IsAttackCooldowned)
             {
                 OnMoveDirectionEvent?.Invoke(_direction);

@@ -1,20 +1,21 @@
 ﻿using EnemyManage;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace AttackManage
 {
     public abstract class Weapon : MonoBehaviour
     {
         [Header("Weapon CustomSetting")]
-        [SerializeField]
-        internal int damage = 3;
-        [SerializeField]
-        internal float _attackCooltime = 1f;
-        [SerializeField]
-        internal float _attackTime = 1;
-
-        [SerializeField] internal bool isKnockBack;
-        [SerializeField] internal float knockBackPower = 1;
+        [SerializeField] internal int damage = 3;
+        [SerializeField] internal float _attackCooltime = 1f;
+        [SerializeField] internal float _attackTime = 1;
+        [SerializeField] internal bool _useAutoAiming;
+        [SerializeField] internal float _autoAimingDistance = 1;
+        
+        [SerializeField] internal bool _isAutoTargeted;
+        [SerializeField] internal bool _isKnockBack;
+        [SerializeField] internal float _knockBackPower = 1;
         
         [Header("Dev Setting")]
         [Range(-180, 180)]
@@ -92,11 +93,11 @@ namespace AttackManage
             {
                 if (hits[i].TryGetComponent<Enemy>(out Enemy enemy))
                 {
-                    if (isKnockBack)
+                    if (_isKnockBack)
                     {
                         enemy.TakeDamageWithKnockBack(
                             damage, GameManager.Instance._PlayerTransform.position,
-                            knockBackPower);
+                            _knockBackPower);
                         continue;
                     }
                     enemy.TakeDamage(damage);
@@ -109,7 +110,6 @@ namespace AttackManage
             }
         }
 
-        protected abstract Collider2D[] DetectTargets();
-
+        
     }
 }

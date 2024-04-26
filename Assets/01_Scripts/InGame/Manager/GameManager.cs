@@ -60,7 +60,10 @@ public class GameManager : MonoSingleton<GameManager>
     public void HandleGameOver()
     {
         TimeManager.TimeScale = 0;
-        
+        // 게임오버 UI 띄우기
+        // -> 시작 창으로 나가는 UI
+        // -> 얻은 아이템 정산하는 UI
+        // -> 처치한 백신의 
     }
 
     public void Infect(int amount)
