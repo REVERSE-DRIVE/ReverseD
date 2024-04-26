@@ -18,8 +18,9 @@ namespace AttackManage
         private PlayerController _playerController;
         private Vector2 _playerTransform;
         private Vector2 _direction;
+        [SerializeField] private bool _canAttack = true;
 
-        [SerializeField] protected float currentAttackTime = 0;
+        [SerializeField] private float currentAttackTime = 0;
 
 
 
@@ -34,7 +35,7 @@ namespace AttackManage
         private void Start()
         {
             SetWeaponOnHandle();
-            _player.OnPlayerDieEvent += HandlePlayerDieEvent;
+            _player.OnPlayerDieEvent += HandlePlayerDie;
         }
 
 
@@ -56,7 +57,7 @@ namespace AttackManage
         // 을 구현해야한다
         public void Attack()
         {
-            if (IsAttackCooldowned)
+            if (IsAttackCooldowned && _canAttack)
             {
                 //currentAttackTime >= _currentWeapon._attackCooltime
                 currentAttackTime = 0;
@@ -94,10 +95,15 @@ namespace AttackManage
              OnMoveDirectionEvent += _currentWeapon.WeaponRotateHandler;
              
         }
-        
-        private void HandlePlayerDieEvent()
+
+        public void SetCanAttack(bool value)
         {
-            
+            _canAttack = value;
+        }
+        
+        private void HandlePlayerDie()
+        {
+            SetCanAttack(false);
             OnMoveDirectionEvent = null;
             weaponHandleTrm.gameObject.SetActive(false);
         }

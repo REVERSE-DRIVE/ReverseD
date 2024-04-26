@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour
     private bool _isWalking;
     private bool _isStop;
     private bool _isMoving;
-
-
     
     public VariableJoystick Joystick 
     { 
@@ -45,7 +43,9 @@ public class PlayerController : MonoBehaviour
         _player = GetComponent<Player>();
 
         _walkParticle = transform.Find("FootStep").GetComponent<ParticleSystem>();
+        _player.OnPlayerDieEvent += HandlePlayerDie;
     }
+
 
     private void Start()
     {
@@ -100,5 +100,12 @@ public class PlayerController : MonoBehaviour
     public void ChangeSprite()
     {
         _spriteRenderer.sprite = PlayerManager.Instance.PlayerSprite;
+    }
+    
+    
+    private void HandlePlayerDie()
+    {
+        _rigid.velocity = Vector2.zero;
+        _walkParticle.Stop();
     }
 }

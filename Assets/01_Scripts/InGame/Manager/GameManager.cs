@@ -53,10 +53,11 @@ public class GameManager : MonoSingleton<GameManager>
         _RenderingManager._Start();
         Player.OnPlayerHpChangedEvent += _CameraManager.ShakeHit;
         _StageManager.StageStartEvent += _CameraManager.StageStartCameraZoomEvent;
+        _Player.OnPlayerDieEvent += HandleGameOver;
     }
 
 
-    public void GameOver()
+    public void HandleGameOver()
     {
         TimeManager.TimeScale = 0;
         

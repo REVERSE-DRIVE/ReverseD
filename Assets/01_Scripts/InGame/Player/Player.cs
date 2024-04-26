@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using EntityManage;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
@@ -89,5 +87,6 @@ public class Player : Entity
         SetObjective(false);
         SetObjective(false);
         status.moveSpeed = 0;
+        OnPlayerDieEvent?.Invoke();
     }
 }
