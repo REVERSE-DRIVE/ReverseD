@@ -16058,6 +16058,7 @@ GameObject:
   - component: {fileID: 374651390}
   - component: {fileID: 374651392}
   - component: {fileID: 374651391}
+  - component: {fileID: 374651393}
   m_Layer: 5
   m_Name: GaugeImage
   m_TagString: Untagged
@@ -16123,6 +16124,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374651389}
   m_CullTransparentMesh: 1
+--- !u!114 &374651393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374651389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1511788ea34db42b03f14f1363dd49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIRectObject: {fileID: 1211622214}
+  UITrnsObject: {fileID: 0}
+  UIName: 
+  usePositionEffect: 1
+  DefaultPos: {x: 300, y: -150}
+  TargetPos: {x: -500, y: -150}
+  duration: 0.3
+  EaseEffect: 1
+  onOff: 0
+  useScaleEffect: 0
+  DefaultScale: {x: 1, y: 1, z: 1}
+  TargetScale: {x: 1, y: 1, z: 1}
+  ScaleEffectDuration: 0
+  ScaleEaseEffect: 1
+  scaleEffectOnOff: 0
+  useColorEffect: 0
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  TargetColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  ColorEffectDuration: 0
+  colorOnOff: 0
+  ColorEaseEffect: 1
+  isButton: 0
+  isDetectMouse: 0
+  OnClick: []
+  OnMouseEnter: []
+  OnMouseExit: []
 --- !u!1 &545116065
 GameObject:
   m_ObjectHideFlags: 0
@@ -22672,8 +22711,9 @@ MonoBehaviour:
   _tipText: {fileID: 546706016}
   loadingDuration: 1.5
   _bossBar: {fileID: 0}
-  UI_Infection: {fileID: 1211622217}
+  UI_Infection: {fileID: 374651393}
   _infectionText: {fileID: 64053942}
+  _infectionGauge: {fileID: 374651391}
   _displayDuration: 2.5
   UI_GameOver: {fileID: 0}
 --- !u!4 &1292344168

@@ -46,6 +46,7 @@ namespace InGameScene
         [Header("Infection UI")]
         [SerializeField] private UIInfo UI_Infection;
         [SerializeField] private TextMeshProUGUI _infectionText;
+        [SerializeField] private Image _infectionGauge;
         [SerializeField] private float _displayDuration = 1f;
 
         [Header("GameOver UI")] 
@@ -101,8 +102,9 @@ namespace InGameScene
 
         public void ShowInfectionAlert(int infectLevel)
         { // 감염도 경고창
-            _infectionText.text =
-                $"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
+            //_infectionText.text =
+                //$"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
+            _infectionGauge.fillAmount = infectLevel / 100f;
             StartCoroutine(ShowInfectionAlertRoutine());
 
         }
