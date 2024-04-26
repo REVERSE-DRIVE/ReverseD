@@ -51,15 +51,19 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start()
     {
         _RenderingManager._Start();
-        Player.OnPlayerHpChanged += _CameraManager.ShakeHit;
+        Player.OnPlayerHpChangedEvent += _CameraManager.ShakeHit;
         _StageManager.StageStartEvent += _CameraManager.StageStartCameraZoomEvent;
+        _Player.OnPlayerDieEvent += HandleGameOver;
     }
 
 
-    public void GameOver()
+    public void HandleGameOver()
     {
         TimeManager.TimeScale = 0;
-        
+        // 게임오버 UI 띄우기
+        // -> 시작 창으로 나가는 UI
+        // -> 얻은 아이템 정산하는 UI
+        // -> 처치한 백신의 
     }
 
     public void Infect(int amount)

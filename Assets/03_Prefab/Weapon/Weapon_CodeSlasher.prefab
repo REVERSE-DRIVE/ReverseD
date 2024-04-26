@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 897877426606505444}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.1, z: 0}
+  m_LocalPosition: {x: 1.5, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79,18 +79,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 6
-  _attackCooltime: 0.65
-  _attackTime: 0.28
-  isKnockBack: 0
-  knockBackPower: 1
+  _attackCooltime: 0.3
+  _attackTime: 0.23
+  _useAutoAiming: 0
+  _autoAimingDistance: 1
+  _isAutoTargeted: 0
+  _isKnockBack: 0
+  _knockBackPower: 1
   _rotationOffset: 0
   _weaponAnimator: {fileID: 6498217350812938356}
   isRotation: 1
   attackDirection: {x: 0, y: 0}
+  _wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
   _whatIsTarget:
     serializedVersion: 2
     m_Bits: 40960
-  _attackRadius: 1.6
+  _attackRadius: 1.2
   _isSplash: 1
   _damageTiming: 0.13
   _attackParticleHandleTrm: {fileID: 3720652034754125117}
@@ -382,7 +388,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4.5
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5066,7 +5072,7 @@ SpriteRenderer:
   m_SortingLayerID: -1165560723
   m_SortingLayer: 3
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 7126bab8d14a9444d8336af3ed7ff75e, type: 3}
+  m_Sprite: {fileID: 623063220, guid: 89b4b87faf947a24cb8f7f5121be5500, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
