@@ -164,11 +164,7 @@ public static class PoolManager
                 _prefabs.Add(obj, prefab);
 
                 var gameObject = GetGameObject(obj);
-                if (obj is Projectile)
-                {
-                    gameObject.transform.SetParent(GameManager.Instance.DefaultProjectilesParentTrm);
-                }
-
+                
                 if (gameObject != null && !_poolables.ContainsKey(gameObject))
                 {
                     _poolables.Add(obj, new List<IPoolable>());
