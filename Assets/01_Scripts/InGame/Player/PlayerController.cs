@@ -96,10 +96,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (_direction.x < 0)
         {
-            
             _spriteRenderer.flipX = true;
         }
-        //_spriteRenderer.flipX = _isMoving ? _direction.x > 0 : flipX;
     }
     
     public void SaveDirection()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace AttackManage
@@ -17,12 +18,13 @@ namespace AttackManage
         protected float _currentShotError = 0;
 
         [SerializeField] private Transform _gunBulletGaugeTrm;
-        
+        [SerializeField] protected GameObject _gunFirelightObject;
         
         public override void AttackStart()
         {
             if (_currentBullets >= _needBullets)
             {
+                StartCoroutine(GunFireCoroutine());
                 Fire();
                 _currentBullets -= _needBullets;
                 RefreshGauge();
@@ -66,6 +68,14 @@ namespace AttackManage
             Projectile projectile = PoolManager.Get(_projectile, _gunTip.position, Quaternion.identity);
             projectile.Fire(direction);
             
+        }
+
+        private IEnumerator GunFireCoroutine()
+        {
+            _gunFirelightObject.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            _gunFirelightObject.SetActive(false);
+
         }
 
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using EntityManage;
 using UnityEngine;
 
@@ -18,11 +19,15 @@ namespace EnemyManage
         protected Material _defaultMaterial;
         public bool CanStateChangeable { get; set; } = true;
         
-        // Compo
+        #region Component
+        
         protected Rigidbody2D _rigid;
         protected SpriteRenderer _spriteRenderer;
-        [SerializeField] protected EffectObject _enemyDieEffectPrefab;
         public Animator AnimatorCompo;
+        
+        #endregion
+        
+        [SerializeField] protected EffectObject _enemyDieEffectPrefab;
         private bool _isDead;
         protected virtual void Awake()
         {

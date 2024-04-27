@@ -23,12 +23,9 @@ public class GameManager : MonoSingleton<GameManager>
     // =====
    
     [SerializeField] private Transform _defaultEnemyParentTrm;
-
-    public Transform DefaultEnemyParentTrm
-    {
-        get { return _defaultEnemyParentTrm; }
-        private set { }
-    }
+    [SerializeField] private Transform _defaultProjectilesParentTrm;
+    public Transform DefaultEnemyParentTrm => _defaultEnemyParentTrm;
+    public Transform DefaultProjectilesParentTrm => _defaultProjectilesParentTrm;
     
     
     
