@@ -105,11 +105,11 @@ namespace InGameScene
         public void ShowInfectionAlert(int infectLevel)
         { // 감염도 경고창
             InfectGaugeColor(infectLevel);
+            GameManager.Instance._RenderingManager.SetGlobalLightColor(new Color(1,  1 - infectLevel * 0.01f,  1 -infectLevel * 0.01f));
             DOTween.To(() => _infectionGauge.fillAmount, 
                 x => _infectionGauge.fillAmount = x, 
                 infectLevel / 100f,
                     1f);
-            
             _infectionText.text = $"{infectLevel}%";
             InfectionActive(true);
             
@@ -129,23 +129,27 @@ namespace InGameScene
         
         private void InfectGaugeColor(float infectLevel)
         {
-            if (infectLevel < 25f)
+            switch (infectLevel)
             {
-                _infectionGauge.color = new Color32(84, 255, 130, 255);
-            }
-            else if (infectLevel is > 25f and < 50f)
-            {
-                _infectionGauge.DOColor(new Color32(255, 255, 46, 255), 1f);
-            }
-            else if (infectLevel is > 50f and < 75f)
-            {
-                _infectionGauge.DOColor(new Color32(255, 140, 46, 255), 1f);
-            }
-            else
-            {
-                _infectionGauge.DOColor(new Color32(255, 46, 46, 255), 1f);
+                case < 25f:
+                    _infectionGauge.color = new Color32(84, 255, 130, 255);
+                    _infectionText.color = new Color32(84, 255, 130, 255);
+                    break;
+                case > 25f and < 50f:
+                    _infectionGauge.DOColor(new Color32(255, 255, 46, 255), 1f);
+                    _infectionText.DOColor(new Color32(255, 255, 46, 255), 1f);
+                    break;
+                case > 50f and < 75f:
+                    _infectionGauge.DOColor(new Color32(255, 140, 46, 255), 1f);
+                    _infectionText.DOColor(new Color32(255, 140, 46, 255), 1f);
+                    break;
+                default:
+                    _infectionGauge.DOColor(new Color32(255, 46, 46, 255), 1f);
+                    _infectionText.DOColor(new Color32(255, 46, 46, 255), 1f);
+                    break;
             }
         }
+        
 
 
         public void ShowNewStageUI(int currentChapter, int currentStage)
