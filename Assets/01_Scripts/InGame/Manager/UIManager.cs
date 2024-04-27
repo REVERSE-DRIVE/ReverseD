@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using EntityManage;
 using TMPro;
 using UIManage;
@@ -94,6 +95,7 @@ namespace InGameScene
         private IEnumerator ShowRoomClearRoutine()
         {
             UI_StageClear.MoveOn();
+            UI_Infection.MoveOff();
             yield return new WaitForSeconds(_stageClearUIDisplayDuration);
             UI_StageClear.MoveOff();
 
@@ -102,17 +104,47 @@ namespace InGameScene
 
         public void ShowInfectionAlert(int infectLevel)
         { // 감염도 경고창
-            //_infectionText.text =
-                //$"[Warning] \n<size=32>감염도가 <size=64>{infectLevel}%</size> 에 도달했습니다</size>";
-            _infectionGauge.fillAmount = infectLevel / 100f;
-            StartCoroutine(ShowInfectionAlertRoutine());
-
+            InfectGaugeColor(infectLevel);
+            DOTween.To(() => _infectionGauge.fillAmount, 
+                x => _infectionGauge.fillAmount = x, 
+                infectLevel / 100f,
+                    1f);
+            
+            _infectionText.text = $"{infectLevel}%";
+            InfectionActive(true);
+            
         }
-        private IEnumerator ShowInfectionAlertRoutine()
+        
+        public void InfectionActive(bool active)
         {
-            UI_Infection.MoveOn();
-            yield return new WaitForSeconds(_displayDuration);
-            UI_Infection.MoveOff();
+            if (active)
+            {
+                UI_Infection.MoveOn();
+            }
+            else
+            {
+                UI_Infection.MoveOff();
+            }
+        }
+        
+        private void InfectGaugeColor(float infectLevel)
+        {
+            if (infectLevel < 25f)
+            {
+                _infectionGauge.color = new Color32(84, 255, 130, 255);
+            }
+            else if (infectLevel is > 25f and < 50f)
+            {
+                _infectionGauge.DOColor(new Color32(255, 255, 46, 255), 1f);
+            }
+            else if (infectLevel is > 50f and < 75f)
+            {
+                _infectionGauge.DOColor(new Color32(255, 140, 46, 255), 1f);
+            }
+            else
+            {
+                _infectionGauge.DOColor(new Color32(255, 46, 46, 255), 1f);
+            }
         }
 
 
