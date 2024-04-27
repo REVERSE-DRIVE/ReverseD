@@ -23,7 +23,7 @@ namespace EnemyManage
         protected SpriteRenderer _spriteRenderer;
         [SerializeField] protected EffectObject _enemyDieEffectPrefab;
         public Animator AnimatorCompo;
-
+        private bool _isDead;
         protected virtual void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -64,10 +64,14 @@ namespace EnemyManage
 
         public override void Die()
         {
-            OnDieEvent?.Invoke();
-            PoolManager.Get(_enemyDieEffectPrefab, transform.position, Quaternion.identity).Play();
-            ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
-            StartCoroutine(DieRoutine());
+            if (!_isDead)
+            {
+                _isDead = true;
+                OnDieEvent?.Invoke();
+                PoolManager.Get(_enemyDieEffectPrefab, transform.position, Quaternion.identity).Play();
+                ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
+                StartCoroutine(DieRoutine());
+            }
         }
 
         protected IEnumerator DieRoutine()
@@ -86,6 +90,7 @@ namespace EnemyManage
         public virtual void SetStatusDefault()
         {
             status = defaultStatus;
+            _isDead = false;
         }
 
         protected virtual void HandlerHitEvent()

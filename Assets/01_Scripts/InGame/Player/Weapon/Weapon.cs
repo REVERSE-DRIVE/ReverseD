@@ -1,6 +1,5 @@
 ﻿using EnemyManage;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace AttackManage
 {
@@ -116,31 +115,45 @@ namespace AttackManage
 
         protected virtual void AutoAim()
         {
+            Vector2 currentPosition = transform.position;
             if (_useAutoAiming)
             {
-                Collider2D[] target = Physics2D.OverlapCircleAll(transform.position,
-                    _autoAimingDistance, _whatIsTarget);
-                Vector2 autoDirection;
-                if (target == null)
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(currentPosition, _autoAimingDistance, _whatIsTarget); // 현재 위치 주변의 적을 검색
+
+                Transform closestEnemy = null;
+                float closestDistance = 99;
+
+                // 모든 적에 대해 가장 가까운 적 찾기
+                foreach (Collider2D enemyCollider in enemies)
                 {
-                    for (int i = 0; i < UPPER; i++)
+                    Vector2 direction = ((Vector2)enemyCollider.transform.position - currentPosition);
+                    RaycastHit2D hit = Physics2D.Raycast(currentPosition, direction.normalized, _autoAimingDistance, _wallLayer); // 레이 발사하여 장애물 감지
+
+                    if (hit.collider == null) // 장애물이 없는 경우
                     {
-                        
-                    }    
-                    return;
-                }
-                
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, autoDirection, _autoAimingDistance,
-                    _wallLayer);
-                if (hit.collider != null)
-                {
-                    _isAutoTargeted = false;
-                    return;
+                        if (direction.magnitude < closestDistance)
+                        {
+                            closestDistance = direction.magnitude;
+                            closestEnemy = enemyCollider.transform;
+                        }
+                    }
                 }
 
-                attackDirection = autoDirection;
-                WeaponRotateHandler(attackDirection);
-                _isAutoTargeted = true;
+                if (closestEnemy != null)
+                {
+                    // 주어진 위치와 가장 가까운 적의 위치 사이의 방향 벡터 반환
+                    
+                    attackDirection = ((Vector2)closestEnemy.position - currentPosition).normalized;
+                    WeaponRotateHandler(attackDirection);
+                    _isAutoTargeted = true;
+                }
+                else
+                {
+                    // 가장 가까운 적이 없으면 기본 방향 벡터 반환 (예: 위쪽)
+                    _isAutoTargeted = false;
+
+                }
+
             }
         }
         private void OnDrawGizmos()

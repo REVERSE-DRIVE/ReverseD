@@ -334,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 7481052080199961391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -0.35, z: 0}
+  m_LocalPosition: {x: 0, y: -0.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
-  _attackCooltime: 1
-  _attackTime: 1
+  _attackCooltime: 0.13
+  _attackTime: 0.9
   _useAutoAiming: 1
   _autoAimingDistance: 9
   _isAutoTargeted: 0
@@ -373,9 +373,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _gunTip: {fileID: 1992178496957273246}
-  _projectile: {fileID: 0}
-  _currentBullets: 0
-  _maxBullets: 0
+  _projectile: {fileID: 7116273412586079787, guid: 5cdd67ea47345284ca798dc52733ba6e, type: 3}
+  _currentBullets: 50
+  _maxBullets: 60
   _needBullets: 1
   _normalPickBullets: 10
   _pickBulletMultiple: 0

@@ -77,7 +77,7 @@ public abstract class Projectile : MonoBehaviour
         _direction = Vector2.zero;
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         Hit(other);
     }

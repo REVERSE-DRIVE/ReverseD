@@ -47,6 +47,8 @@ public class PlayerInteraction : MonoBehaviour
         _playerAttack = PlayerManager.Instance.playerAttackController;
         interactionEvent += _playerAttack.Attack;
     }
+    
+    
 
     private void FixedUpdate()
     {

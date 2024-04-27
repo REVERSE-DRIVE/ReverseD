@@ -56,9 +56,16 @@ namespace AttackManage
 
         protected virtual void RefreshGauge()
         {
-            float ratio = Mathf.Clamp01(_currentBullets / _maxBullets);
+            float ratio = Mathf.Clamp01((float)_currentBullets / _maxBullets);
             Vector3 fillAmount = new Vector3(ratio, 1, 1);
             _gunBulletGaugeTrm.localScale = fillAmount;
+        }
+
+        protected virtual void FireProjectile(Vector2 direction)
+        {
+            Projectile projectile = PoolManager.Get(_projectile, _gunTip.position, Quaternion.identity);
+            projectile.Fire(direction);
+            
         }
 
     }

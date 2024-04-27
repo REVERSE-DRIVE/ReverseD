@@ -18,12 +18,13 @@ namespace AttackManage
 
         public override void Fire()
         {
-            throw new System.NotImplementedException();
+            FireProjectile(attackDirection);
         }
 
         public override void BulletLackEventHandler()
         {
-            throw new System.NotImplementedException();
+            
+            
         }
     }
 }

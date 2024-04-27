@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     private Vector3 _direction;
 
+    [SerializeField]
     private bool flipX;
     private bool _isWalking;
     private bool _isStop;
@@ -89,7 +90,16 @@ public class PlayerController : MonoBehaviour
     
     private void Rotate()
     {
-        _spriteRenderer.flipX = _isMoving ? _direction.x > 0 : flipX;
+        if (_direction.x > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (_direction.x < 0)
+        {
+            
+            _spriteRenderer.flipX = true;
+        }
+        //_spriteRenderer.flipX = _isMoving ? _direction.x > 0 : flipX;
     }
     
     public void SaveDirection()
