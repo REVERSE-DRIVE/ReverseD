@@ -5,10 +5,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
     [SerializeField] private int arrange;
-    [SerializeField] private int attackSpeed;
-    [SerializeField] private int knockback;
     [SerializeField] private Sprite playerSprite;
-    // [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerAttackController _playerAttackController;
 
     private Player _player;
@@ -16,9 +13,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public int setting_hp => playerSO.playerHealth;
     public int setting_moveSpeed => playerSO.moveSpeed;
     public int setting_arrange => arrange;
-    public int setting_attackDamage => playerSO.attackDamage;
-    public int AttackSpeed => attackSpeed;
-    public int Knockback => knockback;
+    
     public Sprite PlayerSprite => playerSprite;
     
     //
@@ -58,8 +53,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public void UpdateStat()
     {
         arrange = playerSO.arrange;
-        attackSpeed = playerSO.attackSpeed;
-        knockback = playerSO.knockback;
         playerSprite = playerSO.playerSprite;
         playerSO.SetCharacter();
     }

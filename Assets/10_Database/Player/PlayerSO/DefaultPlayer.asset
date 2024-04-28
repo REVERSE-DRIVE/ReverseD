@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d9c812c7cbbd624abea4766c54a94ae, type: 3}
-  m_Name: Fileless
+  m_Name: DefaultPlayer
   m_EditorClassIdentifier: 
+  playerName: 
+  playerDescription: 
   playerSprite: {fileID: 0}
-  playerHealth: 50
-  attackDamage: 4
-  attackRange: 15
-  moveSpeed: 6
-  arrange: 10
-  attackSpeed: 5
+  playerHealth: 0
+  attackDamage: 0
+  attackRange: 0
+  moveSpeed: 0
+  arrange: 0
+  attackSpeed: 0
   knockback: 0
-  weaponType: 2
+  weaponType: 0

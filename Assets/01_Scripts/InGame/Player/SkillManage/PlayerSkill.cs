@@ -2,27 +2,26 @@
 
 namespace SkillManage
 {
-    public abstract class PlayerSkill
+    [CreateAssetMenu(menuName = "SO/PlayerSkill")]
+    public abstract class PlayerSkill : ScriptableObject
     {
-        protected int _skillLevel;
-        protected float _skillDuration;
-        protected float _coolTime;
+        public string skillName;
+        public string description;
+        public int skillLevel;
+
+        public bool isPassive;
+        public float skillDuration;
+        public float coolTime;
         /**
          * 스킬의 다음 사용까지의 최소 시간
          */
-        protected float _minUseCoolTime;
+        public float minUseCoolTime;
 
-        protected Player _playerBase;
+        private Player _playerBase;
         
-        public float SkillDuration => _skillDuration;
-        public float CoolTime => _coolTime;
-        public float MinUseCoolTime => _minUseCoolTime;
-
-        public void SetSkillValue(float duration, float coolTime, float minUseCoolTime)
+        public void LevelUp(int amount)
         {
-            _skillDuration = duration;
-            _coolTime = coolTime;
-            _minUseCoolTime = minUseCoolTime;
+            skillLevel += amount;
         }
 
         public void SetSkillValue(Player player)

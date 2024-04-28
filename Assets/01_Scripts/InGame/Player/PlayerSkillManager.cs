@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerSkillManager : MonoBehaviour
 {
-    private PlayerSkillSO _currentSkillSO;
-    public PlayerSkill skill;
+    public PlayerSkill currentSkill;
 
     private bool _isPassive;
     private float _coolTime;
@@ -21,14 +20,13 @@ public class PlayerSkillManager : MonoBehaviour
         _player = GetComponent<Player>();
     }
 
-    private void ApplySkill(PlayerSkillSO skillSO)
+    private void ApplySkill(PlayerSkill skillSO)
     {
-        _currentSkillSO = skillSO;
+        currentSkill = skillSO;
         _duration = skillSO.skillDuration;
         _coolTime = skillSO.coolTime;
-        skill = skillSO.GetSkill;
         _isPassive = skillSO.isPassive;
-        skill.SetSkillValue(_player);
+        currentSkill.SetSkillValue(_player);
     }
 
     private void Update()
@@ -37,14 +35,14 @@ public class PlayerSkillManager : MonoBehaviour
             return;
         if (_isPassive)
         {
-            skill.UpdateSkill();
+            currentSkill.UpdateSkill();
             return;
         }
         _currentTime += Time.deltaTime * TimeManager.TimeScale;
 
         if (_isSkillActivated)
         {
-            skill.UpdateSkill();
+            currentSkill.UpdateSkill();
             if(_currentTime >= _duration)
                 EndSkill();
         }
@@ -57,7 +55,7 @@ public class PlayerSkillManager : MonoBehaviour
         {
             _isSkillActivated = true;
             _currentTime = 0;
-            skill.ActiveSkill();
+            currentSkill.ActiveSkill();
 
         }
     }
