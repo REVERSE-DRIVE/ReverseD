@@ -16,7 +16,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     
     public Sprite PlayerSprite => playerSprite;
     
-    //
+    
     // public PlayerAttack PlayerAttack
     // {
     //     get => playerAttack;

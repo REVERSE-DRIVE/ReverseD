@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerName: Default
   playerDescription: 
-  playerSprite: {fileID: 0}
+  playerSprite: {fileID: 21300000, guid: 449ad5be1226339409640715dcbf2652, type: 3}
   playerHealth: 100
-  moveSpeed: 0
-  arrange: 0
+  moveSpeed: 8
+  arrange: 3
