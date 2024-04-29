@@ -16,6 +16,7 @@ namespace InGameScene
         [Header("Player UI")]
         [SerializeField] private Image hp_gauge;
         [SerializeField] private Image attackButton;
+        [SerializeField] private Image joystick;
 
         [Header("New Stage UI")] 
         [SerializeField] private UIInfo UI_NewStage;
@@ -68,6 +69,11 @@ namespace InGameScene
         public void RefreshUIs()
         {
             
+        }
+        
+        public void JoyStickEnable(bool enable)
+        {
+            joystick.enabled = enable;
         }
 
         public void ShowStageChangeEvent()
