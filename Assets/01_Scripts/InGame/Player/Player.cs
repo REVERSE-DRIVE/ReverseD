@@ -20,7 +20,6 @@ public class Player : Entity
     public static event Action OnPlayerHpChangedEvent;
     public event Action OnPlayerDieEvent;
     private SoundObject _soundObject;
-    private SpriteRenderer _spriteRenderer;
     private Collider2D _collider;
     [SerializeField] private EffectObject _dieParticle;
     
@@ -30,7 +29,6 @@ public class Player : Entity
         ModifyStatus();
         
         _soundObject = GetComponent<SoundObject>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
     }
 
@@ -41,7 +39,6 @@ public class Player : Entity
      */
     private void ModifyStatus()
     {
-        
         PlayerManager.Instance.UpdateStat();
         
         status.hp = PlayerManager.Instance.setting_hp;
@@ -77,7 +74,6 @@ public class Player : Entity
 
     public void SetObjective(bool value)
     {
-        _spriteRenderer.enabled = value;
         _collider.enabled = value;
         
     }
