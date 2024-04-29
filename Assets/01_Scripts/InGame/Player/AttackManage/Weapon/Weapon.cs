@@ -28,7 +28,7 @@ namespace AttackManage
         [SerializeField]
         protected Vector2 attackDirection;
 
-        [SerializeField] private LayerMask _wallLayer;
+        [SerializeField] protected LayerMask _wallLayer;
 
         [SerializeField]
         protected LayerMask _whatIsTarget;

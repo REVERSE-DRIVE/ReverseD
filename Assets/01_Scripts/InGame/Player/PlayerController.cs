@@ -6,10 +6,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private VariableJoystick _joystick;
     
     #region Component
-    
+
+    private Transform _visualTrm;
     private Player _player;
     private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private ParticleSystem _walkParticle;
 
     #endregion
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private bool _isWalking;
     private bool _isStop;
     private bool _isMoving;
+
+    private int _moveBoolHash;
     
     public VariableJoystick Joystick 
     { 
@@ -39,7 +43,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _visualTrm = transform.Find("Visual");
+        _spriteRenderer = _visualTrm.GetComponent<SpriteRenderer>();
+        _animator = _visualTrm.GetComponent<Animator>();
+        _moveBoolHash = Animator.StringToHash("IsMoving");
+        
         _rigid = GetComponent<Rigidbody2D>();
         _player = GetComponent<Player>();
 
@@ -72,6 +80,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         _isMoving = _rigid.velocity.magnitude > 0.1f;
+        _animator.SetBool(_moveBoolHash, _isMoving);
         if (TimeManager.TimeScale == 0) return;
         Vector2 dir = _joystick.Input;
         if (dir.magnitude > 0.1f)
