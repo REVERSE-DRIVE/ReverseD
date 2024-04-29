@@ -99,6 +99,8 @@ public class StageManager : MonoBehaviour
         BossRoom bossRoomPrefab = 
             PoolManager.Get(
                 _bossRoomPrefab, generatePos + new Vector2(-1, -37), Quaternion.identity);
+        bossRoomPrefab.transform.SetParent(_bossRoomParent);
+        bossRoomPrefab.gameObject.SetActive(false);
     }
 
     public void OpenBossRoom()

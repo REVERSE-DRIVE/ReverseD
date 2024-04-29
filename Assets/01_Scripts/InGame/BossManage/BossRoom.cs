@@ -43,8 +43,6 @@ public class BossRoom : MonoBehaviour
 
     public void BossStart()
     {
-        TimeManager.TimeScale = 0f;
-        
         DOTween.To(() => _virtualCamera.m_Lens.OrthographicSize, x => _virtualCamera.m_Lens.OrthographicSize = x, 8,
                 1.5f)
             .OnComplete(() =>
@@ -55,6 +53,7 @@ public class BossRoom : MonoBehaviour
     
     private IEnumerator CutScene()
     {
+        gameObject.SetActive(true);
         Debug.Log("CutScene Start");
         transform.SetParent(_parent);
         _virtualCamera.Follow = transform.GetChild(2);

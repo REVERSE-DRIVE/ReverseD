@@ -105,14 +105,13 @@ namespace InGameScene
         public void ShowInfectionAlert(int infectLevel)
         { // 감염도 경고창
             InfectGaugeColor(infectLevel);
-            GameManager.Instance._RenderingManager.SetGlobalLightColor(new Color(1,  1 - infectLevel * 0.01f,  1 -infectLevel * 0.01f));
+            GameManager.Instance._RenderingManager.SetGlobalLightColor(new Color(1f,  (1 - infectLevel * 0.01f) * 0.5f + 0.5f, (1 - infectLevel * 0.01f) * 0.5f + 0.5f));
             DOTween.To(() => _infectionGauge.fillAmount, 
                 x => _infectionGauge.fillAmount = x, 
-                infectLevel / 100f,
+                infectLevel * 0.01f,
                     1f);
             _infectionText.text = $"{infectLevel}%";
             InfectionActive(true);
-            
         }
         
         public void InfectionActive(bool active)
