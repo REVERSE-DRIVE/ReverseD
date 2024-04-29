@@ -5,10 +5,14 @@ namespace SkillManage
     [CreateAssetMenu(menuName = "SO/PlayerSkill")]
     public abstract class PlayerSkill : ScriptableObject
     {
-        public string skillName;
+        [Header("Display Setting")]
+        public string skillName = "Skill Name";
         public string description;
         public int skillLevel;
-
+        public Sprite skillIcon;
+        
+        [Space(10)]
+        [Header("Skill Settings")]
         public bool isPassive;
         public float skillDuration;
         public float coolTime;
@@ -17,7 +21,7 @@ namespace SkillManage
          */
         public float minUseCoolTime;
 
-        private Player _playerBase;
+        protected Player _playerBase;
         
         public void LevelUp(int amount)
         {

@@ -21830,7 +21830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &859080797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27642,8 +27642,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: c55391cea8206df4394a869c3b34ac66, type: 2}
   arrange: 0
-  attackSpeed: 0
-  knockback: 0
   playerSprite: {fileID: 0}
   _playerAttackController: {fileID: 1312064207}
 --- !u!114 &1312064200
