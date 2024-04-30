@@ -3,7 +3,6 @@ using EntityManage;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerController))]
-[RequireComponent(typeof(PlayerManager))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Entity
 {
@@ -20,17 +19,15 @@ public class Player : Entity
     public static event Action OnPlayerHpChangedEvent;
     public event Action OnPlayerDieEvent;
     private SoundObject _soundObject;
-    private SpriteRenderer _spriteRenderer;
     private Collider2D _collider;
     [SerializeField] private EffectObject _dieParticle;
     
-    private void Awake()
+    private void Start()
     {
         PlayerManager.Instance.UpdateStat();
         ModifyStatus();
         
         _soundObject = GetComponent<SoundObject>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
     }
 
@@ -41,14 +38,12 @@ public class Player : Entity
      */
     private void ModifyStatus()
     {
-        
         PlayerManager.Instance.UpdateStat();
         
         status.hp = PlayerManager.Instance.setting_hp;
         status.hpMax = PlayerManager.Instance.setting_hp;
         // 스테이터스 불러올때 어케 불러올거임
         
-        status.attackDamage = PlayerManager.Instance.setting_attackDamage;
         status.moveSpeed = PlayerManager.Instance.setting_moveSpeed;
     }
 
@@ -78,7 +73,6 @@ public class Player : Entity
 
     public void SetObjective(bool value)
     {
-        _spriteRenderer.enabled = value;
         _collider.enabled = value;
         
     }

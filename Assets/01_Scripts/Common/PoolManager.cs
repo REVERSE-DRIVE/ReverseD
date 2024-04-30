@@ -160,10 +160,11 @@ public static class PoolManager
             else
             {
                 obj = Object.Instantiate(prefab);
+               
                 _prefabs.Add(obj, prefab);
 
                 var gameObject = GetGameObject(obj);
-
+                
                 if (gameObject != null && !_poolables.ContainsKey(gameObject))
                 {
                     _poolables.Add(obj, new List<IPoolable>());

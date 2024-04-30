@@ -77,7 +77,7 @@ public abstract class Projectile : MonoBehaviour
         _direction = Vector2.zero;
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         Hit(other);
     }
@@ -125,7 +125,7 @@ public abstract class Projectile : MonoBehaviour
         DestroyEvent();
         PoolManager.Get(_destroyParticlePrefab, transform.position, Quaternion.identity);
         
-        PoolManager.Release(gameObject);
+        PoolManager.Release(this);
 
     }
 
