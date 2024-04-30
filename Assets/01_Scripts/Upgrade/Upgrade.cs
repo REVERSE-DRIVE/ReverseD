@@ -14,24 +14,24 @@ public class Upgrade : MonoBehaviour
             return;
         }
         
-        switch (wpSlot.WeaponSO.rank)
-        {
-            case 1:
-                UpgradeRank(80f, wpSlot, 2);
-                break;
-            case 2:
-                UpgradeRank(60f, wpSlot, 3);
-                break;
-            case 3:
-                UpgradeRank(40f, wpSlot, 4, 41f);
-                break;
-            case 4:
-                UpgradeRank(20f, wpSlot, 5, 25f);
-                break;
-            case 5:
-                UpgradeRank(10f, wpSlot, 6, 20f);
-                break;
-        }
+        // switch ((int)wpSlot.WeaponSO.rank)
+        // {
+        //     case 1:
+        //         UpgradeRank(80f, wpSlot, 2);
+        //         break;
+        //     case 2:
+        //         UpgradeRank(60f, wpSlot, 3);
+        //         break;
+        //     case 3:
+        //         UpgradeRank(40f, wpSlot, 4, 41f);
+        //         break;
+        //     case 4:
+        //         UpgradeRank(20f, wpSlot, 5, 25f);
+        //         break;
+        //     case 5:
+        //         UpgradeRank(10f, wpSlot, 6, 20f);
+        //         break;
+        // } 무기 강화에 대한 스크립트는 사용되지 않음
         Debug.Log(wpSlot.WeaponSO.rank);
     }
 
@@ -40,7 +40,7 @@ public class Upgrade : MonoBehaviour
         float percent = Random.Range(0f, 100f);
         if (percent <= per)
         {
-            wpSlot.WeaponSO.rank = rank;
+            //wpSlot.WeaponSO.rank = rank;
         }
         if (breakPer == 0f)
         {
@@ -48,7 +48,7 @@ public class Upgrade : MonoBehaviour
         }
         if (percent > per && percent <= breakPer)
         {
-            wpSlot.WeaponSO.rank = 1;
+            //wpSlot.WeaponSO.rank = 1;
         }
     }
 }

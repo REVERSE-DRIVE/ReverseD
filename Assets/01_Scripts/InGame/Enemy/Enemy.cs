@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using EntityManage;
 using UnityEngine;
 
@@ -18,12 +19,16 @@ namespace EnemyManage
         protected Material _defaultMaterial;
         public bool CanStateChangeable { get; set; } = true;
         
-        // Compo
+        #region Component
+        
         protected Rigidbody2D _rigid;
         protected SpriteRenderer _spriteRenderer;
-        [SerializeField] protected EffectObject _enemyDieEffectPrefab;
         public Animator AnimatorCompo;
-
+        
+        #endregion
+        
+        [SerializeField] protected EffectObject _enemyDieEffectPrefab;
+        private bool _isDead;
         protected virtual void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -64,10 +69,14 @@ namespace EnemyManage
 
         public override void Die()
         {
-            OnDieEvent?.Invoke();
-            PoolManager.Get(_enemyDieEffectPrefab, transform.position, Quaternion.identity).Play();
-            ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
-            StartCoroutine(DieRoutine());
+            if (!_isDead)
+            {
+                _isDead = true;
+                OnDieEvent?.Invoke();
+                PoolManager.Get(_enemyDieEffectPrefab, transform.position, Quaternion.identity).Play();
+                ItemDropManager.Instance.DropItem(ItemDropType, transform.position);
+                StartCoroutine(DieRoutine());
+            }
         }
 
         protected IEnumerator DieRoutine()
@@ -86,6 +95,7 @@ namespace EnemyManage
         public virtual void SetStatusDefault()
         {
             status = defaultStatus;
+            _isDead = false;
         }
 
         protected virtual void HandlerHitEvent()

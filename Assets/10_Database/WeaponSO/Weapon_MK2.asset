@@ -18,11 +18,11 @@ MonoBehaviour:
   weaponName: MK2
   description: 
   damage: 3
-  attackCooltime: 1
-  attackTime: 1
+  attackCooltime: 0.13
+  attackTime: 0.9
   attackRange: 7
   isKnockBack: 0
   knockBackPower: 1
   useAutoAiming: 1
-  autoAimingDistance: 6
+  autoAimingDistance: 9
   weaponPrefab: {fileID: 9118921425078147893, guid: b32cd39216a92b64e80a1fa4cfe8cce7, type: 3}

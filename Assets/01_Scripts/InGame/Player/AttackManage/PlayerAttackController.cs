@@ -118,6 +118,10 @@ namespace AttackManage
             weaponHandleTrm.gameObject.SetActive(false);
         }
 
+        public void SetOffVisual()
+        {
+            
+        }
         
     }
 }

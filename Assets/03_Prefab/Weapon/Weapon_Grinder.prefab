@@ -4886,7 +4886,7 @@ Transform:
   m_GameObject: {fileID: 7448510250513115333}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 0.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4907,10 +4907,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  _attackCooltime: 2.2
+  _attackCooltime: 2.3
   _attackTime: 1.8
   _useAutoAiming: 0
-  _autoAimingDistance: 1
+  _autoAimingDistance: 6
   _isAutoTargeted: 0
   _isKnockBack: 0
   _knockBackPower: 1
@@ -4924,7 +4924,7 @@ MonoBehaviour:
   _whatIsTarget:
     serializedVersion: 2
     m_Bits: 40960
-  _attackRadius: 5
+  _attackRadius: 5.1
   _isSplash: 1
   _damageTiming: 0.3
   _attackParticleHandleTrm: {fileID: 6108795463263444031}
