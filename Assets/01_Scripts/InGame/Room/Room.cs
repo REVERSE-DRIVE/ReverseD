@@ -87,6 +87,7 @@ namespace RoomManage
             isPhaseStarted = true;
             phaseStartParticle.Play();
             _soundObject.PlayAudio(0);
+            GameManager.Instance._UIManager.InfectionActive(false);
         }
     
         /**
