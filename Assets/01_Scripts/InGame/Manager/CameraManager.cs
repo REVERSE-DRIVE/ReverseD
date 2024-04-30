@@ -34,13 +34,13 @@ public class CameraManager : MonoBehaviour
 
     private IEnumerator FollowCoroutine(Transform newTarget, float duration = 1)
     {
+        GameManager.Instance._UIManager.JoyStickEnable(false);
         _virtualCamera.Follow = newTarget;
         isNewFollowing = true;
         yield return new WaitForSeconds(duration);
         _virtualCamera.Follow = _defaultCameraTarget;
         isNewFollowing = false;
-        
-        
+        GameManager.Instance._UIManager.JoyStickEnable(true);
     }
 
     public void ShakeHit()

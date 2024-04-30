@@ -87,6 +87,7 @@ namespace RoomManage
             isPhaseStarted = true;
             phaseStartParticle.Play();
             _soundObject.PlayAudio(0);
+            GameManager.Instance._UIManager.InfectionActive(false);
         }
     
         /**
@@ -127,7 +128,7 @@ namespace RoomManage
         {
             for (int i = 0; i < 4; i++)
             {
-                walls[i].OnWall();
+                walls[i].SetWall(true);
             }
         }
 
@@ -137,6 +138,11 @@ namespace RoomManage
             {
                 walls[i].SetWall();
             }
+        }
+
+        public void OpenDoor(int index)
+        {
+            walls[index].SetWall(false);
         }
     }
 }
