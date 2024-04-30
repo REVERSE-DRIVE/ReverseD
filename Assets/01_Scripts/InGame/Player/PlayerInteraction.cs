@@ -44,7 +44,7 @@ public class PlayerInteraction : MonoBehaviour
         _buttonImage = _interactionController.GetComponent<Image>();
         _button.onClick.AddListener(Interact);
 
-        _playerAttack = PlayerManager.Instance.playerAttackController;
+        _playerAttack = GetComponent<PlayerAttackController>();
         interactionEvent += _playerAttack.Attack;
     }
     

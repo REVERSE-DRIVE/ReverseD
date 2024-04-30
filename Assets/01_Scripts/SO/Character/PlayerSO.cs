@@ -1,4 +1,5 @@
 using System;
+using SkillManage;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerSO", menuName = "SO/PlayerSO")]
@@ -11,6 +12,8 @@ public class PlayerSO : ScriptableObject
     public int playerHealth;
     public int moveSpeed;
     public int arrange;
+    
+    public PlayerSkill playerSkill;
 
     public void SetCharacter()
     {

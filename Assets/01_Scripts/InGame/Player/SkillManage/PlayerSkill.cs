@@ -2,7 +2,7 @@
 
 namespace SkillManage
 {
-    [CreateAssetMenu(menuName = "SO/PlayerSkill")]
+    
     public abstract class PlayerSkill : ScriptableObject
     {
         [Header("Display Setting")]

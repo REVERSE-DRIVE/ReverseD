@@ -8,20 +8,15 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     [SerializeField] private Sprite playerSprite;
     [SerializeField] private PlayerAttackController _playerAttackController;
 
+    private Transform _playerTrm;
     private Player _player;
+    private PlayerSkillManager _skillManager;
 
     public int setting_hp => playerSO.playerHealth;
     public int setting_moveSpeed => playerSO.moveSpeed;
-    public int setting_arrange => arrange;
     
     public Sprite PlayerSprite => playerSprite;
     
-    
-    // public PlayerAttack PlayerAttack
-    // {
-    //     get => playerAttack;
-    //     set => playerAttack = value;
-    // }
 
     public PlayerAttackController playerAttackController
     {
@@ -42,6 +37,10 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     private void Awake()
     {
         _player = FindObjectOfType<Player>();
+        _playerTrm = _player.transform;
+        _skillManager = _player.GetComponent<PlayerSkillManager>();
+        
+        
     }
 
 
@@ -54,7 +53,13 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     {
         arrange = playerSO.arrange;
         playerSprite = playerSO.playerSprite;
-        playerSO.SetCharacter();
+        
+        _skillManager.ApplySkill(playerSO.playerSkill);
+    }
+
+    public void LoadSaveStatus()
+    {
+        // 저장된 스테이터스를 불러오는 함수를 구현해야함
     }
 
 }
