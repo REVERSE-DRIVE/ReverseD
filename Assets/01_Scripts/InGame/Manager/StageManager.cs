@@ -113,10 +113,8 @@ public class StageManager : MonoBehaviour
 
     private IEnumerator OpenBossRoomCoroutine()
     {
-        GameManager.Instance._UIManager.JoyStickEnable(false);
         GameManager.Instance._CameraManager.Follow(_bossRoomZoomTrm, 5);
         yield return new WaitForSeconds(2f);
         GameManager.Instance._RoomGenerator.FirstRoom.GetComponent<Room>().OpenDoor(1);
-        GameManager.Instance._UIManager.JoyStickEnable(true);
     }
 }
