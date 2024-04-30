@@ -51,6 +51,11 @@ public class BossUI : MonoBehaviour
         _downParticle = _downEdge.transform.GetComponentInChildren<ParticleSystem>();
     }
 
+    public void HandleBossUIEvent(BossData bossData)
+    {
+        ShowCutScene();
+        SetBossText(bossData);
+    }
     
     /**
      * <summary>
@@ -69,6 +74,7 @@ public class BossUI : MonoBehaviour
         _bossImage.rectTransform.sizeDelta *= bossData.spriteSizeOffset;
     }
 
+    [ContextMenu("Debug_ShowCutScene")]
     public void ShowCutScene()
     {
         _soundObject.PlayAudio(1);
@@ -77,12 +83,12 @@ public class BossUI : MonoBehaviour
     }
     private IEnumerator ShowCutSceneCoroutine()
     {
-        Appear();
+        OnBossUI();
         yield return new WaitForSeconds(_cutSceneDisplayDuration);
-        Disappear();
+        OffBossUI();
     }
 
-    private void Appear()
+    public void OnBossUI()
     {
         
         _upParticle.Play();
@@ -94,7 +100,7 @@ public class BossUI : MonoBehaviour
             
     }
 
-    private void Disappear()
+    private void OffBossUI()
     {
         
         _upParticle.Stop();
