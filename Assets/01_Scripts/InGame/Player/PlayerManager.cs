@@ -4,9 +4,6 @@ using UnityEngine;
 public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
-    [SerializeField] private int arrange;
-    [SerializeField] private Sprite playerSprite;
-    [SerializeField] private PlayerAttackController _playerAttackController;
 
     private Transform _playerTrm;
     private Player _player;
@@ -15,14 +12,8 @@ public class PlayerManager : MonoSingleton<PlayerManager>
     public int setting_hp => playerSO.playerHealth;
     public int setting_moveSpeed => playerSO.moveSpeed;
     
-    public Sprite PlayerSprite => playerSprite;
     
-
-    public PlayerAttackController playerAttackController
-    {
-        get => _playerAttackController;
-        
-    }
+    
     
     public PlayerSO PlayerSO
     {
@@ -51,9 +42,6 @@ public class PlayerManager : MonoSingleton<PlayerManager>
      */
     public void UpdateStat()
     {
-        arrange = playerSO.arrange;
-        playerSprite = playerSO.playerSprite;
-        
         _skillManager.ApplySkill(playerSO.playerSkill);
     }
 

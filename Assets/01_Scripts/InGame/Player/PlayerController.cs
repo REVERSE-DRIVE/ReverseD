@@ -116,7 +116,12 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeSprite()
     {
-        _spriteRenderer.sprite = PlayerManager.Instance.PlayerSprite;
+        
+    }
+
+    public void ImmediatelyStop()
+    {
+        _rigid.velocity = Vector2.zero;
     }
     
     

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Bishop
   description: 
-  skillLevel: 0
-  skillIcon: {fileID: 0}
+  skillLevel: 1
+  skillIcon: {fileID: 21300000, guid: 352f9a1fffce1d94384d5479b4377dc1, type: 3}
   isPassive: 0
-  skillDuration: 0
-  coolTime: 0
-  minUseCoolTime: 0
-  healAmount: 0
+  skillDuration: 5
+  coolTime: 120
+  minUseCoolTime: 5
+  healAmount: 5

@@ -22,7 +22,7 @@ public class Player : Entity
     private Collider2D _collider;
     [SerializeField] private EffectObject _dieParticle;
     
-    private void Awake()
+    private void Start()
     {
         PlayerManager.Instance.UpdateStat();
         ModifyStatus();

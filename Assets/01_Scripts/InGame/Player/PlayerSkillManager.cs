@@ -64,7 +64,7 @@ public class PlayerSkillManager : MonoBehaviour
 
     private void RefreshSkill()
     {
-        float ratio = Mathf.Clamp01(_currentTime);
+        float ratio = Mathf.Clamp01(_currentTime / _coolTime);
 
         _skillIconImage.fillAmount = ratio;
         
@@ -73,7 +73,8 @@ public class PlayerSkillManager : MonoBehaviour
 
     public void UseSkill()
     {
-        if (IsCoolDowned)
+        if (_isSkillActivated) return;
+        if (IsCoolDowned )
         {
             _isSkillActivated = true;
             _currentTime = _duration;

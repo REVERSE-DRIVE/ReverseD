@@ -18,3 +18,4 @@ MonoBehaviour:
   playerHealth: 100
   moveSpeed: 8
   arrange: 3
+  playerSkill: {fileID: 11400000, guid: ada3f3cc0f33ab74fab35b30dd503a63, type: 2}
