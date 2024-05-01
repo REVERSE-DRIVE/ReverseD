@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1500}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22193134
@@ -15583,7 +15583,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 562.5}
+  m_AnchoredPosition: {x: 0, y: 500}
   m_SizeDelta: {x: -240, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280505673
@@ -15744,6 +15744,8 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 16384
+  _bossIndex: 0
+  _door: {fileID: 0}
 --- !u!1 &311327685
 GameObject:
   m_ObjectHideFlags: 0
@@ -21969,6 +21971,7 @@ GameObject:
   - component: {fileID: 818650056}
   - component: {fileID: 818650055}
   - component: {fileID: 818650054}
+  - component: {fileID: 818650057}
   m_Layer: 5
   m_Name: SkillBtn
   m_TagString: Untagged
@@ -22079,6 +22082,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818650052}
   m_CullTransparentMesh: 1
+--- !u!114 &818650057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818650052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674d381214aad424bb25b258bb41b746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skillGaugeHandle: {fileID: 98740051}
+  _skillIconBG: {fileID: 1849685476}
 --- !u!1 &857554326
 GameObject:
   m_ObjectHideFlags: 0
@@ -22822,7 +22839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -562.5, y: -168.75012}
+  m_AnchoredPosition: {x: -500, y: -150}
   m_SizeDelta: {x: 550, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1211622215
@@ -22944,6 +22961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderingDistance: 50
   mapGrid: {fileID: 2113758140}
+  globalVolume: {fileID: 0}
 --- !u!4 &1228212390
 Transform:
   m_ObjectHideFlags: 0
@@ -27534,6 +27552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp_gauge: {fileID: 857554328}
   attackButton: {fileID: 769933874}
+  joystick: {fileID: 0}
   UI_NewStage: {fileID: 638864304}
   _stageText: {fileID: 1797624320}
   _newStageUIDisplayDuration: 1.5
@@ -27548,6 +27567,7 @@ MonoBehaviour:
   _bossBar: {fileID: 0}
   UI_Infection: {fileID: 1211622217}
   _infectionText: {fileID: 64053942}
+  _infectionGauge: {fileID: 0}
   _displayDuration: 2.5
   UI_GameOver: {fileID: 0}
 --- !u!4 &1292344168
@@ -28362,8 +28382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSkill: {fileID: 0}
+  _skillButtonUI: {fileID: 818650057}
   _SkillButton: {fileID: 818650054}
-  _skillIconImage: {fileID: 98740051}
 --- !u!1 &1315676104
 GameObject:
   m_ObjectHideFlags: 0
@@ -33540,7 +33560,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608771964}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -33628,7 +33648,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 50}
+  m_SizeDelta: {x: 1200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1624894887
 MonoBehaviour:
@@ -33650,7 +33670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ':Stage Clear:'
+  m_text: ': Clear:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 773bde5ef6d1b8144ae11524e8946663, type: 2}
   m_sharedMaterial: {fileID: 9116536590566192337, guid: 773bde5ef6d1b8144ae11524e8946663, type: 2}
@@ -34151,7 +34171,7 @@ GameObject:
   - component: {fileID: 1797624321}
   - component: {fileID: 1797624320}
   m_Layer: 5
-  m_Name: StageText
+  m_Name: ChapterText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34196,10 +34216,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stage 1
+  m_text: Chapter - RAM
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ffb0554471389e847bf678afe268779d, type: 2}
+  m_sharedMaterial: {fileID: 8222288813299492571, guid: ffb0554471389e847bf678afe268779d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -34777,6 +34797,8 @@ MonoBehaviour:
   _delayNewStageMsg: 2
   _isBossRoomOpened: 0
   _bossRoomZoomTrm: {fileID: 1998425024}
+  _bossRoomPrefab: {fileID: 0}
+  _bossRoomParent: {fileID: 0}
 --- !u!4 &2092276428
 Transform:
   m_ObjectHideFlags: 0
