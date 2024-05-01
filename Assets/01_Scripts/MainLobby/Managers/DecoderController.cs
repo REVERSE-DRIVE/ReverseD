@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MainLoby
+namespace MainLobby
 {
     public class DecoderController : MonoBehaviour
     {

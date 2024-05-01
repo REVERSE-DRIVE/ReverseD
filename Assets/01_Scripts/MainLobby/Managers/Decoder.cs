@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MainLoby
+namespace MainLobby
 {
     public class Decoder : MonoBehaviour
     {

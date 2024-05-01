@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MainLoby
+namespace MainLobby
 {
     
     public class LobbyInteractionManager : MonoBehaviour

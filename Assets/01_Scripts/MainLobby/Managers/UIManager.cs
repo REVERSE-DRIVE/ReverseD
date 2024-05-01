@@ -2,7 +2,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine;
 
-namespace MainLoby
+namespace MainLobby
 {
     public class UIManager : MonoBehaviour
     {

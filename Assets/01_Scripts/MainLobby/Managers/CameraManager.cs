@@ -1,7 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 
-namespace MainLoby
+namespace MainLobby
 {
     public class CameraManager : MonoSingleton<CameraManager>
     {

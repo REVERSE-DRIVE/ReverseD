@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using EntityManage;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace SkillManage
 {
