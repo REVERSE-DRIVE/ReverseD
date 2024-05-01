@@ -22,7 +22,7 @@ namespace EnemyManage
         #region Component
         
         protected Rigidbody2D _rigid;
-        protected SpriteRenderer _spriteRenderer;
+        [HideInInspector] public SpriteRenderer _spriteRenderer;
         public Animator AnimatorCompo;
         
         #endregion
@@ -81,7 +81,7 @@ namespace EnemyManage
 
         protected IEnumerator DieRoutine()
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1f);
             transform.SetParent(GameManager.Instance.DefaultEnemyParentTrm);
             PoolManager.Release(gameObject);
             

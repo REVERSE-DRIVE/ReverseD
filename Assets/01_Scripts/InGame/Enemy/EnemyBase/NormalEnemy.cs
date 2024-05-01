@@ -6,7 +6,6 @@
 
         public override void AnimationEndTrigger()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
