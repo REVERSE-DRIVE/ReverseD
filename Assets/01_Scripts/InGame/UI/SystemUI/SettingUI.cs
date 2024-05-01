@@ -25,6 +25,7 @@ public class SettingUI : MonoBehaviour
         
         _BtnContinue.onClick.AddListener(SetOffUI);
         _BtnQuit.onClick.AddListener(SetOffUI);
+        _BtnQuit.onClick.AddListener(MoveToMainLobby);
     }
 
     public void SetOffUI()
@@ -47,7 +48,7 @@ public class SettingUI : MonoBehaviour
         _canvasGroup.blocksRaycasts = value;
     }
 
-    private void MoveToMainLobby()
+    public void MoveToMainLobby()
     {
         SceneManager.LoadScene("MainLobbyScene");
     }
