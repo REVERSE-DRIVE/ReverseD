@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/00_Scenes/StartScene.unity
     guid: 5a217f6a78c154242a65a0c5bae5a3bf
   - enabled: 1
-    path: Assets/00_Scenes/MainLobyScene.unity
+    path: Assets/00_Scenes/MainLobbyScene.unity
     guid: 644eaab5a6acb8f418118372d1d20473
   - enabled: 1
     path: Assets/00_Scenes/InGame.unity

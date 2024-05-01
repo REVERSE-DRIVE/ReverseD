@@ -10,6 +10,7 @@ public class StopButtonUI : MonoBehaviour
 
     private void Awake()
     {
+        _stopButton = GetComponent<Button>();
         _stopButton.onClick.AddListener(Pause);
     }
 

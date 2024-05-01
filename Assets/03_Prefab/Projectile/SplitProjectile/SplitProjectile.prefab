@@ -194,11 +194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileType: 0
-  _damage: 5
+  _damage: 3
   _speed: 6
   lifeTime: 3
   _projectileTarget: 0
   _destroyParticlePrefab: {fileID: 1078761177020570521, guid: 9f96167c35e3248439e7b375e6c28ac0, type: 3}
   isShot: 0
-  _splitAmount: 6
+  _splitAmount: 3
   _splitedProjectile: {fileID: 5794928939839465771, guid: 31b3a93305d329e4faf76355158f1df6, type: 3}
