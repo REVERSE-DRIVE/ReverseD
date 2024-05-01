@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using EnemyManage;
 using EntityManage;
 using UnityEngine;
 
@@ -42,9 +43,9 @@ namespace SkillManage
             Collider2D[] hits = Physics2D.OverlapCircleAll(_playerTrm.position, 0.5f, targetLayer);
             foreach (Collider2D hit in hits)
             {
-                if (hit.TryGetComponent(out IDamageable health))
+                if (hit.TryGetComponent(out Enemy health))
                 {
-                    health.TakeDamage(totalDamage);
+                    health.TakeDamageWithKnockBack(totalDamage, _playerTrm.position, 2);
                 }
             }
         }
