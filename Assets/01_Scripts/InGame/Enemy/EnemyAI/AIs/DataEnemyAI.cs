@@ -36,11 +36,11 @@ namespace EnemyManage.AIs
         {
             if (_playerTrm.position.x < transform.position.x)
             {
-                _normalEnemy._spriteRenderer.flipX = true;
+                _normalEnemy.spriteRenderer.flipX = true;
             }
             else
             {
-                _normalEnemy._spriteRenderer.flipX = false;
+                _normalEnemy.spriteRenderer.flipX = false;
             }
         }
 
