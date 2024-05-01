@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class PlayerSkillManager : MonoBehaviour
 {
     public PlayerSkill currentSkill;
+    [SerializeField] private SkillButtonUI _skillButtonUI;
     [SerializeField] private Button _SkillButton;
-    [SerializeField] private Image _skillIconImage;
     
     private bool _isPassive;
     private float _coolTime;
@@ -32,7 +32,7 @@ public class PlayerSkillManager : MonoBehaviour
         _duration = skillSO.skillDuration;
         _coolTime = skillSO.coolTime;
         _isPassive = skillSO.isPassive;
-        _skillIconImage.sprite = skillSO.skillIcon;
+        _skillButtonUI.SetSkillIcon(skillSO.skillIcon);
         currentSkill.SetSkillValue(_player);
         
     }
@@ -66,7 +66,7 @@ public class PlayerSkillManager : MonoBehaviour
     {
         float ratio = Mathf.Clamp01(_currentTime / _coolTime);
 
-        _skillIconImage.fillAmount = ratio;
+        _skillButtonUI.RefreshSkillGaugeFill(ratio);
         
     }
 
