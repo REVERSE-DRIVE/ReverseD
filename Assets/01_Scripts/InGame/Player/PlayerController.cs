@@ -1,5 +1,6 @@
 using EntityManage;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform _visualTrm;
     private Player _player;
-    private Rigidbody2D _rigid;
+    [HideInInspector] public Rigidbody2D rigid;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private ParticleSystem _walkParticle;
@@ -33,12 +34,7 @@ public class PlayerController : MonoBehaviour
         set => _joystick = value;
     }
 
-    public Vector2 GetInputVec
-    {
-        get => _direction;
-        private set { }
-    }
-    
+    public Vector2 GetInputVec => _direction;
     public bool IsMoving => _isMoving;
 
     private void Awake()
@@ -48,7 +44,7 @@ public class PlayerController : MonoBehaviour
         _animator = _visualTrm.GetComponent<Animator>();
         _moveBoolHash = Animator.StringToHash("IsMoving");
         
-        _rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>();
         _player = GetComponent<Player>();
 
         _walkParticle = transform.Find("FootStep").GetComponent<ParticleSystem>();
@@ -79,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        _isMoving = _rigid.velocity.magnitude > 0.1f;
+        _isMoving = rigid.velocity.magnitude > 0.1f;
         _animator.SetBool(_moveBoolHash, _isMoving);
         if (TimeManager.TimeScale == 0) return;
         Vector2 dir = _joystick.Input;
@@ -87,12 +83,12 @@ public class PlayerController : MonoBehaviour
         {
             _isStop = true;
             _direction = dir.normalized;
-            _rigid.velocity = _direction * (_player.MoveSpeed * TimeManager.TimeScale);
+            rigid.velocity = _direction * (_player.MoveSpeed * TimeManager.TimeScale);
         }
         else if(_isStop)
         {
             _isStop = false;
-            _rigid.velocity = Vector2.zero;
+            rigid.velocity = Vector2.zero;
             
         }
     }
@@ -121,13 +117,13 @@ public class PlayerController : MonoBehaviour
 
     public void ImmediatelyStop()
     {
-        _rigid.velocity = Vector2.zero;
+        rigid.velocity = Vector2.zero;
     }
     
     
     private void HandlePlayerDie()
     {
-        _rigid.velocity = Vector2.zero;
+        rigid.velocity = Vector2.zero;
         _walkParticle.Stop();
     }
 }

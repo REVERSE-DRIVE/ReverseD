@@ -14,7 +14,8 @@ public class PlayerSkillManager : MonoBehaviour
     private float _coolTime;
     private float _duration;
     
-    private float _currentTime;
+    [SerializeField]
+    private float _currentTime = 300;
     private Player _player;
     private bool _isSkillActivated;
     public bool IsCoolDowned => _currentTime >= _coolTime;
@@ -59,7 +60,6 @@ public class PlayerSkillManager : MonoBehaviour
         }
         _currentTime += Time.deltaTime * TimeManager.TimeScale;
         
-
     }
 
     private void RefreshSkill()
@@ -85,6 +85,7 @@ public class PlayerSkillManager : MonoBehaviour
 
     private void EndSkill()
     {
+        currentSkill.EndSkill();
         _isSkillActivated = false;
         _currentTime = 0;
     }

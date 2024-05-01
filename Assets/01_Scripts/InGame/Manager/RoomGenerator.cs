@@ -26,7 +26,7 @@ namespace RoomManage
         private List<GameObject> rooms = new List<GameObject>(); // 생성된 방 리스트
 
 
-        public GameObject LastRoom => rooms[rooms.Count - 1];
+        public GameObject LastRoom => rooms[^1];
         public GameObject FirstRoom => rooms[0];
         
 

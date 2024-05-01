@@ -11,7 +11,6 @@ namespace SkillManage
 
         public override void ActiveSkill()
         {
-            base.ActiveSkill();
             Player.OnPlayerHpChangedEvent += Heal;
         }
 
@@ -25,17 +24,15 @@ namespace SkillManage
             }
             
         }
-
+        public override void EndSkill()
+        {
+            Player.OnPlayerHpChangedEvent -= Heal;
+        }
+        
         private void Heal()
         {
             
             _playerBase.RestoreHealth(healAmount * skillLevel);
         }
-
-        private void EndSkill()
-        {
-            Player.OnPlayerHpChangedEvent -= Heal;
-        }
-        
     }
 }

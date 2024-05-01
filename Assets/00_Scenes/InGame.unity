@@ -28384,6 +28384,7 @@ MonoBehaviour:
   currentSkill: {fileID: 0}
   _skillButtonUI: {fileID: 818650057}
   _SkillButton: {fileID: 818650054}
+  _currentTime: 300
 --- !u!1 &1315676104
 GameObject:
   m_ObjectHideFlags: 0

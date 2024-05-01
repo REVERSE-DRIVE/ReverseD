@@ -18,6 +18,6 @@ MonoBehaviour:
   skillIcon: {fileID: -989847437, guid: e7c65360f36ca324782f53b4235e196c, type: 3}
   isPassive: 0
   skillDuration: 5
-  coolTime: 120
+  coolTime: 20
   minUseCoolTime: 5
   healAmount: 5
