@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace MainLoby
+namespace MainLobby
 {
     public class Laptop : InteractionObject
     {
