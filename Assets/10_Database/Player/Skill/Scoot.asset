@@ -21,9 +21,8 @@ MonoBehaviour:
   coolTime: 12
   minUseCoolTime: 0
   dashSpeed: 30
-  _skillLayer:
+  defaultDamage: 15
+  multipleDamage: 2
+  targetLayer:
     serializedVersion: 2
-    m_Bits: 131072
-  _defaultPlayerLayer:
-    serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 8192

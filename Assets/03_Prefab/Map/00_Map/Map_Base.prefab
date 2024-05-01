@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010fea816e151084081833b1a004d7d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   _roomType: 0
   isCleared: 0
   playerDetectDistance: 13
@@ -12127,7 +12128,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.40709794, g: 0.7169812, b: 0.34766823, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -13, y: -13, z: 0}
   m_Size: {x: 26, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -13114,7 +13115,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.3224443, g: 1, b: 0.013207495, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -27, y: -14, z: 0}
   m_Size: {x: 40, y: 27, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -13156,7 +13157,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
