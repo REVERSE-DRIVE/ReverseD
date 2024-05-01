@@ -22,6 +22,8 @@ namespace SkillManage
         public float minUseCoolTime;
 
         protected Player _playerBase;
+        protected PlayerController _playerController;
+        protected Transform _playerTrm;
         
         public void LevelUp(int amount)
         {
@@ -31,16 +33,13 @@ namespace SkillManage
         public void SetSkillValue(Player player)
         {
             _playerBase = player;
+            _playerTrm = player.transform;
+            _playerController = _playerTrm.GetComponent<PlayerController>();
         }
 
-        public virtual void ActiveSkill()
-        {
-            
-        }
-
-
+        public abstract void ActiveSkill();
         public abstract void UpdateSkill();
 
-
+        public abstract void EndSkill();
     }
 }
