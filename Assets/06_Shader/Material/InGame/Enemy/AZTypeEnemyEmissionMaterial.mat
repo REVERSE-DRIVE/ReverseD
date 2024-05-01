@@ -62,7 +62,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Main_EmissionColor: {r: 0, g: 1.9807868, b: 2, a: 1}
+    - _Main_EmissionColor: {r: 2.670157, g: 2.670157, b: 2.670157, a: 1}
     - _MaskColor: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SubColor: {r: 0.36078432, g: 0.63529414, b: 0.9333334, a: 1}

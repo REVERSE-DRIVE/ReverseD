@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816500334096186404}
   - component: {fileID: 2230463729919282407}
+  - component: {fileID: 1004447337244533709}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -157,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: -1165560723
   m_SortingLayer: 3
   m_SortingOrder: 5
-  m_Sprite: {fileID: 1115891532, guid: 27dcafe804b8cd64c806318ded3710ac, type: 3}
+  m_Sprite: {fileID: 767051832, guid: a26af39f913c6bd4eb612b2035c8eb46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -168,6 +169,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1004447337244533709
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5797066190358801942}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 336c8411ea77fa540b24c6a80122b583, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7030939348616747931
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,8 +314,10 @@ MonoBehaviour:
     healthDefMultiple: 0
   ItemDropType: 0
   _hitMaterial: {fileID: 2100000, guid: 1f1c9fe720b3b8b46ba2f4d571f91d3c, type: 2}
+  _dieEffectWaitTime: 1
+  spriteRenderer: {fileID: 0}
+  AnimatorCompo: {fileID: 1004447337244533709}
   _enemyDieEffectPrefab: {fileID: -3632230298647833293, guid: 0adea8160557443479f8bcdf2a8b7b05, type: 3}
-  AnimatorCompo: {fileID: 0}
 --- !u!114 &8620851793635927682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isStatic: 0
-  _animator: {fileID: 0}
   _currentState: 0
   _canChangeState: 03000000
   _idleWaitTime: 3
