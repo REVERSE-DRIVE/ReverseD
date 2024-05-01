@@ -66,6 +66,7 @@ namespace EnemyManage.AIs
                     break;
             }
         }
+
         #region Waiting
         protected void Waiting()
         {

@@ -15,6 +15,7 @@ namespace EnemyManage
         [Header("Setting Values")]
         [SerializeField] protected ItemDropType ItemDropType;
         [SerializeField] protected Material _hitMaterial;
+        [SerializeField] protected float _dieEffectWaitTime = 1f;
        
         protected Material _defaultMaterial;
         public bool CanStateChangeable { get; set; } = true;
@@ -22,7 +23,7 @@ namespace EnemyManage
         #region Component
         
         protected Rigidbody2D _rigid;
-        protected SpriteRenderer _spriteRenderer;
+        [HideInInspector] public SpriteRenderer spriteRenderer;
         public Animator AnimatorCompo;
         
         #endregion
@@ -31,10 +32,10 @@ namespace EnemyManage
         private bool _isDead;
         protected virtual void Awake()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            if (_spriteRenderer == null)
-                _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            _defaultMaterial = _spriteRenderer.material;
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer == null)
+                spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _defaultMaterial = spriteRenderer.material;
             if(AnimatorCompo == null)
                 AnimatorCompo = GetComponent<Animator>();
         }
@@ -81,7 +82,7 @@ namespace EnemyManage
 
         protected IEnumerator DieRoutine()
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(_dieEffectWaitTime);
             transform.SetParent(GameManager.Instance.DefaultEnemyParentTrm);
             PoolManager.Release(gameObject);
             
@@ -106,9 +107,9 @@ namespace EnemyManage
 
         protected virtual IEnumerator HitRoutine()
         {
-            _spriteRenderer.material = _hitMaterial;
+            spriteRenderer.material = _hitMaterial;
             yield return new WaitForSeconds(0.1f);
-            _spriteRenderer.material = _defaultMaterial;
+            spriteRenderer.material = _defaultMaterial;
         }
 
         public abstract void AnimationEndTrigger();
