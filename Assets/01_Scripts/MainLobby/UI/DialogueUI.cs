@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -12,7 +12,8 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _contentText;
 
     [Header("Setting Values")] 
-    [SerializeField] private float contentPrintingTerm = 0.1f; 
+    [SerializeField] private float _dialoguePanelShowDuration = 0.3f;
+    [SerializeField] private float _contentPrintingTerm = 0.1f; 
     
     
     private CanvasGroup _canvasGroup;
@@ -32,24 +33,43 @@ public class DialogueUI : MonoBehaviour
     private IEnumerator PrintCoroutine(string content)
     {
         _contentText.text = "";
-        WaitForSeconds ws = new WaitForSeconds(contentPrintingTerm);
+        WaitForSeconds ws = new WaitForSeconds(_contentPrintingTerm);
         for (int i = 0; i < content.Length; i++)
         {
             _contentText.text += content[i];
             yield return ws;
         }
     }
-    
 
-    public void OnDialoguePanel()
+
+    [ContextMenu("DebugOnPanel")]
+    public void DebugOnPanel()
     {
-        SetCanvas(true);
+        OnDialoguePanel();
+    }
+
+    [ContextMenu("DebugOffPanel")]
+    public void DebugOffPanel()
+    {
+        OffDialoguePanel();
     }
     
+    public void OnDialoguePanel()
+    {
+        Sequence seq = DOTween.Sequence();
+        seq.Append(_canvasGroup.DOFade(1f, _dialoguePanelShowDuration))
+            .Join(_CharacterImagePanelRectTrm.DOAnchorPosX(-500, _dialoguePanelShowDuration))
+            .AppendCallback(() => SetCanvas(true));
 
+    }
+    
     public void OffDialoguePanel()
     {
-        SetCanvas(false);
+        Sequence seq = DOTween.Sequence();
+        seq.Append(_canvasGroup.DOFade(0f, _dialoguePanelShowDuration))
+            .Join(_CharacterImagePanelRectTrm.DOAnchorPosX(500, _dialoguePanelShowDuration))
+            .AppendCallback(() => SetCanvas(false));
+
     }
 
     private void SetCanvas(bool value)
@@ -57,4 +77,6 @@ public class DialogueUI : MonoBehaviour
         _canvasGroup.interactable = value;
         _canvasGroup.blocksRaycasts = value;
     }
+    
+    
 }
