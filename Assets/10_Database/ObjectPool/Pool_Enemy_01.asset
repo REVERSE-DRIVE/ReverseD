@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0f71b1304eddbd47b73833d86722ee3, type: 3}
-  m_Name: table
+  m_Script: {fileID: 11500000, guid: 7c849feb582448d42a8491aa630deaca, type: 3}
+  m_Name: Pool_Enemy_01
   m_EditorClassIdentifier: 
-  datas:
-  - {fileID: 11400000, guid: 181f59254266efd4d83416451889cd3f, type: 2}
-  - {fileID: 11400000, guid: c5914bad01162cf40b48a9a6be95ae19, type: 2}
+  enumName: Enemy_01
+  poolingName: Enemy01
+  description: "\uBD84\uC5F4\uD0C4 \uC3D8\uB294 \uC801"
+  poolCount: 30
+  prefab: {fileID: 0}
