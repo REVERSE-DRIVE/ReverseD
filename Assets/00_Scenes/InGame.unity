@@ -23638,7 +23638,7 @@ MonoBehaviour:
   renderingDistance: 50
   mapGrid: {fileID: 2113758140}
   _normalColor: {r: 0, g: 0, b: 0, a: 0}
-  _targetColor: {r: 0, g: 0, b: 0, a: 0}
+  _targetColor: {r: 1, g: 0.1462264, b: 0.1462264, a: 1}
   _globalMapThemeLight: {fileID: 1591777786}
 --- !u!4 &1228212390
 Transform:
