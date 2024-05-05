@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class RenderingManager : MonoBehaviour
@@ -8,6 +7,9 @@ public class RenderingManager : MonoBehaviour
     [SerializeField] private float renderingDistance = 40;
     [SerializeField] private Transform mapGrid;
     //[SerializeField] private Volume globalVolume;
+    
+    [SerializeField] private Color _normalColor;
+    [SerializeField] private Color _targetColor;
     [SerializeField] private Light2D _globalMapThemeLight;
     private bool onRendering;
 
@@ -58,19 +60,21 @@ public class RenderingManager : MonoBehaviour
         return DistanceToCamera(position) > renderingDistance;
     }
     
-    public void SetGlobalLightColor(Color color)
+    public void SetGlobalLightColor(int infectLevelPercent)
     {
-        StartCoroutine(DOColor(color, 1));
+        float ratio = Mathf.Clamp01(infectLevelPercent / 100f);
+        StartCoroutine(ColorChangeCoroutine(ratio, 1));
     }
     
-    private IEnumerator DOColor(Color color, float duration)
+    private IEnumerator ColorChangeCoroutine(float infectPercent, float duration)
     {
-        Color beforeColor = _globalMapThemeLight.color;
         float elapsedTime = 0;
+        Color beforeColor = _globalMapThemeLight.color;
+        Color targetColor = Color.Lerp(beforeColor, _targetColor, infectPercent);
         while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
-            _globalMapThemeLight.color = Color.Lerp(beforeColor, color, elapsedTime / duration);
+            _globalMapThemeLight.color = Color.Lerp(beforeColor, targetColor, elapsedTime / duration);
             yield return null;
         }
     }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using InGameSaveData;
+using SaveDatas;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -44,32 +44,32 @@ namespace RoomManage
         #region Map Loading
 
         
-        public void LoadRoomData(RoomData[] roomDatas, RoadData[] roadDatas)
-        {
-            // 저장된 맵 파일을 열어야함
-            for (int i = 0; i < roomDatas.Length; i++)
-            {
-                RoomSO room = roomPack.FindMap(roomDatas[i].roomID);
-                GameObject newRoom = Instantiate(room.MapPrefab, roomDatas[i].roomPosition, Quaternion.identity);
-                if(roomDatas[i].isRoomCleared)
-                    newRoom.GetComponent<Room>().SetClear(roomDatas[i].isRoomCleared);
-                rooms.Add(newRoom);
-
-            }
-
-            for (int i = 0; i < roadDatas.Length; i++)
-            {
-                if (roadDatas[i].isRoadHorizontal)
-                { // 가로 길 생성
-                    Instantiate(horizontalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
-                }
-                else
-                { // 세로길 생성
-                    Instantiate(verticalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
-                }
-            }
-            
-        }
+        // public void LoadRoomData(RoomData[] roomDatas, RoadData[] roadDatas)
+        // {
+        //     // 저장된 맵 파일을 열어야함
+        //     for (int i = 0; i < roomDatas.Length; i++)
+        //     {
+        //         RoomSO room = roomPack.FindMap(roomDatas[i].roomID);
+        //         GameObject newRoom = Instantiate(room.MapPrefab, roomDatas[i].roomPosition, Quaternion.identity);
+        //         if(roomDatas[i].isRoomCleared)
+        //             newRoom.GetComponent<Room>().SetClear(roomDatas[i].isRoomCleared);
+        //         rooms.Add(newRoom);
+        //
+        //     }
+        //
+        //     for (int i = 0; i < roadDatas.Length; i++)
+        //     {
+        //         if (roadDatas[i].isRoadHorizontal)
+        //         { // 가로 길 생성
+        //             Instantiate(horizontalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
+        //         }
+        //         else
+        //         { // 세로길 생성
+        //             Instantiate(verticalPathPrefab, roadDatas[i].roadPosition, Quaternion.identity);
+        //         }
+        //     }
+        //     
+        // }
 
         #endregion
         
