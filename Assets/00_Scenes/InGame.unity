@@ -15456,6 +15456,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GaugeImage
       objectReference: {fileID: 0}
+    - target: {fileID: 6052120565425785943, guid: 59c4008de1184414c810c2fe1b3c31e6, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130382448619579101, guid: 59c4008de1184414c810c2fe1b3c31e6, type: 3}
+      propertyPath: m_text
+      value: 0%
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16185,7 +16193,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22113,11 +22121,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1356540146509926166, guid: ec11d53ab0460ae43a292bdff4c05d0a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 350
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1356540146509926166, guid: ec11d53ab0460ae43a292bdff4c05d0a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 350
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1356540146509926166, guid: ec11d53ab0460ae43a292bdff4c05d0a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22386,7 +22394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -120, y: 500}
+  m_AnchoredPosition: {x: -120, y: 430}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818650054
@@ -23251,6 +23259,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157086121}
   m_CullTransparentMesh: 1
+--- !u!114 &1183579524 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 221903801118774202, guid: 716cb9394cc883e469998c5a922bb264, type: 3}
+  m_PrefabInstance: {fileID: 1759604457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1185612362
 GameObject:
   m_ObjectHideFlags: 0
@@ -23618,6 +23637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderingDistance: 50
   mapGrid: {fileID: 2113758140}
+  _normalColor: {r: 0, g: 0, b: 0, a: 0}
+  _targetColor: {r: 0, g: 0, b: 0, a: 0}
   _globalMapThemeLight: {fileID: 1591777786}
 --- !u!4 &1228212390
 Transform:
@@ -28209,7 +28230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp_gauge: {fileID: 857554328}
   attackButton: {fileID: 769933874}
-  joystick: {fileID: 0}
+  joystick: {fileID: 1183579524}
   UI_NewStage: {fileID: 638864304}
   _stageText: {fileID: 1797624320}
   _newStageUIDisplayDuration: 1.5
@@ -28962,7 +28983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c673c0a93cc4b6e8e024acffa2f2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentWeaponSO: {fileID: 11400000, guid: 0916a5a750839f4488d5d4d95260610b, type: 2}
+  _currentWeaponSO: {fileID: 11400000, guid: fbe125ed820dd5448a353f51ba06cbd5, type: 2}
   _currentWeapon: {fileID: 0}
   weaponHandleTrm: {fileID: 1909669695}
   _canAttack: 1
@@ -34313,7 +34334,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1312064204}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -35021,7 +35042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7019814528140953901, guid: 716cb9394cc883e469998c5a922bb264, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 960
+      value: 920
       objectReference: {fileID: 0}
     - target: {fileID: 7019814528140953901, guid: 716cb9394cc883e469998c5a922bb264, type: 3}
       propertyPath: m_SizeDelta.y
@@ -36031,8 +36052,8 @@ SceneRoots:
   - {fileID: 531273512}
   - {fileID: 1637630571}
   - {fileID: 545116068}
-  - {fileID: 1301798580}
   - {fileID: 1507562804}
+  - {fileID: 1301798580}
   - {fileID: 1615101994}
   - {fileID: 1591777787}
   - {fileID: 1304680299}

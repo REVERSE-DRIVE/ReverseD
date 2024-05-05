@@ -61,6 +61,7 @@ namespace EnemyManage.AIs
         public override void SetDefault()
         {
             _currentState = AZTypeEnemyState.Idle;
+            _targetingMark.gameObject.SetActive(false);
             _currentCharge = 0;
         }
         

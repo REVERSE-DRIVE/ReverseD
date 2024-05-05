@@ -37,7 +37,7 @@ public class StageManager : MonoBehaviour
     {
         infectedLevel += amount;
         infectedLevel = Mathf.Clamp(infectedLevel, 0, 100);
-        if (!_isBossRoomOpened)
+        if (_isBossRoomOpened)
         {
             OpenBossRoom();
         }

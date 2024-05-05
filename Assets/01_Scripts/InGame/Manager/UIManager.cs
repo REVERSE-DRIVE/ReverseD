@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using EntityManage;
 using TMPro;
@@ -111,7 +109,7 @@ namespace InGameScene
         public void ShowInfectionAlert(int infectLevel)
         { // 감염도 경고창
             InfectGaugeColor(infectLevel);
-            GameManager.Instance._RenderingManager.SetGlobalLightColor(new Color(1f,  (1 - infectLevel * 0.01f) * 0.5f + 0.5f, (1 - infectLevel * 0.01f) * 0.5f + 0.5f));
+            GameManager.Instance._RenderingManager.SetGlobalLightColor(infectLevel);
             DOTween.To(() => _infectionGauge.fillAmount, 
                 x => _infectionGauge.fillAmount = x, 
                 infectLevel * 0.01f,
