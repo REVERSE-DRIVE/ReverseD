@@ -2,7 +2,6 @@ using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -36,12 +35,17 @@ public class DialogueUI : MonoBehaviour
         WaitForSeconds ws = new WaitForSeconds(_contentPrintingTerm);
         for (int i = 0; i < content.Length; i++)
         {
-            _contentText.text += content[i];
             yield return ws;
+            _contentText.text += content[i];
+            
         }
     }
 
-
+    [ContextMenu("DebugPrintText")]
+    public void DebugTextPrint()
+    {
+        PrintContent("새로운 의뢰다.");
+    }
     [ContextMenu("DebugOnPanel")]
     public void DebugOnPanel()
     {
