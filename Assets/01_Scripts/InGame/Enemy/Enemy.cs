@@ -25,6 +25,7 @@ namespace EnemyManage
         protected Rigidbody2D _rigid;
         [HideInInspector] public SpriteRenderer spriteRenderer;
         public Animator AnimatorCompo;
+        protected SoundObject SoundCompo;
         
         #endregion
         
@@ -38,6 +39,8 @@ namespace EnemyManage
             _defaultMaterial = spriteRenderer.material;
             if(AnimatorCompo == null)
                 AnimatorCompo = GetComponent<Animator>();
+            if (SoundCompo == null)
+                SoundCompo = GetComponent<SoundObject>();
         }
 
 
@@ -57,12 +60,16 @@ namespace EnemyManage
         public virtual void TakeDamage(int amount)
         {
             base.TakeDamage(amount);
+            GameManager.Instance._CameraManager.Shake(10, 0.1f);
+
             OnHealthChanged?.Invoke();
         }
         
         public virtual void TakeDamageWithKnockBack(int amount, Vector2 damageOrigin, float knockBackPower)
         {
             base.TakeDamage(amount);
+            GameManager.Instance._CameraManager.Shake(10, 0.1f);
+
             Vector2 knockBackDirection = ((Vector2)transform.position - damageOrigin).normalized;
             _rigid.AddForce(knockBackDirection * knockBackPower, ForceMode2D.Impulse);
             OnHealthChanged?.Invoke();
