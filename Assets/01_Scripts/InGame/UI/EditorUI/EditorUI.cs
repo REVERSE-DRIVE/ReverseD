@@ -22,8 +22,8 @@ public class EditorUI : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         
-        
-        
+        _resourceAddBtn.onClick.AddListener(AddResource);
+        _resourceRemoveBtn.onClick.AddListener(RemoveResource);
     }
 
 
@@ -36,12 +36,17 @@ public class EditorUI : MonoBehaviour
 
     public void AddResource()
     {
-        
+        useResourceAmount++;
     }
 
     public void RemoveResource()
     {
-        if()
+        useResourceAmount--;
+    }
+
+    public void Apply()
+    {
+        
     }
     
 }

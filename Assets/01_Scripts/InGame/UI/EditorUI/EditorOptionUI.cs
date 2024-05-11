@@ -4,8 +4,11 @@ using UnityEngine.UI;
 
 public abstract class EditorOptionUI : MonoBehaviour
 {
-    [SerializeField] private Button _selectButton;
-    [SerializeField] private CanvasGroup _panelGroup;
+    [SerializeField] protected Button _selectButton;
+    [SerializeField] protected CanvasGroup _panelGroup;
+
+    public int _needResourceMultiple = 1;
+    
     
     private void Awake()
     {
@@ -34,5 +37,10 @@ public abstract class EditorOptionUI : MonoBehaviour
         _panelGroup.alpha = value ? 1 : 0;
         _panelGroup.interactable = value;
         _panelGroup.blocksRaycasts = value;
+    }
+
+    public void Apply()
+    {
+        
     }
 }
