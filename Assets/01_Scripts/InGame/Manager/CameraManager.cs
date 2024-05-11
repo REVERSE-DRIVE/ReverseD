@@ -15,7 +15,8 @@ public class CameraManager : MonoBehaviour
 
     private Transform _defaultCameraTarget;
 
-    private bool isNewFollowing;
+    private bool _isNewFollowing;
+    private bool _isShaking;
     
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class CameraManager : MonoBehaviour
 
     public void Follow(Transform newTarget, float duration)
     {
-        if (!isNewFollowing)
+        if (!_isNewFollowing)
         {
             StartCoroutine(FollowCoroutine(newTarget, duration));
         }
@@ -36,10 +37,10 @@ public class CameraManager : MonoBehaviour
     {
         GameManager.Instance._UIManager.JoyStickEnable(false);
         _virtualCamera.Follow = newTarget;
-        isNewFollowing = true;
+        _isNewFollowing = true;
         yield return new WaitForSeconds(duration);
         _virtualCamera.Follow = _defaultCameraTarget;
-        isNewFollowing = false;
+        _isNewFollowing = false;
         GameManager.Instance._UIManager.JoyStickEnable(true);
     }
 
@@ -55,9 +56,12 @@ public class CameraManager : MonoBehaviour
 
     private IEnumerator ShakeCoroutine(float power, float duration)
     {
+        if (_isShaking) yield break;
+        _isShaking = true;
         SetShake(power, power / 2);
         yield return new WaitForSeconds(duration);
         ShakeOff();
+        _isShaking = false;
     }
     
 
@@ -104,7 +108,6 @@ public class CameraManager : MonoBehaviour
             _virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(before, after, t);
             yield return null;
         }
-
         _virtualCamera.m_Lens.OrthographicSize = after;
     }
 }
