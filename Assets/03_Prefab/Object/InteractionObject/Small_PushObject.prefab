@@ -5236,6 +5236,7 @@ MonoBehaviour:
   hp: 3
   hpMax: 3
   _destroyParticle: {fileID: 2970529508836106861, guid: 7507c5f61dfdf084ba87999c12aa36fc, type: 3}
+  _collider: {fileID: 0}
 --- !u!114 &4834282642778848264
 MonoBehaviour:
   m_ObjectHideFlags: 0
