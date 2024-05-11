@@ -35,7 +35,9 @@ public class UtilityWindow : EditorWindow
     private static void OpenWindow()
     {
         UtilityWindow window = GetWindow<UtilityWindow>("PoolManager");
+        var icon = AssetDatabase.LoadAssetAtPath<Texture>("Assets/PoolManager/Editor/icon.png");
         window.minSize = new Vector2(700, 500);
+        window.titleContent.image = icon;
         window.Show();
     }
 

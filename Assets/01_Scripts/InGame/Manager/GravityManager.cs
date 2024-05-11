@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public delegate void OnGravityChangedEvent(bool isOnGravity, Vector2 direction, float gravityScale = 1);
@@ -10,7 +12,7 @@ public static class GravityManager
     public static OnGravityChangedEvent GravityChangedEvent;
     
     public static bool isOnGravity { get; private set; } = false;
-
+#if UNITY_EDITOR
     [MenuItem("Gravity/Up")]
     public static void DebugSetGravityUp()
     {
@@ -37,8 +39,8 @@ public static class GravityManager
     public static void DebugSetGravityOff()
     {
         OffGravity();
-    }
-    
+   }
+#endif
     
     
     
