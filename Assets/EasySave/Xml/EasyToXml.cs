@@ -9,10 +9,10 @@ namespace EasySave.Xml
 {
     public static class EasyToXml
     {
-        private static readonly string LocalPath = Application.dataPath + "/XML/";
+        public static string LocalPath = Application.dataPath + "/XML/";
         private static XmlSerializer _serializer;
         
-        private static void EnsureDirectoryExists()
+        public static void CreateXmlFolder()
         {
             if (!Directory.Exists(LocalPath))
             {
@@ -36,7 +36,7 @@ namespace EasySave.Xml
          */
         public static void ToXml<T>(T obj, string xmlFileName)
         {
-            EnsureDirectoryExists();
+            CreateXmlFolder();
             string path = GetFilePath(xmlFileName);
             _serializer = new XmlSerializer(typeof(T));
             using FileStream stream = new FileStream(path, FileMode.Create);
@@ -74,7 +74,7 @@ namespace EasySave.Xml
          */
         public static void ListToXml<T>(List<T> list, string xmlFileName)
         {
-            EnsureDirectoryExists();
+            CreateXmlFolder();
             string path = GetFilePath(xmlFileName);
             _serializer = new XmlSerializer(typeof(List<T>));
             using FileStream stream = new FileStream(path, FileMode.Create);
@@ -113,7 +113,7 @@ namespace EasySave.Xml
         [System.Obsolete("DictionaryToJson<T, TU>을 사용하세요. Xml은 불안정합니다.")]
         public static void DictionaryToXml<TKey, TValue>(Dictionary<TKey, TValue> dict, string xmlFileName)
         {
-            EnsureDirectoryExists();
+            CreateXmlFolder();
 
             XElement root = 
                 new XElement("Root", 
