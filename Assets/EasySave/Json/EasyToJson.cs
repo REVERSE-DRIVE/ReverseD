@@ -7,9 +7,9 @@ namespace EasySave.Json
 {
     public static class EasyToJson
     {
-        public static readonly string LocalPath = Application.dataPath + "/Json/";
+        public static string LocalPath;
         
-        private static void EnsureDirectoryExists()
+        public static void CreateJsonFolder()
         {
             if (!Directory.Exists(LocalPath))
             {
@@ -35,7 +35,7 @@ namespace EasySave.Json
          */
         public static void ToJson<T>(T obj, string jsonFileName, bool prettyPrint = false)
         {
-            EnsureDirectoryExists();
+            CreateJsonFolder();
             string path = GetFilePath(jsonFileName);
             string json = JsonUtility.ToJson(obj, prettyPrint);
             File.WriteAllText(path, json);
@@ -75,7 +75,7 @@ namespace EasySave.Json
          */
         public static void ListToJson<T>(List<T> list, string jsonFileName, bool prettyPrint = false)
         {
-            EnsureDirectoryExists();
+            CreateJsonFolder();
             string path = GetFilePath(jsonFileName);
             string json = JsonConvert.SerializeObject(list, prettyPrint ? Formatting.Indented : Formatting.None);
             File.WriteAllText(path, json);
@@ -115,7 +115,7 @@ namespace EasySave.Json
          */
         public static void DictionaryToJson<T, TU>(Dictionary<T, TU> dictionary, string jsonFileName, bool prettyPrint = false)
         {
-            EnsureDirectoryExists();
+            CreateJsonFolder();
             string path = GetFilePath(jsonFileName);
             string json = JsonConvert.SerializeObject(dictionary, prettyPrint ? Formatting.Indented : Formatting.None);
             File.WriteAllText(path, json);
