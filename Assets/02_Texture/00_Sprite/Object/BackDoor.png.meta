@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc52b1f22ace5ac48b00454133e17cf4
+guid: cad7d5fafde4b9a40a1113a2ddd2f3e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,9 +43,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -121,76 +121,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: BigBox
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 2
-        width: 68
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -32, y: 34}
-        - {x: -34, y: 34}
-        - {x: -34, y: -32}
-        - {x: -32, y: -34}
-        - {x: 32, y: -34}
-        - {x: 34, y: -32}
-        - {x: 34, y: 32}
-        - {x: 32, y: 34}
-      - - {x: -14, y: 9}
-        - {x: 9, y: -14}
-        - {x: -13, y: -13}
-      - - {x: -9, y: 14}
-        - {x: 13, y: 13}
-        - {x: 14, y: -9}
-        - {x: 14, y: -8}
-      physicsShape:
-      - - {x: -34, y: 34}
-        - {x: -34, y: -34}
-        - {x: 34, y: -34}
-        - {x: 34, y: 34}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2deeb7bae34fdd74e9a5853398351515
-      internalID: 657539547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PushObject_1
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 18
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -17, y: 17}
-        - {x: -17, y: -17}
-        - {x: 17, y: -17}
-        - {x: 17, y: 17}
-      physicsShape:
-      - - {x: -17, y: 17}
-        - {x: -17, y: -17}
-        - {x: 17, y: -17}
-        - {x: 17, y: 17}
-      tessellationDetail: 0
-      bones: []
-      spriteID: e18ec5e3e7a1b854c880969226838388
-      internalID: -1970128026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -201,9 +132,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      BigBox: 657539547
-      PushObject_1: -1970128026
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
