@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileType: 0
-  _damage: 5
+  _damage: 0
   _speed: 4.5
   lifeTime: 3
   _projectileTarget: 1

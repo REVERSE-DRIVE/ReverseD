@@ -14,6 +14,8 @@ public class LogoEffect : MonoBehaviour
     [SerializeField] private Ease logoMoveEase;
     [SerializeField] private float logoMoveDuration;
     [SerializeField] private float waitTime;
+    [SerializeField] private float RMovePos;
+    [SerializeField] private float DMovePos;
     
     private SoundObject _soundObject;
 
@@ -34,9 +36,9 @@ public class LogoEffect : MonoBehaviour
         MaterialSet(35, 43, 1);
         
         // 이미지 이동
-        logoImages[0].transform.DOMoveX(0, logoMoveDuration).SetEase(logoMoveEase);
+        logoImages[0].transform.DOMoveX(RMovePos, logoMoveDuration).SetEase(logoMoveEase);
         yield return new WaitForSeconds(waitTime);
-        logoImages[1].transform.DOMoveX(0, logoMoveDuration).SetEase(logoMoveEase);
+        logoImages[1].transform.DOMoveX(DMovePos, logoMoveDuration).SetEase(logoMoveEase);
         yield return new WaitForSeconds(1.3f);
 
         MaterialSet(100, 100, 1);
