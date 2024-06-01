@@ -20,7 +20,6 @@ public class StartSceneManager : MonoBehaviour
     [SerializeField] private UnityEvent _realStartGameEvent;
     [SerializeField] private UnityEvent _startGameEvent;
     
-    private readonly string _saveDataPath = EasyToJson.LocalPath;
     private PlayerStatus _playerStatus;
     private int count = 0;
 
@@ -37,8 +36,8 @@ public class StartSceneManager : MonoBehaviour
      */
     public void StartGame()
     {
-        Debug.Log(_saveDataPath);
-        if (File.Exists(_saveDataPath + "PlayerStatus.json"))
+        Debug.Log(EasyToJson.LocalPath);
+        if (File.Exists(EasyToJson.LocalPath + "PlayerStatus.json"))
         {
             Debug.Log("폴더가 존재합니다.");
             _warningPanel.gameObject.SetActive(true);
@@ -81,7 +80,7 @@ public class StartSceneManager : MonoBehaviour
     {
         _realStartGameEvent.Invoke();
         yield return new WaitForSeconds(0.2f);
-        SceneManager.LoadScene("MainLobyScene");
+        SceneManager.LoadScene("MainLobbyScene");
     }
     
     /**

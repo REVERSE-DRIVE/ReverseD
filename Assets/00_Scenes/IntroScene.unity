@@ -212,6 +212,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2047444077961533341, guid: d5d1ed56292cf214a81449aaf9a40db7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 602cec52e0e6a8041b754f5fc84bff5e, type: 3}
+    - target: {fileID: 2047444077961533341, guid: d5d1ed56292cf214a81449aaf9a40db7, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -227,6 +231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6633118793973054142, guid: d5d1ed56292cf214a81449aaf9a40db7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1dede264f718da342b4eda2bc630378a, type: 3}
     - target: {fileID: 7879354498256572369, guid: d5d1ed56292cf214a81449aaf9a40db7, type: 3}
       propertyPath: m_Camera
       value: 
