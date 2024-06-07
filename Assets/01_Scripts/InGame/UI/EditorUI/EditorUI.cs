@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,16 +11,16 @@ public class EditorUI : MonoBehaviour
     [Header("UI")]
 
     [SerializeField] private TextMeshProUGUI _useResourceAmountText;
-    [SerializeField] private Button _resourceRemoveBtn;
-    [SerializeField] private Button _resourceAddBtn;
+    //[SerializeField] private Button _resourceRemoveBtn;
+    ///[SerializeField] private Button _resourceAddBtn;
     private int useResourceAmount = 0;
     
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         
-        _resourceAddBtn.onClick.AddListener(AddResource);
-        _resourceRemoveBtn.onClick.AddListener(RemoveResource);
+        //_resourceAddBtn.onClick.AddListener(AddResource);
+        //_resourceRemoveBtn.onClick.AddListener(RemoveResource);
     }
 
 
