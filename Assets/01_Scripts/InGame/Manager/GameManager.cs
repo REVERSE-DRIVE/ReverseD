@@ -50,6 +50,7 @@ public class GameManager : MonoSingleton<GameManager>
         _StageManager.StageStartEvent += _CameraManager.StageStartCameraZoomEvent;
         _Player.OnPlayerDieEvent += HandleGameOver;
 
+        // 게임 시작전에 InGameData를 만들어줘야됨
         InGameData inGameData = DBManager.LoadInGameData();
         _StageManager.Initialize(inGameData.infectLevel, inGameData.detectionCount);
     }

@@ -43,12 +43,12 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ShockWaveNum: 1.13
-    - _Speed: 2.29
-    - _Width: 1.93
+    - _ShockWaveNum: 2.09
+    - _Speed: 1.75
+    - _Width: 0.15
     m_Colors:
-    - _Color: {r: 1, g: 0.07185628, b: 0, a: 1}
-    - _GridX_Y: {r: 5, g: 5, b: 0, a: 0}
+    - _Color: {r: 6.120813, g: 0.19632755, b: 0.19632755, a: 1}
+    - _GridX_Y: {r: 5.8, g: 5.8, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6570382561238356627
 MonoBehaviour:

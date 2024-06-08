@@ -5,6 +5,7 @@ namespace SaveDatas
 {
     public class InGameData
     {
+        public bool isExist;
         public int isNewGame;
         
         public int chapter;
