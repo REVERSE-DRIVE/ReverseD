@@ -1,6 +1,7 @@
 using EffectManage;
 using InGameScene;
 using RoomManage;
+using SaveDatas;
 using UnityEngine;
 
 
@@ -26,11 +27,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Transform _defaultProjectilesParentTrm;
     public Transform DefaultEnemyParentTrm => _defaultEnemyParentTrm;
     public Transform DefaultProjectilesParentTrm => _defaultProjectilesParentTrm;
-    
-    
-    
-    
-    
+
+
     private void Awake()
     {
         _PlayerController = FindObjectOfType<PlayerController>();
@@ -51,6 +49,9 @@ public class GameManager : MonoSingleton<GameManager>
         Player.OnPlayerHpChangedEvent += _CameraManager.ShakeHit;
         _StageManager.StageStartEvent += _CameraManager.StageStartCameraZoomEvent;
         _Player.OnPlayerDieEvent += HandleGameOver;
+
+        InGameData inGameData = DBManager.LoadInGameData();
+        _StageManager.Initialize(inGameData.infectLevel, inGameData.detectionCount);
     }
 
 
@@ -60,7 +61,9 @@ public class GameManager : MonoSingleton<GameManager>
         // 게임오버 UI 띄우기
         // -> 시작 창으로 나가는 UI
         // -> 얻은 아이템 정산하는 UI
-        // -> 처치한 백신의 
+        // -> 처치한 백신의 수 표시
+        
+        
     }
 
     public void Infect(int amount)
