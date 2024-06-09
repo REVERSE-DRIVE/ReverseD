@@ -12,20 +12,28 @@ public class SlamShopItem : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI _priceText;
 
     private bool _isPurchased = false;
+    private WeaponShopSO _nowWeapon;
+
+    private void Awake()
+    {
+        OpenWindow.Instance.YesBtn.onClick.AddListener(Purchase);
+        OpenWindow.Instance.Close();
+        SetShopWeaponData(Random.Range(0, _weaponSOs.Count));
+    }
 
     public void SetShopWeaponData(int index)
     {
+        _isPurchased = false;
         if (_weaponSOs == null) return;
-        _iconImage.sprite = _weaponSOs[index].icon;
-        _nameText.text = _weaponSOs[index].weaponSO.weaponName;
-        _priceText.text = $"{_weaponSOs[index].price} 코인";
+        _nowWeapon = _weaponSOs[index];
+        _iconImage.sprite = _nowWeapon.icon;
+        _nameText.text = _nowWeapon.weaponSO.weaponName;
+        _priceText.text = $"{_nowWeapon.price} 코인";
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_isPurchased) return;
         _isPurchased = true;
-        
         SavePurchaseData();
     }
 
@@ -33,13 +41,13 @@ public class SlamShopItem : MonoBehaviour, IPointerClickHandler
     {
         if (_isPurchased)
         {
-            Debug.Log("구매 완료");
-            
-            // 플레이어에게 무기 지급
-            // 코인 차감
-            // 무기 교체
-            int randomIndex = Random.Range(0, _weaponSOs.Count);
-            SetShopWeaponData(randomIndex);
+            OpenWindow.Instance._shopSO = _nowWeapon;
+            OpenWindow.Instance.Open();
         }
+    }
+
+    private void Purchase()
+    {
+        // 무기 넘겨주기
     }
 }

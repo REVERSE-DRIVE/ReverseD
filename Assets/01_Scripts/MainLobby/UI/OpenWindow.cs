@@ -3,30 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class OpenWindow : MonoBehaviour
+public class OpenWindow : MonoSingleton<OpenWindow>
 {
-    [SerializeField] private WeaponShopSO _shopSO;
+    [Header("UI")]
+    [SerializeField] private Image _weaponImage;
     [SerializeField] private TextMeshProUGUI _descriptionText;
+    public WeaponShopSO _shopSO;
+
+    [Header("Button")]
+    [SerializeField] private Button _yesBtn;
+    [SerializeField] private Button _noBtn;
 
     private RectTransform _rect;
 
-    public WeaponShopSO ShopSO 
+    public Button YesBtn
     {
-        get => _shopSO;
-        set => _shopSO = value;
+        get => _yesBtn;
     }
 
     private void Awake()
     {
         _rect = transform as RectTransform;
+        _yesBtn.onClick.AddListener(Close);
+        _noBtn.onClick.AddListener(Close);
     }
     public void Open()
     {
+        _weaponImage.sprite = _shopSO.icon;
+        _descriptionText.text = _shopSO.name;
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(_rect.DOScaleX(700f, 0.5f));
-        seq.Append(_rect.DOScaleY(500f, 0.5f));
+        seq.Append(_rect.DOScaleX(1f, 0.5f));
+        seq.Append(_rect.DOScaleY(1f, 0.5f));
 
         seq.Play();
     }
