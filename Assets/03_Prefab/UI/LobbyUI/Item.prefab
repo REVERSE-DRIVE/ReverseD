@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5015206317635003287}
   - component: {fileID: 3476374549000061955}
   - component: {fileID: 6554915580838944111}
+  - component: {fileID: 7210083194245164534}
   m_Layer: 5
   m_Name: ItemImage
   m_TagString: Untagged
@@ -76,6 +77,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
+--- !u!114 &7210083194245164534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200949920648649787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a95041c97b0a428bec302e4a3a18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSOs: []
+  _iconImage: {fileID: 2518476396639352480}
+  _nameText: {fileID: 7466829815891936146}
+  _priceText: {fileID: 1332631056166621413}
 --- !u!1 &201839060626652104
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,10 +185,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
+  m_fontSize: 50
   m_fontSizeBase: 55
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -296,6 +313,7 @@ GameObject:
   - component: {fileID: 6303584241572016271}
   - component: {fileID: 3894798759788246982}
   - component: {fileID: 2708842830843641862}
+  - component: {fileID: 8555868282070029800}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -362,6 +380,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
+--- !u!114 &8555868282070029800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455825324334906362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493a95041c97b0a428bec302e4a3a18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSOs:
+  - {fileID: 11400000, guid: 52a61a2b248422e47b8200d98616c54b, type: 2}
+  - {fileID: 11400000, guid: 1d83bf6eab0b6124cb9dbcc0cd534278, type: 2}
+  - {fileID: 11400000, guid: bc26c4e80eebb684686b750655544a58, type: 2}
+  _iconImage: {fileID: 2518476396639352480}
+  _nameText: {fileID: 7466829815891936146}
+  _priceText: {fileID: 1332631056166621413}
 --- !u!1 &6104749234007095923
 GameObject:
   m_ObjectHideFlags: 0
