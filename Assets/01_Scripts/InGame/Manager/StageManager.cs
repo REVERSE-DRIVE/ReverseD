@@ -19,24 +19,32 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Transform _bossRoomZoomTrm;
     [SerializeField] private BossRoom _bossRoomPrefab;
     [SerializeField] private Transform _bossRoomParent;
-    private void Start()
-    {
-        NextStage();
-    }
-
-
+    
     /**
     * <summary>
     * 디바이스의 감염정도
     * </summary>
     */
-    private int infectedLevel = 0;
-    public int InfectedLevel => infectedLevel;
+    private int _infectedLevel = 0;
+    public int InfectedLevel => _infectedLevel;
+    private int _currentDetectionCount = 0;
 
+    private void Start()
+    {
+        NextStage();
+    }
+
+    public void Initialize(int infectLevel, int currentDetectionCount)
+    {
+        _infectedLevel = infectLevel;
+        _currentDetectionCount = currentDetectionCount;
+    }
+
+    
     public void AddInfect(int amount)
     {
-        infectedLevel += amount;
-        infectedLevel = Mathf.Clamp(infectedLevel, 0, 100);
+        _infectedLevel += amount;
+        _infectedLevel = Mathf.Clamp(_infectedLevel, 0, 100);
         if (_isBossRoomOpened)
         {
             OpenBossRoom();

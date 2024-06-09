@@ -337,8 +337,8 @@ MonoBehaviour:
   _attackDistance: 10
   _playerTargetingTime: 2
   _fallBomb: {fileID: 3706526685004369292, guid: 8eb88c3b4fd1fd144ade6c81bc3958bc, type: 3}
-  _stateRepeatAmount: 3
+  _stateRepeatAmount: 2
   _targetingMark: {fileID: 8640127118753383353}
-  _followSpeed: 0.25
+  _followSpeed: 0.1
   _targetAccuracy: 0.2
-  _attackTerm: 1
+  _attackTerm: 3
