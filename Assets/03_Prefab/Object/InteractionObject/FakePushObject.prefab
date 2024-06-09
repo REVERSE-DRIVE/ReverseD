@@ -5072,7 +5072,7 @@ GameObject:
   - component: {fileID: 8509839802027966401}
   - component: {fileID: 5943754236881064969}
   m_Layer: 10
-  m_Name: Small_PushObject
+  m_Name: FakePushObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5211,7 +5211,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0625, y: 1.0625}
+    oldSize: {x: 2.125, y: 2.125}
     newSize: {x: 2.125, y: 2.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5236,6 +5236,7 @@ MonoBehaviour:
   hp: 3
   hpMax: 3
   _destroyParticle: {fileID: 2970529508836106861, guid: 7507c5f61dfdf084ba87999c12aa36fc, type: 3}
+  _collider: {fileID: 0}
 --- !u!114 &4834282642778848264
 MonoBehaviour:
   m_ObjectHideFlags: 0

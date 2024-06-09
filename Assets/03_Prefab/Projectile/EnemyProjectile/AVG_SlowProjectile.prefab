@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _projectileType: 0
-  _damage: 0
+  _damage: 3
   _speed: 5
   lifeTime: 3
   _projectileTarget: 0
