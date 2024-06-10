@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -80,8 +81,17 @@ public class RenderingManager : MonoBehaviour
         }
     }
 
-    public void SetLensEffect()
+    public void SetVignetteColor(Color color)
     {
-        
+        print("Vignette 값 설정");
+        Vignette vignette;
+
+        _globalVolume.profile.TryGet(out vignette);
+        vignette.color.value = color;
+    }
+    
+    public void SetVignetteDefault()
+    {
+        SetVignetteColor(Color.black);        
     }
 }

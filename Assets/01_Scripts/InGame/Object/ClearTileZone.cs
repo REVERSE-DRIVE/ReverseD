@@ -10,6 +10,7 @@ public class ClearTileZone : MonoBehaviour
 
     private bool _enterance;
     private Transform _targetTrm;
+    private bool _isFirstDamage = true;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -47,8 +48,14 @@ public class ClearTileZone : MonoBehaviour
             if (_currentTime >= _damageCoolTime)
             {
                 _currentTime = 0;
+                if (_isFirstDamage)
+                {
+                    _isFirstDamage = false;
+                    ComputerManager.Instance.Detect();
+                }
+                
                 hit.TakeDamage(5);
-
+                
             }
             
         }
