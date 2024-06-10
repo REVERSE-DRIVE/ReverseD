@@ -5,7 +5,7 @@ public class PlayerManager : MonoSingleton<PlayerManager>
 {
     [SerializeField] private PlayerSO playerSO;
 
-    private Transform _playerTrm;
+    public Transform _playerTrm;
     private Player _player;
     private PlayerSkillManager _skillManager;
 

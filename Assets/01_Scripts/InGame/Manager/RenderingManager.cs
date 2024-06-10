@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class RenderingManager : MonoBehaviour
 {
     [SerializeField] private float renderingDistance = 40;
     [SerializeField] private Transform mapGrid;
-    //[SerializeField] private Volume globalVolume;
+    [SerializeField] private Volume _globalVolume;
     
     [SerializeField] private Color _normalColor;
     [SerializeField] private Color _targetColor;
@@ -77,5 +78,10 @@ public class RenderingManager : MonoBehaviour
             _globalMapThemeLight.color = Color.Lerp(beforeColor, targetColor, elapsedTime / duration);
             yield return null;
         }
+    }
+
+    public void SetLensEffect()
+    {
+        
     }
 }
