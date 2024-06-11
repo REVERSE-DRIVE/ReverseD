@@ -8,8 +8,10 @@ public class ClearTileZone : MonoBehaviour
     private string _playerTagString = "Player";
     private float _currentTime = 0;
 
+    [SerializeField]
     private bool _enterance;
     private Transform _targetTrm;
+    [SerializeField]
     private bool _isFirstDamage = true;
     
     private void OnTriggerEnter2D(Collider2D other)
