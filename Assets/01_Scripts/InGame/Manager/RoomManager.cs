@@ -20,6 +20,7 @@ namespace RoomManage
                 for (int j = 0; j < phase.Mobs[i].Amount; j++)
                 {
                     Transform newEnemy = _enemySpawnBase.FindEnemy(phase.Mobs[i].ID).GetNewEnemy().transform;
+                    if(newEnemy == null) print("Null인데?");
                     newEnemy.SetParent(roomTrm);
                     Vector2 roomTrmPos = roomTrm.position;
                     newEnemy.position = new Vector2(

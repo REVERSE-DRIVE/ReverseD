@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3948042405811474021}
   - component: {fileID: 7328349577496548630}
   - component: {fileID: 7503964899451927126}
-  - component: {fileID: -2189547559745493954}
+  - component: {fileID: 5898048088077515375}
   m_Layer: 10
   m_Name: Editor
   m_TagString: Untagged
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &-2189547559745493954
+--- !u!114 &5898048088077515375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,12 +130,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2148078428286311593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08c8949e6abc4b3cb21b2993fc57acc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cf19cd12987a90488190c5bf4ffef7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: 
+  objectName: "\uC5D0\uB514\uD130"
   objectDescription: 
-  _selectMaterial: {fileID: 2100000, guid: 6a1e4447d3b02f44699b6535eb9c2cab, type: 2}
+  _selectMaterial: {fileID: 2100000, guid: d687764af826dd241a40811776e8cb56, type: 2}
   UnDetectInteractionEvent:
     m_PersistentCalls:
       m_Calls: []

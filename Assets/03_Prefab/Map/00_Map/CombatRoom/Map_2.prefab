@@ -18,19 +18,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3864692686342575423, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
       propertyPath: _phases.Array.data[0].Mobs.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3864692686342575423, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
       propertyPath: _phases.Array.data[0].Mobs.Array.data[1].ID
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3864692686342575423, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
       propertyPath: _phases.Array.data[0].Mobs.Array.data[0].Amount
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -3864692686342575423, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
       propertyPath: _phases.Array.data[0].Mobs.Array.data[1].Amount
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 725601849820549568, guid: 8ecb1c423e96e4448b83f28990ee56ec, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x

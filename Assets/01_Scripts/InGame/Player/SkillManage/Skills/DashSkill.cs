@@ -6,8 +6,8 @@ using UnityEngine;
 namespace SkillManage
 {
     
-    [CreateAssetMenu(menuName = "SO/PlayerSkill/Scoot")]
-    public class ScootSkill : PlayerSkill
+    [CreateAssetMenu(menuName = "SO/PlayerSkill/Dash")]
+    public class DashSkill : PlayerSkill
     {
         public float dashSpeed = 10;
         private Vector2 _dashDirection;

@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 1062474969918131828}
   - component: {fileID: 7007390196909195753}
   m_Layer: 0
-  m_Name: Virtual
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

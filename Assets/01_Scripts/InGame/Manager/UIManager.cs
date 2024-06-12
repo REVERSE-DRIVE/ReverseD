@@ -35,6 +35,8 @@ namespace InGameScene
         [SerializeField] private float loadingDuration = 1.5f;
 
         [Header("BossUI")] [SerializeField] private BossBar _bossBar;
+
+        [Header("Editor")] [SerializeField] private EditorUI _editorUI;
         public float LoadingDuration
         {
             get
@@ -161,6 +163,11 @@ namespace InGameScene
             UI_NewStage.MoveOn();
             yield return new WaitForSeconds(_newStageUIDisplayDuration);
             UI_NewStage.MoveOff();
+        }
+
+        public void ShowEditor()
+        {
+            _editorUI.SetEditorUI(true);
         }
         
         
